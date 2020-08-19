@@ -136,7 +136,7 @@ Public Class Pagos
                     .Connection = cn,
                     .CommandText = "select Count(ddp.Numero_factura) from [Datos detalle de pagos] as ddp where ddp.Numero_factura = '" & cboFacturas.SelectedValue & "' and ddp.Anulada = 0"
                 }
-                Resultado = 1 'VerificarPago.ExecuteScalar()
+                Resultado = VerificarPago.ExecuteScalar()
 
                 If Resultado = 0 Then
                     btnEliminar.Visible = False
