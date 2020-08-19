@@ -10,7 +10,7 @@ Public Class ModuloDeClasePagos
             Call conectarGeogebra()
             cn.Open()
             Dim ComprobarPago As SqlCommand
-            ComprobarPago = New SqlCommand With {  'ESTAS ACTIALIZANDO LA TABLA FACURA REALIZADAS
+            ComprobarPago = New SqlCommand With {  'ESTAS ACTIALIZANDO LA TABLA FACURA REALIZADAS oreba git
                 .Connection = cn,
                 .CommandText = "select Count(ddp.Numero_factura) from [Datos detalle de pagos] as ddp where ddp.Numero_factura = @Numero_factura and ddp.Anulada = 0"
             }
@@ -105,7 +105,7 @@ Public Class ModuloDeClasePagos
 
         End If
 
-
+        Return True
 
     End Function
 
