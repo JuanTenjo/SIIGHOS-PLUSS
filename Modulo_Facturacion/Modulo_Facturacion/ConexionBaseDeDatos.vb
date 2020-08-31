@@ -40,7 +40,7 @@ Module ConexionBaseDeDatos
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-            Informa += "en la funcion SQLUpdate." & Chr(13) & Chr(10)
+            Informa += "en la funcion SQLDataSet." & Chr(13) & Chr(10)
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return Nothing

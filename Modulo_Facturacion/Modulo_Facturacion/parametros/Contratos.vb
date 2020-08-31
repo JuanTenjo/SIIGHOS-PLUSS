@@ -8,12 +8,41 @@ Public Class Contratos
 #Region "Botones y texbox"
 
     Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
-        ReporteContratos.ShowDialog()
-    End Sub
+        Try
+
+            ModuloVariablesAplicacion.InfConsultaReporte = "select dr.ID_Contratos, dr.ContraNo, dr.VigAnContra, (dr.TipDocContra + ' ' + dr.NumDocContra) as Identificacion, dp.RazonSol, dt.NomTipCon, dr.FecIniCon,
+                                                            dr.FecFinCon, dr.ValSinIVa, dr.ValIvaCon, dr.NumPagos from 
+                                                            [Datos registros de contratos] as dr, [Datos tipos de contratos] as dt, [Datos proveedores] as dp
+                                                            where dr.ID_Contratos = dr.ID_Contratos and dp.IdenProve = dr.NumDocContra"
+            ModuloVariablesAplicacion.InfCabecera = "Contratos"
+            ModuloVariablesAplicacion.InfTituloInforme = "Reporte de Contratos"
+            ModuloVariablesAplicacion.infNombreInforme = "ReportContratos"
+            Dim FrmsInformes As New FrmlInformes
+            FrmlInformes.ShowDialog()
+        Catch ex As Exception
+            MsgBox("Error al exportar contratos " & ex.Message)
+        End Try
+
+    End Sub  'Genera Reporte
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click 'Anula el contrato
-        cboVigente.SelectedIndex = 0
-    End Sub
+        Try
+            If cboVigente.SelectedIndex = 0 Then
+                MsgBox("Este contrato ya se encuentra Anulado")
+            Else
+                cboVigente.SelectedIndex = 0
+                MsgBox("Por favor presiona el boton guardar")
+            End If
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "Error al anular contrato" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub  'Elimina Contrato
 
     Private Sub txtNumeroPolizas_TextChanged(sender As Object, e As EventArgs) Handles txtNumeroPolizas.TextChanged
         If txtNumeroPolizas.Text > "5" Then
@@ -22,125 +51,153 @@ Public Class Contratos
     End Sub ' No deja añadir mas de 5 polizas
 
     Private Sub btnExportar_Click(sender As Object, e As EventArgs) Handles btnExportar.Click
-
-        If MsgBox("Exportaras a excel", vbYesNo) = vbYes Then
-            Dim Datos As DataTable = New DataTable
-            Datos = DataTable("Select dgc.ID_Contratos, dp.RazonSol ,dtc.NomTipCon, dgc.ContraNo, dgc.VigAnContra, dgc.TipDocContra, dgc.NumDocContra,
+        Try
+            If MsgBox("Exportaras a excel", vbYesNo) = vbYes Then
+                Dim Datos As DataTable = New DataTable
+                Datos = DataTable("Select dgc.ID_Contratos, dp.RazonSol ,dtc.NomTipCon, dgc.ContraNo, dgc.VigAnContra, dgc.TipDocContra, dgc.NumDocContra,
                                 dgc.CodSucContra, dgc.FecIniCon, dgc.FecFinCon, dgc.ObjeContra, dgc.ValSinIVa, dgc.ValIvaCon, dgc.ValCerPazSal, dgc.ValPagLegal,
                                 dgc.NumPagos, dgc.ExigePoli, dgc.NomEntiPoli, dgc.FecExpPoli, dgc.EstaVigCon, dgc.NumVisMes, dgc.FecCotiza, dgc.TipDocRe, dgc.NumDocRe,
                                 dgc.CodRegis, dgc.FecRegis, dgc.CodModi, dgc.FecModi
                                 FROM [Datos registros de contratos] as dgc, [Datos proveedores] as dp,  [Datos tipos de contratos] as dtc
                                 WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon")
-            Dim SaveFileDialog As New SaveFileDialog
-            Dim RutaName As String = ""
-            SaveFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop
-            SaveFileDialog.Filter = "Text Files | *.xlsx"
-            SaveFileDialog.DefaultExt = "xlsx"
-            SaveFileDialog.Title = "Libro 1"
+                Dim SaveFileDialog As New SaveFileDialog
+                Dim RutaName As String = ""
+                SaveFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop
+                SaveFileDialog.Filter = "Text Files | *.xlsx"
+                SaveFileDialog.DefaultExt = "xlsx"
+                SaveFileDialog.Title = "Libro 1"
 
-            If (SaveFileDialog.ShowDialog() = Windows.Forms.DialogResult.OK) Then
-                RutaName = SaveFileDialog.FileName
+                If (SaveFileDialog.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+                    RutaName = SaveFileDialog.FileName
+                End If
+
+                GenerarExcel(Datos, RutaName)
             End If
-
-            GenerarExcel(Datos, RutaName)
-        End If
-
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "Error al generar ecxel" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
     End Sub 'Exportar a excel
 
-    Private Sub txtIdContrato_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVisitasMes.KeyPress, txtValorSinIva.KeyPress, txtValorPazYSalvo.KeyPress, txtValorLegalizacion.KeyPress, txtValorIva.KeyPress, txtSucursal.KeyPress, txtNumeroDocumento.KeyPress, txtNumeroDePagos.KeyPress, txtNumeroContrato.KeyPress, txtIdContrato.KeyPress, txtDocumentoRepresentante.KeyPress, cboVigencia.KeyPress, txtValorTotal.KeyPress, txtNumeroPolizas.KeyPress, txtCodPoliza.KeyPress, txtBuscarContratos.KeyPress
+    Private Sub txtIdContrato_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVisitasMes.KeyPress, txtValorSinIva.KeyPress, txtValorPazYSalvo.KeyPress, txtValorLegalizacion.KeyPress, txtValorIva.KeyPress, txtSucursal.KeyPress, txtNumeroDocumento.KeyPress, txtNumeroDePagos.KeyPress, txtIdContrato.KeyPress, txtDocumentoRepresentante.KeyPress, cboVigencia.KeyPress, txtValorTotal.KeyPress, txtNumeroPolizas.KeyPress, txtCodPoliza.KeyPress, txtBuscarContratos.KeyPress
         soloNumeros(e)
-    End Sub
+    End Sub  'Valida solo numero en estos campos
 
     Private Sub btnGrabar_Click(sender As Object, e As EventArgs) Handles btnGrabar.Click
-        If ValidarCamposLLenos() Then
-            If txtIdContrato.Text = "" Then
-                If MsgBox("Se generara un consecutivo de contrato unico, estas de acuerdo", vbYesNo) = vbYes Then
+        Try
+            If ValidarCamposLLenos() Then
+                If txtIdContrato.Text = "" Then
+                    If MsgBox("Se generara un consecutivo de contrato unico, estas de acuerdo", vbYesNo) = vbYes Then
 
-                    Dim Consecutivo As String = ConsecutivoDocumen("01", True, 1)
+                        Dim Consecutivo As String = ConsecutivoDocumen("01", True, 1)
 
-                    Select Case Consecutivo
-                        Case "0"
-                            Informa = "Lo siento pero en esta base de datos no" & Chr(13) & Chr(10)
-                            Informa = Informa & "se encontro el registro consecutivo," & Chr(13) & Chr(10)
-                            MsgBox(Informa, vbExclamation, Titulo01)
-                            Consecutivo = 0
-                        Case "-3"
-                            Informa = "Lo siento pero en esta base de datos no" & Chr(13) & Chr(10)
-                            Informa = Informa & "se pueden registrar más facturas de ventas," & Chr(13) & Chr(10)
-                            Informa = Informa & "porque pasó la longitud permitida del código."
-                            MsgBox(Informa, vbExclamation, Titulo01)
-                            Consecutivo = 0
+                        Select Case Consecutivo
+                            Case "0"
+                                Informa = "Lo siento pero en esta base de datos no" & Chr(13) & Chr(10)
+                                Informa = Informa & "se encontro el registro consecutivo," & Chr(13) & Chr(10)
+                                MsgBox(Informa, vbExclamation, Titulo01)
+                                Consecutivo = 0
+                            Case "-3"
+                                Informa = "Lo siento pero en esta base de datos no" & Chr(13) & Chr(10)
+                                Informa = Informa & "se pueden registrar más facturas de ventas," & Chr(13) & Chr(10)
+                                Informa = Informa & "porque pasó la longitud permitida del código."
+                                MsgBox(Informa, vbExclamation, Titulo01)
+                                Consecutivo = 0
 
-                        Case "-2"
-                            Informa = "Lo siento pero en esta base de datos no se" & Chr(13) & Chr(10)
-                            Informa = Informa & "pueden registrar más más facturas de ventas, porque" & Chr(13) & Chr(10)
-                            Informa = Informa & "la fecha del último generado es mayor a la del sistema."
-                            MsgBox(Informa, vbExclamation, Titulo01)
-                            Consecutivo = 0
-                    End Select
-                    txtIdContrato.Text = Consecutivo
+                            Case "-2"
+                                Informa = "Lo siento pero en esta base de datos no se" & Chr(13) & Chr(10)
+                                Informa = Informa & "pueden registrar más más facturas de ventas, porque" & Chr(13) & Chr(10)
+                                Informa = Informa & "la fecha del último generado es mayor a la del sistema."
+                                MsgBox(Informa, vbExclamation, Titulo01)
+                                Consecutivo = 0
+                        End Select
+                        txtIdContrato.Text = Consecutivo
 
+                    End If
                 End If
+                txtIdContrato.Enabled = False
+                btnGuardar.Enabled = True
             End If
-            txtIdContrato.Enabled = False
-            btnGuardar.Enabled = True
-        End If
-    End Sub
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "Error al grabar el concecutivo" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
+
+    End Sub  'Graba concecutivo, habilita boton guardar
 
     Private Sub BtnCerrarContratos_Click(sender As Object, e As EventArgs) Handles BtnCerrarContratos.Click
         Me.Dispose()
-    End Sub
+    End Sub  'Cerrar
 
     Private Sub txtBuscarContratos_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarContratos.TextChanged
-        If Len(txtBuscarContratos.Text) >= 1 Then
-            BuscarDataGridContratos()
-        Else
-            CargarDataGridContratos()
-        End If
-    End Sub
+        Try
+            If Len(txtBuscarContratos.Text) >= 1 Then
+                BuscarDataGridContratos()
+            Else
+                CargarDataGridContratos()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub 'Busca contratos
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-        GroupRegis.Visible = False
-        GroupRegis.Visible = True
-        txtValorIva.ReadOnly = False
-        txtNumeroDocumento.Clear()
-        txtNumeroPolizas.Clear()
-        cboVezPoliza.SelectedIndex = 0
-        txtCodPoliza.Clear()
-        btnGrabar.Enabled = True
-        btnEliminar.Enabled = False
-        btnGuardar.Visible = True
-        btnGuardar.Enabled = False
-        txtIdContrato.Clear()
-        cboNombreContratante.SelectedValue = 0
-        txtNumeroContrato.Clear()
-        txtValorTotal.Clear()
-        txtSucursal.Clear()
-        cboVigencia.Text = Year(Now)
-        cboTipoContrato.SelectedValue = 0
-        DtFechaInicial.Value = Now.ToLongDateString
-        DtFechaFinal.Value = Now.ToLongDateString
-        txtNumeroDePagos.Clear()
-        cboVigente.SelectedIndex = 1
-        cboExigePoliza.SelectedIndex = 0
-        cboTipoDocuRepresentante.SelectedValue = 0
-        cboNombreRepresentanteLegal.SelectedValue = 0
-        txtDocumentoRepresentante.Clear()
-        txt0bjetoContrato.Clear()
-        txtValorSinIva.Clear()
-        txtValorIva.Clear()
-        txtValorPazYSalvo.Clear()
-        txtValorLegalizacion.Clear()
-        txtVisitasMes.Clear()
-        DtFechaCotizacion.Value = Now.ToLongDateString
-        txtNombreEntidadPoliza.Clear()
-        DtFechaExpedicionPoliza.Value = Now.ToLongDateString
-        DataGridDetalleCuotas.DataSource = Nothing
-        DataGridDetalleCuotas.Rows.Clear()
-        ' DataGridDetallePolizas.DataSource = Nothing
-
-    End Sub
+        Try
+            GroupRegis.Visible = False
+            GroupRegis.Visible = True
+            txtValorIva.ReadOnly = False
+            txtNumeroDocumento.Clear()
+            txtNumeroPolizas.Clear()
+            cboVezPoliza.SelectedIndex = 0
+            txtCodPoliza.Clear()
+            btnGrabar.Enabled = True
+            btnEliminar.Enabled = False
+            btnGuardar.Visible = True
+            btnGuardar.Enabled = False
+            txtIdContrato.Clear()
+            cboNombreContratante.SelectedValue = 0
+            txtNumeroContrato.Clear()
+            txtValorTotal.Clear()
+            txtSucursal.Clear()
+            cboVigencia.Text = Year(Now)
+            cboTipoContrato.SelectedValue = 0
+            DtFechaInicial.Value = Now.ToLongDateString
+            DtFechaFinal.Value = Now.ToLongDateString
+            txtNumeroDePagos.Clear()
+            cboVigente.SelectedIndex = 1
+            cboExigePoliza.SelectedIndex = 0
+            cboTipoDocuRepresentante.SelectedValue = 0
+            cboNombreRepresentanteLegal.SelectedValue = 0
+            txtDocumentoRepresentante.Clear()
+            txt0bjetoContrato.Clear()
+            txtValorSinIva.Clear()
+            txtValorIva.Clear()
+            txtValorPazYSalvo.Clear()
+            txtValorLegalizacion.Clear()
+            txtVisitasMes.Clear()
+            DtFechaCotizacion.Value = Now.ToLongDateString
+            txtNombreEntidadPoliza.Clear()
+            DtFechaExpedicionPoliza.Value = Now.ToLongDateString
+            DataGridDetalleCuotas.DataSource = Nothing
+            DataGridDetalleCuotas.Rows.Clear()
+            ' DataGridDetallePolizas.DataSource = Nothing
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "Error al limpiar campos" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub 'Limpia Campos
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
@@ -156,30 +213,43 @@ Public Class Contratos
             End If
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "Error al guardar" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
 
-    End Sub
+    End Sub 'Guarda contrato
 
     Private Sub txtValorTotal_KeyDown(sender As Object, e As KeyEventArgs) Handles txtValorTotal.KeyDown
-        Select Case e.KeyData
-            Case Keys.Enter
-                If txtValorIva.Text = "" Or txtValorSinIva.Text = "" Then
-                    MsgBox("Llena los campos Valor sin IVA y ValorIVA")
-                    txtValorTotal.Text = ""
-                Else
-                    Dim ValorSinIva As Double = txtValorSinIva.Text
-                    Dim ValorIva As Double = txtValorIva.Text
-                    Dim IvaCantidad As Double
-                    Dim ValorTotal As Double
-                    IvaCantidad = (ValorSinIva * txtPorceIVA.Text) / 100
-                    ValorTotal = ValorSinIva + IvaCantidad
-                    ValorTotal = Math.Round((ValorTotal), 2)
-                    txtValorTotal.Text = ValorTotal
-                    txtValorIva.Text = IvaCantidad
-                End If
-        End Select
+        Try
+            Select Case e.KeyData
+                Case Keys.Enter
+                    If txtValorSinIva.Text = "" Then
+                        MsgBox("Llena el campo ValorIVA")
+                        txtValorTotal.Text = ""
+                    Else
+                        Dim ValorSinIva As Double = txtValorSinIva.Text
+                        Dim ValorIva As Double = txtValorIva.Text
+                        Dim IvaCantidad As Double
+                        Dim ValorTotal As Double
+                        IvaCantidad = (ValorSinIva * txtPorceIVA.Text) / 100
+                        ValorTotal = ValorSinIva + IvaCantidad
+                        ValorTotal = Math.Round((ValorTotal), 2)
+                        txtValorTotal.Text = ValorTotal
+                        txtValorIva.Text = IvaCantidad
+                    End If
+            End Select
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "Error evento de calcular total" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub ''Calcula el valor total cuando se presiona la tecla enter
 
     Private Sub txtNumeroDePagos_KeyDown(sender As Object, e As KeyEventArgs) Handles txtNumeroDePagos.KeyDown
@@ -193,15 +263,23 @@ Public Class Contratos
                         If btnGrabar.Enabled = True Then
                             CargarDataGridDetalleCoutas()
                         ElseIf btnGrabar.Enabled = False Then
-                            Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
-                            ModificarDataGridDetalle(codigo)
+                            If DataGridContratos.Rows.Count > 0 Then
+                                Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
+                                ModificarDataGridDetalle(codigo)
+                            Else
+                                CargarDataGridDetalleCoutas()
+                            End If
                         End If
                     End If
             End Select
 
 
         Catch ex As Exception
-            MsgBox("Error evento generar pagos" + ex.Message)
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "Error evento generar pagos." & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub  'Evento Enter para generar detalles de dataGrid detalle cuotas
@@ -214,8 +292,12 @@ Public Class Contratos
                         If btnGrabar.Enabled = True Then
                             CargarDataGridDetallePolizas()
                         ElseIf btnGrabar.Enabled = False Then
-                            Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
-                            ModificarDataGridDetallePolizas(codigo)
+                            If DataGridContratos.Rows.Count > 0 Then
+                                Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
+                                ModificarDataGridDetallePolizas(codigo)
+                            Else
+                                CargarDataGridDetallePolizas()
+                            End If
                         End If
                 End Select
             End If
@@ -244,9 +326,9 @@ Public Class Contratos
             cboTipoContrato.DisplayMember = "NomTipCon"
             cboTipoContrato.ValueMember = "CodTipCon"
 
-            Dim NombreContratante As DataSet = SQLDataSET("SELECT IdenProve, RazonSol FROM [Datos proveedores] WHERE HabilPro = 1")
+            Dim NombreContratante As DataSet = SQLDataSET("SELECT IdenProve, IdenProve + ' ' + RazonSol as nombrecedula FROM [Datos proveedores] WHERE HabilPro = 1")
             cboNombreContratante.DataSource = NombreContratante.Tables(0)
-            cboNombreContratante.DisplayMember = "RazonSol"
+            cboNombreContratante.DisplayMember = "nombrecedula"
             cboNombreContratante.ValueMember = "IdenProve"
 
             Dim RepresentanteLegal As DataSet = SQLDataSET("SELECT TipDocRe, NumDocRe, Nom01Re + ' ' +  Nom02Re + ' ' +  Apelli01Re as nombre FROM [Datos del representante legal] WHERE ActiRep = 1")
@@ -363,6 +445,46 @@ Public Class Contratos
 
 #Region "Funciones"
 
+    Private Sub ComprobarContratos()
+        Try
+            If DataGridContratos.Rows.Count > 0 Then
+                Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
+                MostrarTexbox(codigo)
+            Else
+                MsgBox("Por el momento no existe ningun contrato, crea uno")
+                btnGrabar.Enabled = True
+                btnGuardar.Enabled = False
+                btnEliminar.Enabled = False
+            End If
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en comprobar si existen contratos " & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub 'Valida si existen datos en la tabla registro de contratos
+
+
+    Private Function ComprobarDatos() As Boolean
+        Try
+            Dim reader As SqlDataReader
+            reader = SQLReader("SELECT * FROM [Datos registros de contratos]")
+            If reader.HasRows = False Then
+                Return False
+            Else
+                Return True
+            End If
+        Catch ex As Exception
+            MsgBox("Error en comprobar datos ")
+            Return False
+        Finally
+            cn.Close()
+        End Try
+
+    End Function 'Comprueba si existen contratos
+
     Private Function ComprobarNoRepeTipoPolizas() As Boolean
         Try
 
@@ -437,9 +559,9 @@ Public Class Contratos
 
     End Function 'Valida que no se repitan los tipos de poliza en la grilla
 
-    Public Function ValidarCamposDataGrid() As Boolean
+    Public Function ValidarCamposDataGrid() As Boolean  ' Valida para el datagrid
         Dim estado As Boolean
-        If String.IsNullOrEmpty(Me.txtNumeroDePagos.Text) Then
+        If String.IsNullOrWhiteSpace(Me.txtNumeroDePagos.Text) Then
             MsgBox("El campo Numero De Pagos esta vacio", MsgBoxStyle.Information, "Control de datos")
             Me.txtNumeroDePagos.Select()
             estado = False
@@ -447,7 +569,7 @@ Public Class Contratos
         Else
             estado = True
         End If
-        If String.IsNullOrEmpty(Me.txtValorSinIva.Text) Then
+        If String.IsNullOrWhiteSpace(Me.txtValorSinIva.Text) Then
             MsgBox("El campo valor Sin IVA no esta vacio", MsgBoxStyle.Information, "Control de datos")
             Me.txtValorSinIva.Select()
             estado = False
@@ -455,7 +577,7 @@ Public Class Contratos
         Else
             estado = True
         End If
-        If String.IsNullOrEmpty(Me.txtValorIva.Text) Then
+        If String.IsNullOrWhiteSpace(Me.txtValorIva.Text) Then
             MsgBox("El campo valor IVA contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
             Me.txtValorIva.Select()
             estado = False
@@ -463,7 +585,7 @@ Public Class Contratos
         Else
             estado = True
         End If
-        If String.IsNullOrEmpty(Me.txtValorTotal.Text) Then
+        If String.IsNullOrWhiteSpace(Me.txtValorTotal.Text) Then
             MsgBox("El campo valor total esta vacio", MsgBoxStyle.Information, "Control de datos")
             Me.txtValorTotal.Select()
             estado = False
@@ -475,323 +597,349 @@ Public Class Contratos
     End Function 'Valida datos para el dataGrid 'Modificar
 
     Public Function ValidarCamposLLenos() As Boolean
-        Dim estado As Boolean
 
-        If cboNombreContratante.SelectedIndex < 0 Then
-            MsgBox("El campo Nombre Del Contratante esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboNombreContratante.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtNumeroDePagos.Text) Then
-            MsgBox("El campo Numero De Pagos esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtNumeroDePagos.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboVigencia.SelectedIndex < 0 Then
-            MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboVigencia.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboVigencia.SelectedIndex < 0 Then
-            MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboVigencia.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboTipoContrato.SelectedIndex = -1 Then
-            MsgBox("El campo Tipo Contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboTipoContrato.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If DtFechaFinal.Value.Date < DtFechaInicial.Value.Date Then
-            MsgBox("La fecha final no puede ser menor a la inicial ", MsgBoxStyle.Information, "Control de datos")
-            Me.DtFechaFinal.Select()
-            estado = False
-            Return estado
-        End If
-        If String.IsNullOrEmpty(Me.txtNumeroDePagos.Text) Then
-            MsgBox("El campo Numero de pagos solo acepta valores numericos y no puede estar vacio.", MsgBoxStyle.Information, "Control de datos")
-            Me.txtNumeroDePagos.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboVigente.SelectedIndex < 0 Then
-            MsgBox("El campo vigente esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboVigente.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txt0bjetoContrato.Text) Then
-            MsgBox("El campo Objeto contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txt0bjetoContrato.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtValorSinIva.Text) Then
-            MsgBox("El campo valor Sin IVA no esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtValorSinIva.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtValorIva.Text) Then
-            MsgBox("El campo valor IVA contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtValorIva.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtValorPazYSalvo.Text) Then
-            MsgBox("El campo valor paz y salvo contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtValorPazYSalvo.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-
-        If String.IsNullOrEmpty(Me.txtValorLegalizacion.Text) Then
-            MsgBox("El campo legalizacion contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtValorLegalizacion.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtValorTotal.Text.Trim) Then
-            MsgBox("El campo valor total esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtValorTotal.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.cboExigePoliza.Text) Then
-            MsgBox("El campo Objeto contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txt0bjetoContrato.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboExigePoliza.SelectedIndex < 0 Then
-            MsgBox("El campo exige poliza esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboExigePoliza.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboNombreRepresentanteLegal.SelectedIndex < 0 Then
-            MsgBox("El campo Representante legal esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboExigePoliza.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboExigePoliza.SelectedIndex = 1 Then
-            If String.IsNullOrEmpty(Me.txtNombreEntidadPoliza.Text) Then
-                MsgBox("El campo entidad poliza no puede estar vacio", MsgBoxStyle.Information, "Control de datos")
-                Me.txtNombreEntidadPoliza.Select()
-                estado = False
-                Return estado
-            End If
-            If String.IsNullOrEmpty(Me.txtCodPoliza.Text) Then
-                MsgBox("El campo Cod Poliza no puede estar vacio", MsgBoxStyle.Information, "Control de datos")
-                Me.txtCodPoliza.Select()
-                estado = False
-                Return estado
-            End If
-            If cboVezPoliza.SelectedIndex < 0 Then
-                MsgBox("El campo Vez Poliza esta vacio", MsgBoxStyle.Information, "Control de datos")
-                Me.cboVezPoliza.Select()
+        Try
+            Dim estado As Boolean
+            If cboNombreContratante.SelectedIndex < 0 Then
+                MsgBox("El campo Nombre Del Contratante esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboNombreContratante.Select()
                 estado = False
                 Return estado
             Else
                 estado = True
             End If
 
-            If ComprobarNoRepeTipoPolizas() = True Then
-                estado = True
-            Else
+
+            If String.IsNullOrWhiteSpace(Me.txtNumeroContrato.Text) Then
+                MsgBox("El campo Numero de contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtNumeroContrato.Select()
                 estado = False
+                Return estado
+            Else
+                estado = True
             End If
 
+            If String.IsNullOrWhiteSpace(Me.txtNumeroDePagos.Text) Then
+                MsgBox("El campo Numero De Pagos esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtNumeroDePagos.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboVigencia.SelectedIndex < 0 Then
+                MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboVigencia.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboVigencia.SelectedIndex < 0 Then
+                MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboVigencia.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboTipoContrato.SelectedIndex = -1 Then
+                MsgBox("El campo Tipo Contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboTipoContrato.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If DtFechaFinal.Value.Date < DtFechaInicial.Value.Date Then
+                MsgBox("La fecha final no puede ser menor a la inicial ", MsgBoxStyle.Information, "Control de datos")
+                Me.DtFechaFinal.Select()
+                estado = False
+                Return estado
+            End If
+            If String.IsNullOrWhiteSpace(Me.txtNumeroDePagos.Text) Then
+                MsgBox("El campo Numero de pagos solo acepta valores numericos y no puede estar vacio.", MsgBoxStyle.Information, "Control de datos")
+                Me.txtNumeroDePagos.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboVigente.SelectedIndex < 0 Then
+                MsgBox("El campo vigente esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboVigente.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(Me.txt0bjetoContrato.Text) Then
+                MsgBox("El campo Objeto contrato  esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txt0bjetoContrato.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(Me.txtValorSinIva.Text) Then
+                MsgBox("El campo valor Sin IVA no esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtValorSinIva.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(Me.txtValorIva.Text) Then
+                MsgBox("El campo valor IVA contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtValorIva.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(Me.txtValorPazYSalvo.Text) Then
+                MsgBox("El campo valor paz y salvo contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtValorPazYSalvo.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
 
-            Dim Fila As DataGridViewRow = New DataGridViewRow()
-            Dim strFecha As String
-            Dim datFecha As Date
-            For Each Fila In DataGridDetallePolizas.Rows
-                If Fila.Cells("TipoPoliza").Value = Nothing Or Fila.Cells("PorcePoli").Value = Nothing Or Fila.Cells("ValCubre").Value = Nothing Or Fila.Cells("Fecha_Inicio").Value = Nothing Or Fila.Cells("Fecha_Final").Value = Nothing Then
-                    MessageBox.Show("Tienes un valor en blanco en la tabla detalles de poliza")
+            If String.IsNullOrWhiteSpace(Me.txtValorLegalizacion.Text) Then
+                MsgBox("El campo legalizacion contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtValorLegalizacion.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(Me.txtValorTotal.Text.Trim) Then
+                MsgBox("El campo valor total esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtValorTotal.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboExigePoliza.SelectedIndex < 0 Then
+                MsgBox("El campo exige poliza esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboExigePoliza.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboNombreRepresentanteLegal.SelectedIndex < 0 Then
+                MsgBox("El campo Representante legal esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboExigePoliza.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboExigePoliza.SelectedIndex = 1 Then
+                If String.IsNullOrWhiteSpace(Me.txtNombreEntidadPoliza.Text) Then
+                    MsgBox("El campo entidad poliza no puede estar vacio", MsgBoxStyle.Information, "Control de datos")
+                    Me.txtNombreEntidadPoliza.Select()
+                    estado = False
+                    Return estado
+                End If
+                If String.IsNullOrWhiteSpace(Me.txtCodPoliza.Text) Then
+                    MsgBox("El campo Cod Poliza no puede estar vacio", MsgBoxStyle.Information, "Control de datos")
+                    Me.txtCodPoliza.Select()
+                    estado = False
+                    Return estado
+                End If
+                If cboVezPoliza.SelectedIndex < 0 Then
+                    MsgBox("El campo Vez Poliza esta vacio", MsgBoxStyle.Information, "Control de datos")
+                    Me.cboVezPoliza.Select()
+                    estado = False
+                    Return estado
+                Else
+                    estado = True
+                End If
+
+                If ComprobarNoRepeTipoPolizas() = True Then
+                    estado = True
+                Else
+                    estado = False
+                End If
+
+
+                Dim Fila As DataGridViewRow = New DataGridViewRow()
+                Dim strFecha As String
+                Dim datFecha As Date
+                For Each Fila In DataGridDetallePolizas.Rows
+                    If Fila.Cells("TipoPoliza").Value = Nothing Or Fila.Cells("PorcePoli").Value = Nothing Or Fila.Cells("ValCubre").Value = Nothing Or Fila.Cells("Fecha_Inicio").Value = Nothing Or Fila.Cells("Fecha_Final").Value = Nothing Then
+                        MessageBox.Show("Tienes un valor en blanco en la tabla detalles de poliza")
+                        Me.DataGridDetallePolizas.Select()
+                        estado = False
+                        Return estado
+                    Else
+                        estado = True
+                    End If
+                    strFecha = Trim(Fila.Cells("Fecha_Inicio").Value)
+                    If IsDate(strFecha) Then
+                        datFecha = CDate(strFecha)
+                        estado = True
+                    Else
+                        MsgBox("Formato de fecha incorrecta en Fecha_Inicio")
+                        estado = False
+                        Return estado
+                    End If
+                    strFecha = Trim(Fila.Cells("Fecha_Final").Value)
+                    If IsDate(strFecha) Then
+                        datFecha = CDate(strFecha)
+                        estado = True
+                    Else
+                        MsgBox("Formato de fecha incorrecta en Fecha_Final")
+                        estado = False
+                        Return estado
+                    End If
+                    strFecha = Trim(Fila.Cells("Fecha_Anulacion").Value)
+                    If IsDate(strFecha) Then
+                        datFecha = CDate(strFecha)
+                        estado = True
+                    Else
+                        MsgBox("Formato de fecha incorrecta en Fecha_Anulacion")
+                        estado = False
+                        Return estado
+                    End If
+                    strFecha = Trim(Fila.Cells("Fec_Registro").Value)
+                    If IsDate(strFecha) Then
+                        datFecha = CDate(strFecha)
+                        estado = True
+                    Else
+                        MsgBox("Formato de fecha incorrecta en Fecha_Registro")
+                        estado = False
+                        Return estado
+                    End If
+                    strFecha = Trim(Fila.Cells("Fech_Modi").Value)
+                    If IsDate(strFecha) Then
+                        datFecha = CDate(strFecha)
+                        estado = True
+                    Else
+                        MsgBox("Formato de fecha incorrecta en Fecha_Modi")
+                        estado = False
+                        Return estado
+                    End If
+
+
+                Next 'Validaciones para dtagridview detalle de polizas
+                If (DataGridDetallePolizas.Rows.Count = 0) Then
+                    MsgBox("La tabla detalle polizas no puede estar vacia", MsgBoxStyle.Information, "Control de datos")
                     Me.DataGridDetallePolizas.Select()
                     estado = False
                     Return estado
                 Else
                     estado = True
                 End If
-                strFecha = Trim(Fila.Cells("Fecha_Inicio").Value)
-                If IsDate(strFecha) Then
-                    datFecha = CDate(strFecha)
-                    estado = True
-                Else
-                    MsgBox("Formato de fecha incorrecta en Fecha_Inicio")
-                    estado = False
-                    Return estado
-                End If
-                strFecha = Trim(Fila.Cells("Fecha_Final").Value)
-                If IsDate(strFecha) Then
-                    datFecha = CDate(strFecha)
-                    estado = True
-                Else
-                    MsgBox("Formato de fecha incorrecta en Fecha_Final")
-                    estado = False
-                    Return estado
-                End If
-                strFecha = Trim(Fila.Cells("Fecha_Anulacion").Value)
-                If IsDate(strFecha) Then
-                    datFecha = CDate(strFecha)
-                    estado = True
-                Else
-                    MsgBox("Formato de fecha incorrecta en Fecha_Anulacion")
-                    estado = False
-                    Return estado
-                End If
-                strFecha = Trim(Fila.Cells("Fec_Registro").Value)
-                If IsDate(strFecha) Then
-                    datFecha = CDate(strFecha)
-                    estado = True
-                Else
-                    MsgBox("Formato de fecha incorrecta en Fecha_Registro")
-                    estado = False
-                    Return estado
-                End If
-                strFecha = Trim(Fila.Cells("Fech_Modi").Value)
-                If IsDate(strFecha) Then
-                    datFecha = CDate(strFecha)
-                    estado = True
-                Else
-                    MsgBox("Formato de fecha incorrecta en Fecha_Modi")
-                    estado = False
-                    Return estado
-                End If
 
-
-            Next 'Validaciones para dtagridview detalle de polizas
-            If (DataGridDetallePolizas.Rows.Count = 0) Then
-                MsgBox("La tabla detalle polizas no puede estar vacia", MsgBoxStyle.Information, "Control de datos")
-                Me.DataGridDetallePolizas.Select()
+            End If
+            If (DataGridDetalleCuotas.Rows.Count = 0) Then
+                MsgBox("La tabla detalle cuotas no puede estar vacia", MsgBoxStyle.Information, "Control de datos")
+                Me.DataGridDetalleCuotas.Select()
                 estado = False
                 Return estado
             Else
                 estado = True
             End If
-
-        End If
-        If (DataGridDetalleCuotas.Rows.Count = 0) Then
-            MsgBox("La tabla detalle cuotas no puede estar vacia", MsgBoxStyle.Information, "Control de datos")
-            Me.DataGridDetalleCuotas.Select()
-            estado = False
+            Dim Fila2 As DataGridViewRow = New DataGridViewRow()
+            Dim strFecha2 As String
+            Dim datFecha2 As Date
+            For Each Fila2 In DataGridDetalleCuotas.Rows
+                If Fila2.Cells("FechaDePago").Value = Nothing Or Fila2.Cells("Porcentage").Value = Nothing Or Fila2.Cells("ValorTotalCouta").Value = Nothing Then
+                    MsgBox("La tabla detalles de cuotas no puede tener espacios en blanco", MsgBoxStyle.Critical)
+                End If
+                strFecha2 = Trim(Fila2.Cells("FechaDePago").Value)
+                If IsDate(strFecha2) Then
+                    datFecha2 = CDate(strFecha2)
+                    estado = True
+                Else
+                    MsgBox("Formato de fecha incorrecta en la tabla detalles de cuentas, en la columna FechaDePago")
+                    estado = False
+                    Return estado
+                End If
+            Next 'Validaciones para dtagridview detalle de cuentas contratos
             Return estado
-        Else
-            estado = True
-        End If
-        Dim Fila2 As DataGridViewRow = New DataGridViewRow()
-        Dim strFecha2 As String
-        Dim datFecha2 As Date
-        For Each Fila2 In DataGridDetalleCuotas.Rows
-            If Fila2.Cells("FechaDePago").Value = Nothing Or Fila2.Cells("Porcentage").Value = Nothing Or Fila2.Cells("ValorTotalCouta").Value = Nothing Then
-                MsgBox("La tabla detalles de cuotas no puede tener espacios en blanco", MsgBoxStyle.Critical)
-            End If
-            strFecha2 = Trim(Fila2.Cells("FechaDePago").Value)
-            If IsDate(strFecha2) Then
-                datFecha2 = CDate(strFecha2)
-                estado = True
-            Else
-                MsgBox("Formato de fecha incorrecta en la tabla detalles de cuentas, en la columna FechaDePago")
-                estado = False
-                Return estado
-            End If
-        Next 'Validaciones para dtagridview detalle de cuentas contratos
-        Return estado
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la validacion de datos." & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+
     End Function 'Valida que todos los campos esten lleno
 
     Private Function Buscar(id As String) As DataRow
 
-        If (String.IsNullOrEmpty(id)) Then
-            Throw New ArgumentNullException("id")
-        End If
+        Try
 
-        ' Declaramos la variable que devolverá la función, que
-        ' en principio indica que no existe ningún registro
-        ' que coincida con el ID especificado.
-        '
-        Dim returnValue As DataRow = Nothing
-
-
-        ' Creamos un objeto Command.
-        Dim cmd As SqlCommand
-
-        cmd = New SqlCommand("SELECT * FROM [Datos registros de contratos] WHERE ID_Contratos = @id", cn)
-
-        ' Añadimos el único parámetro de entrada existente en la consulta
-        cmd.Parameters.AddWithValue("@id", id)
-
-        ' Creamos el adaptador de datos al que le pasamos el objeto Command.
-        Dim da As New SqlDataAdapter(cmd)
-
-        ' Intentamos rellenar un objeto DataTable como resultado
-        ' de ejecutar la consulta SQL de selección especificada.
-        '
-        Using dt As New DataTable()
-
-            da.Fill(dt)
-
-            If (dt.Rows.Count > 0) Then
-                ' Nos quedamos con la primera fila u objeto DataRow.
-                '
-                returnValue = dt.Rows(0)
+            If (String.IsNullOrEmpty(id)) Then
+                Throw New ArgumentNullException("id")
             End If
 
-        End Using
+            ' Declaramos la variable que devolverá la función, que
+            ' en principio indica que no existe ningún registro
+            ' que coincida con el ID especificado.
+            '
+            Dim returnValue As DataRow = Nothing
 
-        cn.Close()
 
-        ' Devolvemos el objeto DataRow obtenido.
-        '
-        Return returnValue
+            ' Creamos un objeto Command.
+            Dim cmd As SqlCommand
+
+            cmd = New SqlCommand("SELECT * FROM [Datos registros de contratos] WHERE ID_Contratos = @id", cn)
+
+            ' Añadimos el único parámetro de entrada existente en la consulta
+            cmd.Parameters.AddWithValue("@id", id)
+
+            ' Creamos el adaptador de datos al que le pasamos el objeto Command.
+            Dim da As New SqlDataAdapter(cmd)
+
+            ' Intentamos rellenar un objeto DataTable como resultado
+            ' de ejecutar la consulta SQL de selección especificada.
+            '
+            Using dt As New DataTable()
+
+                da.Fill(dt)
+
+                If (dt.Rows.Count > 0) Then
+                    ' Nos quedamos con la primera fila u objeto DataRow.
+                    '
+                    returnValue = dt.Rows(0)
+                End If
+
+            End Using
+
+            cn.Close()
+
+            ' Devolvemos el objeto DataRow obtenido.
+            '
+            Return returnValue
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        End Try
 
     End Function  'Funcion que va ay busca los datos del id requerido en la funcion Mostrar Texbox
 
     Public Sub CargarDataGridContratos()
-        Dim consulta As String
-        consulta = "Select dgc.ID_Contratos, dgc.TipDocContra, dgc.NumDocContra,  dp.RazonSol, dtc.NomTipCon FROM [Datos registros de contratos] as dgc, [Datos proveedores] as dp,  [Datos tipos de contratos] as dtc WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon"
-        bandera = 0
-        DataGridContratos.DataSource = DataTable(consulta)
-        bandera = 1
+        Try
+            Dim consulta As String
+            consulta = "Select dgc.ID_Contratos, dgc.TipDocContra, dgc.NumDocContra,  dp.RazonSol, dtc.NomTipCon
+                        FROM [Datos registros de contratos] as dgc, [Datos proveedores] as dp,  [Datos tipos de contratos] as dtc
+                        WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon  ORDER BY (dgc.ID_Contratos)"
+            bandera = 0
+            DataGridContratos.DataSource = DataTable(consulta)
+            bandera = 1
+        Catch ex As Exception
+            MsgBox("Error", ex.Message)
+        End Try
+
     End Sub 'Funcion que envia a listar
 
     Public Sub BuscarDataGridContratos()
@@ -830,7 +978,7 @@ Public Class Contratos
         btnGrabar.Enabled = False
         btnGuardar.Enabled = True
         GroupRegis.Visible = True
-        GroupRegis.Visible = False
+        GroupRegis.Visible = True
         Try
             ' Obtenemos un objeto DataRow correspondiente con
             ' el ID escrito en un control TextBox
@@ -867,10 +1015,8 @@ Public Class Contratos
             cboNombreRepresentanteLegal.SelectedValue = Convert.ToString(row("NumDocRe"))
             Dim ValorSinIva As Double = txtValorSinIva.Text
             Dim ValorIva As Double = txtValorIva.Text
-            Dim IvaCantidad As Double
             Dim ValorTotal As Double
-            IvaCantidad = (ValorSinIva * txtPorceIVA.Text) / 100
-            ValorTotal = ValorSinIva + IvaCantidad
+            ValorTotal = ValorSinIva + ValorIva
             txtValorTotal.Text = ValorTotal
 
             If Convert.ToString(row("EstaVigCon")) = True Then 'CBO VIGENCIA SIN MOSTRAR
@@ -1119,10 +1265,10 @@ Public Class Contratos
         If ValidarCamposDataGrid() Then
             Dim Fecha As Date = (DtFechaInicial.Value.Date)
             Dim ValorSinIva As Double = txtValorSinIva.Text
-            Dim ValorIva As Double = txtPorceIVA.Text
-            Dim IvaCantidad As Double
+            '   Dim ValorIva As Double = txtPorceIVA.Text NO CALCULARA EL IVA SOLO COGERA LOS DATOS DIGITADOS EN LOS CAMPOS DE PAGOS
+            Dim IvaCantidad As Double = Convert.ToDouble(txtValorIva.Text)
             Dim ValorTotal As Double
-            IvaCantidad = (ValorSinIva * ValorIva) / 100
+            '   IvaCantidad = (ValorSinIva * ValorIva) / 100
             ValorTotal = ValorSinIva + IvaCantidad
             Dim ValorCuota As Double = (ValorTotal / txtNumeroDePagos.Text)
             Dim PorcentageDeCouta = (ValorCuota * 100) / ValorTotal
@@ -1231,16 +1377,33 @@ Public Class Contratos
 #End Region
 
     Private Sub Contratos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call conectarGeogebra()
-        Cargarcombobox()
-        CargarDataGridContratos()
-        For Each col As DataGridViewColumn In DataGridContratos.Columns
-            col.SortMode = DataGridViewColumnSortMode.NotSortable
-        Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridContratos 
-        Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
-        MostrarTexbox(codigo)
-        ColorDisabled()
-        bandera = 1
-        CargaDatosCombobox()
+
+        Try
+            Call conectarGeogebra()
+            Cargarcombobox()
+            CargarDataGridContratos()
+            For Each col As DataGridViewColumn In DataGridContratos.Columns
+                col.SortMode = DataGridViewColumnSortMode.NotSortable
+            Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridContratos 
+
+            ComprobarContratos()
+
+
+            ColorDisabled()
+            bandera = 1
+            CargaDatosCombobox()
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en alguna funcion del load " & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
     End Sub
+
+
+
+
 End Class

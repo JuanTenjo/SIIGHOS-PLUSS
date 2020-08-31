@@ -7,4 +7,11 @@
     Public Titulo01 As String
     Public Informa As String
     Public SQLDatos As String
+
+
+    Public InfConsultaReporte As String
+    Public InfCabecera As String
+    Public InfTituloInforme As String
+    Public infNombreInforme As String
+
 End Module

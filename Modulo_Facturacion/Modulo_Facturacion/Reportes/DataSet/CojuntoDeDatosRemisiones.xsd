@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CojuntoDeDatosRemisiones" targetNamespace="http://tempuri.org/CojuntoDeDatosRemisiones.xsd" xmlns:mstns="http://tempuri.org/CojuntoDeDatosRemisiones.xsd" xmlns="http://tempuri.org/CojuntoDeDatosRemisiones.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="BDADYSNETConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDADYSNETConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Modulo_Facturacion.My.MySettings.GlobalReference.Default.BDADYSNETConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDADYSNETConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT dr.NumRemi, dr.ID_Contratos, dr.FecAperRemi, dr.HorAperRemi, dr.HorAperRemi, dr.RemiActiva, dr.CuotNum, dr.FecCieRemi
+, ddr.ItemNum, ddr.CodProSer, ddr.Concepto, ddr.CantDeta, ddr.ValIVADeta, ddr.ValUniDeta, dr.CodModi, dr.FecModi, dr.FecRegis, dr.CodRegis
+FROM [Datos remisiones de facturas] AS dr, [Datos detalle de remisiones] as ddr where dr.NumRemi = ddr.NumRemi</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NumRemi" DataSetColumn="NumRemi" />
+              <Mapping SourceColumn="ID_Contratos" DataSetColumn="ID_Contratos" />
+              <Mapping SourceColumn="FecAperRemi" DataSetColumn="FecAperRemi" />
+              <Mapping SourceColumn="HorAperRemi" DataSetColumn="HorAperRemi" />
+              <Mapping SourceColumn="HorAperRemi1" DataSetColumn="HorAperRemi1" />
+              <Mapping SourceColumn="RemiActiva" DataSetColumn="RemiActiva" />
+              <Mapping SourceColumn="CuotNum" DataSetColumn="CuotNum" />
+              <Mapping SourceColumn="FecCieRemi" DataSetColumn="FecCieRemi" />
+              <Mapping SourceColumn="ItemNum" DataSetColumn="ItemNum" />
+              <Mapping SourceColumn="CodProSer" DataSetColumn="CodProSer" />
+              <Mapping SourceColumn="Concepto" DataSetColumn="Concepto" />
+              <Mapping SourceColumn="CantDeta" DataSetColumn="CantDeta" />
+              <Mapping SourceColumn="ValIVADeta" DataSetColumn="ValIVADeta" />
+              <Mapping SourceColumn="ValUniDeta" DataSetColumn="ValUniDeta" />
+              <Mapping SourceColumn="CodModi" DataSetColumn="CodModi" />
+              <Mapping SourceColumn="FecModi" DataSetColumn="FecModi" />
+              <Mapping SourceColumn="FecRegis" DataSetColumn="FecRegis" />
+              <Mapping SourceColumn="CodRegis" DataSetColumn="CodRegis" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CojuntoDeDatosRemisiones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CojuntoDeDatosRemisiones" msprop:Generator_UserDSName="CojuntoDeDatosRemisiones">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumRemi" msprop:Generator_ColumnVarNameInTable="columnNumRemi" msprop:Generator_ColumnPropNameInRow="NumRemi" msprop:Generator_ColumnPropNameInTable="NumRemiColumn" msprop:Generator_UserColumnName="NumRemi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_Contratos" msprop:Generator_ColumnVarNameInTable="columnID_Contratos" msprop:Generator_ColumnPropNameInRow="ID_Contratos" msprop:Generator_ColumnPropNameInTable="ID_ContratosColumn" msprop:Generator_UserColumnName="ID_Contratos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FecAperRemi" msprop:Generator_ColumnVarNameInTable="columnFecAperRemi" msprop:Generator_ColumnPropNameInRow="FecAperRemi" msprop:Generator_ColumnPropNameInTable="FecAperRemiColumn" msprop:Generator_UserColumnName="FecAperRemi" type="xs:dateTime" />
+              <xs:element name="HorAperRemi" msprop:Generator_ColumnVarNameInTable="columnHorAperRemi" msprop:Generator_ColumnPropNameInRow="HorAperRemi" msprop:Generator_ColumnPropNameInTable="HorAperRemiColumn" msprop:Generator_UserColumnName="HorAperRemi" type="xs:duration" />
+              <xs:element name="HorAperRemi1" msprop:Generator_ColumnVarNameInTable="columnHorAperRemi1" msprop:Generator_ColumnPropNameInRow="HorAperRemi1" msprop:Generator_ColumnPropNameInTable="HorAperRemi1Column" msprop:Generator_UserColumnName="HorAperRemi1" type="xs:duration" />
+              <xs:element name="RemiActiva" msprop:Generator_ColumnVarNameInTable="columnRemiActiva" msprop:Generator_ColumnPropNameInRow="RemiActiva" msprop:Generator_ColumnPropNameInTable="RemiActivaColumn" msprop:Generator_UserColumnName="RemiActiva" type="xs:boolean" />
+              <xs:element name="CuotNum" msprop:Generator_ColumnVarNameInTable="columnCuotNum" msprop:Generator_ColumnPropNameInRow="CuotNum" msprop:Generator_ColumnPropNameInTable="CuotNumColumn" msprop:Generator_UserColumnName="CuotNum" type="xs:short" />
+              <xs:element name="FecCieRemi" msprop:Generator_ColumnVarNameInTable="columnFecCieRemi" msprop:Generator_ColumnPropNameInRow="FecCieRemi" msprop:Generator_ColumnPropNameInTable="FecCieRemiColumn" msprop:Generator_UserColumnName="FecCieRemi" type="xs:dateTime" />
+              <xs:element name="ItemNum" msprop:Generator_ColumnVarNameInTable="columnItemNum" msprop:Generator_ColumnPropNameInRow="ItemNum" msprop:Generator_ColumnPropNameInTable="ItemNumColumn" msprop:Generator_UserColumnName="ItemNum" type="xs:short" />
+              <xs:element name="CodProSer" msprop:Generator_ColumnVarNameInTable="columnCodProSer" msprop:Generator_ColumnPropNameInRow="CodProSer" msprop:Generator_ColumnPropNameInTable="CodProSerColumn" msprop:Generator_UserColumnName="CodProSer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Concepto" msprop:Generator_ColumnVarNameInTable="columnConcepto" msprop:Generator_ColumnPropNameInRow="Concepto" msprop:Generator_ColumnPropNameInTable="ConceptoColumn" msprop:Generator_UserColumnName="Concepto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CantDeta" msprop:Generator_ColumnVarNameInTable="columnCantDeta" msprop:Generator_ColumnPropNameInRow="CantDeta" msprop:Generator_ColumnPropNameInTable="CantDetaColumn" msprop:Generator_UserColumnName="CantDeta" type="xs:double" />
+              <xs:element name="ValIVADeta" msprop:Generator_ColumnVarNameInTable="columnValIVADeta" msprop:Generator_ColumnPropNameInRow="ValIVADeta" msprop:Generator_ColumnPropNameInTable="ValIVADetaColumn" msprop:Generator_UserColumnName="ValIVADeta" type="xs:double" />
+              <xs:element name="ValUniDeta" msprop:Generator_ColumnVarNameInTable="columnValUniDeta" msprop:Generator_ColumnPropNameInRow="ValUniDeta" msprop:Generator_ColumnPropNameInTable="ValUniDetaColumn" msprop:Generator_UserColumnName="ValUniDeta" type="xs:double" />
+              <xs:element name="CodModi" msprop:Generator_ColumnVarNameInTable="columnCodModi" msprop:Generator_ColumnPropNameInRow="CodModi" msprop:Generator_ColumnPropNameInTable="CodModiColumn" msprop:Generator_UserColumnName="CodModi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FecModi" msprop:Generator_ColumnVarNameInTable="columnFecModi" msprop:Generator_ColumnPropNameInRow="FecModi" msprop:Generator_ColumnPropNameInTable="FecModiColumn" msprop:Generator_UserColumnName="FecModi" type="xs:dateTime" />
+              <xs:element name="FecRegis" msprop:Generator_ColumnVarNameInTable="columnFecRegis" msprop:Generator_ColumnPropNameInRow="FecRegis" msprop:Generator_ColumnPropNameInTable="FecRegisColumn" msprop:Generator_UserColumnName="FecRegis" type="xs:dateTime" />
+              <xs:element name="CodRegis" msprop:Generator_ColumnVarNameInTable="columnCodRegis" msprop:Generator_ColumnPropNameInRow="CodRegis" msprop:Generator_ColumnPropNameInTable="CodRegisColumn" msprop:Generator_UserColumnName="CodRegis">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

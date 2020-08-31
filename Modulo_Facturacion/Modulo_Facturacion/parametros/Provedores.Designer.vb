@@ -98,8 +98,6 @@ Partial Class Provedores
         Me.Label15 = New System.Windows.Forms.Label()
         Me.cboRetencion = New System.Windows.Forms.ComboBox()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.txtActividadEconomica = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.PanelMenu1 = New System.Windows.Forms.Panel()
         Me.Panel18 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -445,7 +443,7 @@ Partial Class Provedores
         Me.GroupRegis.Controls.Add(Me.Panel7)
         Me.GroupRegis.Controls.Add(Me.txtCodigoRegistro)
         Me.GroupRegis.Controls.Add(Me.ftRegis)
-        Me.GroupRegis.Location = New System.Drawing.Point(10, 463)
+        Me.GroupRegis.Location = New System.Drawing.Point(10, 437)
         Me.GroupRegis.Name = "GroupRegis"
         Me.GroupRegis.Size = New System.Drawing.Size(479, 50)
         Me.GroupRegis.TabIndex = 100
@@ -508,6 +506,7 @@ Partial Class Provedores
         '
         Me.txtCodigoRegistro.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigoRegistro.Location = New System.Drawing.Point(125, 13)
+        Me.txtCodigoRegistro.MaxLength = 3
         Me.txtCodigoRegistro.Multiline = True
         Me.txtCodigoRegistro.Name = "txtCodigoRegistro"
         Me.txtCodigoRegistro.Size = New System.Drawing.Size(88, 31)
@@ -527,7 +526,7 @@ Partial Class Provedores
         Me.GroupModi.Controls.Add(Me.Panel9)
         Me.GroupModi.Controls.Add(Me.txtCodifoModiPor)
         Me.GroupModi.Controls.Add(Me.ftModi)
-        Me.GroupModi.Location = New System.Drawing.Point(10, 463)
+        Me.GroupModi.Location = New System.Drawing.Point(11, 493)
         Me.GroupModi.Name = "GroupModi"
         Me.GroupModi.Size = New System.Drawing.Size(479, 50)
         Me.GroupModi.TabIndex = 99
@@ -577,6 +576,7 @@ Partial Class Provedores
         '
         Me.txtCodifoModiPor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodifoModiPor.Location = New System.Drawing.Point(125, 13)
+        Me.txtCodifoModiPor.MaxLength = 3
         Me.txtCodifoModiPor.Multiline = True
         Me.txtCodifoModiPor.Name = "txtCodifoModiPor"
         Me.txtCodifoModiPor.Size = New System.Drawing.Size(88, 31)
@@ -614,7 +614,6 @@ Partial Class Provedores
         '
         'cboReteiva
         '
-        Me.cboReteiva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboReteiva.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboReteiva.FormattingEnabled = True
         Me.cboReteiva.Items.AddRange(New Object() {"No", "Si"})
@@ -636,7 +635,6 @@ Partial Class Provedores
         '
         'cboReteica
         '
-        Me.cboReteica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboReteica.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboReteica.FormattingEnabled = True
         Me.cboReteica.Items.AddRange(New Object() {"No", "Si"})
@@ -792,8 +790,9 @@ Partial Class Provedores
         '
         'cboPais
         '
+        Me.cboPais.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboPais.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboPais.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.cboPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPais.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboPais.FormattingEnabled = True
         Me.cboPais.Location = New System.Drawing.Point(129, 21)
@@ -824,8 +823,9 @@ Partial Class Provedores
         '
         'cboDpto
         '
+        Me.cboDpto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboDpto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboDpto.BackColor = System.Drawing.Color.White
-        Me.cboDpto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDpto.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDpto.FormattingEnabled = True
         Me.cboDpto.Location = New System.Drawing.Point(129, 49)
@@ -857,7 +857,8 @@ Partial Class Provedores
         '
         'cboMunicipios
         '
-        Me.cboMunicipios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboMunicipios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboMunicipios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboMunicipios.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboMunicipios.FormattingEnabled = True
         Me.cboMunicipios.Location = New System.Drawing.Point(128, 77)
@@ -909,7 +910,8 @@ Partial Class Provedores
         '
         'cboTipoProvedor
         '
-        Me.cboTipoProvedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTipoProvedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboTipoProvedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cboTipoProvedor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipoProvedor.FormattingEnabled = True
         Me.cboTipoProvedor.Items.AddRange(New Object() {"No ", "Si"})
@@ -991,7 +993,6 @@ Partial Class Provedores
         '
         'cboRetencion
         '
-        Me.cboRetencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboRetencion.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboRetencion.FormattingEnabled = True
         Me.cboRetencion.Items.AddRange(New Object() {"No ", "Si"})
@@ -1010,27 +1011,6 @@ Partial Class Provedores
         Me.Label29.Size = New System.Drawing.Size(79, 21)
         Me.Label29.TabIndex = 19
         Me.Label29.Text = "ApliRete:"
-        '
-        'txtActividadEconomica
-        '
-        Me.txtActividadEconomica.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtActividadEconomica.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtActividadEconomica.Location = New System.Drawing.Point(169, 20)
-        Me.txtActividadEconomica.MaxLength = 90
-        Me.txtActividadEconomica.Name = "txtActividadEconomica"
-        Me.txtActividadEconomica.Size = New System.Drawing.Size(248, 26)
-        Me.txtActividadEconomica.TabIndex = 19
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(8, 21)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(126, 21)
-        Me.Label12.TabIndex = 16
-        Me.Label12.Text = "Act.Economica:"
         '
         'PanelMenu1
         '
@@ -1098,8 +1078,6 @@ Partial Class Provedores
         Me.GroupBox3.Controls.Add(Me.Label36)
         Me.GroupBox3.Controls.Add(Me.txtObservaciones)
         Me.GroupBox3.Controls.Add(Me.Label35)
-        Me.GroupBox3.Controls.Add(Me.txtActividadEconomica)
-        Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Location = New System.Drawing.Point(518, 42)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(434, 565)
@@ -1137,7 +1115,7 @@ Partial Class Provedores
         'txtCodigo2
         '
         Me.txtCodigo2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo2.Location = New System.Drawing.Point(256, 136)
+        Me.txtCodigo2.Location = New System.Drawing.Point(256, 110)
         Me.txtCodigo2.MaxLength = 4
         Me.txtCodigo2.Name = "txtCodigo2"
         Me.txtCodigo2.Size = New System.Drawing.Size(76, 26)
@@ -1146,7 +1124,7 @@ Partial Class Provedores
         'txtCodigo1
         '
         Me.txtCodigo1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo1.Location = New System.Drawing.Point(171, 136)
+        Me.txtCodigo1.Location = New System.Drawing.Point(171, 110)
         Me.txtCodigo1.MaxLength = 4
         Me.txtCodigo1.Name = "txtCodigo1"
         Me.txtCodigo1.Size = New System.Drawing.Size(76, 26)
@@ -1155,7 +1133,7 @@ Partial Class Provedores
         'txtCodigo3
         '
         Me.txtCodigo3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo3.Location = New System.Drawing.Point(341, 136)
+        Me.txtCodigo3.Location = New System.Drawing.Point(341, 110)
         Me.txtCodigo3.MaxLength = 4
         Me.txtCodigo3.Name = "txtCodigo3"
         Me.txtCodigo3.Size = New System.Drawing.Size(76, 26)
@@ -1166,7 +1144,7 @@ Partial Class Provedores
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label43.ForeColor = System.Drawing.Color.White
-        Me.Label43.Location = New System.Drawing.Point(8, 136)
+        Me.Label43.Location = New System.Drawing.Point(8, 110)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(101, 21)
         Me.Label43.TabIndex = 41
@@ -1175,7 +1153,7 @@ Partial Class Provedores
         'txtCelularContacto
         '
         Me.txtCelularContacto.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCelularContacto.Location = New System.Drawing.Point(170, 106)
+        Me.txtCelularContacto.Location = New System.Drawing.Point(169, 78)
         Me.txtCelularContacto.MaxLength = 90
         Me.txtCelularContacto.Name = "txtCelularContacto"
         Me.txtCelularContacto.Size = New System.Drawing.Size(248, 26)
@@ -1186,7 +1164,7 @@ Partial Class Provedores
         Me.Label40.AutoSize = True
         Me.Label40.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label40.ForeColor = System.Drawing.Color.White
-        Me.Label40.Location = New System.Drawing.Point(8, 107)
+        Me.Label40.Location = New System.Drawing.Point(7, 79)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(138, 21)
         Me.Label40.TabIndex = 39
@@ -1196,7 +1174,7 @@ Partial Class Provedores
         '
         Me.txtCargoContacto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCargoContacto.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCargoContacto.Location = New System.Drawing.Point(170, 77)
+        Me.txtCargoContacto.Location = New System.Drawing.Point(169, 49)
         Me.txtCargoContacto.MaxLength = 90
         Me.txtCargoContacto.Name = "txtCargoContacto"
         Me.txtCargoContacto.Size = New System.Drawing.Size(248, 26)
@@ -1207,7 +1185,7 @@ Partial Class Provedores
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label42.ForeColor = System.Drawing.Color.White
-        Me.Label42.Location = New System.Drawing.Point(8, 78)
+        Me.Label42.Location = New System.Drawing.Point(7, 50)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(130, 21)
         Me.Label42.TabIndex = 37
@@ -1217,7 +1195,7 @@ Partial Class Provedores
         '
         Me.txtNombreContacto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombreContacto.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombreContacto.Location = New System.Drawing.Point(170, 48)
+        Me.txtNombreContacto.Location = New System.Drawing.Point(169, 20)
         Me.txtNombreContacto.MaxLength = 90
         Me.txtNombreContacto.Name = "txtNombreContacto"
         Me.txtNombreContacto.Size = New System.Drawing.Size(248, 26)
@@ -1228,7 +1206,7 @@ Partial Class Provedores
         Me.Label41.AutoSize = True
         Me.Label41.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label41.ForeColor = System.Drawing.Color.White
-        Me.Label41.Location = New System.Drawing.Point(8, 50)
+        Me.Label41.Location = New System.Drawing.Point(7, 22)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(145, 21)
         Me.Label41.TabIndex = 35
@@ -1341,11 +1319,11 @@ Partial Class Provedores
         '
         Me.txtObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtObservaciones.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtObservaciones.Location = New System.Drawing.Point(12, 201)
+        Me.txtObservaciones.Location = New System.Drawing.Point(12, 166)
         Me.txtObservaciones.MaxLength = 90
         Me.txtObservaciones.Multiline = True
         Me.txtObservaciones.Name = "txtObservaciones"
-        Me.txtObservaciones.Size = New System.Drawing.Size(405, 44)
+        Me.txtObservaciones.Size = New System.Drawing.Size(405, 79)
         Me.txtObservaciones.TabIndex = 21
         '
         'Label35
@@ -1353,7 +1331,7 @@ Partial Class Provedores
         Me.Label35.AutoSize = True
         Me.Label35.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.ForeColor = System.Drawing.Color.White
-        Me.Label35.Location = New System.Drawing.Point(155, 177)
+        Me.Label35.Location = New System.Drawing.Point(155, 142)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(124, 21)
         Me.Label35.TabIndex = 20
@@ -1745,8 +1723,6 @@ Partial Class Provedores
     Friend WithEvents Label15 As Label
     Friend WithEvents txtEmail1 As TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents txtActividadEconomica As TextBox
-    Friend WithEvents Label12 As Label
     Friend WithEvents txtEmail2 As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents cboRegimenTributario As ComboBox

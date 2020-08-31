@@ -15,7 +15,7 @@ Public Class Remisiones
             cboCodigoProducto.DisplayMember = "CodProSer"
             cboCodigoProducto.ValueMember = "NomProSer"
 
-            Dim Provedores As DataSet = SQLDataSET("select p.IdenProve, p.RazonSol
+            Dim Provedores As DataSet = SQLDataSET("select p.IdenProve, p.IdenProve + '  ' + p.RazonSol as DatosProve
                                                     from [Datos proveedores] p inner join [Datos registros de contratos] r
                                                     on p.IdenProve = r.NumDocContra
                                                     and p.TipoDocu = r.TipDocContra
@@ -24,8 +24,14 @@ Public Class Remisiones
                                                     group by p.IdenProve, p.RazonSol
                                                     ")
             cboProvedores.DataSource = Provedores.Tables(0)
-            cboProvedores.DisplayMember = "RazonSol"
+            cboProvedores.DisplayMember = "DatosProve"
             cboProvedores.ValueMember = "IdenProve"
+
+            Dim ResolucionesDeFacturas As DataSet = SQLDataSET("SELECT TexResol FROM [Datos resoluciones de facturacion]")
+            cboResolucionFactura.DataSource = ResolucionesDeFacturas.Tables(0)
+            cboResolucionFactura.DisplayMember = "TexResol"
+            cboResolucionFactura.ValueMember = "TexResol"
+
 
 
 
@@ -280,30 +286,84 @@ Public Class Remisiones
 #End Region
 
 #Region "botones t texbox"
+    Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
+        Try
+
+            ModuloVariablesAplicacion.InfConsultaReporte = "SELECT dr.NumRemi, dr.ID_Contratos, dr.FecAperRemi, dr.HorAperRemi, dr.HorAperRemi, dr.RemiActiva, dr.CuotNum, dr.FecCieRemi
+                                                            , ddr.ItemNum, ddr.CodProSer, ddr.Concepto, ddr.CantDeta, ddr.ValIVADeta, ddr.ValUniDeta, dr.CodModi, dr.FecModi, dr.FecRegis, dr.CodRegis
+                                                            FROM [Datos remisiones de facturas] AS dr, [Datos detalle de remisiones] as ddr where dr.NumRemi = ddr.NumRemi"
+            ModuloVariablesAplicacion.InfCabecera = "Remisiones"
+            ModuloVariablesAplicacion.InfTituloInforme = "Reporte de Remisiones"
+            ModuloVariablesAplicacion.infNombreInforme = "ReportRemisiones"
+            Dim FrmsInformes As New FrmlInformes
+            FrmlInformes.ShowDialog()
+        Catch ex As Exception
+            MsgBox("Error al exportar Remisiones " & ex.Message)
+        End Try
+    End Sub 'Reporte
 
     Private Sub btnFacturar_Click(sender As Object, e As EventArgs) Handles btnFacturar.Click
-        If ValidacionDeCampos() Then
-            If ValidarCamposAñadirDetalle() Then
-                If MsgBox("Se facturara esta remision ¿Esta seguro?", vbYesNo) = vbYes Then
+        Try
+            If ValidacionDeCampos() Then
+                If ValidarCamposAñadirDetalle() Then
+                    If MsgBox("Se facturara esta remision ¿Esta seguro?", vbYesNo) = vbYes Then
 
-                    Dim concecutivoFactura As String = CreaConsecutivo("03", True, 2)
+                        Dim concecutivoFactura As String = CreaConsecutivo("03", True, 2)
 
-                    If String.IsNullOrWhiteSpace(concecutivoFactura) Then
-                        Exit Sub
-                    Else
-                        Dim Prefijo As String = Mid(concecutivoFactura, 1, 2)
-                        Dim fecha As Date = Date.Now
-                        Dim FechaFinal As Date = Date.Now.AddDays(30)
+                        Dim PrefijoFacturas As String
 
-                        ClaseModuloDeRemisiones.FacturarRemision(Prefijo, concecutivoFactura, txtNumRemision.Text, fecha, Format(FechaFinal, "yyyy/MM/dd"), txtTipoDocu.Text, txtIdentificacion.Text, txtSucursal.Text, txtValorUnitrio.Text, 0, txtValorUniIva.Text,
-                                            0, 0, 0, 0, fecha, "Sinresolucion", txtCodRegis.Text, ftRegis.Value, txtIdContrato.Text, txtNumeroDeCouta.Text)
+                        If String.IsNullOrWhiteSpace(concecutivoFactura) Then
 
-                        CagarDetallesCuotas(txtIdContrato.Text)
+                            Exit Sub
 
+                        Else
+                            Dim prefijo As SqlDataReader
+
+                            prefijo = SQLReader("select PrefiConse from [Datos consecutivos SIIGHOSPLUS] WHERE CodConse = 03")
+
+                            If prefijo.HasRows = False Then
+                                MsgBox("No se encontro el concecutivo")
+                                Exit Sub
+                            Else
+
+                                prefijo.Read()
+                                PrefijoFacturas = prefijo("PrefiConse")
+                                cn.Close()
+                            End If
+
+
+                            Dim fecha As Date = Date.Now
+                            Dim FechaFinal As Date = Date.Now.AddDays(30)
+                            Dim EstadoFacturado As Boolean
+                            EstadoFacturado = ClaseModuloDeRemisiones.FacturarRemision(PrefijoFacturas, concecutivoFactura, txtNumRemision.Text, fecha, Format(FechaFinal, "yyyy/MM/dd"), txtTipoDocu.Text, txtIdentificacion.Text, txtSucursal.Text, txtValorUnitrio.Text, 0, txtValorUniIva.Text,
+                                                0, 0, 0, 0, fecha, cboResolucionFactura.SelectedValue, txtCodRegis.Text, ftRegis.Value, txtIdContrato.Text, txtNumeroDeCouta.Text)
+
+                            If EstadoFacturado Then
+                                CagarDetallesCuotas(txtIdContrato.Text)
+                                '    Dim Proceso As Process = New Process
+                                '    Dim ruta As String = "C:\Facturacion\ApiFactElec\ApiFactElec.exe"
+
+                                '    Dim startInfo As ProcessStartInfo = New ProcessStartInfo(ruta)
+                                '    Dim Parametros As String = "factura " + concecutivoFactura + " " + txtNumRemision.Text
+
+                                '    startInfo.Arguments = Parametros
+                                '    startInfo.UseShellExecute = False
+                                '    System.Diagnostics.Process.Start(startInfo)
+                            End If
+
+
+                        End If
                     End If
                 End If
             End If
-        End If
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el boton guardar Facturar" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub 'Facturar
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -318,7 +378,7 @@ Public Class Remisiones
             End If
         End If
 
-    End Sub
+    End Sub 'Eliminar
 
     Private Sub btnGrabar_Click(sender As Object, e As EventArgs) Handles btnGrabar.Click
         Try
@@ -344,12 +404,18 @@ Public Class Remisiones
                 Dim estado As Boolean = DataGridDetalleCuotas.SelectedCells.Item(4).Value 'Obtenemos el estado de pago de la cuota
                 If estado = True Then
                     MsgBox("No podras modificar esta remision porque ya fue facturara")
+
                 Else
-                    If ValidacionDeCampos() = True And ValidarTotal() = True Then
+                    If ValidacionDeCampos() = True And ValidarTotal() = True And txtNumRemision.Text <> Nothing Then
                         Dim hora As String = Now.ToString("HH:mm:ss")
-                        ClaseModuloDeRemisiones.ModuloRemision(txtNumRemision.Text, txtIdContrato.Text, ftAperturaRemision.Value, hora, cboActivaRemicion.SelectedIndex, txtNumeroDeCouta.Text, ftCierreRemision.Value, txtCodRegis.Text, ftRegis.Value, txtCodModi.Text, ftModi.Value, DataGridViewDetalleRemision)
+                        Dim EstadoRegistroRemision As Boolean
+                        EstadoRegistroRemision = ClaseModuloDeRemisiones.ModuloRemision(txtNumRemision.Text, txtIdContrato.Text, ftAperturaRemision.Value, hora, cboActivaRemicion.SelectedIndex, txtNumeroDeCouta.Text, ftCierreRemision.Value, txtCodRegis.Text, ftRegis.Value, txtCodModi.Text, ftModi.Value, DataGridViewDetalleRemision)
                         CagarDetallesCuotas(txtIdContrato.Text)
-                        btnFacturar.Enabled = True
+
+                        If EstadoRegistroRemision Then
+                            btnFacturar.Enabled = True
+                        End If
+
                     End If
                 End If
             End If
@@ -366,7 +432,7 @@ Public Class Remisiones
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         LimpiarCampos()
-    End Sub
+    End Sub 'Limpia Campos
 
     Private Sub txtValorUnitrio_KeyDown(sender As Object, e As KeyEventArgs) Handles txtValorUnitrio.KeyDown
         Try
@@ -436,11 +502,116 @@ Public Class Remisiones
 
     Private Sub BtnCerrarContratos_Click(sender As Object, e As EventArgs) Handles BtnCerrarContratos.Click
         Me.Dispose()
-    End Sub
+    End Sub  'Cerrar
+
 
 #End Region
 
 #Region "Funciones "
+
+    Private Sub btnBuscaPorNit_Click(sender As Object, e As EventArgs) Handles btnBuscaPorNit.Click
+        Dim Remi As String
+        Remi = InputBox("Ingrese la Remision que desea buscar")
+        If Remi = "" Then
+            MsgBox("Operacion Cancelada")
+        Else
+            Dim Identificador As String = BuscarPorRemision(Remi)
+
+
+        End If
+    End Sub  'Busca por nit
+
+    Private Function BuscarPorRemision(Remi As String) As String
+
+        Try
+            Dim consulta As String = "select df.ID_Contratos, dc.NumDocContra,  df.CuotNum
+                                    from [Datos remisiones de facturas] as df, [Datos registros de contratos] as dc
+                                    where df.ID_Contratos = dc.ID_Contratos AND df.NumRemi = '" & Remi & "'"
+
+
+
+            Dim br As SqlDataReader
+
+            br = SQLReader(consulta)
+
+            If br.HasRows = False Then
+                MsgBox("Esta remision no existe")
+                cn.Close()
+            Else
+                br.Read()
+                Dim Indentificador As String = br("ID_Contratos")
+                Dim Documento As String = br("NumDocContra")
+                Dim NumeroCuota As Int16 = br("CuotNum")
+                cn.Close()
+
+                MostrarTexbox(Indentificador)
+                cboProvedores.SelectedValue = Documento
+
+                Dim Fila As DataGridViewRow = New DataGridViewRow()
+                Dim Fila2 As DataGridViewRow = New DataGridViewRow()
+
+
+                Dim CuentaFilaContratos As Int64 = 0
+                Dim CuentaFilaCuotas As Int64 = 0
+
+                If DataGridContratos.Rows.Count = 0 Then   'BUSCA EL CONTRATO Y LO SELECCIONA
+                    MsgBox("No se econtro la remision")
+                Else
+                    For Each Fila In DataGridContratos.Rows
+                        CuentaFilaContratos += 1
+                        If Fila.Cells("ID_Contratos").Value = Indentificador Then
+
+                            DataGridContratos.CurrentCell = DataGridContratos.Rows(CuentaFilaContratos - 1).Cells(0)
+                            MessageBox.Show("Presiona click en la fila seleccionada en la tabla DETALLE CUOTAS para ver los detalles", "REMISION ENCONTRADA ", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit For
+                        End If
+                    Next
+                    If DataGridDetalleCuotas.Rows.Count = 0 Then  'BUSCA LA CUOTA Y LA SELECCIONA
+                        MsgBox("No se econtro la remision")
+                    Else
+                        For Each Fila2 In DataGridDetalleCuotas.Rows
+                            CuentaFilaCuotas += 1
+
+                            If Fila2.Cells("NumeroDeCouta").Value = NumeroCuota Then
+                                DataGridDetalleCuotas.Rows(CuentaFilaCuotas - 1).Selected = True
+                                Exit For
+                            End If
+                        Next
+                    End If
+                End If
+            End If
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la busqueda por remi" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+            If cn.State = True Then
+                cn.Close()
+            End If
+        End Try
+
+    End Function 'Busca por remision
+
+    Private Function ComprobarDatos() As Boolean
+        Try
+            Dim reader As SqlDataReader
+            reader = SQLReader("SELECT * FROM [Datos registros de contratos]")
+            If reader.HasRows = False Then
+                Return False
+            Else
+                Return True
+            End If
+        Catch ex As Exception
+            MsgBox("Error en comprobar datos ")
+            Return False
+        Finally
+            cn.Close()
+        End Try
+
+    End Function 'Validacion de datos
 
     Private Function CreaConsecutivo(CodDocu As String, ActConse As Boolean, CodUsua As String) As String
         Dim Consecutivo As String = ConsecutivoDocumen(CodDocu, ActConse, CodUsua)
@@ -466,7 +637,7 @@ Public Class Remisiones
         End Select
         cn.Close()
         Return Consecutivo
-    End Function
+    End Function 'Crea el concecutivo
 
     Private Function ValidarTotal() As Boolean
         Dim TotalCuota As Double
@@ -486,10 +657,19 @@ Public Class Remisiones
                 Return True
             End If
         End If
-    End Function
+    End Function  'Valida datos del total
 
     Private Function ValidacionDeCampos() As Boolean
         Dim estado As Boolean = False
+
+        If cboResolucionFactura.SelectedIndex = -1 Then
+            MsgBox("Escoge una resolucion de factura")
+            cboResolucionFactura.Select()
+            estado = False
+            Return estado
+        Else
+            estado = True
+        End If
 
         If String.IsNullOrWhiteSpace(txtIdContrato.Text) Then
             MsgBox("El campo ID Contraro esta vacio")
@@ -546,7 +726,7 @@ Public Class Remisiones
 
         Return estado
 
-    End Function
+    End Function  'Valida campos
 
     Private Function ValidarCamposAñadirDetalle() As Boolean
         Dim estado As Boolean = False
@@ -605,7 +785,7 @@ Public Class Remisiones
         End If
 
         Return estado
-    End Function
+    End Function 'Valida los datos del datagridview
 
     Private Sub MostrasDatosCliente(identificador)
         LimpiarCampos()
@@ -627,7 +807,7 @@ Public Class Remisiones
                 txtSucursal.Text = dr![SucurProv]
                 txtRazonSocial.Text = dr![RazonSol]
                 txtTelefono.Text = dr("TelProve1")
-                txtEmail.Text = dr("DirElectro")
+
 
 
             End If
@@ -643,13 +823,15 @@ Public Class Remisiones
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-    End Sub
+    End Sub  'Muestra
 
     Private Sub MostrarTexbox(identificador)
         LimpiarCampos()
         Try
             Dim dr As SqlDataReader
-            Dim consulta As String = "SELECT rc.ID_Contratos, rc.ContraNo, rc.TipDocContra, rc.NumDocContra, dp.DigVeri, dp.TelProve1, dp.DirElectro, dp.RazonSol, dp.SucurProv,  rc.NumPagos from [Datos registros de contratos] as rc, [Datos proveedores] as dp where rc.ID_Contratos = '" & identificador.ToString & "' and rc.NumDocContra = dp.IdenProve"
+            Dim consulta As String = "SELECT rc.ID_Contratos, rc.ContraNo, rc.TipDocContra, rc.NumDocContra, dp.DigVeri, dp.TelProve1, dp.DirElectro, dp.RazonSol, dp.SucurProv,  rc.NumPagos
+                                    from [Datos registros de contratos] as rc, [Datos proveedores] as dp 
+                                    where rc.ID_Contratos = '" & identificador.ToString & "' and rc.NumDocContra = dp.IdenProve"
 
             dr = SQLReader(consulta)
 
@@ -659,15 +841,16 @@ Public Class Remisiones
                 dr.Read()
 
                 txtTipoDocu.Text = dr("TipDocContra")
-                txtIdentificacion.Text = dr("NumDocContra")
+                txtIdentificacion.Text = dr("NumDocContra")   'ESTAS REALIZANDO LA BUSQUEDA POR REMI
                 txtSucursal.Text = dr![SucurProv]
                 txtRazonSocial.Text = dr![RazonSol]
                 txtTelefono.Text = dr("TelProve1")
-                txtEmail.Text = dr("DirElectro")
                 txtIdContrato.Text = dr("ID_Contratos")
 
 
             End If
+
+            dr.Dispose()
             cn.Close()
 
             CagarDetallesCuotas(identificador)
@@ -681,7 +864,7 @@ Public Class Remisiones
         End Try
 
 
-    End Sub
+    End Sub 'Muestra
 
     Private Sub LimpiarCampos()
         GroupModi.Visible = False
@@ -691,7 +874,6 @@ Public Class Remisiones
         txtSucursal.Clear()
         txtRazonSocial.Clear()
         txtTelefono.Clear()
-        txtEmail.Clear()
         txtNumeroDeCouta.Clear()
         txtNumRemision.Clear()
         txtIdContrato.Clear()
@@ -711,31 +893,38 @@ Public Class Remisiones
 #End Region
 
 
+    Private Sub Remisiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'LEER CREAR COMBOBOX RESOLUCIOM FACTURACION Y HACER QUE GUARDE EN LA BASDE DE DATOS
+        Try
+            bandera = 0
+            Call conectarGeogebra()
+            ' CargarDataGridContratos()
+            CagarComboBox()
+            For Each col As DataGridViewColumn In DataGridContratos.Columns
+                col.SortMode = DataGridViewColumnSortMode.NotSortable
+            Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridContratos 
+            For Each col As DataGridViewColumn In DataGridDetalleCuotas.Columns
+                col.SortMode = DataGridViewColumnSortMode.NotSortable
+            Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridContratos 
+            bandera = 1
 
-    Private Sub Remisiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        bandera = 0
-        Call conectarGeogebra()
-        ' CargarDataGridContratos()
-        CagarComboBox()
-        For Each col As DataGridViewColumn In DataGridContratos.Columns
-            col.SortMode = DataGridViewColumnSortMode.NotSortable
-        Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridContratos 
-        For Each col As DataGridViewColumn In DataGridDetalleCuotas.Columns
-            col.SortMode = DataGridViewColumnSortMode.NotSortable
-        Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridContratos 
-        bandera = 1
-
-        MostrasDatosCliente(cboProvedores.SelectedValue)
-
-        CargarDataGridContratos(cboProvedores.SelectedValue)
-
-        Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
-        MostrarTexbox(codigo)
+            If ComprobarDatos() Then
+                MostrasDatosCliente(cboProvedores.SelectedValue)
+                CargarDataGridContratos(cboProvedores.SelectedValue)
+                Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
+                MostrarTexbox(codigo)
+            Else
+                MsgBox("No existen cuotas ni contratos para remitir")
+            End If
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en alguna funcion del load" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
     End Sub
-
-
 
 
 End Class

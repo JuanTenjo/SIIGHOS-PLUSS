@@ -73,6 +73,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -94,11 +95,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BDADYSNETDataSet1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BDADYSNETDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Clases\ModuloDeClaseContrato.vb" />
     <Compile Include="Clases\ModuloDeClasePagos.vb" />
     <Compile Include="Clases\ModuloDeClasesRemision.vb" />
@@ -158,10 +154,28 @@
     <Compile Include="parametros\Remisiones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\ReporteContratos.Designer.vb">
-      <DependentUpon>ReporteContratos.vb</DependentUpon>
+    <Compile Include="Reportes\DataSet\CojuntodeDatosContratos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CojuntodeDatosContratos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\ReporteContratos.vb">
+    <Compile Include="Reportes\DataSet\CojuntodeDatosContratos.vb">
+      <DependentUpon>CojuntodeDatosContratos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DataSet\CojuntodedatosPagos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CojuntodedatosPagos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DataSet\CojuntoDeDatosRemisiones.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CojuntoDeDatosRemisiones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmlInformes.Designer.vb">
+      <DependentUpon>FrmlInformes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmlInformes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Validaciones.vb" />
@@ -191,23 +205,14 @@
     <EmbeddedResource Include="parametros\Remisiones.resx">
       <DependentUpon>Remisiones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReportContratos.rdlc" />
-    <EmbeddedResource Include="Reportes\ReporteContratos.resx">
-      <DependentUpon>ReporteContratos.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\FrmlInformes.resx">
+      <DependentUpon>FrmlInformes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rdlc\ReportPagos.rdlc" />
+    <EmbeddedResource Include="Reportes\rdlc\ReportContratos.rdlc" />
+    <EmbeddedResource Include="Reportes\rdlc\ReportRemisiones.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BDADYSNETDataSet1.xsc">
-      <DependentUpon>BDADYSNETDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BDADYSNETDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BDADYSNETDataSet1.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BDADYSNETDataSet1.xss">
-      <DependentUpon>BDADYSNETDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -221,6 +226,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Reportes\DataSet\CojuntodeDatosContratos.xsc">
+      <DependentUpon>CojuntodeDatosContratos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\CojuntodeDatosContratos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CojuntodeDatosContratos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet\CojuntodeDatosContratos.xss">
+      <DependentUpon>CojuntodeDatosContratos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\CojuntodedatosPagos.xsc">
+      <DependentUpon>CojuntodedatosPagos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\CojuntodedatosPagos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CojuntodedatosPagos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet\CojuntodedatosPagos.xss">
+      <DependentUpon>CojuntodedatosPagos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\CojuntoDeDatosRemisiones.xsc">
+      <DependentUpon>CojuntoDeDatosRemisiones.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\CojuntoDeDatosRemisiones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CojuntoDeDatosRemisiones.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet\CojuntoDeDatosRemisiones.xss">
+      <DependentUpon>CojuntoDeDatosRemisiones.xsd</DependentUpon>
+    </None>
     <None Include="Resources\IconActualizar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -279,5 +317,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

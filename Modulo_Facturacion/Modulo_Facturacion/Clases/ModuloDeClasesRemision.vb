@@ -234,6 +234,7 @@ Public Class ModuloDeClasesRemision
 
     Public Function EliminarRemision(NumRemisiom, NumeroDeCuota, IDContrato) As Boolean
         Dim BanderaEliminarRemi As Boolean = False
+
         Try
             cn.Open()
             Dim EliDetalleRemi As SqlCommand
@@ -335,7 +336,7 @@ Public Class ModuloDeClasesRemision
             Return FacturarRemiestado
         Finally
             cn.Close()
-        End Try  'Elimina datos detalle de remision
+        End Try  'Registra la factura
 
 
 
@@ -349,6 +350,7 @@ Public Class ModuloDeClasesRemision
                                         SET FacturCuota = 1 WHERE ID_Contratos = '" & ID_Contrato.ToString & "'
                                         and CuotaNoPac = " & CuotaNoPac & "")
                 }
+
                 If ActualizaFacturaRealizada.ExecuteNonQuery() Then
                     FacturarRemiestado = True
                 End If

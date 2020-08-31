@@ -116,7 +116,7 @@ Public Class Provedores
     Private Sub txtNumeroDocumento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono3.KeyPress, txtTelefono2.KeyPress, txtTelefono.KeyPress, txtSucursal.KeyPress, txtPrefijo.KeyPress, txtPorcentageIva.KeyPress, txtNumeroDocumento.KeyPress, txtIdentidadDos.KeyPress, txtDV.KeyPress, txtCodigo3.KeyPress, txtCodigo2.KeyPress, txtCodigo1.KeyPress, txtCelularContacto.KeyPress, txtCelular.KeyPress
         soloNumeros(e)
     End Sub
-    Private Sub txtNombreModiPor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSegundoNombre.KeyPress, txtSegundoApellido.KeyPress, txtRepresentanteLegal.KeyPress, txtPrimerNombre.KeyPress, txtPrimerApellido.KeyPress, txtNombreContacto.KeyPress, txtCargoContacto.KeyPress, txtActividadEconomica.KeyPress
+    Private Sub txtNombreModiPor_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSegundoNombre.KeyPress, txtSegundoApellido.KeyPress, txtRepresentanteLegal.KeyPress, txtPrimerNombre.KeyPress, txtPrimerApellido.KeyPress, txtNombreContacto.KeyPress, txtCargoContacto.KeyPress
         sololetras(e)
 
     End Sub
@@ -171,7 +171,7 @@ Public Class Provedores
         Else
             estado = True
         End If
-        If cboDpto.SelectedIndex < 0 Then
+        If cboDpto.SelectedIndex <= 0 Then
             MsgBox("Seleccione un departamento", MsgBoxStyle.Information, "Control de datos")
             Me.cboDpto.Select()
             estado = False
@@ -267,14 +267,7 @@ Public Class Provedores
         Else
             estado = True
         End If
-        If String.IsNullOrEmpty(Me.txtActividadEconomica.Text) Then
-            MsgBox("El campo atividad Economica esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtActividadEconomica.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
+
         If String.IsNullOrEmpty(Me.txtNombreContacto.Text) Then
             MsgBox("El campo Nombre Contacto esta vacio", MsgBoxStyle.Information, "Control de datos")
             Me.txtNombreContacto.Select()
@@ -322,23 +315,38 @@ Public Class Provedores
 #End Region
 #Region "ListBox"
     Private Sub listarLisbox(consulta)
-        Dim Sql As String
-        Dim cn As SqlConnection
-        Dim cm As SqlCommand
-        cn = New SqlConnection("Data Source=LAPTOP-00RLF157\SQLEXPRESS;Initial Catalog=BDADYSNET;Integrated Security=True")
-        cn.Open()
-        Sql = consulta
-        cm = New SqlCommand()
-        cm.CommandText = Sql
-        cm.CommandType = CommandType.Text
-        cm.Connection = cn
-        Dim adapatador As New SqlDataAdapter(consulta, cn)
-        Dim datos As New DataSet
-        adapatador.Fill(datos)
-        lista.DataSource = datos.Tables(0)
-        lista.DisplayMember = "nomProv"
-        lista.ValueMember = "idenprove"
-        cn.Close()
+        Try
+            Dim exitoso As Boolean = False
+            cn.Open()
+            Dim Sql As String
+            Dim cm As SqlCommand
+
+            Sql = consulta
+            cm = New SqlCommand()
+            cm.CommandText = Sql
+            cm.CommandType = CommandType.Text
+            cm.Connection = cn
+            If cm.ExecuteNonQuery() Then
+                exitoso = True
+            Else
+                MsgBox("No hay clientes/proveedores")
+            End If
+
+            cn.Close()
+
+            If exitoso Then
+                Dim adapatador As New SqlDataAdapter(consulta, cn)
+                Dim datos As New DataSet
+                adapatador.Fill(datos)
+                lista.DataSource = datos.Tables(0)
+                lista.DisplayMember = "nomProv"
+                lista.ValueMember = "idenprove"
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub  'Rellena el lisbox, el parametro es la consulta que lo llenara
 
     Private Sub MostrarLisbox()
@@ -559,7 +567,6 @@ Public Class Provedores
         txtEmail1.Clear()
         txtEmail2.Clear()
         txtRepresentanteLegal.Clear()
-        txtActividadEconomica.Clear()
         txtBuscar.Clear()
     End Sub  'Limpira todos los campos
 
@@ -571,7 +578,7 @@ Public Class Provedores
                     Dim fechaActual As Date = Date.Now
                     ClaseModelo.AgregarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, txtDireccion.Text,
                                            txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
-                                               EstadoActivo.ToString, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
+                                               EstadoActivo, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
                                                txtObservaciones.Text, txtCodigoRegistro.Text, fechaActual, txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text)
                 Catch ex As Exception
                     MsgBox(ex.ToString)
@@ -702,29 +709,29 @@ Public Class Provedores
             End If
 
             If Convert.ToString(row("ApliRetIVA")) = True Then
-                cboReteiva.Text = "Si"
+                cboReteiva.SelectedIndex = 1
             Else
-                cboReteiva.Text = "No"
+                cboReteiva.SelectedIndex = 0
             End If
             If Convert.ToString(row("ApliRetICA")) = True Then
-                cboReteica.Text = "Si"
+                cboReteica.SelectedIndex = 1
             Else
-                cboReteica.Text = "No"
+                cboReteica.SelectedIndex = 0
             End If
             If Convert.ToString(row("ApliRete")) = True Then
-                cboRetencion.Text = "Si"
+                cboRetencion.SelectedIndex = 1
             Else
-                cboRetencion.Text = "No"
+                cboRetencion.SelectedIndex = 0
             End If
             If Convert.ToString(row("ApliRete")) = True Then
-                cboRetencion.Text = "Si"
+                cboRetencion.SelectedIndex = 1
             Else
-                cboRetencion.Text = "No"
+                cboRetencion.SelectedIndex = 0
             End If
             If Convert.ToString(row("AutoReteCree")) = True Then
-                cboAutoRete.Text = "Si"
+                cboAutoRete.SelectedIndex = 1
             Else
-                cboAutoRete.Text = "No"
+                cboAutoRete.SelectedIndex = 0
             End If
         Catch ex As Exception
             ' Se ha producido un error
@@ -800,18 +807,29 @@ Public Class Provedores
     Dim ingreso As Integer = 0
     Dim EstadoActivo As Integer
     Private Sub Provedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ComboDocumentosDeIdentidad()
-        ComboRegimenesTributarios()
-        ComboPais()
-        ComboDepartamentos()
-        ComboCiudad()
-        ComboRelacionesComerciales()
-        CambioDeBoton()
-        MostrarLisbox()
-        Dim cadena As String = lista.SelectedValue
-        MostrarTexbox(cadena)
-        CargarlisboxCuentasBancarias()
-        ingreso = 1 'Evalua que ya se cargaron las funciones anteriores
+        Try
+            ComboDocumentosDeIdentidad()
+            ComboRegimenesTributarios()
+            ComboPais()
+            ComboDepartamentos()
+            ComboCiudad()
+            ComboRelacionesComerciales()
+            CambioDeBoton()
+            MostrarLisbox()
+            If lista.Items.Count > 0 Then
+                Dim cadena As String = lista.SelectedValue
+                MostrarTexbox(cadena)
+                CargarlisboxCuentasBancarias()
+                ingreso = 1 'Evalua que ya se cargaron las funciones anteriores
+            Else
+                MsgBox("No existes clientes ni proveedores")
+                ingreso = 1
+            End If
+        Catch ex As Exception
+            MsgBox("Hubo un error en el programa: ERRROR: " + ex.Message)
+        End Try
+
+
     End Sub
 
 

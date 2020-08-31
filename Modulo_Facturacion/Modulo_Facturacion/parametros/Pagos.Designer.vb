@@ -40,21 +40,22 @@ Partial Class Pagos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupRegis = New System.Windows.Forms.GroupBox()
+        Me.txtCodRegis = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label39 = New System.Windows.Forms.Label()
-        Me.txtCodRegis = New System.Windows.Forms.TextBox()
         Me.ftRegis = New System.Windows.Forms.DateTimePicker()
+        Me.txtCodModi = New System.Windows.Forms.TextBox()
+        Me.ftModi = New System.Windows.Forms.DateTimePicker()
         Me.DtFechaMovimiento = New System.Windows.Forms.DateTimePicker()
         Me.txtValorCredito = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.btnPagar = New System.Windows.Forms.Button()
-        Me.BtnCerrarContratos = New System.Windows.Forms.Button()
-        Me.btnReporte = New System.Windows.Forms.Button()
         Me.txtRemision = New System.Windows.Forms.TextBox()
         Me.txtValorDebito = New System.Windows.Forms.TextBox()
         Me.txtImpuestos = New System.Windows.Forms.TextBox()
@@ -76,21 +77,29 @@ Partial Class Pagos
         Me.DtUltimoPago = New System.Windows.Forms.DateTimePicker()
         Me.LabelPendiente = New System.Windows.Forms.Label()
         Me.LabelPagado = New System.Windows.Forms.Label()
-        Me.btnExportar = New System.Windows.Forms.Button()
         Me.cboCodigoContable = New System.Windows.Forms.ComboBox()
-        Me.txtCodModi = New System.Windows.Forms.TextBox()
-        Me.ftModi = New System.Windows.Forms.DateTimePicker()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.CheckAnulada = New System.Windows.Forms.CheckBox()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnReporte = New System.Windows.Forms.Button()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.BtnCerrarContratos = New System.Windows.Forms.Button()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.GroupModi = New System.Windows.Forms.GroupBox()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel6.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupRegis.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel10.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        Me.GroupModi.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'cboFacturas
@@ -286,56 +295,71 @@ Partial Class Pagos
         '
         'GroupRegis
         '
+        Me.GroupRegis.Controls.Add(Me.txtCodRegis)
         Me.GroupRegis.Controls.Add(Me.Panel4)
         Me.GroupRegis.Controls.Add(Me.Panel7)
-        Me.GroupRegis.Controls.Add(Me.txtCodRegis)
         Me.GroupRegis.Controls.Add(Me.ftRegis)
-        Me.GroupRegis.Controls.Add(Me.txtCodModi)
-        Me.GroupRegis.Controls.Add(Me.ftModi)
-        Me.GroupRegis.Location = New System.Drawing.Point(12, 366)
+        Me.GroupRegis.Location = New System.Drawing.Point(103, 376)
         Me.GroupRegis.Name = "GroupRegis"
-        Me.GroupRegis.Size = New System.Drawing.Size(498, 50)
+        Me.GroupRegis.Size = New System.Drawing.Size(490, 50)
         Me.GroupRegis.TabIndex = 99
         Me.GroupRegis.TabStop = False
+        '
+        'txtCodRegis
+        '
+        Me.txtCodRegis.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodRegis.Location = New System.Drawing.Point(135, 14)
+        Me.txtCodRegis.Multiline = True
+        Me.txtCodRegis.Name = "txtCodRegis"
+        Me.txtCodRegis.Size = New System.Drawing.Size(88, 31)
+        Me.txtCodRegis.TabIndex = 87
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel4.Controls.Add(Me.Panel10)
         Me.Panel4.Controls.Add(Me.Label40)
-        Me.Panel4.Controls.Add(Me.Label41)
-        Me.Panel4.Location = New System.Drawing.Point(6, 13)
+        Me.Panel4.Location = New System.Drawing.Point(11, 13)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(113, 31)
         Me.Panel4.TabIndex = 90
+        '
+        'Panel10
+        '
+        Me.Panel10.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel10.Controls.Add(Me.Label23)
+        Me.Panel10.Location = New System.Drawing.Point(99, 27)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(113, 31)
+        Me.Panel10.TabIndex = 91
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.White
+        Me.Label23.Location = New System.Drawing.Point(14, 6)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(85, 21)
+        Me.Label23.TabIndex = 8
+        Me.Label23.Text = "Regis. Por"
         '
         'Label40
         '
         Me.Label40.AutoSize = True
         Me.Label40.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label40.ForeColor = System.Drawing.Color.White
-        Me.Label40.Location = New System.Drawing.Point(14, 5)
+        Me.Label40.Location = New System.Drawing.Point(14, 6)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(85, 21)
         Me.Label40.TabIndex = 8
         Me.Label40.Text = "Regis. Por"
         '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.ForeColor = System.Drawing.Color.White
-        Me.Label41.Location = New System.Drawing.Point(15, 5)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(78, 21)
-        Me.Label41.TabIndex = 8
-        Me.Label41.Text = "Cod Modi"
-        Me.Label41.Visible = False
-        '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel7.Controls.Add(Me.Label39)
-        Me.Panel7.Location = New System.Drawing.Point(229, 13)
+        Me.Panel7.Location = New System.Drawing.Point(229, 14)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(113, 31)
         Me.Panel7.TabIndex = 93
@@ -351,23 +375,32 @@ Partial Class Pagos
         Me.Label39.TabIndex = 85
         Me.Label39.Text = "Fecha Regis"
         '
-        'txtCodRegis
-        '
-        Me.txtCodRegis.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodRegis.Location = New System.Drawing.Point(127, 10)
-        Me.txtCodRegis.Multiline = True
-        Me.txtCodRegis.Name = "txtCodRegis"
-        Me.txtCodRegis.Size = New System.Drawing.Size(88, 31)
-        Me.txtCodRegis.TabIndex = 87
-        '
         'ftRegis
         '
         Me.ftRegis.CalendarFont = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ftRegis.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.ftRegis.Location = New System.Drawing.Point(356, 19)
+        Me.ftRegis.Location = New System.Drawing.Point(348, 19)
         Me.ftRegis.Name = "ftRegis"
         Me.ftRegis.Size = New System.Drawing.Size(131, 22)
         Me.ftRegis.TabIndex = 88
+        '
+        'txtCodModi
+        '
+        Me.txtCodModi.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodModi.Location = New System.Drawing.Point(127, 14)
+        Me.txtCodModi.Multiline = True
+        Me.txtCodModi.Name = "txtCodModi"
+        Me.txtCodModi.Size = New System.Drawing.Size(88, 31)
+        Me.txtCodModi.TabIndex = 94
+        '
+        'ftModi
+        '
+        Me.ftModi.CalendarFont = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ftModi.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.ftModi.Location = New System.Drawing.Point(345, 19)
+        Me.ftModi.Name = "ftModi"
+        Me.ftModi.Size = New System.Drawing.Size(131, 22)
+        Me.ftModi.TabIndex = 95
         '
         'DtFechaMovimiento
         '
@@ -410,6 +443,17 @@ Partial Class Pagos
         Me.Panel3.Size = New System.Drawing.Size(763, 31)
         Me.Panel3.TabIndex = 91
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(432, 6)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(70, 21)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Anulada"
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -420,59 +464,6 @@ Partial Class Pagos
         Me.Label8.Size = New System.Drawing.Size(139, 21)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Pagos Realizados"
-        '
-        'btnPagar
-        '
-        Me.btnPagar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPagar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPagar.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_payroll_40
-        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(169, 442)
-        Me.btnPagar.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnPagar.Size = New System.Drawing.Size(118, 67)
-        Me.btnPagar.TabIndex = 109
-        Me.btnPagar.Text = "Pagar"
-        Me.btnPagar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnPagar.UseMnemonic = False
-        Me.btnPagar.UseVisualStyleBackColor = True
-        '
-        'BtnCerrarContratos
-        '
-        Me.BtnCerrarContratos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BtnCerrarContratos.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCerrarContratos.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40
-        Me.BtnCerrarContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCerrarContratos.Location = New System.Drawing.Point(37, 442)
-        Me.BtnCerrarContratos.Margin = New System.Windows.Forms.Padding(0)
-        Me.BtnCerrarContratos.Name = "BtnCerrarContratos"
-        Me.BtnCerrarContratos.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.BtnCerrarContratos.Size = New System.Drawing.Size(118, 67)
-        Me.BtnCerrarContratos.TabIndex = 108
-        Me.BtnCerrarContratos.Text = "Cerrar"
-        Me.BtnCerrarContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnCerrarContratos.UseMnemonic = False
-        Me.BtnCerrarContratos.UseVisualStyleBackColor = True
-        '
-        'btnReporte
-        '
-        Me.btnReporte.Enabled = False
-        Me.btnReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnReporte.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReporte.ForeColor = System.Drawing.Color.Black
-        Me.btnReporte.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40
-        Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReporte.Location = New System.Drawing.Point(304, 444)
-        Me.btnReporte.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnReporte.Name = "btnReporte"
-        Me.btnReporte.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnReporte.Size = New System.Drawing.Size(139, 65)
-        Me.btnReporte.TabIndex = 110
-        Me.btnReporte.Text = "Imprimir"
-        Me.btnReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnReporte.UseMnemonic = False
-        Me.btnReporte.UseVisualStyleBackColor = True
         '
         'txtRemision
         '
@@ -690,23 +681,6 @@ Partial Class Pagos
         Me.LabelPagado.TabIndex = 0
         Me.LabelPagado.Text = "Pagado"
         '
-        'btnExportar
-        '
-        Me.btnExportar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnExportar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExportar.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoExportar
-        Me.btnExportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnExportar.Location = New System.Drawing.Point(459, 444)
-        Me.btnExportar.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnExportar.Name = "btnExportar"
-        Me.btnExportar.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnExportar.Size = New System.Drawing.Size(151, 65)
-        Me.btnExportar.TabIndex = 129
-        Me.btnExportar.Text = "Exportar"
-        Me.btnExportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnExportar.UseMnemonic = False
-        Me.btnExportar.UseVisualStyleBackColor = True
-        '
         'cboCodigoContable
         '
         Me.cboCodigoContable.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
@@ -720,52 +694,6 @@ Partial Class Pagos
         Me.cboCodigoContable.Size = New System.Drawing.Size(222, 26)
         Me.cboCodigoContable.TabIndex = 130
         '
-        'txtCodModi
-        '
-        Me.txtCodModi.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodModi.Location = New System.Drawing.Point(127, 10)
-        Me.txtCodModi.Multiline = True
-        Me.txtCodModi.Name = "txtCodModi"
-        Me.txtCodModi.Size = New System.Drawing.Size(88, 31)
-        Me.txtCodModi.TabIndex = 94
-        '
-        'ftModi
-        '
-        Me.ftModi.CalendarFont = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ftModi.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.ftModi.Location = New System.Drawing.Point(356, 19)
-        Me.ftModi.Name = "ftModi"
-        Me.ftModi.Size = New System.Drawing.Size(131, 22)
-        Me.ftModi.TabIndex = 95
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnEliminar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.Image = Global.Modulo_Facturacion.My.Resources.Resources.iconoEliminar
-        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(621, 444)
-        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnEliminar.Size = New System.Drawing.Size(153, 65)
-        Me.btnEliminar.TabIndex = 131
-        Me.btnEliminar.Text = "Anular Pago"
-        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnEliminar.UseMnemonic = False
-        Me.btnEliminar.UseVisualStyleBackColor = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(432, 6)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(70, 21)
-        Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Anulada"
-        '
         'CheckAnulada
         '
         Me.CheckAnulada.AutoSize = True
@@ -776,17 +704,141 @@ Partial Class Pagos
         Me.CheckAnulada.TabIndex = 132
         Me.CheckAnulada.UseVisualStyleBackColor = True
         '
+        'btnEliminar
+        '
+        Me.btnEliminar.Enabled = False
+        Me.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnEliminar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.Image = Global.Modulo_Facturacion.My.Resources.Resources.iconoEliminar
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminar.Location = New System.Drawing.Point(503, 449)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnEliminar.Size = New System.Drawing.Size(153, 65)
+        Me.btnEliminar.TabIndex = 131
+        Me.btnEliminar.Text = "Anular Pago"
+        Me.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEliminar.UseMnemonic = False
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnReporte
+        '
+        Me.btnReporte.Enabled = False
+        Me.btnReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnReporte.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReporte.ForeColor = System.Drawing.Color.Black
+        Me.btnReporte.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40
+        Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReporte.Location = New System.Drawing.Point(351, 451)
+        Me.btnReporte.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnReporte.Name = "btnReporte"
+        Me.btnReporte.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnReporte.Size = New System.Drawing.Size(139, 65)
+        Me.btnReporte.TabIndex = 110
+        Me.btnReporte.Text = "Imprimir"
+        Me.btnReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnReporte.UseMnemonic = False
+        Me.btnReporte.UseVisualStyleBackColor = True
+        '
+        'btnPagar
+        '
+        Me.btnPagar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnPagar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagar.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_payroll_40
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPagar.Location = New System.Drawing.Point(223, 449)
+        Me.btnPagar.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnPagar.Size = New System.Drawing.Size(118, 67)
+        Me.btnPagar.TabIndex = 109
+        Me.btnPagar.Text = "Pagar"
+        Me.btnPagar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnPagar.UseMnemonic = False
+        Me.btnPagar.UseVisualStyleBackColor = True
+        '
+        'BtnCerrarContratos
+        '
+        Me.BtnCerrarContratos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BtnCerrarContratos.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCerrarContratos.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40
+        Me.BtnCerrarContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCerrarContratos.Location = New System.Drawing.Point(91, 449)
+        Me.BtnCerrarContratos.Margin = New System.Windows.Forms.Padding(0)
+        Me.BtnCerrarContratos.Name = "BtnCerrarContratos"
+        Me.BtnCerrarContratos.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.BtnCerrarContratos.Size = New System.Drawing.Size(118, 67)
+        Me.BtnCerrarContratos.TabIndex = 108
+        Me.BtnCerrarContratos.Text = "Cerrar"
+        Me.BtnCerrarContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnCerrarContratos.UseMnemonic = False
+        Me.BtnCerrarContratos.UseVisualStyleBackColor = True
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel8.Controls.Add(Me.Label22)
+        Me.Panel8.Location = New System.Drawing.Point(8, 14)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(113, 31)
+        Me.Panel8.TabIndex = 90
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(15, 5)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(78, 21)
+        Me.Label22.TabIndex = 8
+        Me.Label22.Text = "Cod Modi"
+        '
+        'GroupModi
+        '
+        Me.GroupModi.Controls.Add(Me.Panel9)
+        Me.GroupModi.Controls.Add(Me.Panel8)
+        Me.GroupModi.Controls.Add(Me.txtCodModi)
+        Me.GroupModi.Controls.Add(Me.ftModi)
+        Me.GroupModi.Location = New System.Drawing.Point(104, 376)
+        Me.GroupModi.Name = "GroupModi"
+        Me.GroupModi.Size = New System.Drawing.Size(489, 50)
+        Me.GroupModi.TabIndex = 100
+        Me.GroupModi.TabStop = False
+        Me.GroupModi.Visible = False
+        '
+        'Panel9
+        '
+        Me.Panel9.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel9.Controls.Add(Me.Label7)
+        Me.Panel9.Location = New System.Drawing.Point(221, 14)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(113, 31)
+        Me.Panel9.TabIndex = 94
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(6, 5)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(94, 21)
+        Me.Label7.TabIndex = 85
+        Me.Label7.Text = "Fecha Modi"
+        '
         'Pagos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(793, 554)
+        Me.ClientSize = New System.Drawing.Size(796, 554)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupRegis)
         Me.Controls.Add(Me.CheckAnulada)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.cboCodigoContable)
-        Me.Controls.Add(Me.btnExportar)
         Me.Controls.Add(Me.LabelPendiente)
         Me.Controls.Add(Me.LabelPagado)
         Me.Controls.Add(Me.DtUltimoPago)
@@ -809,12 +861,12 @@ Partial Class Pagos
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.txtValorCredito)
         Me.Controls.Add(Me.DtFechaMovimiento)
-        Me.Controls.Add(Me.GroupRegis)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtDetallePago)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.cboFacturas)
+        Me.Controls.Add(Me.GroupModi)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Pagos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -828,12 +880,20 @@ Partial Class Pagos
         Me.GroupRegis.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.Panel10.ResumeLayout(False)
+        Me.Panel10.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        Me.GroupModi.ResumeLayout(False)
+        Me.GroupModi.PerformLayout()
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -850,9 +910,7 @@ Partial Class Pagos
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupRegis As GroupBox
-    Friend WithEvents Panel4 As Panel
     Friend WithEvents Label40 As Label
-    Friend WithEvents Label41 As Label
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Label39 As Label
     Friend WithEvents txtCodRegis As TextBox
@@ -893,11 +951,18 @@ Partial Class Pagos
     Friend WithEvents DtUltimoPago As DateTimePicker
     Friend WithEvents LabelPendiente As Label
     Friend WithEvents LabelPagado As Label
-    Friend WithEvents btnExportar As Button
     Friend WithEvents cboCodigoContable As ComboBox
     Friend WithEvents txtCodModi As TextBox
     Friend WithEvents ftModi As DateTimePicker
     Friend WithEvents btnEliminar As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents CheckAnulada As CheckBox
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Label22 As Label
+    Friend WithEvents GroupModi As GroupBox
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Panel10 As Panel
+    Friend WithEvents Label23 As Label
 End Class

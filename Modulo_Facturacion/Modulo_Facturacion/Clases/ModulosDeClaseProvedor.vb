@@ -77,7 +77,11 @@ Public Class ModulosDeClaseProvedor
                             End If
 
                         Catch ex As Exception
-                            MsgBox(ex.ToString)
+                            Titulo01 = "Control de errores de ejecución"
+                            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                            Informa += "en el registro del cliente/provedor" & Chr(13) & Chr(10)
+                            Informa += "Mensaje del error: " & ex.Message
+                            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End Try
                     End If
                 Else
@@ -126,7 +130,11 @@ Public Class ModulosDeClaseProvedor
             Else
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el registro del cliente Natural" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return Nothing
     End Function
@@ -193,7 +201,11 @@ Public Class ModulosDeClaseProvedor
                 End If
 
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                Titulo01 = "Control de errores de ejecución"
+                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                Informa += "en la actualizacion del cliente/proveedor" & Chr(13) & Chr(10)
+                Informa += "Mensaje del error: " & ex.Message
+                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
 
@@ -218,7 +230,11 @@ Public Class ModulosDeClaseProvedor
                 End If
                 cn.Close()
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                Titulo01 = "Control de errores de ejecución"
+                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                Informa += "en la actualizacion del cliente/proveedor De Persona Natural" & Chr(13) & Chr(10)
+                Informa += "Mensaje del error: " & ex.Message
+                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         Else
         End If
@@ -244,7 +260,11 @@ Public Class ModulosDeClaseProvedor
                     Return MsgBox("Error")
                 End If
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                Titulo01 = "Control de errores de ejecución"
+                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                Informa += "en la eliminacion de personas naturales" & Chr(13) & Chr(10)
+                Informa += "Mensaje del error: " & ex.Message
+                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
 
@@ -264,7 +284,10 @@ Public Class ModulosDeClaseProvedor
                 End If
                 cn.Close()
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                Informa += "en la eliminacion de cliente/proveedor" & Chr(13) & Chr(10)
+                Informa += "Mensaje del error: " & ex.Message
+                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
 
@@ -297,7 +320,10 @@ Public Class ModulosDeClaseProvedor
                 MsgBox("Registro Completo")
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el registro de cuentas bancarias" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return True
     End Function
@@ -320,7 +346,10 @@ Public Class ModulosDeClaseProvedor
                 MsgBox("Eliminacion Completada")
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la eliminacion de cuentas bancarias" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return True
     End Function

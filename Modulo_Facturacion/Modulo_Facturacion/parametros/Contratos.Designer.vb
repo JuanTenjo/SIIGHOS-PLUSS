@@ -23,11 +23,11 @@ Partial Class Contratos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Contratos))
         Me.txtIdContrato = New System.Windows.Forms.TextBox()
         Me.cboNombreContratante = New System.Windows.Forms.ComboBox()
@@ -125,6 +125,7 @@ Partial Class Contratos
         Me.cboVezPoliza = New System.Windows.Forms.ComboBox()
         Me.txtCodPoliza = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Panel15 = New System.Windows.Forms.Panel()
         Me.txtPorceIVA = New System.Windows.Forms.TextBox()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label44 = New System.Windows.Forms.Label()
@@ -148,7 +149,6 @@ Partial Class Contratos
         Me.GroupRegis = New System.Windows.Forms.GroupBox()
         Me.btnReporte = New System.Windows.Forms.Button()
         Me.btnGrabar = New System.Windows.Forms.Button()
-        Me.Panel15 = New System.Windows.Forms.Panel()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnExportar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -193,7 +193,7 @@ Partial Class Contratos
         Me.cboNombreContratante.FormattingEnabled = True
         Me.cboNombreContratante.Location = New System.Drawing.Point(103, 37)
         Me.cboNombreContratante.Name = "cboNombreContratante"
-        Me.cboNombreContratante.Size = New System.Drawing.Size(281, 26)
+        Me.cboNombreContratante.Size = New System.Drawing.Size(374, 26)
         Me.cboNombreContratante.TabIndex = 1
         '
         'Label1
@@ -212,7 +212,7 @@ Partial Class Contratos
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(150, 7)
+        Me.Label2.Location = New System.Drawing.Point(200, 7)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(191, 21)
         Me.Label2.TabIndex = 3
@@ -223,7 +223,7 @@ Partial Class Contratos
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(409, 7)
+        Me.Label3.Location = New System.Drawing.Point(499, 7)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(80, 21)
         Me.Label3.TabIndex = 4
@@ -232,10 +232,9 @@ Partial Class Contratos
         'cboTipoDocuContrato
         '
         Me.cboTipoDocuContrato.BackColor = System.Drawing.Color.White
-        Me.cboTipoDocuContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboTipoDocuContrato.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipoDocuContrato.FormattingEnabled = True
-        Me.cboTipoDocuContrato.Location = New System.Drawing.Point(411, 36)
+        Me.cboTipoDocuContrato.Location = New System.Drawing.Point(504, 37)
         Me.cboTipoDocuContrato.Name = "cboTipoDocuContrato"
         Me.cboTipoDocuContrato.Size = New System.Drawing.Size(75, 26)
         Me.cboTipoDocuContrato.TabIndex = 4
@@ -270,7 +269,7 @@ Partial Class Contratos
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(712, 7)
+        Me.Label5.Location = New System.Drawing.Point(794, 4)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(72, 21)
         Me.Label5.TabIndex = 6
@@ -281,7 +280,7 @@ Partial Class Contratos
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(517, 7)
+        Me.Label4.Location = New System.Drawing.Point(605, 7)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(158, 21)
         Me.Label4.TabIndex = 5
@@ -291,7 +290,7 @@ Partial Class Contratos
         '
         Me.txtNumeroDocumento.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNumeroDocumento.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.txtNumeroDocumento.Location = New System.Drawing.Point(517, 36)
+        Me.txtNumeroDocumento.Location = New System.Drawing.Point(609, 36)
         Me.txtNumeroDocumento.MaxLength = 13
         Me.txtNumeroDocumento.Multiline = True
         Me.txtNumeroDocumento.Name = "txtNumeroDocumento"
@@ -302,7 +301,7 @@ Partial Class Contratos
         'txtSucursal
         '
         Me.txtSucursal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucursal.Location = New System.Drawing.Point(715, 36)
+        Me.txtSucursal.Location = New System.Drawing.Point(800, 36)
         Me.txtSucursal.MaxLength = 3
         Me.txtSucursal.Multiline = True
         Me.txtSucursal.Name = "txtSucursal"
@@ -439,7 +438,6 @@ Partial Class Contratos
         '
         'cboVigente
         '
-        Me.cboVigente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboVigente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboVigente.FormattingEnabled = True
         Me.cboVigente.Items.AddRange(New Object() {"No ", "Si"})
@@ -470,6 +468,7 @@ Partial Class Contratos
         '
         'txt0bjetoContrato
         '
+        Me.txt0bjetoContrato.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt0bjetoContrato.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt0bjetoContrato.Location = New System.Drawing.Point(185, 150)
         Me.txt0bjetoContrato.Multiline = True
@@ -944,14 +943,14 @@ Partial Class Contratos
         Me.DataGridDetalleCuotas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroDeCouta, Me.FechaDePago, Me.Porcentage, Me.ValorTotalCouta, Me.EstadoPagado})
         Me.DataGridDetalleCuotas.Location = New System.Drawing.Point(431, 454)
         Me.DataGridDetalleCuotas.Name = "DataGridDetalleCuotas"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridDetalleCuotas.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle23.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridDetalleCuotas.RowHeadersDefaultCellStyle = DataGridViewCellStyle23
         Me.DataGridDetalleCuotas.RowHeadersVisible = False
         Me.DataGridDetalleCuotas.RowTemplate.Height = 24
         Me.DataGridDetalleCuotas.Size = New System.Drawing.Size(454, 278)
@@ -966,9 +965,9 @@ Partial Class Contratos
         '
         'FechaDePago
         '
-        DataGridViewCellStyle6.Format = "d"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle21.Format = "d"
+        DataGridViewCellStyle21.NullValue = Nothing
+        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle21
         Me.FechaDePago.HeaderText = "Fecha"
         Me.FechaDePago.Name = "FechaDePago"
         '
@@ -980,8 +979,8 @@ Partial Class Contratos
         '
         'ValorTotalCouta
         '
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle22.NullValue = Nothing
+        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle22
         Me.ValorTotalCouta.HeaderText = "Cuota"
         Me.ValorTotalCouta.MaxInputLength = 10
         Me.ValorTotalCouta.Name = "ValorTotalCouta"
@@ -1062,14 +1061,14 @@ Partial Class Contratos
         Me.DataGridContratos.BackgroundColor = System.Drawing.Color.White
         Me.DataGridContratos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DataGridContratos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridContratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle24.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle24.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridContratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle24
         Me.DataGridContratos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridContratos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DataGridContratos.EnableHeadersVisualStyles = False
@@ -1078,14 +1077,14 @@ Partial Class Contratos
         Me.DataGridContratos.MultiSelect = False
         Me.DataGridContratos.Name = "DataGridContratos"
         Me.DataGridContratos.ReadOnly = True
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridContratos.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle25.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridContratos.RowHeadersDefaultCellStyle = DataGridViewCellStyle25
         Me.DataGridContratos.RowHeadersVisible = False
         Me.DataGridContratos.RowTemplate.Height = 24
         Me.DataGridContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -1131,6 +1130,7 @@ Partial Class Contratos
         Me.txtNumeroPolizas.Size = New System.Drawing.Size(58, 26)
         Me.txtNumeroPolizas.TabIndex = 58
         Me.ToolTip1.SetToolTip(Me.txtNumeroPolizas, "Digita un numero menor o igual a 5 " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "y presiona enter para generar polizas")
+        Me.txtNumeroPolizas.Visible = False
         '
         'cboVezPoliza
         '
@@ -1139,6 +1139,7 @@ Partial Class Contratos
         Me.cboVezPoliza.Name = "cboVezPoliza"
         Me.cboVezPoliza.Size = New System.Drawing.Size(117, 24)
         Me.cboVezPoliza.TabIndex = 59
+        Me.cboVezPoliza.Visible = False
         '
         'txtCodPoliza
         '
@@ -1147,6 +1148,18 @@ Partial Class Contratos
         Me.txtCodPoliza.Name = "txtCodPoliza"
         Me.txtCodPoliza.Size = New System.Drawing.Size(87, 26)
         Me.txtCodPoliza.TabIndex = 60
+        Me.txtCodPoliza.Visible = False
+        '
+        'Panel15
+        '
+        Me.Panel15.BackgroundImage = CType(resources.GetObject("Panel15.BackgroundImage"), System.Drawing.Image)
+        Me.Panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Panel15.Location = New System.Drawing.Point(919, 37)
+        Me.Panel15.Name = "Panel15"
+        Me.Panel15.Size = New System.Drawing.Size(40, 31)
+        Me.Panel15.TabIndex = 51
+        Me.ToolTip1.SetToolTip(Me.Panel15, "Busca por el numero de documento del tercero o " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "para ser mas espefico por el num" &
+        "ero de contrato")
         '
         'txtPorceIVA
         '
@@ -1173,7 +1186,7 @@ Partial Class Contratos
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(1279, 847)
+        Me.Label44.Location = New System.Drawing.Point(1270, 849)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(32, 17)
         Me.Label44.TabIndex = 65
@@ -1182,7 +1195,7 @@ Partial Class Contratos
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(1217, 847)
+        Me.Label45.Location = New System.Drawing.Point(1208, 849)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(56, 17)
         Me.Label45.TabIndex = 64
@@ -1191,7 +1204,7 @@ Partial Class Contratos
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(1179, 847)
+        Me.Label35.Location = New System.Drawing.Point(1170, 849)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(32, 17)
         Me.Label35.TabIndex = 63
@@ -1200,7 +1213,7 @@ Partial Class Contratos
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(1112, 847)
+        Me.Label36.Location = New System.Drawing.Point(1103, 849)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(61, 17)
         Me.Label36.TabIndex = 62
@@ -1210,7 +1223,7 @@ Partial Class Contratos
         '
         Me.PanelModiFecha.BackColor = System.Drawing.Color.LightSeaGreen
         Me.PanelModiFecha.Controls.Add(Me.Label37)
-        Me.PanelModiFecha.Location = New System.Drawing.Point(229, 13)
+        Me.PanelModiFecha.Location = New System.Drawing.Point(205, 13)
         Me.PanelModiFecha.Name = "PanelModiFecha"
         Me.PanelModiFecha.Size = New System.Drawing.Size(113, 31)
         Me.PanelModiFecha.TabIndex = 94
@@ -1250,24 +1263,26 @@ Partial Class Contratos
         '
         Me.txtCodRegis.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodRegis.Location = New System.Drawing.Point(125, 13)
+        Me.txtCodRegis.MaxLength = 3
         Me.txtCodRegis.Multiline = True
         Me.txtCodRegis.Name = "txtCodRegis"
-        Me.txtCodRegis.Size = New System.Drawing.Size(88, 31)
+        Me.txtCodRegis.Size = New System.Drawing.Size(78, 31)
         Me.txtCodRegis.TabIndex = 87
         '
         'ftRegis
         '
         Me.ftRegis.CalendarFont = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ftRegis.Location = New System.Drawing.Point(348, 17)
+        Me.ftRegis.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.ftRegis.Location = New System.Drawing.Point(326, 17)
         Me.ftRegis.Name = "ftRegis"
-        Me.ftRegis.Size = New System.Drawing.Size(131, 22)
+        Me.ftRegis.Size = New System.Drawing.Size(97, 22)
         Me.ftRegis.TabIndex = 88
         '
         'PanelRegisrarFecha
         '
         Me.PanelRegisrarFecha.BackColor = System.Drawing.Color.LightSeaGreen
         Me.PanelRegisrarFecha.Controls.Add(Me.Label39)
-        Me.PanelRegisrarFecha.Location = New System.Drawing.Point(229, 13)
+        Me.PanelRegisrarFecha.Location = New System.Drawing.Point(209, 13)
         Me.PanelRegisrarFecha.Name = "PanelRegisrarFecha"
         Me.PanelRegisrarFecha.Size = New System.Drawing.Size(113, 31)
         Me.PanelRegisrarFecha.TabIndex = 93
@@ -1286,18 +1301,20 @@ Partial Class Contratos
         'ftModi
         '
         Me.ftModi.CalendarFont = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ftModi.Location = New System.Drawing.Point(348, 18)
+        Me.ftModi.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.ftModi.Location = New System.Drawing.Point(324, 18)
         Me.ftModi.Name = "ftModi"
-        Me.ftModi.Size = New System.Drawing.Size(131, 22)
+        Me.ftModi.Size = New System.Drawing.Size(93, 22)
         Me.ftModi.TabIndex = 92
         '
         'txtCodModi
         '
         Me.txtCodModi.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodModi.Location = New System.Drawing.Point(125, 13)
+        Me.txtCodModi.MaxLength = 3
         Me.txtCodModi.Multiline = True
         Me.txtCodModi.Name = "txtCodModi"
-        Me.txtCodModi.Size = New System.Drawing.Size(88, 31)
+        Me.txtCodModi.Size = New System.Drawing.Size(70, 31)
         Me.txtCodModi.TabIndex = 89
         '
         'PanelRegistrar
@@ -1341,7 +1358,7 @@ Partial Class Contratos
         Me.GroupModi.Controls.Add(Me.ftModi)
         Me.GroupModi.Location = New System.Drawing.Point(10, 738)
         Me.GroupModi.Name = "GroupModi"
-        Me.GroupModi.Size = New System.Drawing.Size(498, 50)
+        Me.GroupModi.Size = New System.Drawing.Size(426, 50)
         Me.GroupModi.TabIndex = 95
         Me.GroupModi.TabStop = False
         '
@@ -1351,9 +1368,9 @@ Partial Class Contratos
         Me.GroupRegis.Controls.Add(Me.PanelRegisrarFecha)
         Me.GroupRegis.Controls.Add(Me.txtCodRegis)
         Me.GroupRegis.Controls.Add(Me.ftRegis)
-        Me.GroupRegis.Location = New System.Drawing.Point(10, 738)
+        Me.GroupRegis.Location = New System.Drawing.Point(442, 738)
         Me.GroupRegis.Name = "GroupRegis"
-        Me.GroupRegis.Size = New System.Drawing.Size(498, 50)
+        Me.GroupRegis.Size = New System.Drawing.Size(443, 50)
         Me.GroupRegis.TabIndex = 96
         Me.GroupRegis.TabStop = False
         '
@@ -1393,20 +1410,10 @@ Partial Class Contratos
         Me.btnGrabar.UseMnemonic = False
         Me.btnGrabar.UseVisualStyleBackColor = True
         '
-        'Panel15
-        '
-        Me.Panel15.BackgroundImage = CType(resources.GetObject("Panel15.BackgroundImage"), System.Drawing.Image)
-        Me.Panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel15.Location = New System.Drawing.Point(919, 37)
-        Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(40, 31)
-        Me.Panel15.TabIndex = 51
-        Me.ToolTip1.SetToolTip(Me.Panel15, "Busca por el numero de documento del tercero o " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "para ser mas espefico por el num" &
-        "ero de contrato")
-        '
         'btnGuardar
         '
         Me.btnGuardar.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.btnGuardar.Enabled = False
         Me.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnGuardar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
