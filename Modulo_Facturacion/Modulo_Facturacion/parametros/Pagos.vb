@@ -6,17 +6,24 @@ Public Class Pagos
 #Region "ComboBox"
 
     Private Sub CargarCombobox()
+        Try
+            Dim Facturas As DataSet = SQLDataSET("SELECT df.NumFact FROM [Datos facturas realizadas] as df WHERE FactAnula = 0")
+            cboFacturas.DataSource = Facturas.Tables(0)
+            cboFacturas.DisplayMember = "NumFact"
+            cboFacturas.ValueMember = "NumFact"
 
-        Dim Facturas As DataSet = SQLDataSET("SELECT df.NumFact FROM [Datos facturas realizadas] as df WHERE FactAnula = 0")
-        cboFacturas.DataSource = Facturas.Tables(0)
-        cboFacturas.DisplayMember = "NumFact"
-        cboFacturas.ValueMember = "NumFact"
+            Dim CodigoContables As DataSet = SQLDataSET("SELECT CueContaIPS, CueContaIPS + ' ' + NomCConIPS as CodigoContable FROM [Datos ctas contables IPS]")
+            cboCodigoContable.DataSource = CodigoContables.Tables(0)
+            cboCodigoContable.DisplayMember = "CodigoContable"
+            cboCodigoContable.ValueMember = "CueContaIPS"
 
-        Dim CodigoContables As DataSet = SQLDataSET("SELECT CueContaIPS, CueContaIPS + ' ' + NomCConIPS as CodigoContable FROM [Datos ctas contables IPS]")
-        cboCodigoContable.DataSource = CodigoContables.Tables(0)
-        cboCodigoContable.DisplayMember = "CodigoContable"
-        cboCodigoContable.ValueMember = "CueContaIPS"
-
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la funcion de cargar combobox" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
     End Sub
 
@@ -27,8 +34,67 @@ Public Class Pagos
 
 #End Region
 
-
 #Region "Botones y Texbox"
+    Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
+        Try
+
+            If ValidarDatos() Then
+                Dim Consulta As Boolean = ModuloDeClasePagos.RegistrarPago(cboFacturas.SelectedValue, cboCodigoContable.SelectedValue, txtDetallePago.Text, txtValorDebito.Text,
+                                             txtValorCredito.Text, DtFechaMovimiento.Value, 0, Date.Now, txtCodRegis.Text, ftRegis.Value, txtCodModi.Text,
+                                             ftModi.Value, txtValorDescuento.Text, txtImpuestos.Text, txtPagoRealizados.Text, DtUltimoPago.Value, txtRemision.Text)
+                If Consulta Then
+                    CargarDatosFactura()
+                End If
+
+            End If
+
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la funcion pagar " & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Try
+            If ValidarDatos() Then
+                Dim fecha As Date = Date.Now
+                If MsgBox("¿Desea anular este pago?", vbYesNo) = vbYes Then
+                    ModuloDeClasePagos.AnularPago(cboFacturas.SelectedValue, txtRemision.Text)
+                    CargarDatosFactura()
+                End If
+            End If
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la funcion eliminar pago " & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+    Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
+        Try
+            If bandera = 1 Then
+
+                ModuloVariablesAplicacion.InfConsultaReporte = "SELECT * FROM [Datos detalle de pagos] WHERE Numero_factura = '" & cboFacturas.SelectedValue & "'"
+                ModuloVariablesAplicacion.InfCabecera = "Pagos"
+                ModuloVariablesAplicacion.InfTituloInforme = "Reporte de Pagos"
+                ModuloVariablesAplicacion.infNombreInforme = "ReportPagos"
+
+                Dim FrmsInformes As New FrmlInformes
+                FrmlInformes.ShowDialog()
+
+            End If
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la boton generar reporte  " & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
     Private Sub txtDocuTer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtValorIVAFactura.KeyPress, txtValorFactura.KeyPress, txtValorDescuento.KeyPress, txtValorDebito.KeyPress, txtValorCredito.KeyPress, txtRemision.KeyPress, txtImpuestos.KeyPress, txtDocuTer.KeyPress, cboCodigoContable.KeyPress
         soloNumeros(e)
@@ -52,42 +118,51 @@ Public Class Pagos
 #Region "Funciones"
 
     Private Function ValidarDatos() As Boolean
-        Dim estado As Boolean = False
+        Try
+            Dim estado As Boolean = False
 
-        If cboFacturas.SelectedIndex = -1 Then
-            MsgBox("No escogio una factura existente")
-            cboFacturas.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrWhiteSpace(txtValorDebito.Text) Then
-            MsgBox("Digite un valor debito")
-            txtValorDebito.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrWhiteSpace(txtValorCredito.Text) Then
-            MsgBox("Digite un valor credito")
-            txtValorCredito.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboCodigoContable.SelectedIndex = -1 Then
-            MsgBox("No escogio una cuenta contable existente")
-            cboCodigoContable.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
+            If cboFacturas.SelectedIndex = -1 Then
+                MsgBox("No escogio una factura existente")
+                cboFacturas.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(txtValorDebito.Text) Then
+                MsgBox("Digite un valor debito")
+                txtValorDebito.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(txtValorCredito.Text) Then
+                MsgBox("Digite un valor credito")
+                txtValorCredito.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboCodigoContable.SelectedIndex = -1 Then
+                MsgBox("No escogio una cuenta contable existente")
+                cboCodigoContable.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
 
-        Return estado
+            Return estado
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la validacion de datos" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Function
 
     Private Sub CargarDatosFactura()
@@ -97,7 +172,7 @@ Public Class Pagos
 
                 Dim reader2 As SqlDataReader
                 reader2 = SQLReader("SELECT df.TipDocTer,df.NumDocTer, dp.RazonSol, df.NumRemi, df.ValNetoFac, df.ValIVAFac, df.FecExpFac, df.FecVenFac, df.FecUltiPag, df.TolImpApli,
-                                        df.ValDesFac, df.ValNotDeFac, df.ValNotCreFac, df.TolPagFac, ddp.Detalle, ddp.anulada
+                                        df.ValDesFac, df.ValNotDeFac, df.ValNotCreFac, df.TolPagFac, ddp.Detalle, ddp.anulada, ddp.Cod_Regis, ddp.Fec_Regis, ddp.Cod_Modi, ddp.Fec_Modi
                                 FROM [Datos facturas realizadas] as df, [Datos proveedores] as dp, [Datos detalle de pagos] as ddp
                                 where df.NumDocTer = dp.IdenProve AND ddp.Numero_factura = df.NumFact AND df.NumFact = '" & cboFacturas.SelectedValue & "'")
 
@@ -149,6 +224,10 @@ Public Class Pagos
                     DtFechaExpedicion.Value = Convert.ToDateTime(reader2("FecExpFac"))
                     DtFechaVencimeinto.Value = Convert.ToDateTime(reader2("FecVenFac"))
                     DtUltimoPago.Value = Convert.ToDateTime(reader2("FecUltiPag"))
+                    txtCodRegis.Text = reader2("Cod_Regis")
+                    ftRegis.Value = Convert.ToDateTime(reader2("Fec_Regis"))
+                    txtCodModi.Text = reader2("Cod_Modi")
+                    ftModi.Value = Convert.ToDateTime("Fec_Modi")
                 End If
 
 
@@ -212,50 +291,19 @@ Public Class Pagos
 #End Region
 
     Private Sub Pagos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Call conectarGeogebra()
+            CargarCombobox()
+            bandera = 1
+            CargarDatosFactura()
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la carga del programa" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
-        Call conectarGeogebra()
-        CargarCombobox()
-        bandera = 1
-        CargarDatosFactura()
     End Sub
 
-    Private Sub btnPagar_Click(sender As Object, e As EventArgs) Handles btnPagar.Click
-        If ValidarDatos() Then
-            Dim Consulta As Boolean = ModuloDeClasePagos.RegistrarPago(cboFacturas.SelectedValue, cboCodigoContable.SelectedValue, txtDetallePago.Text, txtValorDebito.Text,
-                                             txtValorCredito.Text, DtFechaMovimiento.Value, 0, Date.Now, txtCodRegis.Text, ftRegis.Value, txtCodModi.Text,
-                                             ftModi.Value, txtValorDescuento.Text, txtImpuestos.Text, txtPagoRealizados.Text, DtUltimoPago.Value, txtRemision.Text)
-            If Consulta Then
-                CargarDatosFactura()
-            End If
 
-        End If
-    End Sub
-
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        If ValidarDatos() Then
-            Dim fecha As Date = Date.Now
-            If MsgBox("¿Desea anular este pago?", vbYesNo) = vbYes Then
-                ModuloDeClasePagos.AnularPago(cboFacturas.SelectedValue, txtRemision.Text)
-                CargarDatosFactura()
-            End If
-        End If
-    End Sub
-
-    Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
-        If bandera = 1 Then
-            Try
-                ModuloVariablesAplicacion.InfConsultaReporte = "SELECT * FROM [Datos detalle de pagos] WHERE Numero_factura = '" & cboFacturas.SelectedValue & "'"
-                ModuloVariablesAplicacion.InfCabecera = "Pagos"
-                ModuloVariablesAplicacion.InfTituloInforme = "Reporte de Pagos"
-                ModuloVariablesAplicacion.infNombreInforme = "ReportPagos"
-
-
-                Dim FrmsInformes As New FrmlInformes
-                FrmlInformes.ShowDialog()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-
-        End If
-    End Sub
 End Class

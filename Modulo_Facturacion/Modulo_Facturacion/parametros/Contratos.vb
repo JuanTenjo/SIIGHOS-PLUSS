@@ -189,6 +189,8 @@ Public Class Contratos
             DtFechaExpedicionPoliza.Value = Now.ToLongDateString
             DataGridDetalleCuotas.DataSource = Nothing
             DataGridDetalleCuotas.Rows.Clear()
+            GroupModi.Enabled = False
+            GroupRegis.Enabled = True
             ' DataGridDetallePolizas.DataSource = Nothing
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
@@ -977,8 +979,8 @@ Public Class Contratos
         btnEliminar.Enabled = True
         btnGrabar.Enabled = False
         btnGuardar.Enabled = True
-        GroupRegis.Visible = True
-        GroupRegis.Visible = True
+        GroupModi.Enabled = True
+        GroupRegis.Enabled = False
         Try
             ' Obtenemos un objeto DataRow correspondiente con
             ' el ID escrito en un control TextBox
@@ -1013,6 +1015,17 @@ Public Class Contratos
             txtNombreEntidadPoliza.Text = Convert.ToString(row("NomEntiPoli"))
             DtFechaExpedicionPoliza.Value = Convert.ToString(row("FecExpPoli"))
             cboNombreRepresentanteLegal.SelectedValue = Convert.ToString(row("NumDocRe"))
+
+
+
+            txtCodRegis.Text = Convert.ToString(row("CodRegis"))
+            ftRegis.Value = Convert.ToDateTime(row("FecRegis"))
+            txtCodModi.Text = Convert.ToString(row("CodRegis"))
+            ftModi.Value = Convert.ToDateTime(row("FecModi"))
+
+
+
+
             Dim ValorSinIva As Double = txtValorSinIva.Text
             Dim ValorIva As Double = txtValorIva.Text
             Dim ValorTotal As Double
@@ -1402,8 +1415,5 @@ Public Class Contratos
 
 
     End Sub
-
-
-
 
 End Class

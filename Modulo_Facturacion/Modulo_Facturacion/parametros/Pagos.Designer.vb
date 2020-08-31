@@ -299,7 +299,7 @@ Partial Class Pagos
         Me.GroupRegis.Controls.Add(Me.Panel4)
         Me.GroupRegis.Controls.Add(Me.Panel7)
         Me.GroupRegis.Controls.Add(Me.ftRegis)
-        Me.GroupRegis.Location = New System.Drawing.Point(103, 376)
+        Me.GroupRegis.Location = New System.Drawing.Point(21, 363)
         Me.GroupRegis.Name = "GroupRegis"
         Me.GroupRegis.Size = New System.Drawing.Size(490, 50)
         Me.GroupRegis.TabIndex = 99
@@ -308,7 +308,7 @@ Partial Class Pagos
         'txtCodRegis
         '
         Me.txtCodRegis.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodRegis.Location = New System.Drawing.Point(135, 14)
+        Me.txtCodRegis.Location = New System.Drawing.Point(127, 14)
         Me.txtCodRegis.Multiline = True
         Me.txtCodRegis.Name = "txtCodRegis"
         Me.txtCodRegis.Size = New System.Drawing.Size(88, 31)
@@ -321,7 +321,7 @@ Partial Class Pagos
         Me.Panel4.Controls.Add(Me.Label40)
         Me.Panel4.Location = New System.Drawing.Point(11, 13)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(113, 31)
+        Me.Panel4.Size = New System.Drawing.Size(110, 31)
         Me.Panel4.TabIndex = 90
         '
         'Panel10
@@ -359,7 +359,7 @@ Partial Class Pagos
         '
         Me.Panel7.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel7.Controls.Add(Me.Label39)
-        Me.Panel7.Location = New System.Drawing.Point(229, 14)
+        Me.Panel7.Location = New System.Drawing.Point(221, 14)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(113, 31)
         Me.Panel7.TabIndex = 93
@@ -379,7 +379,7 @@ Partial Class Pagos
         '
         Me.ftRegis.CalendarFont = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ftRegis.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.ftRegis.Location = New System.Drawing.Point(348, 19)
+        Me.ftRegis.Location = New System.Drawing.Point(345, 19)
         Me.ftRegis.Name = "ftRegis"
         Me.ftRegis.Size = New System.Drawing.Size(131, 22)
         Me.ftRegis.TabIndex = 88
@@ -711,7 +711,7 @@ Partial Class Pagos
         Me.btnEliminar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = Global.Modulo_Facturacion.My.Resources.Resources.iconoEliminar
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(503, 449)
+        Me.btnEliminar.Location = New System.Drawing.Point(499, 502)
         Me.btnEliminar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -730,7 +730,7 @@ Partial Class Pagos
         Me.btnReporte.ForeColor = System.Drawing.Color.Black
         Me.btnReporte.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40
         Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReporte.Location = New System.Drawing.Point(351, 451)
+        Me.btnReporte.Location = New System.Drawing.Point(347, 504)
         Me.btnReporte.Margin = New System.Windows.Forms.Padding(0)
         Me.btnReporte.Name = "btnReporte"
         Me.btnReporte.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -747,7 +747,7 @@ Partial Class Pagos
         Me.btnPagar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_payroll_40
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(223, 449)
+        Me.btnPagar.Location = New System.Drawing.Point(219, 502)
         Me.btnPagar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -764,7 +764,7 @@ Partial Class Pagos
         Me.BtnCerrarContratos.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCerrarContratos.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40
         Me.BtnCerrarContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCerrarContratos.Location = New System.Drawing.Point(91, 449)
+        Me.BtnCerrarContratos.Location = New System.Drawing.Point(87, 502)
         Me.BtnCerrarContratos.Margin = New System.Windows.Forms.Padding(0)
         Me.BtnCerrarContratos.Name = "BtnCerrarContratos"
         Me.BtnCerrarContratos.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -801,9 +801,9 @@ Partial Class Pagos
         Me.GroupModi.Controls.Add(Me.Panel8)
         Me.GroupModi.Controls.Add(Me.txtCodModi)
         Me.GroupModi.Controls.Add(Me.ftModi)
-        Me.GroupModi.Location = New System.Drawing.Point(104, 376)
+        Me.GroupModi.Location = New System.Drawing.Point(21, 419)
         Me.GroupModi.Name = "GroupModi"
-        Me.GroupModi.Size = New System.Drawing.Size(489, 50)
+        Me.GroupModi.Size = New System.Drawing.Size(490, 50)
         Me.GroupModi.TabIndex = 100
         Me.GroupModi.TabStop = False
         Me.GroupModi.Visible = False
@@ -833,7 +833,7 @@ Partial Class Pagos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(796, 554)
+        Me.ClientSize = New System.Drawing.Size(796, 578)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupRegis)
         Me.Controls.Add(Me.CheckAnulada)

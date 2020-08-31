@@ -81,13 +81,13 @@ Public Class Remisiones
 
                 MsgBox("Esta cuota ya esta facturada, no podras modificarla")
                 btnFacturar.Enabled = False
-                GroupModi.Visible = False
-                GroupRegis.Visible = False
                 btnaAgregarFila.Enabled = False
                 btnEliminar.Enabled = False
+                GroupRegis.Visible = True
+                GroupModi.Visible = True
                 Dim reader As SqlDataReader
                 reader = SQLReader("SELECT DTR.NumRemi, DC.ID_Contratos, DC.CuotaNoPac, DC.ValTolCuota, DF.FecAperRemi, DF.FecCieRemi, DF.HorAperRemi, DF.RemiActiva,
-                                    DTR.ItemNum, DTR.CodProSer, DTR.Concepto, DTR.CantDeta, DTR.ValUniDeta, DTR.ValIVADeta
+                                    DTR.ItemNum, DTR.CodProSer, DTR.Concepto, DTR.CantDeta, DTR.ValUniDeta, DTR.ValIVADeta, df.CodRegis, df.FecRegis, df.CodModi, df.FecModi
                                     FROM [Datos detalle de remisiones] as dtr, [Datos remisiones de facturas] df, [Datos detalles de cuotas contratos] as dc 
                                     where dc.CuotaNoPac = '" & codigo & "'
                                     and dc.ID_Contratos = '" & txtIdContrato.Text & "'
@@ -109,6 +109,10 @@ Public Class Remisiones
                         txtTotalCuota.Text = reader("ValTolCuota")
                         ftAperturaRemision.Value = reader("FecAperRemi")
                         ftCierreRemision.Value = reader("FecCieRemi")
+                        txtCodRegis.Text = reader("CodModi")
+                        ftRegis.Value = reader("FecRegis")
+                        txtCodModi.Text = reader("CodModi")
+                        ftModi.Value = reader("FecModi")
 
                         If reader("RemiActiva") = True Then
                             cboActivaRemicion.SelectedIndex = 1
@@ -135,14 +139,13 @@ Public Class Remisiones
                 If codigo > CuotasPagadas + 1 Then
                     MsgBox("No puedes crear la remision de esta cuota sin antes facturar la cuota numero: " & (CuotasPagadas + 1) & " ")
                     btnFacturar.Enabled = False
-                    GroupModi.Visible = False
-                    GroupRegis.Visible = False
+
                     btnaAgregarFila.Enabled = False
                     LimpiarCampos()
                 Else
                     Dim reader2 As SqlDataReader
                     reader2 = SQLReader("SELECT DTR.NumRemi, DC.ID_Contratos, DC.CuotaNoPac, DC.ValTolCuota, DF.FecAperRemi, DF.FecCieRemi, DF.HorAperRemi, DF.RemiActiva,
-                                    DTR.ItemNum, DTR.CodProSer, DTR.Concepto, DTR.CantDeta, DTR.ValUniDeta, DTR.ValIVADeta, DF.CuotNum
+                                    DTR.ItemNum, DTR.CodProSer, DTR.Concepto, DTR.CantDeta, DTR.ValUniDeta, DTR.ValIVADeta, DF.CuotNum, df.CodRegis, df.FecRegis, df.CodModi, df.FecModi
                                     FROM [Datos detalle de remisiones] as dtr, [Datos remisiones de facturas] df, [Datos detalles de cuotas contratos] as dc 
                                     where dc.CuotaNoPac = '" & codigo & "'
                                     and dc.ID_Contratos = '" & txtIdContrato.Text & "'
@@ -159,8 +162,8 @@ Public Class Remisiones
                             MsgBox("No se encontraron registros de esta cuota")
                         Else
                             MsgBox("Registraras un nueva remisión")
-                            GroupModi.Visible = False
-                            GroupRegis.Visible = True
+                            GroupModi.Enabled = False
+                            GroupRegis.Enabled = True
                             btnFacturar.Enabled = False
                             txtNumeroDeCouta.Text = CuotasPagadas + 1
                             dc.Read()
@@ -174,8 +177,8 @@ Public Class Remisiones
 
                     Else
                         MsgBox("Esta cuota ya tiene una remision cargada, podras modificarla o eliminarla")
-                        GroupModi.Visible = True
-                        GroupRegis.Visible = False
+                        GroupModi.Enabled = True
+                        GroupRegis.Enabled = False
                         btnEliminar.Enabled = True
                         btnFacturar.Enabled = True
                         While reader2.Read()
@@ -185,6 +188,10 @@ Public Class Remisiones
                             txtTotalCuota.Text = reader2("ValTolCuota")
                             ftAperturaRemision.Value = reader2("FecAperRemi")
                             ftCierreRemision.Value = reader2("FecCieRemi")
+                            txtCodRegis.Text = reader2("CodModi")
+                            ftRegis.Value = reader2("FecRegis")
+                            txtCodModi.Text = reader2("CodModi")
+                            ftModi.Value = reader2("FecModi")
                             If reader2("RemiActiva") = True Then
                                 cboActivaRemicion.SelectedIndex = 1
                             Else
@@ -789,8 +796,7 @@ Public Class Remisiones
 
     Private Sub MostrasDatosCliente(identificador)
         LimpiarCampos()
-        GroupModi.Visible = False
-        GroupRegis.Visible = True
+
         Try
             Dim dr As SqlDataReader
             Dim consulta As String = "SELECT * FROM [Datos Proveedores] where IdenProve = '" & identificador.ToString & "' "
@@ -867,8 +873,7 @@ Public Class Remisiones
     End Sub 'Muestra
 
     Private Sub LimpiarCampos()
-        GroupModi.Visible = False
-        GroupRegis.Visible = True
+
         txtTipoDocu.Clear()
         txtIdentificacion.Clear()
         txtSucursal.Clear()

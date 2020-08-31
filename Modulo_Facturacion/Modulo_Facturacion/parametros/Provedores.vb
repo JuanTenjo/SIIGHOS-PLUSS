@@ -502,17 +502,19 @@ Public Class Provedores
             cboTipoDocumento.Enabled = False
             txtDV.Enabled = False
             btnEliminar.Enabled = True
-            GroupModi.Visible = True
-            GroupRegis.Visible = False
+            GroupRegis.Enabled = False
+            GroupModi.Enabled = True
+
         Else
+            GroupRegis.Enabled = True
+            GroupModi.Enabled = False
             btnGuardar.Visible = True
             btnActualizar.Visible = False
             txtNumeroDocumento.Enabled = True
             cboTipoDocumento.Enabled = True
             txtDV.Enabled = True
             btnEliminar.Enabled = False
-            GroupModi.Visible = False
-            GroupRegis.Visible = True
+
         End If
     End Sub  'Define cuando se muetra el boton guardar, eliminar o actualizar
 
@@ -669,10 +671,6 @@ Public Class Provedores
             txtCodigo3.Text = Convert.ToString(row("CodActi03"))
             txtObservaciones.Text = Convert.ToString(row("ObserProvee"))
 
-            ' txtActividadEconomica.Text = Convert.ToString(row("CodRegis")) Falta Columna
-            '        txtNombreRegistradoPor = Convert.ToString(row("RegiTri")) sin completar
-            '         txtNombreModiPor  = Convert.ToString(row("RegiTri")) sin completar
-            '  cboCuentasContables.SelectedIndex =  Convert.ToString(row("AutoReteCree")) FALTA COLUMNA
             txtWeb.Text = Convert.ToString(row("PagWebPro"))
             txtRepresentanteLegal.Text = Convert.ToString(row("NomReLegal"))
             txtPorcentageIva.Text = Convert.ToString(row("PorRetIVA"))
@@ -697,6 +695,13 @@ Public Class Provedores
             txtSegundoNombre.Text = Convert.ToString(row("Nombre02"))
             txtPrimerApellido.Text = Convert.ToString(row("Apellido01"))
             txtSegundoApellido.Text = Convert.ToString(row("Apellido02"))
+
+            txtCodigoRegistro.Text = Convert.ToString(row("CodRegis"))
+            ftRegis.Value = Convert.ToDateTime(row("FecRegis"))
+            txtCodifoModiPor.Text = Convert.ToString(row("CodRegis"))
+            ftModi.Value = Convert.ToDateTime(row("FecModi"))
+
+
             CargarlisboxCuentasBancarias()
             If Convert.ToString(row("HabilPro")) = True Then
                 lblhabilitado.Visible = True
