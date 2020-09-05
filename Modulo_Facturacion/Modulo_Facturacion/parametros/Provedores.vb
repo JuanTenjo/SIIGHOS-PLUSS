@@ -121,196 +121,205 @@ Public Class Provedores
 
     End Sub
     Public Function ValidarRellenoDeCampos() As Boolean
-        Dim estado As Boolean
+        Try
+            Dim estado As Boolean
 
-        If cboTipoDocumento.SelectedIndex < 0 Then
-            MsgBox("Seleccion un tipo de documento", MsgBoxStyle.Information, "Control de datos")
-            Me.cboTipoDocumento.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtNumeroDocumento.Text) Then
-            MsgBox("El campo de numero de identificacion esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtNumeroDocumento.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtDV.Text) Then
-            MsgBox("El campo digito de verificacion esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtDV.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtSucursal.Text) Then
-            MsgBox("El campo sucursal esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtSucursal.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtRazonSocial.Text) Then
-            MsgBox("El campo razon social esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtRazonSocial.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboPais.SelectedIndex < 0 Then
-            MsgBox("Seleccione un pais", MsgBoxStyle.Information, "Control de datos")
-            Me.cboPais.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboDpto.SelectedIndex <= 0 Then
-            MsgBox("Seleccione un departamento", MsgBoxStyle.Information, "Control de datos")
-            Me.cboDpto.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboMunicipios.SelectedIndex < 0 Then
-            MsgBox("Seleccione un municipio", MsgBoxStyle.Information, "Control de datos")
-            Me.cboMunicipios.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboTipoProvedor.SelectedIndex < 0 Then
-            MsgBox("Seleccione el tipo de provedor", MsgBoxStyle.Information, "Control de datos")
-            Me.cboTipoProvedor.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboReteiva.SelectedIndex < 0 Then
-            MsgBox("Seleccione si aplica reteiva o no", MsgBoxStyle.Information, "Control de datos")
-            Me.cboReteiva.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboReteica.SelectedIndex < 0 Then
-            MsgBox("Seleccione si aplica reteica o no", MsgBoxStyle.Information, "Control de datos")
-            Me.cboReteica.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtTelefono.Text) Or String.IsNullOrEmpty(Me.txtTelefono2.Text) Then
-            MsgBox("Algun campo de los telefonos 1 0 2 esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtTelefono.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtCelular.Text) Then
-            MsgBox("El campo celular esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtCelular.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboAutoRete.SelectedIndex < 0 Then
-            MsgBox("Seleccione si aplica AutoReteCre o no", MsgBoxStyle.Information, "Control de datos")
-            Me.cboAutoRete.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtDireccion.Text) Then
-            MsgBox("El campo dirección esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtDireccion.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtEmail1.Text) Or String.IsNullOrEmpty(Me.txtEmail2.Text) Then
-            MsgBox("Algun campo del Email 1 o 2 esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtEmail1.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtRepresentanteLegal.Text) Then
-            MsgBox("Algun campo representante legal esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtRepresentanteLegal.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboReteica.SelectedIndex < 0 Then
-            MsgBox("Seleccione si un regimen tributario", MsgBoxStyle.Information, "Control de datos")
-            Me.cboAutoRete.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
+            If cboTipoDocumento.SelectedIndex < 0 Then
+                MsgBox("Seleccion un tipo de documento", MsgBoxStyle.Information, "Control de datos")
+                Me.cboTipoDocumento.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtNumeroDocumento.Text) Then
+                MsgBox("El campo de numero de identificacion esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtNumeroDocumento.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtDV.Text) Then
+                MsgBox("El campo digito de verificacion esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtDV.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtSucursal.Text) Then
+                MsgBox("El campo sucursal esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtSucursal.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtRazonSocial.Text) Then
+                MsgBox("El campo razon social esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtRazonSocial.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboPais.SelectedIndex < 0 Then
+                MsgBox("Seleccione un pais", MsgBoxStyle.Information, "Control de datos")
+                Me.cboPais.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboDpto.SelectedIndex <= 0 Then
+                MsgBox("Seleccione un departamento", MsgBoxStyle.Information, "Control de datos")
+                Me.cboDpto.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboMunicipios.SelectedIndex < 0 Then
+                MsgBox("Seleccione un municipio", MsgBoxStyle.Information, "Control de datos")
+                Me.cboMunicipios.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboTipoProvedor.SelectedIndex < 0 Then
+                MsgBox("Seleccione el tipo de provedor", MsgBoxStyle.Information, "Control de datos")
+                Me.cboTipoProvedor.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboReteiva.SelectedIndex < 0 Then
+                MsgBox("Seleccione si aplica reteiva o no", MsgBoxStyle.Information, "Control de datos")
+                Me.cboReteiva.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboReteica.SelectedIndex < 0 Then
+                MsgBox("Seleccione si aplica reteica o no", MsgBoxStyle.Information, "Control de datos")
+                Me.cboReteica.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtTelefono.Text) Or String.IsNullOrEmpty(Me.txtTelefono2.Text) Then
+                MsgBox("Algun campo de los telefonos 1 0 2 esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtTelefono.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtCelular.Text) Then
+                MsgBox("El campo celular esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtCelular.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboAutoRete.SelectedIndex < 0 Then
+                MsgBox("Seleccione si aplica AutoReteCre o no", MsgBoxStyle.Information, "Control de datos")
+                Me.cboAutoRete.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtDireccion.Text) Then
+                MsgBox("El campo dirección esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtDireccion.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtEmail1.Text) Or String.IsNullOrEmpty(Me.txtEmail2.Text) Then
+                MsgBox("Algun campo del Email 1 o 2 esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtEmail1.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtRepresentanteLegal.Text) Then
+                MsgBox("Algun campo representante legal esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtRepresentanteLegal.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboReteica.SelectedIndex < 0 Then
+                MsgBox("Seleccione si un regimen tributario", MsgBoxStyle.Information, "Control de datos")
+                Me.cboAutoRete.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
 
-        If String.IsNullOrEmpty(Me.txtNombreContacto.Text) Then
-            MsgBox("El campo Nombre Contacto esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtNombreContacto.Select()
-            estado = False
+            If String.IsNullOrEmpty(Me.txtNombreContacto.Text) Then
+                MsgBox("El campo Nombre Contacto esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtNombreContacto.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrEmpty(Me.txtCargoContacto.Text) Then
+                MsgBox("El campo Nombre Contacto esta vacio", MsgBoxStyle.Information, "Control de datos")
+                Me.txtCargoContacto.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If cboTipoDocumento.Text <> "NIT" Then
+                If String.IsNullOrEmpty(Me.txtPrimerNombre.Text) Then
+                    MsgBox("El campo primer nombre esta vacio", MsgBoxStyle.Information, "Control de datos")
+                    Me.txtPrimerNombre.Select()
+                    estado = False
+                    Return estado
+                Else
+                    estado = True
+                End If
+                If String.IsNullOrEmpty(Me.txtSegundoNombre.Text) Then
+                    MsgBox("El campo segundo nombre esta vacio", MsgBoxStyle.Information, "Control de datos")
+                    Me.txtSegundoApellido.Select()
+                    estado = False
+                    Return estado
+                Else
+                    estado = True
+                End If
+                If String.IsNullOrEmpty(Me.txtPrimerApellido.Text) Then
+                    MsgBox("El campo primer apellido esta vacio", MsgBoxStyle.Information, "Control de datos")
+                    Me.txtPrimerApellido.Select()
+                    estado = False
+                    Return estado
+                Else
+                    estado = True
+                End If
+            End If
             Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrEmpty(Me.txtCargoContacto.Text) Then
-            MsgBox("El campo Nombre Contacto esta vacio", MsgBoxStyle.Information, "Control de datos")
-            Me.txtCargoContacto.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If cboTipoDocumento.Text <> "NIT" Then
-            If String.IsNullOrEmpty(Me.txtPrimerNombre.Text) Then
-                MsgBox("El campo primer nombre esta vacio", MsgBoxStyle.Information, "Control de datos")
-                Me.txtPrimerNombre.Select()
-                estado = False
-                Return estado
-            Else
-                estado = True
-            End If
-            If String.IsNullOrEmpty(Me.txtSegundoNombre.Text) Then
-                MsgBox("El campo segundo nombre esta vacio", MsgBoxStyle.Information, "Control de datos")
-                Me.txtSegundoApellido.Select()
-                estado = False
-                Return estado
-            Else
-                estado = True
-            End If
-            If String.IsNullOrEmpty(Me.txtPrimerApellido.Text) Then
-                MsgBox("El campo primer apellido esta vacio", MsgBoxStyle.Information, "Control de datos")
-                Me.txtPrimerApellido.Select()
-                estado = False
-                Return estado
-            Else
-                estado = True
-            End If
-        End If
-        Return estado
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el boton guardar de proveedores" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+
     End Function
 #End Region
 #Region "ListBox"
@@ -372,56 +381,66 @@ Public Class Provedores
 
     Private Function Buscar(id As String) As DataRow
 
-        If (String.IsNullOrEmpty(id)) Then
-            Throw New ArgumentNullException("id")
-        End If
+        Try
+            If (String.IsNullOrEmpty(id)) Then
+                Throw New ArgumentNullException("id")
+            End If
 
-        ' Declaramos la variable que devolverá la función, que
-        ' en principio indica que no existe ningún registro
-        ' que coincida con el ID especificado.
-        '
-        Dim returnValue As DataRow = Nothing
+            ' Declaramos la variable que devolverá la función, que
+            ' en principio indica que no existe ningún registro
+            ' que coincida con el ID especificado.
+            '
+            Dim returnValue As DataRow = Nothing
 
-        ' Creamos la conexión con la base de SQL Server.
+            ' Creamos la conexión con la base de SQL Server.
 
 
-        Call conectarGeogebra()
+            Call conectarGeogebra()
 
-        ' Creamos un objeto Command.
-        Dim cmd As SqlCommand = cn.CreateCommand()
+            ' Creamos un objeto Command.
+            Dim cmd As SqlCommand = cn.CreateCommand()
 
-        ' Indicamos la consulta SQL de selección que deseamos ejecutar
-        cmd.CommandText = "SELECT dn.Nombre01, dn.Nombre02, dn.Apellido01, dn.Apellido02, dt.*  
+            ' Indicamos la consulta SQL de selección que deseamos ejecutar
+            cmd.CommandText = "SELECT dn.Nombre01, dn.Nombre02, dn.Apellido01, dn.Apellido02, dt.*  
                             FROM [Datos proveedores] as dt left join [Datos personas naturales] as dn 
                             on dt.IdenProve = dn.NumDoc
                             WHERE dt.IdenProve = @id"
 
-        ' Añadimos el único parámetro de entrada existente en la consulta
-        cmd.Parameters.AddWithValue("@id", id)
+            ' Añadimos el único parámetro de entrada existente en la consulta
+            cmd.Parameters.AddWithValue("@id", id)
 
-        ' Creamos el adaptador de datos al que le pasamos el objeto Command.
-        Dim da As New SqlDataAdapter(cmd)
+            ' Creamos el adaptador de datos al que le pasamos el objeto Command.
+            Dim da As New SqlDataAdapter(cmd)
 
-        ' Intentamos rellenar un objeto DataTable como resultado
-        ' de ejecutar la consulta SQL de selección especificada.
-        '
-        Using dt As New DataTable()
+            ' Intentamos rellenar un objeto DataTable como resultado
+            ' de ejecutar la consulta SQL de selección especificada.
+            '
+            Using dt As New DataTable()
 
-            da.Fill(dt)
+                da.Fill(dt)
 
-            If (dt.Rows.Count > 0) Then
-                ' Nos quedamos con la primera fila u objeto DataRow.
-                '
-                returnValue = dt.Rows(0)
-            End If
+                If (dt.Rows.Count > 0) Then
+                    ' Nos quedamos con la primera fila u objeto DataRow.
+                    '
+                    returnValue = dt.Rows(0)
+                End If
 
-        End Using
+            End Using
 
-        cn.Close()
+            cn.Close()
 
-        ' Devolvemos el objeto DataRow obtenido.
-        '
-        Return returnValue
+            ' Devolvemos el objeto DataRow obtenido.
+            '
+            Return returnValue
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la funcion buscar proveedores" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return Nothing
+        End Try
+
+
 
     End Function  'Busca en el lisbox la fila seleccionada y cargar el valuemeber 
 
@@ -525,7 +544,7 @@ Public Class Provedores
 
     Public Sub limpiarProvedores()
         Alerta = False
-        EstadoActivo = Nothing
+        EstadoActivo = 0
         lbxCuentasBancarias.DataSource = Nothing
         CambioDeBoton()
         cboTipoDocumento.SelectedIndex = 2
@@ -573,50 +592,74 @@ Public Class Provedores
     End Sub  'Limpira todos los campos
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If ValidarRellenoDeCampos() Then
-            If MsgBox("Seguro que desea guardar este registro", vbYesNo) = vbYes Then
-                Try
+        Try
+            If ValidarRellenoDeCampos() Then
+                If MsgBox("Seguro que desea guardar este registro", vbYesNo) = vbYes Then
+                    Try
 
-                    Dim fechaActual As Date = Date.Now
-                    ClaseModelo.AgregarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, txtDireccion.Text,
-                                           txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
-                                               EstadoActivo, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
-                                               txtObservaciones.Text, txtCodigoRegistro.Text, fechaActual, txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text)
-                Catch ex As Exception
-                    MsgBox(ex.ToString)
-                End Try
-                MostrarLisbox()
+                        Dim fechaActual As Date = Date.Now
+                        ClaseModelo.AgregarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, txtDireccion.Text,
+                                               txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
+                                                   EstadoActivo, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
+                                                   txtObservaciones.Text, txtCodigoRegistro.Text, fechaActual, txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text)
+                    Catch ex As Exception
+                        MsgBox(ex.ToString)
+                    End Try
+                    MostrarLisbox()
+                End If
             End If
-        End If
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el boton guardar de proveedores" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub 'Guarda Proveedor 
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        If ValidarRellenoDeCampos() Then
-            If MsgBox("Seguro que desea Actualizar este registro", vbYesNo) = vbYes Then
-                Try
-                    Dim fechaActual As Date = Date.Now
-                    ClaseModelo.ActualizarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, txtDireccion.Text,
-                                           txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
-                                               EstadoActivo.ToString, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
-                                               txtObservaciones.Text, txtCodifoModiPor.Text, fechaActual, txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text)
-                Catch ex As Exception
-                    MsgBox(ex.ToString)
-                End Try
-                MostrarLisbox()
+        Try
+            If ValidarRellenoDeCampos() Then
+                If MsgBox("Seguro que desea Actualizar este registro", vbYesNo) = vbYes Then
+                    Try
+                        Dim fechaActual As Date = Date.Now
+                        ClaseModelo.ActualizarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, txtDireccion.Text,
+                                               txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
+                                                   EstadoActivo.ToString, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
+                                                   txtObservaciones.Text, txtCodifoModiPor.Text, fechaActual, txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text)
+                    Catch ex As Exception
+                        MsgBox(ex.ToString)
+                    End Try
+                    MostrarLisbox()
+                End If
             End If
-        End If
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el boton actualizar de proveedores" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub 'Actualiza proveedor
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        If (txtNumeroDocumento.Text = "") Then
-            MsgBox("Digite un numero de identificacion")
-        Else
-            If MsgBox("Seguro que desea Eliminar este registro", vbYesNo) = vbYes Then
-                ClaseModelo.EliminarProve(cboTipoDocumento.Text, txtNumeroDocumento.Text)
-                limpiarProvedores()
-                MostrarLisbox()
+        Try
+            If (txtNumeroDocumento.Text = "") Then
+                MsgBox("Digite un numero de identificacion")
+            Else
+                If MsgBox("Seguro que desea Eliminar este registro", vbYesNo) = vbYes Then
+                    ClaseModelo.EliminarProve(cboTipoDocumento.Text, txtNumeroDocumento.Text)
+                    limpiarProvedores()
+                    MostrarLisbox()
+                End If
             End If
-        End If
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el boton eliminar de proveedores" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub 'Elimina proveedor
 
     Private Sub btnActivar_Click(sender As Object, e As EventArgs) Handles btnActivar.Click
@@ -739,8 +782,10 @@ Public Class Provedores
                 cboAutoRete.SelectedIndex = 0
             End If
         Catch ex As Exception
-            ' Se ha producido un error
-            MessageBox.Show(ex.Message)
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la funcion mostrar proveedores" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub   ',Muestra en los texbox la seleccion del lisbox
 

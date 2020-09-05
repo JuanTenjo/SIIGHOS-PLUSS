@@ -298,7 +298,7 @@ Public Class Pagos
             CargarDatosFactura()
         Catch ex As Exception
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-            Informa += "en la carga del programa" & Chr(13) & Chr(10)
+            Informa += "en la carga del programa pagos" & Chr(13) & Chr(10)
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
