@@ -55,6 +55,7 @@ Partial Class Remisiones
         Me.ValorTotalCouta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EstadoPagado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -129,7 +130,8 @@ Partial Class Remisiones
         Me.btnBuscaPorNit = New System.Windows.Forms.Button()
         Me.btnReporte = New System.Windows.Forms.Button()
         Me.cboResolucionFactura = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtTotalGrillaDetalle = New System.Windows.Forms.TextBox()
         Me.Panel3.SuspendLayout()
         Me.Panel17.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -389,7 +391,7 @@ Partial Class Remisiones
         Me.DataGridDetalleCuotas.RowHeadersVisible = False
         Me.DataGridDetalleCuotas.RowTemplate.Height = 24
         Me.DataGridDetalleCuotas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridDetalleCuotas.Size = New System.Drawing.Size(451, 277)
+        Me.DataGridDetalleCuotas.Size = New System.Drawing.Size(451, 333)
         Me.DataGridDetalleCuotas.TabIndex = 56
         '
         'NumeroDeCouta
@@ -448,8 +450,19 @@ Partial Class Remisiones
         Me.Panel6.Controls.Add(Me.Label17)
         Me.Panel6.Location = New System.Drawing.Point(469, 12)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(898, 31)
+        Me.Panel6.Size = New System.Drawing.Size(958, 31)
         Me.Panel6.TabIndex = 18
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(761, 6)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(151, 21)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "Resolucion Factura"
         '
         'Label18
         '
@@ -599,7 +612,7 @@ Partial Class Remisiones
         Me.DataGridViewDetalleRemision.RowHeadersVisible = False
         Me.DataGridViewDetalleRemision.RowTemplate.Height = 24
         Me.DataGridViewDetalleRemision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewDetalleRemision.Size = New System.Drawing.Size(898, 177)
+        Me.DataGridViewDetalleRemision.Size = New System.Drawing.Size(958, 177)
         Me.DataGridViewDetalleRemision.TabIndex = 67
         '
         'Item
@@ -682,7 +695,7 @@ Partial Class Remisiones
         Me.btnaAgregarFila.Location = New System.Drawing.Point(12, 136)
         Me.btnaAgregarFila.Margin = New System.Windows.Forms.Padding(0)
         Me.btnaAgregarFila.Name = "btnaAgregarFila"
-        Me.btnaAgregarFila.Size = New System.Drawing.Size(862, 35)
+        Me.btnaAgregarFila.Size = New System.Drawing.Size(928, 35)
         Me.btnaAgregarFila.TabIndex = 74
         Me.btnaAgregarFila.Text = "Agregar "
         Me.btnaAgregarFila.UseVisualStyleBackColor = False
@@ -704,7 +717,7 @@ Partial Class Remisiones
         Me.AñadeDetallesDeRemision.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AñadeDetallesDeRemision.Location = New System.Drawing.Point(471, 180)
         Me.AñadeDetallesDeRemision.Name = "AñadeDetallesDeRemision"
-        Me.AñadeDetallesDeRemision.Size = New System.Drawing.Size(896, 190)
+        Me.AñadeDetallesDeRemision.Size = New System.Drawing.Size(956, 190)
         Me.AñadeDetallesDeRemision.TabIndex = 75
         Me.AñadeDetallesDeRemision.TabStop = False
         '
@@ -714,7 +727,7 @@ Partial Class Remisiones
         Me.Label34.BackColor = System.Drawing.Color.White
         Me.Label34.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label34.ForeColor = System.Drawing.Color.Black
-        Me.Label34.Location = New System.Drawing.Point(657, 57)
+        Me.Label34.Location = New System.Drawing.Point(799, 57)
         Me.Label34.Margin = New System.Windows.Forms.Padding(0)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(27, 21)
@@ -724,7 +737,7 @@ Partial Class Remisiones
         'txtPorceIVA
         '
         Me.txtPorceIVA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPorceIVA.Location = New System.Drawing.Point(626, 55)
+        Me.txtPorceIVA.Location = New System.Drawing.Point(768, 55)
         Me.txtPorceIVA.Name = "txtPorceIVA"
         Me.txtPorceIVA.ReadOnly = True
         Me.txtPorceIVA.Size = New System.Drawing.Size(29, 26)
@@ -734,7 +747,7 @@ Partial Class Remisiones
         'txtTotal
         '
         Me.txtTotal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotal.Location = New System.Drawing.Point(707, 55)
+        Me.txtTotal.Location = New System.Drawing.Point(846, 55)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
         Me.txtTotal.Size = New System.Drawing.Size(94, 26)
@@ -743,25 +756,25 @@ Partial Class Remisiones
         'txtValorUniIva
         '
         Me.txtValorUniIva.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorUniIva.Location = New System.Drawing.Point(514, 55)
+        Me.txtValorUniIva.Location = New System.Drawing.Point(629, 55)
         Me.txtValorUniIva.MaxLength = 2
         Me.txtValorUniIva.Name = "txtValorUniIva"
         Me.txtValorUniIva.ReadOnly = True
-        Me.txtValorUniIva.Size = New System.Drawing.Size(92, 26)
+        Me.txtValorUniIva.Size = New System.Drawing.Size(123, 26)
         Me.txtValorUniIva.TabIndex = 81
         '
         'txtValorUnitrio
         '
         Me.txtValorUnitrio.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorUnitrio.Location = New System.Drawing.Point(393, 55)
+        Me.txtValorUnitrio.Location = New System.Drawing.Point(500, 55)
         Me.txtValorUnitrio.Name = "txtValorUnitrio"
-        Me.txtValorUnitrio.Size = New System.Drawing.Size(107, 26)
+        Me.txtValorUnitrio.Size = New System.Drawing.Size(123, 26)
         Me.txtValorUnitrio.TabIndex = 80
         '
         'txtCantidad
         '
         Me.txtCantidad.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantidad.Location = New System.Drawing.Point(306, 55)
+        Me.txtCantidad.Location = New System.Drawing.Point(423, 55)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(71, 26)
         Me.txtCantidad.TabIndex = 79
@@ -772,7 +785,7 @@ Partial Class Remisiones
         Me.txtConcepto.Location = New System.Drawing.Point(119, 94)
         Me.txtConcepto.Multiline = True
         Me.txtConcepto.Name = "txtConcepto"
-        Me.txtConcepto.Size = New System.Drawing.Size(755, 31)
+        Me.txtConcepto.Size = New System.Drawing.Size(821, 31)
         Me.txtConcepto.TabIndex = 78
         '
         'cboProducto
@@ -785,7 +798,7 @@ Partial Class Remisiones
         Me.cboProducto.Items.AddRange(New Object() {"No ", "Si"})
         Me.cboProducto.Location = New System.Drawing.Point(135, 55)
         Me.cboProducto.Name = "cboProducto"
-        Me.cboProducto.Size = New System.Drawing.Size(157, 26)
+        Me.cboProducto.Size = New System.Drawing.Size(276, 26)
         Me.cboProducto.TabIndex = 77
         '
         'Panel1
@@ -832,7 +845,7 @@ Partial Class Remisiones
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Location = New System.Drawing.Point(471, 192)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(890, 31)
+        Me.Panel2.Size = New System.Drawing.Size(950, 31)
         Me.Panel2.TabIndex = 19
         '
         'Label5
@@ -840,7 +853,7 @@ Partial Class Remisiones
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(623, 5)
+        Me.Label5.Location = New System.Drawing.Point(766, 6)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(54, 21)
         Me.Label5.TabIndex = 14
@@ -862,7 +875,7 @@ Partial Class Remisiones
         Me.Label25.AutoSize = True
         Me.Label25.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.Color.White
-        Me.Label25.Location = New System.Drawing.Point(728, 5)
+        Me.Label25.Location = New System.Drawing.Point(871, 6)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(48, 21)
         Me.Label25.TabIndex = 12
@@ -873,7 +886,7 @@ Partial Class Remisiones
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(522, 5)
+        Me.Label22.Location = New System.Drawing.Point(645, 6)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(80, 21)
         Me.Label22.TabIndex = 11
@@ -884,7 +897,7 @@ Partial Class Remisiones
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(305, 6)
+        Me.Label3.Location = New System.Drawing.Point(419, 6)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 21)
         Me.Label3.TabIndex = 9
@@ -895,7 +908,7 @@ Partial Class Remisiones
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(393, 5)
+        Me.Label8.Location = New System.Drawing.Point(512, 6)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(111, 21)
         Me.Label8.TabIndex = 10
@@ -906,7 +919,7 @@ Partial Class Remisiones
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(174, 6)
+        Me.Label9.Location = New System.Drawing.Point(236, 6)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(75, 21)
         Me.Label9.TabIndex = 8
@@ -960,7 +973,7 @@ Partial Class Remisiones
         Me.GroupRegis.Controls.Add(Me.Panel7)
         Me.GroupRegis.Controls.Add(Me.txtCodRegis)
         Me.GroupRegis.Controls.Add(Me.ftRegis)
-        Me.GroupRegis.Location = New System.Drawing.Point(888, 559)
+        Me.GroupRegis.Location = New System.Drawing.Point(909, 622)
         Me.GroupRegis.Name = "GroupRegis"
         Me.GroupRegis.Size = New System.Drawing.Size(435, 50)
         Me.GroupRegis.TabIndex = 98
@@ -1023,6 +1036,7 @@ Partial Class Remisiones
         '
         Me.txtCodRegis.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodRegis.Location = New System.Drawing.Point(125, 13)
+        Me.txtCodRegis.MaxLength = 3
         Me.txtCodRegis.Multiline = True
         Me.txtCodRegis.Name = "txtCodRegis"
         Me.txtCodRegis.Size = New System.Drawing.Size(81, 31)
@@ -1043,7 +1057,7 @@ Partial Class Remisiones
         Me.GroupModi.Controls.Add(Me.Panel9)
         Me.GroupModi.Controls.Add(Me.txtCodModi)
         Me.GroupModi.Controls.Add(Me.ftModi)
-        Me.GroupModi.Location = New System.Drawing.Point(469, 559)
+        Me.GroupModi.Location = New System.Drawing.Point(490, 622)
         Me.GroupModi.Name = "GroupModi"
         Me.GroupModi.Size = New System.Drawing.Size(413, 50)
         Me.GroupModi.TabIndex = 97
@@ -1093,6 +1107,7 @@ Partial Class Remisiones
         '
         Me.txtCodModi.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodModi.Location = New System.Drawing.Point(125, 13)
+        Me.txtCodModi.MaxLength = 3
         Me.txtCodModi.Multiline = True
         Me.txtCodModi.Name = "txtCodModi"
         Me.txtCodModi.Size = New System.Drawing.Size(68, 31)
@@ -1110,7 +1125,7 @@ Partial Class Remisiones
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(1329, 706)
+        Me.Label44.Location = New System.Drawing.Point(1325, 749)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(32, 17)
         Me.Label44.TabIndex = 102
@@ -1119,7 +1134,7 @@ Partial Class Remisiones
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(1267, 706)
+        Me.Label45.Location = New System.Drawing.Point(1263, 749)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(56, 17)
         Me.Label45.TabIndex = 101
@@ -1128,7 +1143,7 @@ Partial Class Remisiones
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(1229, 706)
+        Me.Label35.Location = New System.Drawing.Point(1225, 749)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(32, 17)
         Me.Label35.TabIndex = 100
@@ -1137,7 +1152,7 @@ Partial Class Remisiones
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(1162, 706)
+        Me.Label36.Location = New System.Drawing.Point(1158, 749)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(61, 17)
         Me.Label36.TabIndex = 99
@@ -1150,7 +1165,7 @@ Partial Class Remisiones
         Me.btnEliminar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = Global.Modulo_Facturacion.My.Resources.Resources.iconoEliminar
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(838, 640)
+        Me.btnEliminar.Location = New System.Drawing.Point(858, 684)
         Me.btnEliminar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1167,7 +1182,7 @@ Partial Class Remisiones
         Me.btnGrabar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGrabar.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoGuardar
         Me.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGrabar.Location = New System.Drawing.Point(591, 641)
+        Me.btnGrabar.Location = New System.Drawing.Point(611, 685)
         Me.btnGrabar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnGrabar.Name = "btnGrabar"
         Me.btnGrabar.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1184,7 +1199,7 @@ Partial Class Remisiones
         Me.BtnCerrarContratos.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCerrarContratos.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40
         Me.BtnCerrarContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCerrarContratos.Location = New System.Drawing.Point(470, 640)
+        Me.BtnCerrarContratos.Location = New System.Drawing.Point(490, 684)
         Me.BtnCerrarContratos.Margin = New System.Windows.Forms.Padding(0)
         Me.BtnCerrarContratos.Name = "BtnCerrarContratos"
         Me.BtnCerrarContratos.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1201,7 +1216,7 @@ Partial Class Remisiones
         Me.btnNuevo.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_crear_nuevo_40
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(722, 640)
+        Me.btnNuevo.Location = New System.Drawing.Point(742, 684)
         Me.btnNuevo.Margin = New System.Windows.Forms.Padding(0)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1219,7 +1234,7 @@ Partial Class Remisiones
         Me.btnFacturar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFacturar.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_factura_40
         Me.btnFacturar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnFacturar.Location = New System.Drawing.Point(969, 638)
+        Me.btnFacturar.Location = New System.Drawing.Point(989, 682)
         Me.btnFacturar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnFacturar.Name = "btnFacturar"
         Me.btnFacturar.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1236,7 +1251,7 @@ Partial Class Remisiones
         Me.btnBuscaPorNit.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscaPorNit.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoLupa
         Me.btnBuscaPorNit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBuscaPorNit.Location = New System.Drawing.Point(1108, 638)
+        Me.btnBuscaPorNit.Location = New System.Drawing.Point(1128, 682)
         Me.btnBuscaPorNit.Margin = New System.Windows.Forms.Padding(0)
         Me.btnBuscaPorNit.Name = "btnBuscaPorNit"
         Me.btnBuscaPorNit.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1254,7 +1269,7 @@ Partial Class Remisiones
         Me.btnReporte.ForeColor = System.Drawing.Color.Black
         Me.btnReporte.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40
         Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReporte.Location = New System.Drawing.Point(1232, 638)
+        Me.btnReporte.Location = New System.Drawing.Point(1252, 682)
         Me.btnReporte.Margin = New System.Windows.Forms.Padding(0)
         Me.btnReporte.Name = "btnReporte"
         Me.btnReporte.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1270,26 +1285,38 @@ Partial Class Remisiones
         Me.cboResolucionFactura.FormattingEnabled = True
         Me.cboResolucionFactura.Location = New System.Drawing.Point(1161, 53)
         Me.cboResolucionFactura.Name = "cboResolucionFactura"
-        Me.cboResolucionFactura.Size = New System.Drawing.Size(206, 24)
+        Me.cboResolucionFactura.Size = New System.Drawing.Size(266, 24)
         Me.cboResolucionFactura.TabIndex = 105
         '
-        'Label7
+        'Label10
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(724, 6)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(151, 21)
-        Me.Label7.TabIndex = 13
-        Me.Label7.Text = "Resolucion Factura"
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(1251, 563)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(51, 18)
+        Me.Label10.TabIndex = 106
+        Me.Label10.Text = "Total:"
+        '
+        'txtTotalGrillaDetalle
+        '
+        Me.txtTotalGrillaDetalle.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalGrillaDetalle.Location = New System.Drawing.Point(1310, 560)
+        Me.txtTotalGrillaDetalle.MaxLength = 3
+        Me.txtTotalGrillaDetalle.Multiline = True
+        Me.txtTotalGrillaDetalle.Name = "txtTotalGrillaDetalle"
+        Me.txtTotalGrillaDetalle.ReadOnly = True
+        Me.txtTotalGrillaDetalle.Size = New System.Drawing.Size(113, 28)
+        Me.txtTotalGrillaDetalle.TabIndex = 95
         '
         'Remisiones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1381, 725)
+        Me.ClientSize = New System.Drawing.Size(1435, 776)
+        Me.Controls.Add(Me.txtTotalGrillaDetalle)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.cboResolucionFactura)
         Me.Controls.Add(Me.btnReporte)
         Me.Controls.Add(Me.btnBuscaPorNit)
@@ -1464,4 +1491,6 @@ Partial Class Remisiones
     Friend WithEvents btnReporte As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents cboResolucionFactura As ComboBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtTotalGrillaDetalle As TextBox
 End Class

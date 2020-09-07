@@ -1159,7 +1159,7 @@ Public Class Contratos
                     Dim ValorCuota As Double = (TtlCuotasPagadas / AddFilas)
                     Dim PorcentageDeCouta As Double = (ValorCuota * TtlPorcentajeCuotas) / TtlCuotasPagadas
                     Dim IndiceDeCuota As Int16 = Resultado
-                    ValorCuota = Math.Round((ValorCuota), 4)
+                    ValorCuota = Math.Round((ValorCuota), 3)
                     PorcentageDeCouta = Math.Round((PorcentageDeCouta), 4)
 
                     For i As Integer = 1 To AddFilas
@@ -1285,7 +1285,7 @@ Public Class Contratos
             ValorTotal = ValorSinIva + IvaCantidad
             Dim ValorCuota As Double = (ValorTotal / txtNumeroDePagos.Text)
             Dim PorcentageDeCouta = (ValorCuota * 100) / ValorTotal
-            ValorCuota = Math.Round((ValorCuota), 4)
+            ValorCuota = Math.Round((ValorCuota), 3)
             PorcentageDeCouta = Math.Round((PorcentageDeCouta), 4)
             For indice As Integer = 1 To txtNumeroDePagos.Text
                 DataGridDetalleCuotas.Rows.Add(New String() {indice, Fecha, PorcentageDeCouta, ValorCuota, False})
@@ -1415,5 +1415,6 @@ Public Class Contratos
 
 
     End Sub
+
 
 End Class

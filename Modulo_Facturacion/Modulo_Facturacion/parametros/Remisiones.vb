@@ -120,6 +120,9 @@ Public Class Remisiones
                             cboActivaRemicion.SelectedIndex = 0
                         End If
                         DataGridViewDetalleRemision.Rows.Add(New String() {reader("ItemNum"), reader("CodProSer"), "", reader("Concepto"), reader("CantDeta"), reader("ValUniDeta"), reader("ValIVADeta"), reader("ValTolCuota")})
+                        If DataGridViewDetalleRemision.Rows.Count > 0 Then
+                            CalcularTotalDetalle()
+                        End If
                     End While
                     cn.Close()
                 End If
@@ -161,15 +164,17 @@ Public Class Remisiones
                         If dc.HasRows = False Then
                             MsgBox("No se encontraron registros de esta cuota")
                         Else
+
                             MsgBox("Registraras un nueva remisión")
                             GroupModi.Enabled = False
                             GroupRegis.Enabled = True
                             btnFacturar.Enabled = False
                             txtNumeroDeCouta.Text = CuotasPagadas + 1
                             dc.Read()
-                            txtValorUnitrio.Text = (dc![ValTolCuota] / 1.19)
-                            txtValorUniIva.Text = (Convert.ToDouble(txtValorUnitrio.Text) * 0.19)
-                            txtTotal.Text = Convert.ToDouble(txtValorUnitrio.Text) + Convert.ToDouble(txtValorUniIva.Text)
+                            txtValorUnitrio.Text = Math.Round((dc![ValTolCuota] / 1.19), 4)
+                            txtValorUniIva.Text = Math.Round((Convert.ToDouble(txtValorUnitrio.Text) * 0.19), 4)
+                            txtTotal.Text = Math.Round((Convert.ToDouble(txtValorUnitrio.Text) + Convert.ToDouble(txtValorUniIva.Text)), 3)
+
                             txtTotalCuota.Text = DataGridDetalleCuotas.SelectedCells.Item(3).Value
                             txtNumeroDeCouta.Text = CuotasPagadas + 1
                             txtCantidad.Text = 1
@@ -199,6 +204,9 @@ Public Class Remisiones
                             End If
                             DataGridViewDetalleRemision.Rows.Add(New String() {reader2("ItemNum"), reader2("CodProSer"), "", reader2("Concepto"), reader2("CantDeta"), reader2("ValUniDeta"), reader2("ValIVADeta"), reader2("ValTolCuota")})
                         End While
+                        If DataGridViewDetalleRemision.Rows.Count > 0 Then
+                            CalcularTotalDetalle()
+                        End If
                         cn.Close()
                     End If
 
@@ -293,6 +301,12 @@ Public Class Remisiones
 #End Region
 
 #Region "botones t texbox"
+
+
+    Private Sub DataGridViewDetalleRemision_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles DataGridViewDetalleRemision.RowsRemoved
+        CalcularTotalDetalle()
+    End Sub 'Cuando se elimina una fila se recalcula el total 
+
     Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
         Try
 
@@ -311,6 +325,7 @@ Public Class Remisiones
 
     Private Sub btnFacturar_Click(sender As Object, e As EventArgs) Handles btnFacturar.Click
         Try
+
             If ValidacionDeCampos() Then
                 If ValidarCamposAñadirDetalle() Then
                     If MsgBox("Se facturara esta remision ¿Esta seguro?", vbYesNo) = vbYes Then
@@ -346,7 +361,9 @@ Public Class Remisiones
                                                 0, 0, 0, 0, fecha, cboResolucionFactura.SelectedValue, txtCodRegis.Text, ftRegis.Value, txtIdContrato.Text, txtNumeroDeCouta.Text)
 
                             If EstadoFacturado Then
+                                btnFacturar.Enabled = False
                                 CagarDetallesCuotas(txtIdContrato.Text)
+
                                 '    Dim Proceso As Process = New Process
                                 '    Dim ruta As String = "C:\Facturacion\ApiFactElec\ApiFactElec.exe"
 
@@ -468,26 +485,54 @@ Public Class Remisiones
         soloNumeros(e)
     End Sub 'Deja digitar solo numeros
 
+    Private Function CalcularTotalDetalle() As Double
+        Try
+            Dim TotalGrillaDetalleRemision As Double = 0
+            Dim fila As DataGridViewRow = New DataGridViewRow()
+            For Each fila In DataGridViewDetalleRemision.Rows
+                TotalGrillaDetalleRemision += Convert.ToDouble(fila.Cells("Total").Value)
+            Next
+            txtTotalGrillaDetalle.Text = TotalGrillaDetalleRemision
+            Return TotalGrillaDetalleRemision
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "En la funcion calcular total Detalle" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return 0
+        End Try
+    End Function
+
+
+
+
     Private Sub btnaAgregarFila_Click(sender As Object, e As EventArgs) Handles btnaAgregarFila.Click
-        Dim TotalGrillaDetalleRemision As Double
+
+        Dim TotalGrillaDetalleRemision As Double = CalcularTotalDetalle()
+
         Try
             If DataGridViewDetalleRemision.Rows.Count > 0 Then
-                Dim fila As DataGridViewRow = New DataGridViewRow()
-                For Each fila In DataGridViewDetalleRemision.Rows
-                    TotalGrillaDetalleRemision += Convert.ToDouble(fila.Cells("Total").Value)
-                Next
                 If String.IsNullOrWhiteSpace(txtIdContrato.Text) Then
                     If ValidarCamposAñadirDetalle() Then
                         Dim NumItem As Int32 = DataGridViewDetalleRemision.Rows.Count
                         NumItem += 1
                         DataGridViewDetalleRemision.Rows.Add(New String() {NumItem, cboCodigoProducto.Text, cboProducto.Text, txtConcepto.Text, txtCantidad.Text, txtValorUnitrio.Text, txtValorUniIva.Text, txtTotal.Text})
-                        TotalGrillaDetalleRemision = 0
+                        CalcularTotalDetalle()
                     End If
                 Else
-                    If TotalGrillaDetalleRemision >= Convert.ToDouble(txtTotal.Text) Then
+                    Dim totalcuota As Double = DataGridDetalleCuotas.SelectedCells.Item(3).Value
+                    If TotalGrillaDetalleRemision >= Convert.ToDouble(totalcuota) Then
                         MsgBox("No puedes agregar un valor mas alto que el total a pagar")
-                        TotalGrillaDetalleRemision = 0
+                        CalcularTotalDetalle()
                         Exit Sub
+                    Else
+                        Dim NumItem As Int32 = DataGridViewDetalleRemision.Rows.Count
+                        NumItem += 1
+                        If ValidarCamposAñadirDetalle() Then
+                            DataGridViewDetalleRemision.Rows.Add(New String() {NumItem, cboCodigoProducto.Text, cboProducto.Text, txtConcepto.Text, txtCantidad.Text, txtValorUnitrio.Text, txtValorUniIva.Text, txtTotal.Text})
+                            CalcularTotalDetalle()
+                        End If
                     End If
                 End If
             Else
@@ -495,7 +540,7 @@ Public Class Remisiones
                 NumItem += 1
                 If ValidarCamposAñadirDetalle() Then
                     DataGridViewDetalleRemision.Rows.Add(New String() {NumItem, cboCodigoProducto.Text, cboProducto.Text, txtConcepto.Text, txtCantidad.Text, txtValorUnitrio.Text, txtValorUniIva.Text, txtTotal.Text})
-                    TotalGrillaDetalleRemision = 0
+                    CalcularTotalDetalle()
                 End If
             End If
         Catch ex As Exception
@@ -647,91 +692,120 @@ Public Class Remisiones
     End Function 'Crea el concecutivo
 
     Private Function ValidarTotal() As Boolean
-        Dim TotalCuota As Double
-        Dim Fila As DataGridViewRow = New DataGridViewRow()
-        For Each Fila In DataGridViewDetalleRemision.Rows
-            TotalCuota += Fila.Cells("Total").Value
-        Next
+        Try
+            Dim estado As Boolean = False
+            Dim TotalGrilla As Double
+            Dim Fila As DataGridViewRow = New DataGridViewRow()
+            For Each Fila In DataGridViewDetalleRemision.Rows
+                TotalGrilla += Fila.Cells("Total").Value
+            Next
 
-        If String.IsNullOrWhiteSpace(txtTotalCuota.Text) Then
-            MsgBox("Escoge una cuota a la cual se le puede realizar la remision.")
-            Return False
-        Else
-            If TotalCuota > Convert.ToDouble(txtTotalCuota.Text) Then
-                MsgBox("El total de los items de la tabla no puede ser mayor al total de la cuota")
+            If String.IsNullOrWhiteSpace(txtTotalCuota.Text) Then
+                MsgBox("Escoge una cuota a la cual se le puede realizar la remision.")
                 Return False
             Else
-                Return True
+                Dim totalcuotacontrato As Double = DataGridDetalleCuotas.SelectedCells.Item(3).Value
+                If TotalGrilla > Convert.ToDouble(totalcuotacontrato) Then
+                    MsgBox("El total de los items de la tabla no puede ser mayor al total de la cuota")
+                    estado = False
+                Else
+                    estado = True
+                End If
+                If TotalGrilla < Convert.ToDouble(totalcuotacontrato) Then
+                    MsgBox("El total de los items de la tabla no puede ser menor al total de la cuota")
+                    estado = False
+                Else
+                    estado = True
+                End If
             End If
-        End If
+            Return estado
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en alguna la funcion en validar el total de la grillas detalle" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+
     End Function  'Valida datos del total
 
     Private Function ValidacionDeCampos() As Boolean
-        Dim estado As Boolean = False
+        Try
+            Dim estado As Boolean = False
 
-        If cboResolucionFactura.SelectedIndex = -1 Then
-            MsgBox("Escoge una resolucion de factura")
-            cboResolucionFactura.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
+            If cboResolucionFactura.SelectedIndex = -1 Then
+                MsgBox("Escoge una resolucion de factura")
+                cboResolucionFactura.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
 
-        If String.IsNullOrWhiteSpace(txtIdContrato.Text) Then
-            MsgBox("El campo ID Contraro esta vacio")
-            txtIdContrato.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrWhiteSpace(txtNumeroDeCouta.Text) Then
-            MsgBox("El campo numero de cuota esta vacio")
-            txtNumeroDeCouta.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-        If String.IsNullOrWhiteSpace(txtTotalCuota.Text) Then
-            MsgBox("El campo total cuota esta vacio")
-            txtTotalCuota.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
+            If String.IsNullOrWhiteSpace(txtIdContrato.Text) Then
+                MsgBox("El campo ID Contraro esta vacio")
+                txtIdContrato.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(txtNumeroDeCouta.Text) Then
+                MsgBox("El campo numero de cuota esta vacio")
+                txtNumeroDeCouta.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+            If String.IsNullOrWhiteSpace(txtTotalCuota.Text) Then
+                MsgBox("El campo total cuota esta vacio")
+                txtTotalCuota.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
 
-        If String.IsNullOrWhiteSpace(cboActivaRemicion.Text) Or cboActivaRemicion.SelectedIndex = -1 Then
-            MsgBox("Escoge si la remision esta activa o no")
-            cboActivaRemicion.Select()
-            estado = False
+            If String.IsNullOrWhiteSpace(cboActivaRemicion.Text) Or cboActivaRemicion.SelectedIndex = -1 Then
+                MsgBox("Escoge si la remision esta activa o no")
+                cboActivaRemicion.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+            If ftCierreRemision.Value < ftAperturaRemision.Value Then
+                MsgBox("No puedes registrar una fecha menor a la fecha de apertura")
+                ftCierreRemision.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+            If DataGridViewDetalleRemision.Rows.Count() = 0 Then
+                MsgBox("La tabla de detalles de remisiones esta vacia")
+                DataGridViewDetalleRemision.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+
             Return estado
-        Else
-            estado = True
-        End If
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en alguna ka funcion validacion de campos" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
 
-        If ftCierreRemision.Value < ftAperturaRemision.Value Then
-            MsgBox("No puedes registrar una fecha menor a la fecha de apertura")
-            ftCierreRemision.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-
-        If DataGridViewDetalleRemision.Rows.Count() = 0 Then
-            MsgBox("La tabla de detalles de remisiones esta vacia")
-            DataGridViewDetalleRemision.Select()
-            estado = False
-            Return estado
-        Else
-            estado = True
-        End If
-
-
-        Return estado
 
     End Function  'Valida campos
 
@@ -873,7 +947,7 @@ Public Class Remisiones
     End Sub 'Muestra
 
     Private Sub LimpiarCampos()
-
+        txtTotalGrillaDetalle.Clear()
         txtTipoDocu.Clear()
         txtIdentificacion.Clear()
         txtSucursal.Clear()
