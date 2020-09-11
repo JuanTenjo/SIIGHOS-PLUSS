@@ -165,19 +165,48 @@ Public Class Pagos
 
     End Function
 
+
+    Private Sub CargarDetalleFactura()
+        Try
+            DataGridViewDetalleRemision.Rows.Clear()
+            Dim readerdetalle As SqlDataReader
+            readerdetalle = SQLReader("SELECT dtr.* FROM [Datos facturas realizadas] as df, [Datos detalle de remisiones] as dtr where
+                                df.NumRemi = dtr.NumRemi and df.NumFact = '" & cboFacturas.SelectedValue & "'")
+            While readerdetalle.Read()
+                Dim TotalItems As Double = ((readerdetalle("ValUniDeta") * readerdetalle("CantDeta")) + readerdetalle("ValIVADeta"))
+                DataGridViewDetalleRemision.Rows.Add(New String() {readerdetalle("ItemNum"), readerdetalle("CodProSer"), readerdetalle("Concepto"), readerdetalle("CantDeta"), readerdetalle("ValUniDeta"), readerdetalle("ValIVADeta"), TotalItems})
+            End While
+            readerdetalle.Close()
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al cargos los detalles de la factura" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            cn.Close()
+        End Try
+    End Sub
+
     Private Sub CargarDatosFactura()
 
         If bandera = 1 Then
+
+            Dim Resultado As Object = 0
+
             Try
+                cn.Open()
+                Dim VerificarPago As SqlCommand
+                VerificarPago = New SqlCommand With {
+                    .Connection = cn,
+                    .CommandText = "select Count(ddp.Numero_factura) from [Datos detalle de pagos] as ddp where ddp.Numero_factura = '" & cboFacturas.SelectedValue & "' and ddp.Anulada = 0"
+                }
+                Resultado = VerificarPago.ExecuteScalar()
 
-                Dim reader2 As SqlDataReader
-                reader2 = SQLReader("SELECT df.TipDocTer,df.NumDocTer, dp.RazonSol, df.NumRemi, df.ValNetoFac, df.ValIVAFac, df.FecExpFac, df.FecVenFac, df.FecUltiPag, df.TolImpApli,
-                                        df.ValDesFac, df.ValNotDeFac, df.ValNotCreFac, df.TolPagFac, ddp.Detalle, ddp.anulada, ddp.Cod_Regis, ddp.Fec_Regis, ddp.Cod_Modi, ddp.Fec_Modi
-                                FROM [Datos facturas realizadas] as df, [Datos proveedores] as dp, [Datos detalle de pagos] as ddp
-                                where df.NumDocTer = dp.IdenProve AND ddp.Numero_factura = df.NumFact AND df.NumFact = '" & cboFacturas.SelectedValue & "'")
+                cn.Close()
 
-                If reader2.HasRows = False Then
-                    cn.Close()
+                If Resultado = 0 Then 'Si esta en significa que no existe ningun pago aun
+
                     Dim reader As SqlDataReader
                     reader = SQLReader("SELECT df.TipDocTer, df.NumDocTer, dp.RazonSol, df.NumRemi, df.ValNetoFac, df.ValIVAFac, 
                                     df.FecExpFac, df.FecVenFac, df.FecUltiPag, df.TolImpApli, df.ValDesFac, df.ValNotDeFac,
@@ -204,72 +233,66 @@ Public Class Pagos
                         DtFechaExpedicion.Value = Convert.ToDateTime(reader("FecExpFac"))
                         DtFechaVencimeinto.Value = Convert.ToDateTime(reader("FecVenFac"))
                         DtUltimoPago.Value = Convert.ToDateTime(reader("FecUltiPag"))
+                        reader.Close()
+                        cn.Close()
+                        CargarDetalleFactura()
+                        btnEliminar.Enabled = False
+                        txtPagoRealizados.Text = Resultado.ToString
+                        LabelPagado.Visible = False
+                        LabelPendiente.Visible = True
+                        btnReporte.Enabled = False
+                        GroupModi.Enabled = False
+                        GroupRegis.Enabled = True
                     End If
 
-                Else
 
-                    reader2.Read()
-                    CheckAnulada.Checked = reader2("anulada")
-                    txtDocuTer.Text = reader2("NumDocTer")
-                    txtRazonSolTer.Text = reader2("RazonSol")
-                    txtRemision.Text = reader2("NumRemi")
-                    txtImpuestos.Text = reader2("TolImpApli")
-                    txtValorDescuento.Text = reader2("ValDesFac")
-                    txtPagoRealizados.Text = reader2("TolPagFac")
-                    txtValorDebito.Text = reader2("ValNotDeFac")
-                    txtDetallePago.Text = reader2("Detalle")
-                    txtValorCredito.Text = reader2("ValNotCreFac")
-                    txtValorFactura.Text = reader2("ValNetoFac")
-                    txtValorIVAFactura.Text = reader2("ValIVAFac")
-                    DtFechaExpedicion.Value = Convert.ToDateTime(reader2("FecExpFac"))
-                    DtFechaVencimeinto.Value = Convert.ToDateTime(reader2("FecVenFac"))
-                    DtUltimoPago.Value = Convert.ToDateTime(reader2("FecUltiPag"))
-                    txtCodRegis.Text = reader2("Cod_Regis")
-                    ftRegis.Value = Convert.ToDateTime(reader2("Fec_Regis"))
-                    txtCodModi.Text = reader2("Cod_Modi")
-                    ftModi.Value = Convert.ToDateTime("Fec_Modi")
-                End If
+                ElseIf Resultado > 0 Then  'Si es mayor a 0 si existe al menos un pago a esta factura
 
 
-            Catch ex As Exception
-                Titulo01 = "Control de errores de ejecución"
-                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-                Informa += "al cargos los datos de la factura" & Chr(13) & Chr(10)
-                Informa += "Mensaje del error: " & ex.Message
-                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Dim reader2 As SqlDataReader
+                    reader2 = SQLReader("SELECT df.TipDocTer,df.NumDocTer, dp.RazonSol, df.NumRemi, df.ValNetoFac, df.ValIVAFac, df.FecExpFac, df.FecVenFac, df.FecUltiPag, df.TolImpApli,
+                                        df.ValDesFac, df.ValNotDeFac, df.ValNotCreFac, df.TolPagFac, ddp.Detalle, ddp.anulada, ddp.Cod_Regis, ddp.Fec_Regis, ddp.Cod_Modi, ddp.Fec_Modi
+                                FROM [Datos facturas realizadas] as df, [Datos proveedores] as dp, [Datos detalle de pagos] as ddp
+                                where df.NumDocTer = dp.IdenProve AND ddp.Numero_factura = df.NumFact AND df.NumFact = '" & cboFacturas.SelectedValue & "'")
 
-            Finally
-                cn.Close()
-            End Try
+                    If reader2.HasRows = False Then
+                        MsgBox("No se efectuaron detalle de pagos")
+                        Exit Sub
+                    Else
+                        reader2.Read()
+                        CheckAnulada.Checked = reader2("anulada")
+                        txtDocuTer.Text = reader2("NumDocTer")
+                        txtTipoDocTer.Text = reader2("TipDocTer")
+                        txtRazonSolTer.Text = reader2("RazonSol")
+                        txtRemision.Text = reader2("NumRemi")
+                        txtImpuestos.Text = reader2("TolImpApli")
+                        txtValorDescuento.Text = reader2("ValDesFac")
+                        txtPagoRealizados.Text = reader2("TolPagFac")
+                        txtValorDebito.Text = reader2("ValNotDeFac")
+                        txtDetallePago.Text = reader2("Detalle")
+                        txtValorCredito.Text = reader2("ValNotCreFac")
+                        txtValorFactura.Text = reader2("ValNetoFac")
+                        txtValorIVAFactura.Text = reader2("ValIVAFac")
+                        DtFechaExpedicion.Value = Convert.ToDateTime(reader2("FecExpFac"))
+                        DtFechaVencimeinto.Value = Convert.ToDateTime(reader2("FecVenFac"))
+                        DtUltimoPago.Value = Convert.ToDateTime(reader2("FecUltiPag"))
+                        txtCodRegis.Text = reader2("Cod_Regis")
+                        ftRegis.Value = Convert.ToDateTime(reader2("Fec_Regis"))
+                        txtCodModi.Text = reader2("Cod_Modi")
+                        ftModi.Value = Convert.ToDateTime(reader2("Fec_Modi"))
+                        reader2.Close()
+                        cn.Close()
+                        CargarDetalleFactura()
+                        GroupRegis.Enabled = False
+                        GroupModi.Enabled = True
+                        btnReporte.Enabled = True
+                        btnEliminar.Enabled = True
+                        txtPagoRealizados.Text = Resultado.ToString
+                        LabelPagado.Visible = True
+                        LabelPendiente.Visible = False
 
-            Dim Resultado As Object = 0
+                    End If
 
-            Try
-                cn.Open()
-                Dim VerificarPago As SqlCommand
-                VerificarPago = New SqlCommand With {
-                    .Connection = cn,
-                    .CommandText = "select Count(ddp.Numero_factura) from [Datos detalle de pagos] as ddp where ddp.Numero_factura = '" & cboFacturas.SelectedValue & "' and ddp.Anulada = 0"
-                }
-                Resultado = VerificarPago.ExecuteScalar()
-
-                If Resultado = 0 Then
-                    btnEliminar.Enabled = False
-                    txtPagoRealizados.Text = Resultado.ToString
-                    LabelPagado.Visible = False
-                    LabelPendiente.Visible = True
-                    btnReporte.Enabled = False
-                    GroupModi.Visible = False
-                    GroupRegis.Visible = True
-
-                ElseIf Resultado > 0 Then
-                    GroupRegis.Visible = False
-                    GroupModi.Visible = True
-                    btnReporte.Enabled = True
-                    btnEliminar.Enabled = True
-                    txtPagoRealizados.Text = Resultado.ToString
-                    LabelPagado.Visible = True
-                    LabelPendiente.Visible = False
                 Else
                     MsgBox("Ni idea")
                 End If

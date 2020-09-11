@@ -22,6 +22,8 @@ Partial Class Pagos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cboFacturas = New System.Windows.Forms.ComboBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -88,6 +90,14 @@ Partial Class Pagos
         Me.GroupModi = New System.Windows.Forms.GroupBox()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.DataGridViewDetalleRemision = New System.Windows.Forms.DataGridView()
+        Me.Item = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodigoP = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Concepto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorUni = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorUniIVA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel6.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -100,6 +110,7 @@ Partial Class Pagos
         Me.Panel8.SuspendLayout()
         Me.GroupModi.SuspendLayout()
         Me.Panel9.SuspendLayout()
+        CType(Me.DataGridViewDetalleRemision, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cboFacturas
@@ -112,7 +123,7 @@ Partial Class Pagos
         Me.cboFacturas.Items.AddRange(New Object() {"No ", "Si"})
         Me.cboFacturas.Location = New System.Drawing.Point(21, 52)
         Me.cboFacturas.Name = "cboFacturas"
-        Me.cboFacturas.Size = New System.Drawing.Size(128, 26)
+        Me.cboFacturas.Size = New System.Drawing.Size(131, 26)
         Me.cboFacturas.TabIndex = 86
         '
         'Panel6
@@ -126,7 +137,7 @@ Partial Class Pagos
         Me.Panel6.Controls.Add(Me.Label17)
         Me.Panel6.Location = New System.Drawing.Point(12, 12)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(762, 31)
+        Me.Panel6.Size = New System.Drawing.Size(995, 31)
         Me.Panel6.TabIndex = 89
         '
         'Label21
@@ -134,7 +145,7 @@ Partial Class Pagos
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label21.ForeColor = System.Drawing.Color.White
-        Me.Label21.Location = New System.Drawing.Point(680, 6)
+        Me.Label21.Location = New System.Drawing.Point(910, 6)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(61, 21)
         Me.Label21.TabIndex = 18
@@ -145,7 +156,7 @@ Partial Class Pagos
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.White
-        Me.Label19.Location = New System.Drawing.Point(395, 6)
+        Me.Label19.Location = New System.Drawing.Point(507, 6)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(104, 21)
         Me.Label19.TabIndex = 17
@@ -156,7 +167,7 @@ Partial Class Pagos
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(151, 6)
+        Me.Label11.Location = New System.Drawing.Point(153, 6)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(80, 21)
         Me.Label11.TabIndex = 16
@@ -168,7 +179,7 @@ Partial Class Pagos
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(566, 6)
+        Me.Label10.Location = New System.Drawing.Point(785, 6)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(78, 21)
         Me.Label10.TabIndex = 15
@@ -222,7 +233,7 @@ Partial Class Pagos
         '
         Me.Panel1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(12, 318)
+        Me.Panel1.Location = New System.Drawing.Point(12, 505)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(121, 39)
         Me.Panel1.TabIndex = 90
@@ -241,11 +252,11 @@ Partial Class Pagos
         'txtDetallePago
         '
         Me.txtDetallePago.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDetallePago.Location = New System.Drawing.Point(139, 318)
+        Me.txtDetallePago.Location = New System.Drawing.Point(139, 505)
         Me.txtDetallePago.MaxLength = 15
         Me.txtDetallePago.Multiline = True
         Me.txtDetallePago.Name = "txtDetallePago"
-        Me.txtDetallePago.Size = New System.Drawing.Size(635, 39)
+        Me.txtDetallePago.Size = New System.Drawing.Size(868, 39)
         Me.txtDetallePago.TabIndex = 92
         '
         'Panel2
@@ -255,9 +266,9 @@ Partial Class Pagos
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Label13)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(12, 162)
+        Me.Panel2.Location = New System.Drawing.Point(12, 349)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(762, 31)
+        Me.Panel2.Size = New System.Drawing.Size(995, 31)
         Me.Panel2.TabIndex = 90
         '
         'Label3
@@ -299,7 +310,7 @@ Partial Class Pagos
         Me.GroupRegis.Controls.Add(Me.Panel4)
         Me.GroupRegis.Controls.Add(Me.Panel7)
         Me.GroupRegis.Controls.Add(Me.ftRegis)
-        Me.GroupRegis.Location = New System.Drawing.Point(21, 363)
+        Me.GroupRegis.Location = New System.Drawing.Point(12, 550)
         Me.GroupRegis.Name = "GroupRegis"
         Me.GroupRegis.Size = New System.Drawing.Size(490, 50)
         Me.GroupRegis.TabIndex = 99
@@ -405,7 +416,7 @@ Partial Class Pagos
         'DtFechaMovimiento
         '
         Me.DtFechaMovimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaMovimiento.Location = New System.Drawing.Point(251, 204)
+        Me.DtFechaMovimiento.Location = New System.Drawing.Point(251, 391)
         Me.DtFechaMovimiento.Name = "DtFechaMovimiento"
         Me.DtFechaMovimiento.Size = New System.Drawing.Size(160, 22)
         Me.DtFechaMovimiento.TabIndex = 100
@@ -413,7 +424,7 @@ Partial Class Pagos
         'txtValorCredito
         '
         Me.txtValorCredito.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorCredito.Location = New System.Drawing.Point(558, 204)
+        Me.txtValorCredito.Location = New System.Drawing.Point(558, 391)
         Me.txtValorCredito.MaxLength = 15
         Me.txtValorCredito.Multiline = True
         Me.txtValorCredito.Name = "txtValorCredito"
@@ -438,9 +449,9 @@ Partial Class Pagos
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.Label12)
-        Me.Panel3.Location = New System.Drawing.Point(11, 239)
+        Me.Panel3.Location = New System.Drawing.Point(11, 426)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(763, 31)
+        Me.Panel3.Size = New System.Drawing.Size(996, 31)
         Me.Panel3.TabIndex = 91
         '
         'Label6
@@ -468,7 +479,7 @@ Partial Class Pagos
         'txtRemision
         '
         Me.txtRemision.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRemision.Location = New System.Drawing.Point(565, 53)
+        Me.txtRemision.Location = New System.Drawing.Point(786, 52)
         Me.txtRemision.MaxLength = 15
         Me.txtRemision.Multiline = True
         Me.txtRemision.Name = "txtRemision"
@@ -479,7 +490,7 @@ Partial Class Pagos
         'txtValorDebito
         '
         Me.txtValorDebito.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorDebito.Location = New System.Drawing.Point(425, 204)
+        Me.txtValorDebito.Location = New System.Drawing.Point(425, 391)
         Me.txtValorDebito.MaxLength = 15
         Me.txtValorDebito.Multiline = True
         Me.txtValorDebito.Name = "txtValorDebito"
@@ -489,7 +500,7 @@ Partial Class Pagos
         'txtImpuestos
         '
         Me.txtImpuestos.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtImpuestos.Location = New System.Drawing.Point(157, 280)
+        Me.txtImpuestos.Location = New System.Drawing.Point(157, 467)
         Me.txtImpuestos.MaxLength = 15
         Me.txtImpuestos.Multiline = True
         Me.txtImpuestos.Name = "txtImpuestos"
@@ -499,7 +510,7 @@ Partial Class Pagos
         'txtPagoRealizados
         '
         Me.txtPagoRealizados.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPagoRealizados.Location = New System.Drawing.Point(320, 280)
+        Me.txtPagoRealizados.Location = New System.Drawing.Point(320, 467)
         Me.txtPagoRealizados.MaxLength = 15
         Me.txtPagoRealizados.Multiline = True
         Me.txtPagoRealizados.Name = "txtPagoRealizados"
@@ -510,7 +521,7 @@ Partial Class Pagos
         'txtValorDescuento
         '
         Me.txtValorDescuento.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorDescuento.Location = New System.Drawing.Point(21, 280)
+        Me.txtValorDescuento.Location = New System.Drawing.Point(21, 467)
         Me.txtValorDescuento.MaxLength = 15
         Me.txtValorDescuento.Multiline = True
         Me.txtValorDescuento.Name = "txtValorDescuento"
@@ -525,9 +536,9 @@ Partial Class Pagos
         Me.Panel5.Controls.Add(Me.Label15)
         Me.Panel5.Controls.Add(Me.Label16)
         Me.Panel5.Controls.Add(Me.Label18)
-        Me.Panel5.Location = New System.Drawing.Point(12, 87)
+        Me.Panel5.Location = New System.Drawing.Point(12, 88)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(762, 31)
+        Me.Panel5.Size = New System.Drawing.Size(995, 31)
         Me.Panel5.TabIndex = 90
         '
         'Label20
@@ -588,7 +599,7 @@ Partial Class Pagos
         'txtValorFactura
         '
         Me.txtValorFactura.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorFactura.Location = New System.Drawing.Point(21, 128)
+        Me.txtValorFactura.Location = New System.Drawing.Point(21, 129)
         Me.txtValorFactura.MaxLength = 15
         Me.txtValorFactura.Multiline = True
         Me.txtValorFactura.Name = "txtValorFactura"
@@ -598,7 +609,7 @@ Partial Class Pagos
         'txtValorIVAFactura
         '
         Me.txtValorIVAFactura.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorIVAFactura.Location = New System.Drawing.Point(170, 128)
+        Me.txtValorIVAFactura.Location = New System.Drawing.Point(170, 129)
         Me.txtValorIVAFactura.MaxLength = 15
         Me.txtValorIVAFactura.Multiline = True
         Me.txtValorIVAFactura.Name = "txtValorIVAFactura"
@@ -608,7 +619,7 @@ Partial Class Pagos
         'DtFechaExpedicion
         '
         Me.DtFechaExpedicion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaExpedicion.Location = New System.Drawing.Point(317, 128)
+        Me.DtFechaExpedicion.Location = New System.Drawing.Point(317, 129)
         Me.DtFechaExpedicion.Name = "DtFechaExpedicion"
         Me.DtFechaExpedicion.Size = New System.Drawing.Size(139, 22)
         Me.DtFechaExpedicion.TabIndex = 123
@@ -616,7 +627,7 @@ Partial Class Pagos
         'DtFechaVencimeinto
         '
         Me.DtFechaVencimeinto.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaVencimeinto.Location = New System.Drawing.Point(479, 128)
+        Me.DtFechaVencimeinto.Location = New System.Drawing.Point(479, 129)
         Me.DtFechaVencimeinto.Name = "DtFechaVencimeinto"
         Me.DtFechaVencimeinto.Size = New System.Drawing.Size(139, 22)
         Me.DtFechaVencimeinto.TabIndex = 124
@@ -628,7 +639,7 @@ Partial Class Pagos
         Me.txtTipoDocTer.MaxLength = 15
         Me.txtTipoDocTer.Multiline = True
         Me.txtTipoDocTer.Name = "txtTipoDocTer"
-        Me.txtTipoDocTer.Size = New System.Drawing.Size(51, 26)
+        Me.txtTipoDocTer.Size = New System.Drawing.Size(61, 26)
         Me.txtTipoDocTer.TabIndex = 125
         '
         'txtDocuTer
@@ -644,19 +655,19 @@ Partial Class Pagos
         'txtRazonSolTer
         '
         Me.txtRazonSolTer.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRazonSolTer.Location = New System.Drawing.Point(368, 53)
+        Me.txtRazonSolTer.Location = New System.Drawing.Point(360, 53)
         Me.txtRazonSolTer.MaxLength = 15
         Me.txtRazonSolTer.Multiline = True
         Me.txtRazonSolTer.Name = "txtRazonSolTer"
-        Me.txtRazonSolTer.Size = New System.Drawing.Size(185, 26)
+        Me.txtRazonSolTer.Size = New System.Drawing.Size(420, 26)
         Me.txtRazonSolTer.TabIndex = 127
         '
         'DtUltimoPago
         '
         Me.DtUltimoPago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtUltimoPago.Location = New System.Drawing.Point(635, 128)
+        Me.DtUltimoPago.Location = New System.Drawing.Point(635, 129)
         Me.DtUltimoPago.Name = "DtUltimoPago"
-        Me.DtUltimoPago.Size = New System.Drawing.Size(139, 22)
+        Me.DtUltimoPago.Size = New System.Drawing.Size(128, 22)
         Me.DtUltimoPago.TabIndex = 128
         '
         'LabelPendiente
@@ -664,7 +675,7 @@ Partial Class Pagos
         Me.LabelPendiente.AutoSize = True
         Me.LabelPendiente.BackColor = System.Drawing.Color.Yellow
         Me.LabelPendiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelPendiente.Location = New System.Drawing.Point(682, 58)
+        Me.LabelPendiente.Location = New System.Drawing.Point(914, 57)
         Me.LabelPendiente.Name = "LabelPendiente"
         Me.LabelPendiente.Size = New System.Drawing.Size(81, 17)
         Me.LabelPendiente.TabIndex = 0
@@ -675,7 +686,7 @@ Partial Class Pagos
         Me.LabelPagado.AutoSize = True
         Me.LabelPagado.BackColor = System.Drawing.Color.YellowGreen
         Me.LabelPagado.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelPagado.Location = New System.Drawing.Point(690, 58)
+        Me.LabelPagado.Location = New System.Drawing.Point(914, 57)
         Me.LabelPagado.Name = "LabelPagado"
         Me.LabelPagado.Size = New System.Drawing.Size(63, 17)
         Me.LabelPagado.TabIndex = 0
@@ -689,7 +700,7 @@ Partial Class Pagos
         Me.cboCodigoContable.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCodigoContable.FormattingEnabled = True
         Me.cboCodigoContable.Items.AddRange(New Object() {"No ", "Si"})
-        Me.cboCodigoContable.Location = New System.Drawing.Point(21, 204)
+        Me.cboCodigoContable.Location = New System.Drawing.Point(21, 391)
         Me.cboCodigoContable.Name = "cboCodigoContable"
         Me.cboCodigoContable.Size = New System.Drawing.Size(222, 26)
         Me.cboCodigoContable.TabIndex = 130
@@ -698,7 +709,7 @@ Partial Class Pagos
         '
         Me.CheckAnulada.AutoSize = True
         Me.CheckAnulada.Enabled = False
-        Me.CheckAnulada.Location = New System.Drawing.Point(465, 286)
+        Me.CheckAnulada.Location = New System.Drawing.Point(465, 473)
         Me.CheckAnulada.Name = "CheckAnulada"
         Me.CheckAnulada.Size = New System.Drawing.Size(18, 17)
         Me.CheckAnulada.TabIndex = 132
@@ -711,7 +722,7 @@ Partial Class Pagos
         Me.btnEliminar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Image = Global.Modulo_Facturacion.My.Resources.Resources.iconoEliminar
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(499, 502)
+        Me.btnEliminar.Location = New System.Drawing.Point(630, 617)
         Me.btnEliminar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -730,7 +741,7 @@ Partial Class Pagos
         Me.btnReporte.ForeColor = System.Drawing.Color.Black
         Me.btnReporte.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40
         Me.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReporte.Location = New System.Drawing.Point(347, 504)
+        Me.btnReporte.Location = New System.Drawing.Point(478, 619)
         Me.btnReporte.Margin = New System.Windows.Forms.Padding(0)
         Me.btnReporte.Name = "btnReporte"
         Me.btnReporte.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -747,7 +758,7 @@ Partial Class Pagos
         Me.btnPagar.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_payroll_40
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(219, 502)
+        Me.btnPagar.Location = New System.Drawing.Point(350, 617)
         Me.btnPagar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnPagar.Name = "btnPagar"
         Me.btnPagar.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -764,7 +775,7 @@ Partial Class Pagos
         Me.BtnCerrarContratos.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCerrarContratos.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40
         Me.BtnCerrarContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCerrarContratos.Location = New System.Drawing.Point(87, 502)
+        Me.BtnCerrarContratos.Location = New System.Drawing.Point(218, 617)
         Me.BtnCerrarContratos.Margin = New System.Windows.Forms.Padding(0)
         Me.BtnCerrarContratos.Name = "BtnCerrarContratos"
         Me.BtnCerrarContratos.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -801,12 +812,11 @@ Partial Class Pagos
         Me.GroupModi.Controls.Add(Me.Panel8)
         Me.GroupModi.Controls.Add(Me.txtCodModi)
         Me.GroupModi.Controls.Add(Me.ftModi)
-        Me.GroupModi.Location = New System.Drawing.Point(21, 419)
+        Me.GroupModi.Location = New System.Drawing.Point(517, 550)
         Me.GroupModi.Name = "GroupModi"
         Me.GroupModi.Size = New System.Drawing.Size(490, 50)
         Me.GroupModi.TabIndex = 100
         Me.GroupModi.TabStop = False
-        Me.GroupModi.Visible = False
         '
         'Panel9
         '
@@ -828,13 +838,97 @@ Partial Class Pagos
         Me.Label7.TabIndex = 85
         Me.Label7.Text = "Fecha Modi"
         '
+        'DataGridViewDetalleRemision
+        '
+        Me.DataGridViewDetalleRemision.AllowUserToAddRows = False
+        Me.DataGridViewDetalleRemision.AllowUserToResizeColumns = False
+        Me.DataGridViewDetalleRemision.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridViewDetalleRemision.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridViewDetalleRemision.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewDetalleRemision.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridViewDetalleRemision.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewDetalleRemision.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Item, Me.CodigoP, Me.Concepto, Me.Cantidad, Me.ValorUni, Me.ValorUniIVA, Me.Total})
+        Me.DataGridViewDetalleRemision.Location = New System.Drawing.Point(12, 178)
+        Me.DataGridViewDetalleRemision.MultiSelect = False
+        Me.DataGridViewDetalleRemision.Name = "DataGridViewDetalleRemision"
+        Me.DataGridViewDetalleRemision.ReadOnly = True
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewDetalleRemision.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridViewDetalleRemision.RowHeadersVisible = False
+        Me.DataGridViewDetalleRemision.RowTemplate.Height = 24
+        Me.DataGridViewDetalleRemision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridViewDetalleRemision.Size = New System.Drawing.Size(995, 150)
+        Me.DataGridViewDetalleRemision.TabIndex = 133
+        '
+        'Item
+        '
+        Me.Item.FillWeight = 40.10911!
+        Me.Item.HeaderText = "Item"
+        Me.Item.Name = "Item"
+        Me.Item.ReadOnly = True
+        '
+        'CodigoP
+        '
+        Me.CodigoP.HeaderText = "CodigoP"
+        Me.CodigoP.Name = "CodigoP"
+        Me.CodigoP.ReadOnly = True
+        '
+        'Concepto
+        '
+        Me.Concepto.FillWeight = 156.9908!
+        Me.Concepto.HeaderText = "Concepto"
+        Me.Concepto.Name = "Concepto"
+        Me.Concepto.ReadOnly = True
+        '
+        'Cantidad
+        '
+        Me.Cantidad.FillWeight = 83.33783!
+        Me.Cantidad.HeaderText = "Cantidad"
+        Me.Cantidad.Name = "Cantidad"
+        Me.Cantidad.ReadOnly = True
+        '
+        'ValorUni
+        '
+        Me.ValorUni.FillWeight = 83.33783!
+        Me.ValorUni.HeaderText = "ValorUni"
+        Me.ValorUni.Name = "ValorUni"
+        Me.ValorUni.ReadOnly = True
+        '
+        'ValorUniIVA
+        '
+        Me.ValorUniIVA.FillWeight = 83.33783!
+        Me.ValorUniIVA.HeaderText = "ValorUniIVA"
+        Me.ValorUniIVA.Name = "ValorUniIVA"
+        Me.ValorUniIVA.ReadOnly = True
+        '
+        'Total
+        '
+        Me.Total.FillWeight = 88.09251!
+        Me.Total.HeaderText = "Total"
+        Me.Total.Name = "Total"
+        Me.Total.ReadOnly = True
+        '
         'Pagos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(796, 578)
+        Me.ClientSize = New System.Drawing.Size(1019, 706)
         Me.ControlBox = False
+        Me.Controls.Add(Me.DataGridViewDetalleRemision)
         Me.Controls.Add(Me.GroupRegis)
         Me.Controls.Add(Me.CheckAnulada)
         Me.Controls.Add(Me.btnEliminar)
@@ -894,6 +988,7 @@ Partial Class Pagos
         Me.GroupModi.PerformLayout()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
+        CType(Me.DataGridViewDetalleRemision, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -965,4 +1060,12 @@ Partial Class Pagos
     Friend WithEvents Label7 As Label
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Label23 As Label
+    Friend WithEvents DataGridViewDetalleRemision As DataGridView
+    Friend WithEvents Item As DataGridViewTextBoxColumn
+    Friend WithEvents CodigoP As DataGridViewTextBoxColumn
+    Friend WithEvents Concepto As DataGridViewTextBoxColumn
+    Friend WithEvents Cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents ValorUni As DataGridViewTextBoxColumn
+    Friend WithEvents ValorUniIVA As DataGridViewTextBoxColumn
+    Friend WithEvents Total As DataGridViewTextBoxColumn
 End Class

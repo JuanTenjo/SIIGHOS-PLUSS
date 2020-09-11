@@ -77,7 +77,7 @@ Public Class Remisiones
             Dim codigo As String = DataGridDetalleCuotas.SelectedCells.Item(0).Value 'OPtenemos el item del contrato
             Dim estado As Boolean = DataGridDetalleCuotas.SelectedCells.Item(4).Value 'Obtenemos el estado de pago de la cuota
 
-            If estado = True Then
+            If estado = True Then   'Si la cuota ya fue facturada
 
                 MsgBox("Esta cuota ya esta facturada, no podras modificarla")
                 btnFacturar.Enabled = False
@@ -87,12 +87,13 @@ Public Class Remisiones
                 GroupModi.Visible = True
                 Dim reader As SqlDataReader
                 reader = SQLReader("SELECT DTR.NumRemi, DC.ID_Contratos, DC.CuotaNoPac, DC.ValTolCuota, DF.FecAperRemi, DF.FecCieRemi, DF.HorAperRemi, DF.RemiActiva,
-                                    DTR.ItemNum, DTR.CodProSer, DTR.Concepto, DTR.CantDeta, DTR.ValUniDeta, DTR.ValIVADeta, df.CodRegis, df.FecRegis, df.CodModi, df.FecModi
-                                    FROM [Datos detalle de remisiones] as dtr, [Datos remisiones de facturas] df, [Datos detalles de cuotas contratos] as dc 
+                                    DTR.ItemNum, DTR.CodProSer, DTR.Concepto, DTR.CantDeta, DTR.ValUniDeta, DTR.ValIVADeta, df.CodRegis, df.FecRegis, df.CodModi, df.FecModi, dft.NumFact
+                                    FROM [Datos detalle de remisiones] as dtr, [Datos remisiones de facturas] df, [Datos detalles de cuotas contratos] as dc, [Datos facturas realizadas] as dft 
                                     where dc.CuotaNoPac = '" & codigo & "'
                                     and dc.ID_Contratos = '" & txtIdContrato.Text & "'
                                     and dc.ID_Contratos = df.ID_Contratos
                                     and df.NumRemi = dtr.NumRemi
+                                    and df.NumRemi = dft.NumRemi
                                     and  DF.CuotNum = '" & codigo & "'")
 
                 If reader.HasRows = False Then
@@ -109,6 +110,7 @@ Public Class Remisiones
                         txtTotalCuota.Text = reader("ValTolCuota")
                         ftAperturaRemision.Value = reader("FecAperRemi")
                         ftCierreRemision.Value = reader("FecCieRemi")
+                        txtNumeroFactura.Text = reader("NumFact")
                         txtCodRegis.Text = reader("CodModi")
                         ftRegis.Value = reader("FecRegis")
                         txtCodModi.Text = reader("CodModi")
@@ -119,7 +121,9 @@ Public Class Remisiones
                         Else
                             cboActivaRemicion.SelectedIndex = 0
                         End If
-                        DataGridViewDetalleRemision.Rows.Add(New String() {reader("ItemNum"), reader("CodProSer"), "", reader("Concepto"), reader("CantDeta"), reader("ValUniDeta"), reader("ValIVADeta"), reader("ValTolCuota")})
+                        Dim TotalItems As Double = ((reader("ValUniDeta") * reader("CantDeta")) + reader("ValIVADeta"))
+
+                        DataGridViewDetalleRemision.Rows.Add(New String() {reader("ItemNum"), reader("CodProSer"), "", reader("Concepto"), reader("CantDeta"), reader("ValUniDeta"), reader("ValIVADeta"), TotalItems})
                         If DataGridViewDetalleRemision.Rows.Count > 0 Then
                             CalcularTotalDetalle()
                         End If
@@ -144,8 +148,9 @@ Public Class Remisiones
                     btnFacturar.Enabled = False
 
                     btnaAgregarFila.Enabled = False
-                    LimpiarCampos()
+                    LimpiarCamposDataGridDetalle()
                 Else
+
                     Dim reader2 As SqlDataReader
                     reader2 = SQLReader("SELECT DTR.NumRemi, DC.ID_Contratos, DC.CuotaNoPac, DC.ValTolCuota, DF.FecAperRemi, DF.FecCieRemi, DF.HorAperRemi, DF.RemiActiva,
                                     DTR.ItemNum, DTR.CodProSer, DTR.Concepto, DTR.CantDeta, DTR.ValUniDeta, DTR.ValIVADeta, DF.CuotNum, df.CodRegis, df.FecRegis, df.CodModi, df.FecModi
@@ -163,9 +168,11 @@ Public Class Remisiones
                         dc = SQLReader("Select dtc.PorCuoPac, dtc.CuotaNoPac, dtc.ValTolCuota from [Datos registros de contratos] as dr, [Datos detalles de cuotas contratos] as dtc  where dtc.ID_Contratos = dr.ID_Contratos and dr.NumDocContra = '" & txtIdentificacion.Text & "' and dr.ID_Contratos = '" & txtIdContrato.Text & "'  and dtc.CuotaNoPac = " & codigo & "")
                         If dc.HasRows = False Then
                             MsgBox("No se encontraron registros de esta cuota")
+                            LimpiarCamposDataGridDetalle()
                         Else
 
                             MsgBox("Registraras un nueva remisión")
+                            LimpiarCamposDataGridDetalle()
                             GroupModi.Enabled = False
                             GroupRegis.Enabled = True
                             btnFacturar.Enabled = False
@@ -182,6 +189,7 @@ Public Class Remisiones
 
                     Else
                         MsgBox("Esta cuota ya tiene una remision cargada, podras modificarla o eliminarla")
+                        LimpiarCamposDataGridDetalle()
                         GroupModi.Enabled = True
                         GroupRegis.Enabled = False
                         btnEliminar.Enabled = True
@@ -202,7 +210,12 @@ Public Class Remisiones
                             Else
                                 cboActivaRemicion.SelectedIndex = 0
                             End If
-                            DataGridViewDetalleRemision.Rows.Add(New String() {reader2("ItemNum"), reader2("CodProSer"), "", reader2("Concepto"), reader2("CantDeta"), reader2("ValUniDeta"), reader2("ValIVADeta"), reader2("ValTolCuota")})
+
+
+                            Dim TotalItems As Double = ((reader2("ValUniDeta") * reader2("CantDeta")) + reader2("ValIVADeta"))
+
+
+                            DataGridViewDetalleRemision.Rows.Add(New String() {reader2("ItemNum"), reader2("CodProSer"), "", reader2("Concepto"), reader2("CantDeta"), reader2("ValUniDeta"), reader2("ValIVADeta"), TotalItems})
                         End While
                         If DataGridViewDetalleRemision.Rows.Count > 0 Then
                             CalcularTotalDetalle()
@@ -391,16 +404,23 @@ Public Class Remisiones
     End Sub 'Facturar
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Try
+            Dim estado As Boolean = DataGridDetalleCuotas.SelectedCells.Item(4).Value 'Obtenemos el estado de pago de la cuota
 
-        Dim estado As Boolean = DataGridDetalleCuotas.SelectedCells.Item(4).Value 'Obtenemos el estado de pago de la cuota
-
-        If estado = True Then
-            MsgBox("No puedes eliminar esta remision porque ya ha sido facturada")
-        Else
-            If MsgBox("Eliminaras este remision. ¿Estas de acuerdo?", vbYesNo) = vbYes Then
-                ClaseModuloDeRemisiones.EliminarRemision(txtNumRemision.Text, txtNumeroDeCouta.Text, txtIdContrato.Text)
+            If estado = True Then
+                MsgBox("No puedes eliminar esta remision porque ya ha sido facturada")
+            Else
+                If MsgBox("Eliminaras este remision. ¿Estas de acuerdo?", vbYesNo) = vbYes Then
+                    Dim Eliminar As Boolean = ClaseModuloDeRemisiones.EliminarRemision(txtNumRemision.Text, txtNumeroDeCouta.Text, txtIdContrato.Text)
+                    If Eliminar Then
+                        LimpiarCamposDataGridDetalle()
+                    End If
+                End If
             End If
-        End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
 
     End Sub 'Eliminar
 
@@ -410,18 +430,16 @@ Public Class Remisiones
             If String.IsNullOrWhiteSpace(txtNumRemision.Text) Then
 
                 If ValidacionDeCampos() = True And ValidarTotal() = True Then
-                    If MsgBox("Se generara un consecutivo. ¿Estas de acuerdo?", vbYesNo) = vbYes Then
-                        Dim concecutivo As String = CreaConsecutivo("02", True, 2)
-                        txtNumRemision.Text = concecutivo
+                    Dim concecutivo As String = CreaConsecutivo("02", True, 2)
+                    txtNumRemision.Text = concecutivo
 
-                        Dim hora As String = Now.ToString("HH:mm:ss")
-                        If String.IsNullOrWhiteSpace(txtNumRemision.Text) Then
-                            MsgBox("No se cargo el concecutivo")
-                        Else
-                            ClaseModuloDeRemisiones.ModuloRemision(txtNumRemision.Text, txtIdContrato.Text, ftAperturaRemision.Value, hora, cboActivaRemicion.SelectedIndex, txtNumeroDeCouta.Text, ftCierreRemision.Value, txtCodRegis.Text, ftRegis.Value, txtCodModi.Text, ftModi.Value, DataGridViewDetalleRemision)
-                            CagarDetallesCuotas(txtIdContrato.Text)
-                            btnFacturar.Enabled = True
-                        End If
+                    Dim hora As String = Now.ToString("HH:mm:ss")
+                    If String.IsNullOrWhiteSpace(txtNumRemision.Text) Then
+                        MsgBox("No se cargo el concecutivo")
+                    Else
+                        ClaseModuloDeRemisiones.ModuloRemision(txtNumRemision.Text, txtIdContrato.Text, ftAperturaRemision.Value, hora, cboActivaRemicion.SelectedIndex, txtNumeroDeCouta.Text, ftCierreRemision.Value, txtCodRegis.Text, ftRegis.Value, txtCodModi.Text, ftModi.Value, DataGridViewDetalleRemision)
+                        CagarDetallesCuotas(txtIdContrato.Text)
+                        btnFacturar.Enabled = True
                     End If
                 End If
             Else
@@ -462,7 +480,7 @@ Public Class Remisiones
         Try
             Select Case e.KeyData
                 Case Keys.Enter
-                    If String.IsNullOrWhiteSpace(txtCantidad.Text) Or String.IsNullOrWhiteSpace(txtValorUnitrio.Text) Then
+                    If String.IsNullOrWhiteSpace(txtCantidad.Text) Or String.IsNullOrWhiteSpace(txtValorUnitrio.Text) Or Convert.ToInt32(txtCantidad.Text) <= 0 Then
                         MsgBox("Te falta rellenar alguno de estos campos: Cantidad, Valor Unitario o Valor Iva")
                     Else
                         txtTotal.Clear()
@@ -527,8 +545,14 @@ Public Class Remisiones
                         CalcularTotalDetalle()
                         Exit Sub
                     Else
-                        Dim NumItem As Int32 = DataGridViewDetalleRemision.Rows.Count
+                        Dim NumItem As Int64
+                        Dim Fila As DataGridViewRow = New DataGridViewRow()
+                        For Each Fila In DataGridViewDetalleRemision.Rows
+                            NumItem = Fila.Cells("Item").Value
+                        Next
+
                         NumItem += 1
+
                         If ValidarCamposAñadirDetalle() Then
                             DataGridViewDetalleRemision.Rows.Add(New String() {NumItem, cboCodigoProducto.Text, cboProducto.Text, txtConcepto.Text, txtCantidad.Text, txtValorUnitrio.Text, txtValorUniIva.Text, txtTotal.Text})
                             CalcularTotalDetalle()
@@ -947,6 +971,7 @@ Public Class Remisiones
     End Sub 'Muestra
 
     Private Sub LimpiarCampos()
+        txtNumeroFactura.Clear()
         txtTotalGrillaDetalle.Clear()
         txtTipoDocu.Clear()
         txtIdentificacion.Clear()
@@ -969,6 +994,23 @@ Public Class Remisiones
         DataGridViewDetalleRemision.Rows.Clear()
         DataGridDetalleCuotas.Rows.Clear()
     End Sub 'Limpia los campos
+
+    Private Sub LimpiarCamposDataGridDetalle()
+        txtNumeroFactura.Clear()
+        txtTotalGrillaDetalle.Clear()
+        txtNumRemision.Clear()
+        txtNumeroDeCouta.Clear()
+        txtTotalCuota.Clear()
+        cboActivaRemicion.SelectedIndex = 1
+        cboCodigoProducto.SelectedIndex = 0
+        cboProducto.SelectedIndex = 0
+        txtCantidad.Clear()
+        txtValorUnitrio.Clear()
+        txtValorUniIva.Clear()
+        txtTotal.Clear()
+        txtConcepto.Clear()
+        DataGridViewDetalleRemision.Rows.Clear()
+    End Sub
 #End Region
 
 
