@@ -947,7 +947,7 @@ Public Class Contratos
     Public Sub BuscarDataGridContratos()
         Try
             Dim consulta As String
-            consulta = "Select dgc.ID_Contratos, dgc.TipDocContra, dgc.NumDocContra,  dp.RazonSol, dtc.NomTipCon FROM [Datos registros de contratos] as dgc, [Datos proveedores] as dp,  [Datos tipos de contratos] as dtc WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon and (dgc.ID_Contratos like '%' + '" & Convert.ToInt32(txtBuscarContratos.Text) & "' + '%'  OR dgc.NumDocContra like '" & Convert.ToInt64(txtBuscarContratos.Text) & "' + '%') "
+            consulta = "Select dgc.ID_Contratos, dgc.TipDocContra, dgc.NumDocContra,  dp.RazonSol, dtc.NomTipCon FROM [Datos registros de contratos] as dgc, [Datos proveedores] as dp,  [Datos tipos de contratos] as dtc WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon and (dgc.ID_Contratos like '%' + '" & Convert.ToInt64(txtBuscarContratos.Text) & "' + '%'  OR dgc.NumDocContra like '" & Convert.ToInt64(txtBuscarContratos.Text) & "' + '%') "
             bandera = 0
 
             Dim dt As DataTable = DataTable(consulta)
@@ -1382,8 +1382,10 @@ Public Class Contratos
             End If
 
             cn.Close()
+            Return True
         Catch ex As Exception
             MsgBox("Erro al cargar datagrid contratos" + ex.ToString)
+            Return False
         End Try
     End Function  'Carga el data Grid Detalles Polizas
 
@@ -1398,10 +1400,7 @@ Public Class Contratos
             For Each col As DataGridViewColumn In DataGridContratos.Columns
                 col.SortMode = DataGridViewColumnSortMode.NotSortable
             Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridContratos 
-
             ComprobarContratos()
-
-
             ColorDisabled()
             bandera = 1
             CargaDatosCombobox()

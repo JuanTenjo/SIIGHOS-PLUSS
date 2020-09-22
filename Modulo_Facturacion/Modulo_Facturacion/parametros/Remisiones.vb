@@ -46,12 +46,23 @@ Public Class Remisiones
     End Sub
 
     Private Sub cboProvedores_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cboProvedores.SelectedIndexChanged
-        LimpiarCampos()
+        Try
+            LimpiarCampos()
+            If bandera = 1 Then
+                If String.IsNullOrWhiteSpace(cboProvedores.Text) Then
+                Else
+                    CargarDataGridContratos(cboProvedores.SelectedValue)
+                    MostrasDatosCliente(cboProvedores.SelectedValue)
+                End If
+            End If
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en cbo de proveedores" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
-        If bandera = 1 Then
-            CargarDataGridContratos(cboProvedores.SelectedValue)
-            MostrasDatosCliente(cboProvedores.SelectedValue)
-        End If
     End Sub
 
 #End Region
