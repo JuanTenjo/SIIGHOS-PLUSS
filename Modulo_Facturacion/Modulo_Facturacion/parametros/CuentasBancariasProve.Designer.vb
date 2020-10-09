@@ -152,6 +152,7 @@ Partial Class CuentasBancariasProve
         'cboBancos
         '
         Me.cboBancos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboBancos.DropDownWidth = 300
         Me.cboBancos.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboBancos.FormattingEnabled = True
         Me.cboBancos.Location = New System.Drawing.Point(6, 119)

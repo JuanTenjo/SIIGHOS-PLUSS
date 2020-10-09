@@ -23,11 +23,11 @@ Partial Class Contratos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Contratos))
         Me.txtIdContrato = New System.Windows.Forms.TextBox()
         Me.cboNombreContratante = New System.Windows.Forms.ComboBox()
@@ -189,11 +189,12 @@ Partial Class Contratos
         '
         Me.cboNombreContratante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cboNombreContratante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cboNombreContratante.DropDownWidth = 500
         Me.cboNombreContratante.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboNombreContratante.FormattingEnabled = True
         Me.cboNombreContratante.Location = New System.Drawing.Point(103, 37)
         Me.cboNombreContratante.Name = "cboNombreContratante"
-        Me.cboNombreContratante.Size = New System.Drawing.Size(374, 26)
+        Me.cboNombreContratante.Size = New System.Drawing.Size(411, 26)
         Me.cboNombreContratante.TabIndex = 1
         '
         'Label1
@@ -212,7 +213,7 @@ Partial Class Contratos
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(200, 7)
+        Me.Label2.Location = New System.Drawing.Point(222, 7)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(191, 21)
         Me.Label2.TabIndex = 3
@@ -223,7 +224,7 @@ Partial Class Contratos
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(499, 7)
+        Me.Label3.Location = New System.Drawing.Point(521, 7)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(80, 21)
         Me.Label3.TabIndex = 4
@@ -234,9 +235,9 @@ Partial Class Contratos
         Me.cboTipoDocuContrato.BackColor = System.Drawing.Color.White
         Me.cboTipoDocuContrato.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipoDocuContrato.FormattingEnabled = True
-        Me.cboTipoDocuContrato.Location = New System.Drawing.Point(504, 37)
+        Me.cboTipoDocuContrato.Location = New System.Drawing.Point(533, 37)
         Me.cboTipoDocuContrato.Name = "cboTipoDocuContrato"
-        Me.cboTipoDocuContrato.Size = New System.Drawing.Size(75, 26)
+        Me.cboTipoDocuContrato.Size = New System.Drawing.Size(56, 26)
         Me.cboTipoDocuContrato.TabIndex = 4
         '
         'Panel1
@@ -280,7 +281,7 @@ Partial Class Contratos
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(605, 7)
+        Me.Label4.Location = New System.Drawing.Point(615, 7)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(158, 21)
         Me.Label4.TabIndex = 5
@@ -290,7 +291,7 @@ Partial Class Contratos
         '
         Me.txtNumeroDocumento.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNumeroDocumento.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.txtNumeroDocumento.Location = New System.Drawing.Point(609, 36)
+        Me.txtNumeroDocumento.Location = New System.Drawing.Point(618, 36)
         Me.txtNumeroDocumento.MaxLength = 13
         Me.txtNumeroDocumento.Multiline = True
         Me.txtNumeroDocumento.Name = "txtNumeroDocumento"
@@ -943,14 +944,14 @@ Partial Class Contratos
         Me.DataGridDetalleCuotas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroDeCouta, Me.FechaDePago, Me.Porcentage, Me.ValorTotalCouta, Me.EstadoPagado})
         Me.DataGridDetalleCuotas.Location = New System.Drawing.Point(431, 454)
         Me.DataGridDetalleCuotas.Name = "DataGridDetalleCuotas"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridDetalleCuotas.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridDetalleCuotas.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridDetalleCuotas.RowHeadersVisible = False
         Me.DataGridDetalleCuotas.RowTemplate.Height = 24
         Me.DataGridDetalleCuotas.Size = New System.Drawing.Size(454, 278)
@@ -965,9 +966,9 @@ Partial Class Contratos
         '
         'FechaDePago
         '
-        DataGridViewCellStyle1.Format = "d"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle6
         Me.FechaDePago.HeaderText = "Fecha"
         Me.FechaDePago.Name = "FechaDePago"
         '
@@ -979,8 +980,8 @@ Partial Class Contratos
         '
         'ValorTotalCouta
         '
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle7
         Me.ValorTotalCouta.HeaderText = "Cuota"
         Me.ValorTotalCouta.MaxInputLength = 10
         Me.ValorTotalCouta.Name = "ValorTotalCouta"
@@ -1061,14 +1062,14 @@ Partial Class Contratos
         Me.DataGridContratos.BackgroundColor = System.Drawing.Color.White
         Me.DataGridContratos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DataGridContratos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridContratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridContratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridContratos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridContratos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DataGridContratos.EnableHeadersVisualStyles = False
@@ -1077,14 +1078,14 @@ Partial Class Contratos
         Me.DataGridContratos.MultiSelect = False
         Me.DataGridContratos.Name = "DataGridContratos"
         Me.DataGridContratos.ReadOnly = True
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridContratos.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridContratos.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridContratos.RowHeadersVisible = False
         Me.DataGridContratos.RowTemplate.Height = 24
         Me.DataGridContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

@@ -165,6 +165,7 @@ Public Class Contratos
             btnGuardar.Enabled = False
             txtIdContrato.Clear()
             cboNombreContratante.SelectedValue = 0
+            cboNombreContratante.Enabled = True
             txtNumeroContrato.Clear()
             txtValorTotal.Clear()
             txtSucursal.Clear()
@@ -328,9 +329,9 @@ Public Class Contratos
             cboTipoContrato.DisplayMember = "NomTipCon"
             cboTipoContrato.ValueMember = "CodTipCon"
 
-            Dim NombreContratante As DataSet = SQLDataSET("SELECT IdenProve, IdenProve + ' ' + RazonSol as nombrecedula FROM [Datos proveedores] WHERE HabilPro = 1")
+            Dim NombreContratante As DataSet = SQLDataSET("SELECT IdenProve, RazonSol FROM [Datos proveedores] WHERE HabilPro = 1")
             cboNombreContratante.DataSource = NombreContratante.Tables(0)
-            cboNombreContratante.DisplayMember = "nombrecedula"
+            cboNombreContratante.DisplayMember = "RazonSol"
             cboNombreContratante.ValueMember = "IdenProve"
 
             Dim RepresentanteLegal As DataSet = SQLDataSET("SELECT TipDocRe, NumDocRe, Nom01Re + ' ' +  Nom02Re + ' ' +  Apelli01Re as nombre FROM [Datos del representante legal] WHERE ActiRep = 1")
@@ -418,15 +419,15 @@ Public Class Contratos
             txtCodPoliza.Visible = True
         End If
 
-    End Sub
+    End Sub   'Si el combobox Exige poliza en true, se muestran unos campos adicional y si no lo contrario
 
     Private Sub cboNombreContratante_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboNombreContratante.SelectedIndexChanged
         CargaDatosCombobox()
-    End Sub
+    End Sub   'Con este evento llama a una funcion la cual carga el value en otros combobox
 
     Private Sub cboNombreRepresentanteLegal_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboNombreRepresentanteLegal.SelectedIndexChanged
         CargaDatosCombobox()
-    End Sub
+    End Sub 'Con este evento llama a una funcion la cual carga el value en otros combobox
 
     Private Sub cboTipoContrato_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoContrato.SelectedIndexChanged
 
@@ -981,6 +982,7 @@ Public Class Contratos
         btnGuardar.Enabled = True
         GroupModi.Enabled = True
         GroupRegis.Enabled = False
+        cboNombreContratante.Enabled = False
         Try
             ' Obtenemos un objeto DataRow correspondiente con
             ' el ID escrito en un control TextBox

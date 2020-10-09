@@ -43,7 +43,7 @@ Public Class Remisiones
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-    End Sub
+    End Sub  'Carga Combobox
 
     Private Sub cboProvedores_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cboProvedores.SelectedIndexChanged
         Try
@@ -63,7 +63,7 @@ Public Class Remisiones
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-    End Sub
+    End Sub 'Rellena campos cuando se cambia la opcion de ccboProvedoores
 
 #End Region
 
@@ -80,7 +80,7 @@ Public Class Remisiones
             txtTotal.Text = DataGridViewDetalleRemision.SelectedCells(7).Value.ToString()
 
         End If
-    End Sub
+    End Sub  'Rellena los campos correspondientes cuando se selecciones una fila de el detalle de la remision
 
     Private Sub DataGridDetalleCuotas_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridDetalleCuotas.CellMouseClick
         DataGridViewDetalleRemision.Rows.Clear()
@@ -105,7 +105,7 @@ Public Class Remisiones
                                     and dc.ID_Contratos = df.ID_Contratos
                                     and df.NumRemi = dtr.NumRemi
                                     and df.NumRemi = dft.NumRemi
-                                    and  DF.CuotNum = '" & codigo & "'")
+                                    and  df.CuotNum = '" & codigo & "'")
 
                 If reader.HasRows = False Then
                     MsgBox("No se efectuaron filas")
@@ -117,7 +117,7 @@ Public Class Remisiones
                     While reader.Read()
                         txtNumRemision.Text = reader("NumRemi")
                         txtIdContrato.Text = reader("ID_Contratos")
-                        txtNumeroDeCouta.Text = reader![ItemNum]
+                        txtNumeroDeCouta.Text = reader("CuotaNoPac")
                         txtTotalCuota.Text = reader("ValTolCuota")
                         ftAperturaRemision.Value = reader("FecAperRemi")
                         ftCierreRemision.Value = reader("FecCieRemi")
@@ -249,7 +249,7 @@ Public Class Remisiones
             cn.Close()
         End Try
 
-    End Sub
+    End Sub 'IMPORTANTE: Muestra, calcula, valida cada vez que se selecciona una cuota de un contrato
 
     Private Function CagarDetallesCuotas(ID_Contratos) As Boolean
         DataGridDetalleCuotas.AutoGenerateColumns = False
@@ -321,11 +321,151 @@ Public Class Remisiones
     End Sub 'Ejecuta la funcion mostrar cada vez que cambia el datagridview
 
 
-
 #End Region
 
 #Region "botones t texbox"
 
+    Private Sub txtValorUniIva_KeyDown(sender As Object, e As KeyEventArgs) Handles txtValorUniIva.KeyDown
+        Try
+            Select Case e.KeyData
+                Case Keys.Enter
+                    If String.IsNullOrWhiteSpace(txtValorUniIva.Text) Then
+                        MsgBox("Para calcular valores a partir del IVA digita primero algun valor unitario de IVA")
+                    Else
+                        Dim ValorUnitario As Double = Math.Round(Convert.ToDouble(txtValorUniIva.Text / 0.19), 0)
+                        txtValorUnitrio.Text = ValorUnitario
+                        txtTotal.Text = Math.Round(Convert.ToDouble(txtValorUniIva.Text) + Convert.ToDouble(txtValorUnitrio.Text), 0)
+
+                    End If
+            End Select
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al calcular totales por IVA" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub  'Calcula valor unitario y total a patir de el enter en el texbox valor Unitatio iva
+
+    Private Sub txtTotal_KeyDown(sender As Object, e As KeyEventArgs) Handles txtTotal.KeyDown
+        Try
+            Select Case e.KeyData
+                Case Keys.Enter
+                    If String.IsNullOrWhiteSpace(txtValorUniIva.Text) Then
+                        MsgBox("Para calcular valores a partir del Total digita primero algun valor total")
+                    Else
+
+                        Dim ValorUnitario As Double = Math.Round(Convert.ToDouble(txtTotal.Text / 1.19), 0)
+                        txtValorUnitrio.Text = ValorUnitario
+
+                        Dim ValorIva As Double = Math.Round(Convert.ToDouble(txtValorUnitrio.Text * 0.19), 0)
+                        txtValorUniIva.Text = ValorIva
+
+                    End If
+            End Select
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al calcular totales por Total" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub 'Calcula valor unitario y iva a patir de el enter en el texbox total
+
+    Private Sub txtValorUnitrio_KeyDown(sender As Object, e As KeyEventArgs) Handles txtValorUnitrio.KeyDown
+        Try
+            Select Case e.KeyData
+                Case Keys.Enter
+                    If String.IsNullOrWhiteSpace(txtCantidad.Text) Or String.IsNullOrWhiteSpace(txtValorUnitrio.Text) Or Convert.ToInt32(txtCantidad.Text) <= 0 Then
+                        MsgBox("Te falta rellenar alguno de estos campos: Cantidad, Valor Unitario o Valor Iva")
+                    Else
+                        txtTotal.Clear()
+                        Dim total As Double = Math.Round(Convert.ToDouble(txtValorUnitrio.Text) * Convert.ToDouble(txtCantidad.Text), 0)
+                        Dim TotalIVa As Double = Math.Round((total * 0.19), 0)
+                        txtValorUniIva.Text = TotalIVa
+                        txtTotal.Text = (TotalIVa + total)
+                    End If
+            End Select
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "En la evento keydown del campo total" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub 'Calcula valor iva y total a patir de el enter en el texbox valor unitario
+
+    Private Sub txtValorUnitrio_LostFocus(sender As Object, e As EventArgs) Handles txtValorUnitrio.LostFocus
+        Try
+            If String.IsNullOrWhiteSpace(txtValorUnitrio.Text) Then
+
+            Else
+                txtTotal.Clear()
+                Dim total As Double = Math.Round(Convert.ToDouble(txtValorUnitrio.Text) * Convert.ToDouble(txtCantidad.Text), 0)
+                Dim TotalIVa As Double = Math.Round((total * 0.19), 0)
+                txtValorUniIva.Text = TotalIVa
+                txtTotal.Text = (TotalIVa + total)
+            End If
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al calcular totales en el evento focus de salida" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub 'Calcula valor iva  y total a patir de el evento cuanto pierde el foco en el texbox valor Unitatio 
+
+    Private Sub txtValorUniIva_LostFocus(sender As Object, e As EventArgs) Handles txtValorUniIva.LostFocus
+        Try
+            If String.IsNullOrWhiteSpace(txtValorUniIva.Text) Then
+
+            Else
+                If String.IsNullOrWhiteSpace(txtValorUniIva.Text) Then
+                    MsgBox("Para calcular valores a partir del IVA digita primero algun valor unitario de IVA")
+                Else
+                    Dim ValorUnitario As Double = Math.Round(Convert.ToDouble(txtValorUniIva.Text / 0.19), 0)
+                    txtValorUnitrio.Text = ValorUnitario
+                    txtTotal.Text = Math.Round(Convert.ToDouble(txtValorUniIva.Text) + Convert.ToDouble(txtValorUnitrio.Text), 0)
+
+                End If
+            End If
+
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al calcular totales por IVA" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub 'Calcula valor unitario y total a patir de el evento cuanto pierde el foco en el texbox valor Unitatio IVA 
+
+    Private Sub txtTotal_LostFocus(sender As Object, e As EventArgs) Handles txtTotal.LostFocus
+        Try
+
+            If String.IsNullOrWhiteSpace(txtTotal.Text) Then
+
+            Else
+                Dim ValorUnitario As Double = Math.Round(Convert.ToDouble(txtTotal.Text / 1.19), 0)
+                txtValorUnitrio.Text = ValorUnitario
+
+                Dim ValorIva As Double = Math.Round(Convert.ToDouble(txtValorUnitrio.Text * 0.19), 0)
+                txtValorUniIva.Text = ValorIva
+            End If
+
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al calcular totales por Total en el evento lost focus" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub 'Calcula valor iva  y valor unitario a patir de el evento cuanto pierde el foco en el texbox total 
 
     Private Sub DataGridViewDetalleRemision_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles DataGridViewDetalleRemision.RowsRemoved
         CalcularTotalDetalle()
@@ -487,29 +627,6 @@ Public Class Remisiones
         LimpiarCampos()
     End Sub 'Limpia Campos
 
-    Private Sub txtValorUnitrio_KeyDown(sender As Object, e As KeyEventArgs) Handles txtValorUnitrio.KeyDown
-        Try
-            Select Case e.KeyData
-                Case Keys.Enter
-                    If String.IsNullOrWhiteSpace(txtCantidad.Text) Or String.IsNullOrWhiteSpace(txtValorUnitrio.Text) Or Convert.ToInt32(txtCantidad.Text) <= 0 Then
-                        MsgBox("Te falta rellenar alguno de estos campos: Cantidad, Valor Unitario o Valor Iva")
-                    Else
-                        txtTotal.Clear()
-                        Dim total As Double = Convert.ToDouble(txtValorUnitrio.Text) * Convert.ToDouble(txtCantidad.Text)
-                        Dim TotalIVa As Double = total * 0.19
-                        txtValorUniIva.Text = TotalIVa
-                        txtTotal.Text = (TotalIVa + total)
-                    End If
-            End Select
-        Catch ex As Exception
-            Titulo01 = "Control de errores de ejecución"
-            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-            Informa += "En la evento keydown del campo total" & Chr(13) & Chr(10)
-            Informa += "Mensaje del error: " & ex.Message
-            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub 'Calcula el total con evento enter
-
     Private Sub txtNumRemision_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtValorUnitrio.KeyPress, txtValorUniIva.KeyPress, txtTotal.KeyPress, txtNumRemision.KeyPress, txtCantidad.KeyPress, cboCodigoProducto.KeyPress
         soloNumeros(e)
     End Sub 'Deja digitar solo numeros
@@ -522,6 +639,7 @@ Public Class Remisiones
                 TotalGrillaDetalleRemision += Convert.ToDouble(fila.Cells("Total").Value)
             Next
             txtTotalGrillaDetalle.Text = TotalGrillaDetalleRemision
+
             Return TotalGrillaDetalleRemision
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
@@ -531,10 +649,7 @@ Public Class Remisiones
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return 0
         End Try
-    End Function
-
-
-
+    End Function  'Suma el total de la fila total de la grilla detalle de remisio y lo exporta
 
     Private Sub btnaAgregarFila_Click(sender As Object, e As EventArgs) Handles btnaAgregarFila.Click
 
@@ -544,10 +659,16 @@ Public Class Remisiones
             If DataGridViewDetalleRemision.Rows.Count > 0 Then
                 If String.IsNullOrWhiteSpace(txtIdContrato.Text) Then
                     If ValidarCamposAñadirDetalle() Then
+                        Dim totalcuota As Double = txtTotalCuota.Text
                         Dim NumItem As Int32 = DataGridViewDetalleRemision.Rows.Count
                         NumItem += 1
                         DataGridViewDetalleRemision.Rows.Add(New String() {NumItem, cboCodigoProducto.Text, cboProducto.Text, txtConcepto.Text, txtCantidad.Text, txtValorUnitrio.Text, txtValorUniIva.Text, txtTotal.Text})
                         CalcularTotalDetalle()
+                        txtValorUnitrio.Clear()
+                        txtValorUniIva.Clear()
+                        txtTotal.Text = totalcuota - CalcularTotalDetalle() 'Cuando entre la fila, al total de la cuota le resto la suma del total en las grillas 
+                        'de detalle remision y coloco ese resultado en el txttotal: Para que se de cuena cuanto
+                        'le esta faltando para el total de la cuota
                     End If
                 Else
                     Dim totalcuota As Double = DataGridDetalleCuotas.SelectedCells.Item(3).Value
@@ -558,15 +679,21 @@ Public Class Remisiones
                     Else
                         Dim NumItem As Int64
                         Dim Fila As DataGridViewRow = New DataGridViewRow()
-                        For Each Fila In DataGridViewDetalleRemision.Rows
+                        For Each Fila In DataGridViewDetalleRemision.Rows  'Lo hago para recalcular el indice de la grillas donde se elimine un Item
                             NumItem = Fila.Cells("Item").Value
                         Next
 
-                        NumItem += 1
+                        NumItem += 1 'Recojo el ultimo numero del Item y le sumo uno
 
                         If ValidarCamposAñadirDetalle() Then
+
                             DataGridViewDetalleRemision.Rows.Add(New String() {NumItem, cboCodigoProducto.Text, cboProducto.Text, txtConcepto.Text, txtCantidad.Text, txtValorUnitrio.Text, txtValorUniIva.Text, txtTotal.Text})
                             CalcularTotalDetalle()
+                            txtValorUnitrio.Clear()
+                            txtValorUniIva.Clear()
+                            txtTotal.Text = totalcuota - CalcularTotalDetalle()   'Cuando entre la fila, al total de la cuota le resto la suma del total en las grillas 
+                            'de detalle remision y coloco ese resultado en el txttotal: Para que se de cuena cuanto
+                            'le esta faltando para el total de la cuota
                         End If
                     End If
                 End If
@@ -574,8 +701,14 @@ Public Class Remisiones
                 Dim NumItem As Int32 = DataGridViewDetalleRemision.Rows.Count
                 NumItem += 1
                 If ValidarCamposAñadirDetalle() Then
+                    Dim totalcuota As Double = DataGridDetalleCuotas.SelectedCells.Item(3).Value
                     DataGridViewDetalleRemision.Rows.Add(New String() {NumItem, cboCodigoProducto.Text, cboProducto.Text, txtConcepto.Text, txtCantidad.Text, txtValorUnitrio.Text, txtValorUniIva.Text, txtTotal.Text})
                     CalcularTotalDetalle()
+                    txtValorUnitrio.Clear()
+                    txtValorUniIva.Clear()
+                    txtTotal.Text = totalcuota - CalcularTotalDetalle() 'Cuando entre la fila, al total de la cuota le resto la suma del total en las grillas 
+                    'de detalle remision y coloco ese resultado en el txttotal: Para que se de cuena cuanto
+                    'le esta faltando para el total de la cuota
                 End If
             End If
         Catch ex As Exception
@@ -585,7 +718,7 @@ Public Class Remisiones
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-    End Sub 'Agrega filas a datafrid detalle remision
+    End Sub 'Agrega filas a datagrid detalle remision
 
     Private Sub BtnCerrarContratos_Click(sender As Object, e As EventArgs) Handles BtnCerrarContratos.Click
         Me.Dispose()
@@ -1056,7 +1189,7 @@ Public Class Remisiones
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-    End Sub
+    End Sub  'LOAD
 
 
 End Class

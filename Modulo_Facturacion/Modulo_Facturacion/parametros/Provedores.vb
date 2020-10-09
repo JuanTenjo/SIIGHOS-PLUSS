@@ -360,7 +360,7 @@ Public Class Provedores
 
     Private Sub MostrarLisbox()
         Dim consulta As String
-        consulta = "Select idenprove, tipodocu + ' ' + idenprove + ' ' + razonsol as nomProv FROM [Datos proveedores]"
+        consulta = "Select idenprove, tipodocu + ' ' + idenprove + ' ' + razonsol as nomProv FROM [GEOGRAXPSQL].[dbo].[Datos proveedores]"
         listarLisbox(consulta)
     End Sub  'Funcion para mostrar todos los provedoores La incial
 
