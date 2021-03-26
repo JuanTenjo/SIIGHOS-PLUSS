@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ConjuntodeDatosFacturasAgrupadas" targetNamespace="http://tempuri.org/ConjuntodeDatosFacturasAgrupadas.xsd" xmlns:mstns="http://tempuri.org/ConjuntodeDatosFacturasAgrupadas.xsd" xmlns="http://tempuri.org/ConjuntodeDatosFacturasAgrupadas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="BDADYSNETServidor" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDADYSNETServidor (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Modulo_Facturacion.My.MySettings.GlobalReference.Default.BDADYSNETServidor" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDADYSNETServidor (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, GEOGRAXPSQL.dbo.[Datos proveedores].CityProve, [Datos facturas realizadas].NumRemi, 
+                  [Datos facturas realizadas].FecExpFac, [Datos registros de contratos].ID_Contratos, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, 
+                  [Datos facturas realizadas].ValNetoFac + [Datos facturas realizadas].ValIVAFac AS Total, [Datos facturas realizadas].FactAnula
+FROM     [Datos facturas realizadas] INNER JOIN
+                  [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
+                  [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
+                  GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
+                  [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PrefiFact" DataSetColumn="PrefiFact" />
+              <Mapping SourceColumn="NumFact" DataSetColumn="NumFact" />
+              <Mapping SourceColumn="IdenProve" DataSetColumn="IdenProve" />
+              <Mapping SourceColumn="CityProve" DataSetColumn="CityProve" />
+              <Mapping SourceColumn="NumRemi" DataSetColumn="NumRemi" />
+              <Mapping SourceColumn="FecExpFac" DataSetColumn="FecExpFac" />
+              <Mapping SourceColumn="ID_Contratos" DataSetColumn="ID_Contratos" />
+              <Mapping SourceColumn="ValNetoFac" DataSetColumn="ValNetoFac" />
+              <Mapping SourceColumn="ValIVAFac" DataSetColumn="ValIVAFac" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="FactAnula" DataSetColumn="FactAnula" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ConjuntodeDatosFacturasAgrupadas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ConjuntodeDatosFacturasAgrupadas" msprop:Generator_UserDSName="ConjuntodeDatosFacturasAgrupadas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PrefiFact" msprop:Generator_ColumnVarNameInTable="columnPrefiFact" msprop:Generator_ColumnPropNameInRow="PrefiFact" msprop:Generator_ColumnPropNameInTable="PrefiFactColumn" msprop:Generator_UserColumnName="PrefiFact">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NumFact" msprop:Generator_ColumnVarNameInTable="columnNumFact" msprop:Generator_ColumnPropNameInRow="NumFact" msprop:Generator_ColumnPropNameInTable="NumFactColumn" msprop:Generator_UserColumnName="NumFact">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdenProve" msprop:Generator_ColumnVarNameInTable="columnIdenProve" msprop:Generator_ColumnPropNameInRow="IdenProve" msprop:Generator_ColumnPropNameInTable="IdenProveColumn" msprop:Generator_UserColumnName="IdenProve">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CityProve" msprop:Generator_ColumnVarNameInTable="columnCityProve" msprop:Generator_ColumnPropNameInRow="CityProve" msprop:Generator_ColumnPropNameInTable="CityProveColumn" msprop:Generator_UserColumnName="CityProve" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NumRemi" msprop:Generator_ColumnVarNameInTable="columnNumRemi" msprop:Generator_ColumnPropNameInRow="NumRemi" msprop:Generator_ColumnPropNameInTable="NumRemiColumn" msprop:Generator_UserColumnName="NumRemi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FecExpFac" msprop:Generator_ColumnVarNameInTable="columnFecExpFac" msprop:Generator_ColumnPropNameInRow="FecExpFac" msprop:Generator_ColumnPropNameInTable="FecExpFacColumn" msprop:Generator_UserColumnName="FecExpFac" type="xs:dateTime" />
+              <xs:element name="ID_Contratos" msprop:Generator_ColumnVarNameInTable="columnID_Contratos" msprop:Generator_ColumnPropNameInRow="ID_Contratos" msprop:Generator_ColumnPropNameInTable="ID_ContratosColumn" msprop:Generator_UserColumnName="ID_Contratos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ValNetoFac" msprop:Generator_ColumnVarNameInTable="columnValNetoFac" msprop:Generator_ColumnPropNameInRow="ValNetoFac" msprop:Generator_ColumnPropNameInTable="ValNetoFacColumn" msprop:Generator_UserColumnName="ValNetoFac" type="xs:double" />
+              <xs:element name="ValIVAFac" msprop:Generator_ColumnVarNameInTable="columnValIVAFac" msprop:Generator_ColumnPropNameInRow="ValIVAFac" msprop:Generator_ColumnPropNameInTable="ValIVAFacColumn" msprop:Generator_UserColumnName="ValIVAFac" type="xs:double" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:double" minOccurs="0" />
+              <xs:element name="FactAnula" msprop:Generator_ColumnVarNameInTable="columnFactAnula" msprop:Generator_ColumnPropNameInRow="FactAnula" msprop:Generator_ColumnPropNameInTable="FactAnulaColumn" msprop:Generator_UserColumnName="FactAnula" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

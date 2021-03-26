@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CojuntodeDatosContratos" targetNamespace="http://tempuri.org/CojuntodeDatosContratos.xsd" xmlns:mstns="http://tempuri.org/CojuntodeDatosContratos.xsd" xmlns="http://tempuri.org/CojuntodeDatosContratos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="BDADYSNETConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDADYSNETConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Modulo_Facturacion.My.MySettings.GlobalReference.Default.BDADYSNETConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDADYSNETConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+                      select dr.ID_Contratos, dr.ContraNo, dr.VigAnContra, (dr.TipDocContra + ' ' + dr.NumDocContra) as Identificacion, dp.RazonSol, dt.NomTipCon, dr.FecIniCon,
+                      dr.FecFinCon, dr.ValSinIVa, dr.ValIvaCon, dr.NumPagos from
+                      [Datos registros de contratos] as dr, [Datos tipos de contratos] as dt, [GEOGRAXPSQL].[dbo].[Datos proveedores] as dp
+                      where dr.ID_Contratos = dr.ID_Contratos and dp.IdenProve = dr.NumDocContra</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_Contratos" DataSetColumn="ID_Contratos" />
+              <Mapping SourceColumn="ContraNo" DataSetColumn="ContraNo" />
+              <Mapping SourceColumn="VigAnContra" DataSetColumn="VigAnContra" />
+              <Mapping SourceColumn="Identificacion" DataSetColumn="Identificacion" />
+              <Mapping SourceColumn="RazonSol" DataSetColumn="RazonSol" />
+              <Mapping SourceColumn="NomTipCon" DataSetColumn="NomTipCon" />
+              <Mapping SourceColumn="FecIniCon" DataSetColumn="FecIniCon" />
+              <Mapping SourceColumn="FecFinCon" DataSetColumn="FecFinCon" />
+              <Mapping SourceColumn="ValSinIVa" DataSetColumn="ValSinIVa" />
+              <Mapping SourceColumn="ValIvaCon" DataSetColumn="ValIvaCon" />
+              <Mapping SourceColumn="NumPagos" DataSetColumn="NumPagos" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CojuntodeDatosContratos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CojuntodeDatosContratos" msprop:Generator_UserDSName="CojuntodeDatosContratos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_Contratos" msprop:Generator_ColumnVarNameInTable="columnID_Contratos" msprop:Generator_ColumnPropNameInRow="ID_Contratos" msprop:Generator_ColumnPropNameInTable="ID_ContratosColumn" msprop:Generator_UserColumnName="ID_Contratos">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContraNo" msprop:Generator_ColumnVarNameInTable="columnContraNo" msprop:Generator_ColumnPropNameInRow="ContraNo" msprop:Generator_ColumnPropNameInTable="ContraNoColumn" msprop:Generator_UserColumnName="ContraNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VigAnContra" msprop:Generator_ColumnVarNameInTable="columnVigAnContra" msprop:Generator_ColumnPropNameInRow="VigAnContra" msprop:Generator_ColumnPropNameInTable="VigAnContraColumn" msprop:Generator_UserColumnName="VigAnContra">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Identificacion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIdentificacion" msprop:Generator_ColumnPropNameInRow="Identificacion" msprop:Generator_ColumnPropNameInTable="IdentificacionColumn" msprop:Generator_UserColumnName="Identificacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RazonSol" msprop:Generator_ColumnVarNameInTable="columnRazonSol" msprop:Generator_ColumnPropNameInRow="RazonSol" msprop:Generator_ColumnPropNameInTable="RazonSolColumn" msprop:Generator_UserColumnName="RazonSol">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NomTipCon" msprop:Generator_ColumnVarNameInTable="columnNomTipCon" msprop:Generator_ColumnPropNameInRow="NomTipCon" msprop:Generator_ColumnPropNameInTable="NomTipConColumn" msprop:Generator_UserColumnName="NomTipCon">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FecIniCon" msprop:Generator_ColumnVarNameInTable="columnFecIniCon" msprop:Generator_ColumnPropNameInRow="FecIniCon" msprop:Generator_ColumnPropNameInTable="FecIniConColumn" msprop:Generator_UserColumnName="FecIniCon" type="xs:dateTime" />
+              <xs:element name="FecFinCon" msprop:Generator_ColumnVarNameInTable="columnFecFinCon" msprop:Generator_ColumnPropNameInRow="FecFinCon" msprop:Generator_ColumnPropNameInTable="FecFinConColumn" msprop:Generator_UserColumnName="FecFinCon" type="xs:dateTime" />
+              <xs:element name="ValSinIVa" msprop:Generator_ColumnVarNameInTable="columnValSinIVa" msprop:Generator_ColumnPropNameInRow="ValSinIVa" msprop:Generator_ColumnPropNameInTable="ValSinIVaColumn" msprop:Generator_UserColumnName="ValSinIVa" type="xs:double" />
+              <xs:element name="ValIvaCon" msprop:Generator_ColumnVarNameInTable="columnValIvaCon" msprop:Generator_ColumnPropNameInRow="ValIvaCon" msprop:Generator_ColumnPropNameInTable="ValIvaConColumn" msprop:Generator_UserColumnName="ValIvaCon" type="xs:double" />
+              <xs:element name="NumPagos" msprop:Generator_ColumnVarNameInTable="columnNumPagos" msprop:Generator_ColumnPropNameInRow="NumPagos" msprop:Generator_ColumnPropNameInTable="NumPagosColumn" msprop:Generator_UserColumnName="NumPagos" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:ID_Contratos" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

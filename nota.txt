@@ -1,0 +1,12 @@
+identificador
+2b198d40-41fb-4c3a-ae83-7b57410147b2
+
+pin
+13694
+
+
+clave tecnica
+fc8eac422eba16e22ffd8c6f94b3f40a6e38162c
+
+testsetid
+dcfb42d5-bb03-4a56-acbb-91763164b681

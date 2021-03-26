@@ -1,0 +1,427 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Facturas
+    Inherits System.Windows.Forms.Form
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Facturas))
+        Me.Panel17 = New System.Windows.Forms.Panel()
+        Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cboProvedores = New System.Windows.Forms.ComboBox()
+        Me.checkFiltroProve = New System.Windows.Forms.CheckBox()
+        Me.cboContratos = New System.Windows.Forms.ComboBox()
+        Me.DataGridFacturas = New System.Windows.Forms.DataGridView()
+        Me.Prefi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumFact = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumRemi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDContrato = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FecExpFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValNetoFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValIVAFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ftHasta = New System.Windows.Forms.DateTimePicker()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ftDesde = New System.Windows.Forms.DateTimePicker()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtBuscarFactura = New System.Windows.Forms.TextBox()
+        Me.btnImprimeTodas = New System.Windows.Forms.Button()
+        Me.btnImpFactura = New System.Windows.Forms.Button()
+        Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel17.SuspendLayout()
+        CType(Me.DataGridFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'Panel17
+        '
+        Me.Panel17.BackColor = System.Drawing.Color.Teal
+        Me.Panel17.Controls.Add(Me.btnCerrar)
+        Me.Panel17.Controls.Add(Me.Label11)
+        Me.Panel17.Location = New System.Drawing.Point(0, 2)
+        Me.Panel17.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel17.Name = "Panel17"
+        Me.Panel17.Size = New System.Drawing.Size(479, 41)
+        Me.Panel17.TabIndex = 33
+        '
+        'btnCerrar
+        '
+        Me.btnCerrar.BackColor = System.Drawing.Color.Transparent
+        Me.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCerrar.FlatAppearance.BorderSize = 0
+        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrar.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_salida_30
+        Me.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCerrar.Location = New System.Drawing.Point(2, 0)
+        Me.btnCerrar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(42, 41)
+        Me.btnCerrar.TabIndex = 3
+        Me.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnCerrar.UseVisualStyleBackColor = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(154, 11)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(182, 19)
+        Me.Label11.TabIndex = 2
+        Me.Label11.Text = "Reportes de Facturas"
+        '
+        'cboProvedores
+        '
+        Me.cboProvedores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboProvedores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cboProvedores.BackColor = System.Drawing.Color.White
+        Me.cboProvedores.DropDownWidth = 400
+        Me.cboProvedores.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProvedores.FormattingEnabled = True
+        Me.cboProvedores.Items.AddRange(New Object() {"No ", "Si"})
+        Me.cboProvedores.Location = New System.Drawing.Point(14, 92)
+        Me.cboProvedores.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cboProvedores.Name = "cboProvedores"
+        Me.cboProvedores.Size = New System.Drawing.Size(393, 22)
+        Me.cboProvedores.TabIndex = 86
+        '
+        'checkFiltroProve
+        '
+        Me.checkFiltroProve.AutoSize = True
+        Me.checkFiltroProve.Location = New System.Drawing.Point(412, 93)
+        Me.checkFiltroProve.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.checkFiltroProve.Name = "checkFiltroProve"
+        Me.checkFiltroProve.Size = New System.Drawing.Size(56, 17)
+        Me.checkFiltroProve.TabIndex = 87
+        Me.checkFiltroProve.Text = "Todas"
+        Me.checkFiltroProve.UseVisualStyleBackColor = True
+        '
+        'cboContratos
+        '
+        Me.cboContratos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboContratos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cboContratos.BackColor = System.Drawing.Color.White
+        Me.cboContratos.DropDownWidth = 400
+        Me.cboContratos.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboContratos.FormattingEnabled = True
+        Me.cboContratos.Items.AddRange(New Object() {"No ", "Si"})
+        Me.cboContratos.Location = New System.Drawing.Point(14, 167)
+        Me.cboContratos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cboContratos.Name = "cboContratos"
+        Me.cboContratos.Size = New System.Drawing.Size(450, 22)
+        Me.cboContratos.TabIndex = 88
+        '
+        'DataGridFacturas
+        '
+        Me.DataGridFacturas.AllowUserToAddRows = False
+        Me.DataGridFacturas.AllowUserToDeleteRows = False
+        Me.DataGridFacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridFacturas.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridFacturas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.DataGridFacturas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
+        Me.DataGridFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridFacturas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Prefi, Me.NumFact, Me.NumRemi, Me.IDContrato, Me.FecExpFac, Me.ValNetoFac, Me.ValIVAFac})
+        Me.DataGridFacturas.Location = New System.Drawing.Point(14, 284)
+        Me.DataGridFacturas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DataGridFacturas.MultiSelect = False
+        Me.DataGridFacturas.Name = "DataGridFacturas"
+        Me.DataGridFacturas.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridFacturas.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridFacturas.RowHeadersVisible = False
+        Me.DataGridFacturas.RowHeadersWidth = 51
+        Me.DataGridFacturas.RowTemplate.Height = 24
+        Me.DataGridFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridFacturas.Size = New System.Drawing.Size(453, 271)
+        Me.DataGridFacturas.TabIndex = 89
+        '
+        'Prefi
+        '
+        Me.Prefi.FillWeight = 51.99229!
+        Me.Prefi.HeaderText = "Prefi"
+        Me.Prefi.MaxInputLength = 2
+        Me.Prefi.MinimumWidth = 6
+        Me.Prefi.Name = "Prefi"
+        Me.Prefi.ReadOnly = True
+        '
+        'NumFact
+        '
+        Me.NumFact.HeaderText = "NumFact"
+        Me.NumFact.MinimumWidth = 6
+        Me.NumFact.Name = "NumFact"
+        Me.NumFact.ReadOnly = True
+        '
+        'NumRemi
+        '
+        DataGridViewCellStyle1.Format = "d"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.NumRemi.DefaultCellStyle = DataGridViewCellStyle1
+        Me.NumRemi.FillWeight = 98.93101!
+        Me.NumRemi.HeaderText = "NumRemi"
+        Me.NumRemi.MinimumWidth = 6
+        Me.NumRemi.Name = "NumRemi"
+        Me.NumRemi.ReadOnly = True
+        '
+        'IDContrato
+        '
+        Me.IDContrato.FillWeight = 98.93101!
+        Me.IDContrato.HeaderText = "IDContrato"
+        Me.IDContrato.MaxInputLength = 15
+        Me.IDContrato.MinimumWidth = 6
+        Me.IDContrato.Name = "IDContrato"
+        Me.IDContrato.ReadOnly = True
+        '
+        'FecExpFac
+        '
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.FecExpFac.DefaultCellStyle = DataGridViewCellStyle2
+        Me.FecExpFac.FillWeight = 98.93101!
+        Me.FecExpFac.HeaderText = "FecExpFac"
+        Me.FecExpFac.MaxInputLength = 10
+        Me.FecExpFac.MinimumWidth = 6
+        Me.FecExpFac.Name = "FecExpFac"
+        Me.FecExpFac.ReadOnly = True
+        '
+        'ValNetoFac
+        '
+        Me.ValNetoFac.FillWeight = 98.93101!
+        Me.ValNetoFac.HeaderText = "ValNetoFac"
+        Me.ValNetoFac.MinimumWidth = 6
+        Me.ValNetoFac.Name = "ValNetoFac"
+        Me.ValNetoFac.ReadOnly = True
+        Me.ValNetoFac.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'ValIVAFac
+        '
+        Me.ValIVAFac.HeaderText = "ValIVAFac"
+        Me.ValIVAFac.MinimumWidth = 6
+        Me.ValIVAFac.Name = "ValIVAFac"
+        Me.ValIVAFac.ReadOnly = True
+        '
+        'ftHasta
+        '
+        Me.ftHasta.CustomFormat = "yyyy-MM-dd"
+        Me.ftHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.ftHasta.Location = New System.Drawing.Point(254, 238)
+        Me.ftHasta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ftHasta.Name = "ftHasta"
+        Me.ftHasta.Size = New System.Drawing.Size(101, 20)
+        Me.ftHasta.TabIndex = 120
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(214, 240)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(35, 13)
+        Me.Label4.TabIndex = 119
+        Me.Label4.Text = "Hasta"
+        '
+        'ftDesde
+        '
+        Me.ftDesde.CustomFormat = "yyyy-MM-dd"
+        Me.ftDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.ftDesde.Location = New System.Drawing.Point(77, 237)
+        Me.ftDesde.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ftDesde.Name = "ftDesde"
+        Me.ftDesde.Size = New System.Drawing.Size(101, 20)
+        Me.ftDesde.TabIndex = 118
+        Me.ftDesde.Value = New Date(2020, 10, 29, 17, 21, 33, 0)
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(52, 239)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(21, 13)
+        Me.Label5.TabIndex = 117
+        Me.Label5.Text = "De"
+        '
+        'txtBuscarFactura
+        '
+        Me.txtBuscarFactura.Location = New System.Drawing.Point(55, 262)
+        Me.txtBuscarFactura.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtBuscarFactura.Name = "txtBuscarFactura"
+        Me.txtBuscarFactura.Size = New System.Drawing.Size(410, 20)
+        Me.txtBuscarFactura.TabIndex = 124
+        '
+        'btnImprimeTodas
+        '
+        Me.btnImprimeTodas.BackColor = System.Drawing.Color.LightGray
+        Me.btnImprimeTodas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnImprimeTodas.FlatAppearance.BorderSize = 0
+        Me.btnImprimeTodas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnImprimeTodas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnImprimeTodas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImprimeTodas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimeTodas.ForeColor = System.Drawing.Color.White
+        Me.btnImprimeTodas.Location = New System.Drawing.Point(14, 557)
+        Me.btnImprimeTodas.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnImprimeTodas.Name = "btnImprimeTodas"
+        Me.btnImprimeTodas.Size = New System.Drawing.Size(230, 43)
+        Me.btnImprimeTodas.TabIndex = 127
+        Me.btnImprimeTodas.Text = "TODAS"
+        Me.btnImprimeTodas.UseVisualStyleBackColor = False
+        '
+        'btnImpFactura
+        '
+        Me.btnImpFactura.BackColor = System.Drawing.Color.LightGray
+        Me.btnImpFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnImpFactura.FlatAppearance.BorderSize = 0
+        Me.btnImpFactura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnImpFactura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnImpFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImpFactura.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImpFactura.ForeColor = System.Drawing.Color.White
+        Me.btnImpFactura.Location = New System.Drawing.Point(248, 557)
+        Me.btnImpFactura.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnImpFactura.Name = "btnImpFactura"
+        Me.btnImpFactura.Size = New System.Drawing.Size(220, 43)
+        Me.btnImpFactura.TabIndex = 128
+        Me.btnImpFactura.Text = "SELECCIONADA"
+        Me.btnImpFactura.UseVisualStyleBackColor = False
+        '
+        'Panel15
+        '
+        Me.Panel15.BackgroundImage = CType(resources.GetObject("Panel15.BackgroundImage"), System.Drawing.Image)
+        Me.Panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Panel15.Location = New System.Drawing.Point(10, 259)
+        Me.Panel15.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel15.Name = "Panel15"
+        Me.Panel15.Size = New System.Drawing.Size(26, 18)
+        Me.Panel15.TabIndex = 125
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(0, 197)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(479, 32)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Facturas"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(2, 51)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(477, 32)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Proovedor"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(0, 124)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(479, 32)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Contratos"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Facturas
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(478, 605)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnImpFactura)
+        Me.Controls.Add(Me.btnImprimeTodas)
+        Me.Controls.Add(Me.Panel15)
+        Me.Controls.Add(Me.txtBuscarFactura)
+        Me.Controls.Add(Me.ftHasta)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.ftDesde)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.DataGridFacturas)
+        Me.Controls.Add(Me.cboContratos)
+        Me.Controls.Add(Me.checkFiltroProve)
+        Me.Controls.Add(Me.cboProvedores)
+        Me.Controls.Add(Me.Panel17)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Name = "Facturas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Facturas"
+        Me.Panel17.ResumeLayout(False)
+        Me.Panel17.PerformLayout()
+        CType(Me.DataGridFacturas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+
+    Friend WithEvents Panel17 As Panel
+    Friend WithEvents Label11 As Label
+    Friend WithEvents cboProvedores As ComboBox
+    Friend WithEvents checkFiltroProve As CheckBox
+    Friend WithEvents cboContratos As ComboBox
+    Friend WithEvents DataGridFacturas As DataGridView
+    Friend WithEvents ftHasta As DateTimePicker
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ftDesde As DateTimePicker
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Panel15 As Panel
+    Friend WithEvents txtBuscarFactura As TextBox
+    Friend WithEvents btnImprimeTodas As Button
+    Friend WithEvents btnImpFactura As Button
+    Public WithEvents btnCerrar As Button
+    Friend WithEvents Prefi As DataGridViewTextBoxColumn
+    Friend WithEvents NumFact As DataGridViewTextBoxColumn
+    Friend WithEvents NumRemi As DataGridViewTextBoxColumn
+    Friend WithEvents IDContrato As DataGridViewTextBoxColumn
+    Friend WithEvents FecExpFac As DataGridViewTextBoxColumn
+    Friend WithEvents ValNetoFac As DataGridViewTextBoxColumn
+    Friend WithEvents ValIVAFac As DataGridViewTextBoxColumn
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+End Class
