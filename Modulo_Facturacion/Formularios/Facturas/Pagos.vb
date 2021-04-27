@@ -227,9 +227,7 @@ Public Class Pagos
         End Try
     End Sub
 
-    Private Sub txtValorSaldo_TextChanged(sender As Object, e As EventArgs) Handles txtValorSaldo.TextChanged
-        txtValorContablePago.Text = txtValorSaldo.Text
-    End Sub
+
     Private Sub BtnCerrarContratos_Click(sender As Object, e As EventArgs) Handles BtnCerrarContratos.Click
 
         Me.Dispose()
@@ -326,6 +324,8 @@ Public Class Pagos
                 Else
 
                     txtValorSaldo.Text = SaldoTotal
+
+
                     Return True
                 End If
 
@@ -380,6 +380,8 @@ Public Class Pagos
                 DtFechaVencimeinto.Value = Convert.ToDateTime(reader("FecVenFac"))
                 DtUltimoPago.Value = Convert.ToDateTime(reader("FecUltiPag"))
 
+
+
             End If
 
             cn.Close()
@@ -408,6 +410,7 @@ Public Class Pagos
             CargarDatosFactura()
             If bandera = 1 Then
                 CalcularSaldo()
+
             End If
         Catch ex As Exception
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
@@ -603,44 +606,49 @@ Public Class Pagos
 
                             Dim TipoPago As String
 
-                            Select Case cboTipoPago.Text
+                        Select Case cboTipoPago.Text
 
-                                Case "Consignacion"
-                                    TipoPago = "CS"
-                                Case "Efectivo"
-                                    TipoPago = "EF"
-                                Case "Cheque"
-                                    TipoPago = "CH"
-                                Case "Tarjeta de credito"
-                                    TipoPago = "TC"
-                                Case "Letras"
-                                    TipoPago = "LE"
-                                Case "Pagares"
-                                    TipoPago = "PA"
-                                Case Else
-                                    TipoPago = "CS"
+                            Case "Consignacion"
+                                TipoPago = "CS"
+                            Case "Efectivo"
+                                TipoPago = "EF"
+                            Case "Cheque"
+                                TipoPago = "CH"
+                            Case "Tarjeta de credito"
+                                TipoPago = "TC"
+                            Case "Letras"
+                                TipoPago = "LE"
+                            Case "Pagares"
+                                TipoPago = "PA"
+                            Case Else
+                                TipoPago = "CS"
 
-                            End Select
-
-
-
-
-
-
-                        ModuloDeClasePagos.RegistrarPago(PrefijoFacturas, NumPago, fecha, RadioButton, "0001", txtTipoDocTer.Text, txtDocuTer.Text, txtSucursal.Text, TipoPago, cboFacturas.SelectedValue, cboBancos.Text, cboBancos.SelectedValue, cboNumCuenta.SelectedValue, FechaPago.Value, lblCodigoUsuario2.Text,
+                        End Select
+                        Dim EstaRegisto As Boolean
+                        EstaRegisto = ModuloDeClasePagos.RegistrarPago(PrefijoFacturas, NumPago, fecha, RadioButton, "0001", txtTipoDocTer.Text, txtDocuTer.Text, txtSucursal.Text, TipoPago, cboFacturas.SelectedValue, cboBancos.Text, cboBancos.SelectedValue, cboNumCuenta.SelectedValue, FechaPago.Value, lblCodigoUsuario2.Text,
                                                          TipoDocuBan.Text, DocuBan.Text, DigiBan.Text, SucurBan.Text,
                                                          txtCuentaContablePago.Text, cboContablePagoTipoDocu.Text, txtDocuContablePago.Text, txtDigiContablePago.Text, txtSucurContablePago.Text, txtValorContablePago.Text,
                                                          txtCuentasInteres.Text, cboTipoDocuInteres.Text, txtDocuContableIntereses.Text, txtDigiContableInteres.Text, txtSucurInteres.Text, txtValorContableInteres.Text,
                                                          txtCuentaReteIVA.Text, cboTipoDocuIVA.Text, txtDocuContableReteIva.Text, txtDigiContableReteIva.Text, txtSucurIVA.Text, txtValorContableReteIVA.Text,
                                                          txtCuentasReteIca.Text, cboTipoDocuICA.Text, txtDocuContableReteIca.Text, txtDigiContableReteIca.Text, txtSucurICA.Text, txtValorContableReteICA.Text,
                                                          txtCuentasReteFuente.Text, cboTipoDocuFuente.Text, txtDocuContableReteFuente.Text, txtDigiContableReteFuente.Text, txtSucurFuente.Text, txtValorContableReteFuente.Text,
-                                                         txtCuentasPagoOpor.Text, cboTipoDocuPagoOpor.Text, txtDocuContablePagoOpor.Text, txtDigiContablePagoOpor.Text, txtSucurPagoPor.Text, txtCuentasPagoOpor.Text,
+                                                         txtCuentasPagoOpor.Text, cboTipoDocuPagoOpor.Text, txtDocuContablePagoOpor.Text, txtDigiContablePagoOpor.Text, txtSucurPagoPor.Text, txtValorContableRetePagoPor.Text,
                                                          txtCuentasTramite.Text, cboTipoDocuTramite.Text, txtDocuContableTramite.Text, txtDigiContableTramite.Text, txtSucurTramite.Text, txtValorContableTramite.Text,
                                                          txtCuentaOtrosDesc.Text, cboTIpoDocuDesc.Text, txtDocuContableOtroDesc.Text, txtDigiContableOtrosDesc.Text, txtSucurOtrosDesc.Text, txtValorContableOtrosDesc.Text)
 
+                        If (EstaRegisto) Then
+
+                            ModuloVariablesAplicacion.IDpago = Convert.ToString(PrefijoFacturas) + Convert.ToString(NumPago)
+                            ModuloVariablesAplicacion.infNombreInforme = "ReportPagos"
+
+                            Dim FrmlInformesPagos As New FrmlInformesPagos
+                            FrmlInformesPagos.ShowDialog()
+
+                        End If
 
 
                     End If
+
                     End If
                 End If
 
@@ -658,5 +666,82 @@ Public Class Pagos
 
     Private Sub rbNoCuentasBancarias_CheckedChanged(sender As Object, e As EventArgs) Handles rbNoCuentasBancarias.CheckedChanged
         RadioButton = 2
+    End Sub
+
+    Private Sub btnReporte_Click(sender As Object, e As EventArgs) Handles btnReporte.Click
+        Try
+            Dim CUalMes As Int16
+            Dim NP As String
+            NP = InputBox("Por favor digite el número completo del recibo de pago")
+            If String.IsNullOrWhiteSpace(NP) Then
+                MsgBox("Operacion Cancelada")
+            Else
+
+                Dim SqlRecPagos As String = "SELECT * FROM [DACARTXPSQL].[dbo].[Datos recibos de pagos] " +
+                                            "WHERE (PreRePa + ReciPaga) = '" & NP & "' " +
+                                            "ORDER BY PreRePa, ReciPaga"
+
+                Dim TabRecPagos As SqlDataReader = ConexionBaseDeDatos.SQLReader(SqlRecPagos)
+
+                If (TabRecPagos.HasRows = False) Then
+                    Informa = "Lo siento pero el número de recibo" & Chr(13) & Chr(10)
+                    Informa += "de pago digitado, no existe en la" & Chr(13) & Chr(10)
+                    Informa += "base de datos de este sistema." & Chr(13) & Chr(10)
+                    MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    CUalMes = 0
+                Else
+                    CUalMes = 1
+                End If
+
+                cn.Close()
+
+                If (CUalMes = 1) Then
+
+                    ModuloVariablesAplicacion.IDpago = NP
+
+                    Informa = "¿La copia del recibo de caja No. " & NP & Chr(13) & Chr(10)
+                    Informa += "la quiere ver en detalle o un resumen contable.? " & Chr(13) & Chr(10)
+                    Informa += "Sí = Muestra en detalle el comprobante " & Chr(13) & Chr(10)
+                    Informa += "No = Muestra en resumen el comprobante " & Chr(13) & Chr(10)
+                    Informa += "Cancel = Cancela el proceso. " & Chr(13) & Chr(10)
+
+                    Dim Reso As Object = MsgBox(Informa, vbYesNoCancel) = vbYes
+
+
+                    If Reso = True Then
+                        ModuloVariablesAplicacion.IDpago = NP
+                        ModuloVariablesAplicacion.infNombreInforme = "ReportPagos"
+
+                        Dim FrmlInformesPagos As New FrmlInformesPagos
+                        FrmlInformesPagos.ShowDialog()
+
+                    Else
+                        If Reso = False Then
+
+                            ModuloVariablesAplicacion.infNombreInforme = "ReportPagos"
+
+                            Dim FrmlInformesPagos As New FrmlInformesPagos
+                            FrmlInformesPagos.ShowDialog()
+
+                        End If
+                    End If
+
+                End If
+
+
+            End If
+
+
+
+
+
+
+        Catch ex As Exception
+            Titulo01 = "Control para expedir copias de recibos"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al sacar una copia del recibo de pago" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

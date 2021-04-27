@@ -159,9 +159,9 @@ Partial Class Pagos
         Me.txtRemision = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
         Me.Label48 = New System.Windows.Forms.Label()
-        Me.BtnCerrarContratos = New System.Windows.Forms.Button()
-        Me.btnPagar = New System.Windows.Forms.Button()
         Me.btnReporte = New System.Windows.Forms.Button()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.BtnCerrarContratos = New System.Windows.Forms.Button()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel11.SuspendLayout()
@@ -1321,9 +1321,9 @@ Partial Class Pagos
         Me.Label22.Location = New System.Drawing.Point(725, 442)
         Me.Label22.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(42, 13)
+        Me.Label22.Size = New System.Drawing.Size(39, 13)
         Me.Label22.TabIndex = 185
-        Me.Label22.Text = "Imprimir"
+        Me.Label22.Text = "Copias"
         '
         'Label41
         '
@@ -1746,20 +1746,21 @@ Partial Class Pagos
         Me.Label48.Text = "DV"
         Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'BtnCerrarContratos
+        'btnReporte
         '
-        Me.BtnCerrarContratos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BtnCerrarContratos.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCerrarContratos.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40
-        Me.BtnCerrarContratos.Location = New System.Drawing.Point(644, 461)
-        Me.BtnCerrarContratos.Margin = New System.Windows.Forms.Padding(0)
-        Me.BtnCerrarContratos.Name = "BtnCerrarContratos"
-        Me.BtnCerrarContratos.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.BtnCerrarContratos.Size = New System.Drawing.Size(62, 39)
-        Me.BtnCerrarContratos.TabIndex = 108
-        Me.BtnCerrarContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnCerrarContratos.UseMnemonic = False
-        Me.BtnCerrarContratos.UseVisualStyleBackColor = True
+        Me.btnReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnReporte.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReporte.ForeColor = System.Drawing.Color.Black
+        Me.btnReporte.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40
+        Me.btnReporte.Location = New System.Drawing.Point(710, 461)
+        Me.btnReporte.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnReporte.Name = "btnReporte"
+        Me.btnReporte.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnReporte.Size = New System.Drawing.Size(73, 39)
+        Me.btnReporte.TabIndex = 110
+        Me.btnReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnReporte.UseMnemonic = False
+        Me.btnReporte.UseVisualStyleBackColor = True
         '
         'btnPagar
         '
@@ -1776,22 +1777,20 @@ Partial Class Pagos
         Me.btnPagar.UseMnemonic = False
         Me.btnPagar.UseVisualStyleBackColor = True
         '
-        'btnReporte
+        'BtnCerrarContratos
         '
-        Me.btnReporte.Enabled = False
-        Me.btnReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnReporte.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReporte.ForeColor = System.Drawing.Color.Black
-        Me.btnReporte.Image = Global.Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40
-        Me.btnReporte.Location = New System.Drawing.Point(710, 461)
-        Me.btnReporte.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnReporte.Name = "btnReporte"
-        Me.btnReporte.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnReporte.Size = New System.Drawing.Size(73, 39)
-        Me.btnReporte.TabIndex = 110
-        Me.btnReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnReporte.UseMnemonic = False
-        Me.btnReporte.UseVisualStyleBackColor = True
+        Me.BtnCerrarContratos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BtnCerrarContratos.Font = New System.Drawing.Font("Tahoma", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCerrarContratos.Image = Global.Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40
+        Me.BtnCerrarContratos.Location = New System.Drawing.Point(644, 461)
+        Me.BtnCerrarContratos.Margin = New System.Windows.Forms.Padding(0)
+        Me.BtnCerrarContratos.Name = "BtnCerrarContratos"
+        Me.BtnCerrarContratos.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.BtnCerrarContratos.Size = New System.Drawing.Size(62, 39)
+        Me.BtnCerrarContratos.TabIndex = 108
+        Me.BtnCerrarContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnCerrarContratos.UseMnemonic = False
+        Me.BtnCerrarContratos.UseVisualStyleBackColor = True
         '
         'Pagos
         '

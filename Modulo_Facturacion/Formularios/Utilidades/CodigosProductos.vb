@@ -2,6 +2,8 @@
 
 
 Public Class CodigosProductos
+
+
     Dim ModuloDeClaseUtilidades As New ModuloDeClaseUtilidades
 
 
@@ -19,7 +21,7 @@ Public Class CodigosProductos
 
     Private Sub LimpiarCampos()
         Try
-            txtCodigo.Clear()
+
             txtNombreCodigo.Clear()
             cboClasificacion.SelectedIndex = 0
             txtValorTarifa.Clear()
@@ -73,7 +75,6 @@ Public Class CodigosProductos
             btnActualizar.Visible = True
             btnGuardar.Visible = False
             btnEliminarCodigo.Enabled = True
-            txtCodigo.Text = DataGridCodigosModulos.SelectedCells(0).Value.ToString()
             txtNombreCodigo.Text = DataGridCodigosModulos.SelectedCells(1).Value.ToString()
             cboClasificacion.SelectedValue = DataGridCodigosModulos.SelectedCells(5).Value
             txtValorTarifa.Text = DataGridCodigosModulos.SelectedCells(3).Value.ToString()
@@ -105,6 +106,9 @@ Public Class CodigosProductos
         Try
             Dim estado As Boolean
 
+
+
+
             If cboClasificacion.SelectedIndex < 0 Then
                 MsgBox("Seleccion una clasificacion ", MsgBoxStyle.Information, "Control de datos")
                 Me.cboClasificacion.Select()
@@ -121,14 +125,7 @@ Public Class CodigosProductos
             Else
                 estado = True
             End If
-            If String.IsNullOrWhiteSpace(txtCodigo.Text) = True Then
-                MsgBox("Digite un codigo para este producto", MsgBoxStyle.Information, "Control de datos")
-                Me.txtCodigo.Select()
-                estado = False
-                Return estado
-            Else
-                estado = True
-            End If
+
             If String.IsNullOrWhiteSpace(txtNombreCodigo.Text) = True Then
                 MsgBox("Digite un nombre para este producto", MsgBoxStyle.Information, "Control de datos")
                 Me.txtNombreCodigo.Select()
@@ -165,11 +162,54 @@ Public Class CodigosProductos
         End Try
     End Function
 
+    Private Function CreaConsecutivo(CodDocu As String, ActConse As Boolean, CodUsua As String) As String
+        Try
+            Dim Consecutivo As String = ConsecutivoDocumen(CodDocu, ActConse, CodUsua)
+            Select Case Consecutivo
+                Case "0"
+                    Informa = "Lo siento pero en esta base de datos no" & Chr(13) & Chr(10)
+                    Informa = Informa & "se encontro el registro consecutivo," & Chr(13) & Chr(10)
+                    MsgBox(Informa, vbExclamation, Titulo01)
+                    Consecutivo = 0
+                Case "-3"
+                    Informa = "Lo siento pero en esta base de datos no" & Chr(13) & Chr(10)
+                    Informa = Informa & "se pueden registrar más facturas de ventas," & Chr(13) & Chr(10)
+                    Informa = Informa & "porque pasó la longitud permitida del código."
+                    MsgBox(Informa, vbExclamation, Titulo01)
+                    Consecutivo = 0
+
+                Case "-2"
+                    Informa = "Lo siento pero en esta base de datos no se" & Chr(13) & Chr(10)
+                    Informa = Informa & "pueden registrar más más facturas de ventas, porque" & Chr(13) & Chr(10)
+                    Informa = Informa & "la fecha del último generado es mayor a la del sistema."
+                    MsgBox(Informa, vbExclamation, Titulo01)
+                    Consecutivo = 0
+            End Select
+            cn.Close()
+
+            If Consecutivo = "0" Or Consecutivo = "-3" Or Consecutivo = "-2" Then
+                Return False
+            Else
+                Return Consecutivo
+            End If
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la creacion del concecutivo " & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Function 'Crea el concecutivo
+
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             If ValidarCampos() = True Then
 
-                Dim EstadoRegistro As Boolean = ModuloDeClaseUtilidades.RegistrarCodigo(txtCodigo.Text, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
+                Dim concecutivoProducCatalogo As String = CreaConsecutivo("07", True, lblCodigoUsuario2.Text)
+
+                Dim EstadoRegistro As Boolean = ModuloDeClaseUtilidades.RegistrarCodigo(concecutivoProducCatalogo, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
 
                 If EstadoRegistro Then
                     cargarDatos()
@@ -189,9 +229,9 @@ Public Class CodigosProductos
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
         Try
             If DataGridCodigosModulos.SelectedCells.Count <> 0 Then
-                Dim CodigoOld As String = DataGridCodigosModulos.SelectedCells(0).Value.ToString()
+                Dim Codigo As String = DataGridCodigosModulos.SelectedCells(0).Value.ToString()
                 If ValidarCampos() = True Then
-                    Dim EstadoAct As Boolean = ModuloDeClaseUtilidades.ActualizarCodigo(CodigoOld, txtCodigo.Text, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
+                    Dim EstadoAct As Boolean = ModuloDeClaseUtilidades.ActualizarCodigo(Codigo, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
                     If EstadoAct Then
                         cargarDatos()
                     End If

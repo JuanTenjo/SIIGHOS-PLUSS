@@ -59,5 +59,13 @@
     Public AnulaUser As String
     Public EstadoAnul As Boolean
 
+
+    'Copias recibos de pago
+
+    Public IDpago As String
+    Public FacturPaago As String
+
+
+
 End Module
 

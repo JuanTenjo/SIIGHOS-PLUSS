@@ -52,9 +52,6 @@ Partial Class CodigosProductos
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtCodigo = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnEliminarCodigo = New System.Windows.Forms.Button()
         Me.lblCodigoUsuario2 = New System.Windows.Forms.Label()
@@ -85,7 +82,7 @@ Partial Class CodigosProductos
         Me.Panel17.BackColor = System.Drawing.Color.Teal
         Me.Panel17.Controls.Add(Me.Label11)
         Me.Panel17.Location = New System.Drawing.Point(0, 0)
-        Me.Panel17.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel17.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel17.Name = "Panel17"
         Me.Panel17.Size = New System.Drawing.Size(734, 25)
         Me.Panel17.TabIndex = 34
@@ -95,7 +92,7 @@ Partial Class CodigosProductos
         Me.Panel1.BackColor = System.Drawing.Color.Teal
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(3, 33)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(340, 25)
         Me.Panel1.TabIndex = 35
@@ -124,7 +121,7 @@ Partial Class CodigosProductos
         Me.DataGridCodigosModulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridCodigosModulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Cod, Me.NombreCod, Me.Clasificacion, Me.ValTarifa, Me.PorceIva, Me.CodClasificacion})
         Me.DataGridCodigosModulos.Location = New System.Drawing.Point(3, 71)
-        Me.DataGridCodigosModulos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DataGridCodigosModulos.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridCodigosModulos.MultiSelect = False
         Me.DataGridCodigosModulos.Name = "DataGridCodigosModulos"
         Me.DataGridCodigosModulos.ReadOnly = True
@@ -244,7 +241,7 @@ Partial Class CodigosProductos
         Me.Panel3.BackColor = System.Drawing.Color.Teal
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Location = New System.Drawing.Point(348, 33)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(373, 25)
         Me.Panel3.TabIndex = 36
@@ -276,14 +273,11 @@ Partial Class CodigosProductos
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.txtCodigo)
-        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Location = New System.Drawing.Point(348, 71)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(373, 308)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
@@ -291,8 +285,8 @@ Partial Class CodigosProductos
         'txtPorceIVA
         '
         Me.txtPorceIVA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPorceIVA.Location = New System.Drawing.Point(8, 235)
-        Me.txtPorceIVA.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPorceIVA.Location = New System.Drawing.Point(9, 215)
+        Me.txtPorceIVA.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPorceIVA.MaxLength = 2
         Me.txtPorceIVA.Multiline = True
         Me.txtPorceIVA.Name = "txtPorceIVA"
@@ -302,7 +296,7 @@ Partial Class CodigosProductos
         'Label12
         '
         Me.Label12.BackColor = System.Drawing.Color.Blue
-        Me.Label12.Location = New System.Drawing.Point(2, 235)
+        Me.Label12.Location = New System.Drawing.Point(3, 215)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(8, 21)
@@ -312,7 +306,7 @@ Partial Class CodigosProductos
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(7, 213)
+        Me.Label13.Location = New System.Drawing.Point(8, 193)
         Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(67, 14)
@@ -322,8 +316,8 @@ Partial Class CodigosProductos
         'txtNombreCodigo
         '
         Me.txtNombreCodigo.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombreCodigo.Location = New System.Drawing.Point(8, 80)
-        Me.txtNombreCodigo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtNombreCodigo.Location = New System.Drawing.Point(9, 60)
+        Me.txtNombreCodigo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNombreCodigo.MaxLength = 300
         Me.txtNombreCodigo.Multiline = True
         Me.txtNombreCodigo.Name = "txtNombreCodigo"
@@ -333,7 +327,7 @@ Partial Class CodigosProductos
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.Blue
-        Me.Label6.Location = New System.Drawing.Point(2, 80)
+        Me.Label6.Location = New System.Drawing.Point(3, 60)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(8, 21)
@@ -342,8 +336,8 @@ Partial Class CodigosProductos
         'txtValorTarifa
         '
         Me.txtValorTarifa.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorTarifa.Location = New System.Drawing.Point(8, 181)
-        Me.txtValorTarifa.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtValorTarifa.Location = New System.Drawing.Point(9, 161)
+        Me.txtValorTarifa.Margin = New System.Windows.Forms.Padding(2)
         Me.txtValorTarifa.MaxLength = 15
         Me.txtValorTarifa.Multiline = True
         Me.txtValorTarifa.Name = "txtValorTarifa"
@@ -353,7 +347,7 @@ Partial Class CodigosProductos
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.Blue
-        Me.Label3.Location = New System.Drawing.Point(2, 181)
+        Me.Label3.Location = New System.Drawing.Point(3, 161)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(8, 21)
@@ -363,8 +357,8 @@ Partial Class CodigosProductos
         '
         Me.cboClasificacion.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboClasificacion.FormattingEnabled = True
-        Me.cboClasificacion.Location = New System.Drawing.Point(7, 129)
-        Me.cboClasificacion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cboClasificacion.Location = New System.Drawing.Point(8, 109)
+        Me.cboClasificacion.Margin = New System.Windows.Forms.Padding(2)
         Me.cboClasificacion.Name = "cboClasificacion"
         Me.cboClasificacion.Size = New System.Drawing.Size(362, 22)
         Me.cboClasificacion.TabIndex = 14
@@ -373,7 +367,7 @@ Partial Class CodigosProductos
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(4, 112)
+        Me.Label4.Location = New System.Drawing.Point(5, 92)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 14)
@@ -383,7 +377,7 @@ Partial Class CodigosProductos
         'Label9
         '
         Me.Label9.BackColor = System.Drawing.Color.Blue
-        Me.Label9.Location = New System.Drawing.Point(0, 129)
+        Me.Label9.Location = New System.Drawing.Point(1, 109)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(10, 21)
@@ -393,7 +387,7 @@ Partial Class CodigosProductos
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(7, 161)
+        Me.Label8.Location = New System.Drawing.Point(8, 141)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(76, 14)
@@ -404,43 +398,12 @@ Partial Class CodigosProductos
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(4, 58)
+        Me.Label7.Location = New System.Drawing.Point(5, 38)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(54, 14)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Nombre"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(4, 7)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(50, 14)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Codigo"
-        '
-        'txtCodigo
-        '
-        Me.txtCodigo.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(8, 24)
-        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.txtCodigo.MaxLength = 4
-        Me.txtCodigo.Multiline = True
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(362, 22)
-        Me.txtCodigo.TabIndex = 1
-        '
-        'Label10
-        '
-        Me.Label10.BackColor = System.Drawing.Color.Blue
-        Me.Label10.Location = New System.Drawing.Point(2, 24)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(8, 21)
-        Me.Label10.TabIndex = 0
         '
         'btnGuardar
         '
@@ -536,7 +499,7 @@ Partial Class CodigosProductos
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel17)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "CodigosProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CodigosProductos"
@@ -579,9 +542,6 @@ Partial Class CodigosProductos
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents txtCodigo As TextBox
-    Friend WithEvents Label10 As Label
     Friend WithEvents txtPorceIVA As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label

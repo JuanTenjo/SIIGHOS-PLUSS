@@ -42,25 +42,38 @@ Public Class ModuloDeClasePagos
 
                     AfavorC = Convert.ToDouble(TabCuenCobrar("ValNetoFac")) + Convert.ToDouble(TabCuenCobrar("ValIVAFac")) + Convert.ToDouble(TabCuenCobrar("ValNotDeFac"))
                     MenosC = Convert.ToDouble(TabCuenCobrar("ValNotCreFac")) + Convert.ToDouble(TabCuenCobrar("TolImpApli")) + Convert.ToDouble(TabCuenCobrar("TolImpApli")) + Convert.ToDouble(TabCuenCobrar("TolPagFac"))
-                    ValPagTol = ValorContablePago
-                    TabCuenCobrar.Close()
-
 
                     SaldoFac = AfavorC - MenosC
+
+
+                    TabCuenCobrar.Close()
+                    cn.Close()
+
+
 
                     If (SaldoFac <= 0) Then
                         Titulo01 = "Control de errores de ejecución"
                         Informa = "Lo siento pero el saldo actual de la factura no le permite registrar ningún tipo de abono a la misma" & Chr(13) & Chr(10)
                         MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return False
                     End If
 
-                    'If (SaldoFac < ValorContablePago) Then
-                    '    Titulo01 = "Control de errores de ejecución"
-                    '    Informa = "Lo siento pero el valor total a pagar " & Chr(13) & Chr(10)
-                    '    Informa = "no puede ser mayor al valor total del saldo" & Chr(13) & Chr(10)
+                    If (SaldoFac < ValorContablePago) Then
+                        Titulo01 = "Control de errores de ejecución"
+                        Informa = "Lo siento pero el valor total a pagar " & Chr(13) & Chr(10)
+                        Informa = "no puede ser mayor al valor total del saldo" & Chr(13) & Chr(10)
+                        MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return False
+                    End If
 
-                    '    MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    'End If
+                    ValorContableReteIVA = IIf(String.IsNullOrEmpty(ValorContableReteIVA), 0, ValorContableReteIVA)
+                    ValorContableReteICA = IIf(String.IsNullOrEmpty(ValorContableReteICA), 0, ValorContableReteICA)
+                    ValorContableReteFuente = IIf(String.IsNullOrEmpty(ValorContableReteFuente), 0, ValorContableReteFuente)
+                    ValorContableTramite = IIf(String.IsNullOrEmpty(ValorContableTramite), 0, ValorContableTramite)
+                    ValorContableOtrosDesc = IIf(String.IsNullOrEmpty(ValorContableOtrosDesc), 0, ValorContableOtrosDesc)
+                    ValorContableInteres = IIf(String.IsNullOrEmpty(ValorContableInteres), 0, ValorContableInteres)
+                    ValorContablePagoOpor = IIf(String.IsNullOrEmpty(ValorContablePagoOpor), 0, ValorContablePagoOpor)
+                    ValorContablePago = IIf(String.IsNullOrEmpty(ValorContablePago), 0, ValorContablePago)
 
                     Dim DesPorFac As Double = Convert.ToDouble(ValorContableReteIVA) + Convert.ToDouble(ValorContableReteICA) + Convert.ToDouble(ValorContableReteFuente) + Convert.ToDouble(ValorContablePagoOpor) + Convert.ToDouble(ValorContableTramite) + Convert.ToDouble(ValorContableOtrosDesc)
 
@@ -73,6 +86,7 @@ Public Class ModuloDeClasePagos
                         Informa = "Lo siento pero la suma del pago más" & Chr(13) & Chr(10)
                         Informa = "los descuentos no puede ser mayor a" & Chr(13) & Chr(10)
                         MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return False
                     End If
 
 
@@ -106,7 +120,7 @@ Public Class ModuloDeClasePagos
                         bandera = True
                     End If
 
-
+                    cn.Close()
 
                     'REGISTRO DETALLE DEL PAGO
                     Dim Nposi As Integer
@@ -114,23 +128,17 @@ Public Class ModuloDeClasePagos
                     If bandera = True Then
 
 
-                        'Se debe registrar primero los débitos, La cuenta del banco (Valor pagado mas intereses
+
                         cn.Open()
-
-
-
-
                         Dim Consulta As String = "INSERT INTO [DACARTXPSQL].[dbo].[Datos detalles recibos de pago]
                                                 ([NumItem] ,[PreRePaD] ,[ReciPagaD], [CodServiFac], [CuenConta], [TipDocConta] ,[NumDocConta],[DigVer] ,[SucurConta] ,[CantiPaga],[ValUnita],[DetaPago],[ValDebito],[ValCredito])
-                                        VALUES (@NumItem,@PreRePaD,@ReciPagaD,@CodServi,@CuenConta,@TipDocConta,@NumDocConta, @DigVer,@SucurConta,@CantiPaga,@ValUnita,@DetaPago,@ValDebito,@ValCredito)"
+                                        VALUES (@NumItem,@PreRePaD,@ReciPagaD,@CodServiFac,@CuenConta,@TipDocConta,@NumDocConta, @DigVer,@SucurConta,@CantiPaga,@ValUnita,@DetaPago,@ValDebito,@ValCredito)"
 
                         Dim RegistrarDetallePagoFactura As SqlCommand
                         RegistrarDetallePagoFactura = New SqlCommand With {
                             .Connection = cn,
                             .CommandText = Consulta
                         }
-
-
 
                         If (String.IsNullOrWhiteSpace(TipoDocuBan)) Then
                             TipoDocuBan = "NIT"
@@ -149,14 +157,14 @@ Public Class ModuloDeClasePagos
                         End If
 
 
-
+                        '        'Se debe registrar primero los débitos, La cuenta del banco (Valor pagado mas intereses
                         Nposi = Nposi + 1
                         If String.IsNullOrWhiteSpace(CuentaContablePago) = False Then
-                            With RegistrarPagoFactura.Parameters
+                            With RegistrarDetallePagoFactura.Parameters
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", NumCuenBancaria)
                                 .AddWithValue("TipDocConta", TipoDocuBan)
                                 .AddWithValue("NumDocConta", DocuBan)
@@ -169,11 +177,12 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("ValCredito", 0)
                             End With
 
-                            If RegistrarPagoFactura.ExecuteNonQuery() Then
+                            If RegistrarDetallePagoFactura.ExecuteNonQuery() Then
                                 bandera = True
                             End If
                         End If
 
+                        '   'Registramos cada uno de los descuentos, debitos
 
                         If String.IsNullOrWhiteSpace(CuentaContableReteIVA) = False Then
 
@@ -183,7 +192,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableReteIVA)
                                 .AddWithValue("TipDocConta", TipoDocuContableReteIVA)
                                 .AddWithValue("NumDocConta", DocuContableReteIVA)
@@ -209,7 +218,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableReteICA)
                                 .AddWithValue("TipDocConta", TipoDocuContableReteICA)
                                 .AddWithValue("NumDocConta", DocuContableReteICA)
@@ -236,7 +245,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableReteFuente)
                                 .AddWithValue("TipDocConta", TipoDocuContableReteFuente)
                                 .AddWithValue("NumDocConta", DocuContableReteFuente)
@@ -262,7 +271,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", CuentaContablePagoOpor)
                                 .AddWithValue("TipDocConta", TipoDocuContablePagoOpor)
                                 .AddWithValue("NumDocConta", DocuContablePagoOpor)
@@ -287,7 +296,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableTramite)
                                 .AddWithValue("TipDocConta", TipoDocuContableTramite)
                                 .AddWithValue("NumDocConta", DocuContableTramite)
@@ -313,7 +322,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableOtrosDesc)
                                 .AddWithValue("TipDocConta", TipoDocuContableOtrosDesc)
                                 .AddWithValue("NumDocConta", DocuContableOtrosDesc)
@@ -332,6 +341,9 @@ Public Class ModuloDeClasePagos
 
                         End If
 
+                        'Proceda a grabar el detalle de los recibos de pagos, lo créditos, empezando por le valor a pagar
+
+
                         If String.IsNullOrWhiteSpace(CuentaContablePago) = False Then
                             RegistrarDetallePagoFactura.Parameters.Clear()
                             Nposi = Nposi + 1
@@ -340,7 +352,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CodServiFac", DocNum)
                                 .AddWithValue("CuenConta", CuentaContablePago)
                                 If ((ValorContablePago + DesPorFac) < SaldoFac) Then
                                     Deta = "Abono a la factura"
@@ -352,10 +364,10 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("DigVer", DigiVeriContablePago)
                                 .AddWithValue("SucurConta", SucurContablePago)
                                 .AddWithValue("CantiPaga", 1)
-                                .AddWithValue("ValUnita", ValorContableOtrosDesc)
+                                .AddWithValue("ValUnita", ValorContablePago)
                                 .AddWithValue("DetaPago", Deta)
                                 .AddWithValue("ValDebito", 0)
-                                .AddWithValue("ValCredito", ValorContableOtrosDesc + DesPorFac)
+                                .AddWithValue("ValCredito", ValorContablePago + DesPorFac)
                             End With
 
                             If RegistrarDetallePagoFactura.ExecuteNonQuery() Then
@@ -363,17 +375,19 @@ Public Class ModuloDeClasePagos
                             End If
                         End If
 
+                        'Revisamos si se recibió interesese
+
                         If (InterPorFac > 0) Then
 
                             If String.IsNullOrWhiteSpace(CuentaContableInteres) = False Then
-                                RegistrarPagoFactura.Parameters.Clear()
+                                RegistrarDetallePagoFactura.Parameters.Clear()
                                 Nposi = Nposi + 1
                                 Dim Deta As String
-                                With RegistrarPagoFactura.Parameters
+                                With RegistrarDetallePagoFactura.Parameters
                                     .AddWithValue("NumItem", Nposi)
                                     .AddWithValue("PreRePaD", PreRePa)
                                     .AddWithValue("ReciPagaD", ReciPaga)
-                                    .AddWithValue("CodServi", DocNum)
+                                    .AddWithValue("CodServiFac", DocNum)
                                     .AddWithValue("CuenConta", CuentaContableInteres)
                                     .AddWithValue("TipDocConta", TipoDocuContableInteres)
                                     .AddWithValue("NumDocConta", DocuContableInteres)
@@ -388,15 +402,19 @@ Public Class ModuloDeClasePagos
                                     End If
                                     .AddWithValue("DetaPago", Deta)
                                     .AddWithValue("ValDebito", 0)
-                                    .AddWithValue("ValCredito", 0)
+                                    .AddWithValue("ValCredito", InterPorFac)
                                 End With
 
-                                If RegistrarPagoFactura.ExecuteNonQuery() Then
+                                If RegistrarDetallePagoFactura.ExecuteNonQuery() Then
                                     bandera = True
                                 End If
                             End If
 
                         End If
+
+                        'Cerramos la conexion 
+
+                        cn.Close()
 
                         Dim ValFacEnti As Double = 0
 
@@ -415,44 +433,48 @@ Public Class ModuloDeClasePagos
 
                         If (TabFacturas.HasRows) Then
 
-                                TabFacturas.Read()
+                            TabFacturas.Read()
 
-                                ValFacEnti = (Convert.ToDouble(TabFacturas("ValNetoFac")) + Convert.ToDouble(TabFacturas("ValNotDeFac"))) + Convert.ToDouble(TabFacturas("TolPagFac"))
+                            ValFacEnti = (Convert.ToDouble(TabFacturas("ValNetoFac")) + Convert.ToDouble(TabFacturas("ValNotDeFac"))) + Convert.ToDouble(TabFacturas("ValIVAFac"))
 
-                                ValdesFac = Convert.ToDouble(TabFacturas("TolPagFac")) + Convert.ToDouble(TabFacturas("ValNotCreFac")) + Convert.ToDouble(TabFacturas("ValDesFac"))
+                            ValdesFac = Convert.ToDouble(TabFacturas("TolPagFac")) + Convert.ToDouble(TabFacturas("ValNotCreFac")) + Convert.ToDouble(TabFacturas("ValDesFac"))
 
                             PagoActualFacturea = Convert.ToDouble(TabFacturas("TolPagFac"))
 
+                            ValPagTol = ValorContablePago
 
                             SaldofacEnti = ValFacEnti - ValdesFac
 
-                                If (SaldofacEnti > 0) Then
-                                    'Haga el pago a la factura
-                                    If (ValPagTol < SaldofacEnti) Then
-                                        PagFacNet = ValPagTol
-                                    Else
-                                        PagFacNet = SaldofacEnti
-                                    End If
+                            If (SaldofacEnti > 0) Then
+                                'Haga el pago a la factura
+                                If (ValPagTol < SaldofacEnti) Then
+                                    PagFacNet = ValPagTol
+                                Else
+                                    PagFacNet = SaldofacEnti
                                 End If
-                         Else
+                            End If
+
+                            cn.Close()
+                        Else
                             Titulo01 = "Control de errores de ejecución"
                             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
                             Informa += "No se encontro la factura" & Chr(13) & Chr(10)
                             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            cn.Close()
+                            Return False
                         End If
 
-                        
-                        cn.Close()
+
+
                         TabFacturas.Close()
 
-                        Dim ActFacturra As Boolean = ConexionBaseDeDatos.SQLUpdate("UPDATE [BDADYSNET].[dbo].[Datos facturas realizadas] SET [TolPagFac] = '" & PagoActualFacturea + PagFacNet & "'")
-
-
-
+                        Dim ActFacturra As Boolean = ConexionBaseDeDatos.SQLUpdate("UPDATE [BDADYSNET].[dbo].[Datos facturas realizadas] SET [TolPagFac] = '" & PagoActualFacturea + PagFacNet & "' WHERE  [NumFact]='" + DocNum + "' ")
 
 
                     End If
-                    End If
+                End If
+
+                Return bandera
 
             Catch ex As Exception
                 Titulo01 = "Control de errores de ejecución"
@@ -460,128 +482,15 @@ Public Class ModuloDeClasePagos
                 Informa += "al registrar el pago" & Chr(13) & Chr(10)
                 Informa += "Mensaje del error: " & ex.Message
                 MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                bandera = False
-                Return bandera
-            Finally
-                cn.Close()
+                Return False
             End Try
 
-
         End If
-
-        '        If MsgBox("Modificara el pago de esta factura ¿Esta de acuerdo?", vbYesNo) = vbYes Then
-        '            Try
-        '                cn.Open()
-        '                Dim ActualizarPago As SqlCommand
-        '                ActualizarPago = New SqlCommand With {
-        '                    .Connection = cn,
-        '                    .CommandText = "UPDATE [Datos detalle de pagos] SET  CodigoContablePago = @CodigoContablePago, Detalle = @Detalle, ValorDebito = @ValorDebito, ValorCredito = @ValorCredito,
-        '                                            fecha_Movimiento = @fecha_Movimiento, Cod_Modi = @Cod_Modi, Fec_Modi = @Fec_Modi WHERE Numero_factura = @Numero_factura "
-        '                }
-        '                With ActualizarPago.Parameters
-        '                    .AddWithValue("CodigoContablePago", CodigoContablePago)
-        '                    .AddWithValue("Detalle", Detalle)
-        '                    .AddWithValue("ValorDebito", ValorDebito)
-        '                    .AddWithValue("ValorCredito", ValorCredito)
-        '                    .AddWithValue("fecha_Movimiento", fecha_Movimiento)
-        '                    .AddWithValue("Cod_Modi", Cod_Modi)
-        '                    .AddWithValue("Fec_Modi", Fec_Modi)
-        '                    .AddWithValue("Numero_factura", Numero_factura)
-        '                End With
-        '                If ActualizarPago.ExecuteNonQuery() Then
-        '                    bandera = True
-        '                End If
-        '            Catch ex As Exception
-        '                Titulo01 = "Control de errores de ejecución"
-        '                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-        '                Informa += "al registrar el pago" & Chr(13) & Chr(10)
-        '                Informa += "Mensaje del error: " & ex.Message
-        '                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '                bandera = False
-        '                Return bandera
-        '            Finally
-        '                cn.Close()
-        '            End Try
-
-        '            If bandera Then
-        '                bandera = ActualizarFacturaFuncion(ValDesFac, ValorDebito, ValorCredito, TolImpApli, TolPagFac, FecUltiPag, Numero_factura, NumRemi)
-        '            End If
-
-        '            If bandera Then
-        '                MsgBox("Actualizacion completada", MsgBoxStyle.Information, "Control Actualizar")
-        '            End If
-
-        '        End If
-
-
-        '    Return bandera
-        'End Function
-
-        'Public Function AnularPago(NumFactura, remision) As Boolean
-        '    Try
-        '        cn.Open()
-        '        Dim AnulacionrPago As SqlCommand
-        '        AnulacionrPago = New SqlCommand With {
-        '            .Connection = cn,
-        '            .CommandText = "UPDATE [Datos detalle de pagos] SET anulada = 1 WHERE  Numero_factura = '" & NumFactura & "'  "
-        '        }
-        '        If AnulacionrPago.ExecuteNonQuery Then
-        '            MsgBox("Anulacion exitosa")
-        '            Return True
-        '        End If
-        '        Return True
-        '    Catch ex As Exception
-        '        Titulo01 = "Control de errores de ejecución"
-        '        Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-        '        Informa += "al anular pago" & Chr(13) & Chr(10)
-        '        Informa += "Mensaje del error: " & ex.Message
-        '        MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '        Return False
-        '    Finally
-        '        cn.Close()
-        '    End Try
 
     End Function
 
 
-    'Public Function ActualizarFacturaFuncion(ValDesFac, ValorDebito, ValorCredito, TolImpApli, TolPagFac, FecUltiPag, Numero_factura, NumRemi) As Boolean
-    '    Dim bandera As Boolean = False
-    '    Try
-    '        cn.Open()
-    '        Dim ActualizarFactura As SqlCommand
-    '        ActualizarFactura = New SqlCommand With {
-    '            .Connection = cn,
-    '            .CommandText = "UPDATE [Datos facturas realizadas] 
-    '                                        SET ValDesFac = @ValDesFac, ValNotDeFac = @ValNotDeFac, ValNotCreFac = @ValNotCreFac, TolImpApli = @TolImpApli, TolPagFac = @TolPagFac, FecUltiPag = @FecUltiPag 
-    '                                        WHERE NumFact = @NumFact AND NumRemi = @NumRemi"
-    '        }
-    '        With ActualizarFactura.Parameters
-    '            .AddWithValue("ValDesFac", ValDesFac)
-    '            .AddWithValue("ValNotDeFac", Convert.ToDouble(ValorDebito))
-    '            .AddWithValue("ValNotCreFac", Convert.ToDouble(ValorCredito))
-    '            .AddWithValue("TolImpApli", TolImpApli)
-    '            .AddWithValue("TolPagFac", TolPagFac)
-    '            .AddWithValue("FecUltiPag", FecUltiPag)
-    '            .AddWithValue("NumFact", Numero_factura)
-    '            .AddWithValue("NumRemi", NumRemi)
-    '        End With
 
-    '        If ActualizarFactura.ExecuteNonQuery() Then
-    '            bandera = True
-    '            Return bandera
-    '        End If
-    '    Catch ex As Exception
-    '        Titulo01 = "Control de errores de ejecución"
-    '        Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-    '        Informa += "al actualizar el pago" & Chr(13) & Chr(10)
-    '        Informa += "Mensaje del error: " & ex.Message
-    '        MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '        bandera = False
-    '        Return bandera
-    '    Finally
-    '        cn.Close()
-    '    End Try
-    '    Return bandera
-    'End Function
+
 
 End Class

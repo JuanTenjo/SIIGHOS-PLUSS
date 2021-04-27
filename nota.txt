@@ -10,3 +10,5 @@ fc8eac422eba16e22ffd8c6f94b3f40a6e38162c
 
 testsetid
 dcfb42d5-bb03-4a56-acbb-91763164b681
+
+Campo Base de datos Dacar en tabla detalle de recibos de pago - > CuenConta nvarchar(20)

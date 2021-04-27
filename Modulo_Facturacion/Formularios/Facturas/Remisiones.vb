@@ -1118,9 +1118,11 @@ Public Class Remisiones
         Try
             Dim estado As Boolean = False
 
+
             Dim sqlDataReader As SqlDataReader = SQLReader("SELECT [FecConseDoc] FROM [BDADYSNET].[dbo].[Datos consecutivos SIIGHOSPLUS] WHERE CodConse = '03'")
             Dim UltiDateConse As Date
             Dim FecFactura As Date
+
             If sqlDataReader.HasRows Then
                 sqlDataReader.Read()
                 UltiDateConse = Convert.ToDateTime(sqlDataReader("FecConseDoc"))
@@ -1136,6 +1138,8 @@ Public Class Remisiones
                 estado = False
                 Return estado
             End If
+
+
 
             If FecFactura < UltiDateConse Then
                 MsgBox("La fecha de expedicion de esta factura no puede ser menor a: " & UltiDateConse & " en la cual se expidio la ultima factura")
@@ -1445,6 +1449,5 @@ Public Class Remisiones
         End Try
 
     End Sub  'LOAD
-
 
 End Class

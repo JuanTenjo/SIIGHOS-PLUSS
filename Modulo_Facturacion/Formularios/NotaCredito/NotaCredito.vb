@@ -465,7 +465,6 @@ Public Class NotaCredito
                             MsgBox("No se encontro el concecutivo")
                             Exit Sub
                         Else
-
                             prefijo.Read()
                             PrefijoNotaCredito = prefijo("PrefiConse")
                             Dim LargoPrefijo As Integer = Len(PrefijoNotaCredito)

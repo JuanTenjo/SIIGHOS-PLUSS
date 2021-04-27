@@ -39,6 +39,7 @@ Partial Class Remisiones
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Remisiones))
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -143,7 +144,6 @@ Partial Class Remisiones
         Me.btnImprimirRemi = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtDigiVeri = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.txtNumContra = New System.Windows.Forms.TextBox()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,6 +173,18 @@ Partial Class Remisiones
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(700, 25)
         Me.Panel3.TabIndex = 17
+        '
+        'Label18
+        '
+        Me.Label18.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.White
+        Me.Label18.Location = New System.Drawing.Point(541, 5)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(72, 17)
+        Me.Label18.TabIndex = 81
+        Me.Label18.Text = "NumContra"
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label20
         '
@@ -1502,18 +1514,6 @@ Partial Class Remisiones
         Me.txtDigiVeri.ReadOnly = True
         Me.txtDigiVeri.Size = New System.Drawing.Size(33, 22)
         Me.txtDigiVeri.TabIndex = 114
-        '
-        'Label18
-        '
-        Me.Label18.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.ForeColor = System.Drawing.Color.White
-        Me.Label18.Location = New System.Drawing.Point(541, 5)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(72, 17)
-        Me.Label18.TabIndex = 81
-        Me.Label18.Text = "NumContra"
-        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtNumContra
         '

@@ -224,6 +224,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CojuntodedatosPagos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DataSet\ConjuntoDeDatosPagos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConjuntoDeDatosPagos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DataSet\dsInFacturaRemi.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,6 +268,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clases\Validaciones.vb" />
+    <Compile Include="Reportes\FrmlInformesPagos.Designer.vb">
+      <DependentUpon>FrmlInformesPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmlInformesPagos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\FrmlInformesRemi.Designer.vb">
       <DependentUpon>FrmlInformesRemi.vb</DependentUpon>
     </Compile>
@@ -331,6 +342,9 @@
     <EmbeddedResource Include="Reportes\FrmlInformes.resx">
       <DependentUpon>FrmlInformes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmlInformesPagos.resx">
+      <DependentUpon>FrmlInformesPagos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmlInformesRemi.resx">
       <DependentUpon>FrmlInformesRemi.vb</DependentUpon>
     </EmbeddedResource>
@@ -344,7 +358,9 @@
     <EmbeddedResource Include="Reportes\rdlc\InfNotaCredito.rdlc" />
     <EmbeddedResource Include="Reportes\rdlc\InfNotaDebito.rdlc" />
     <EmbeddedResource Include="Reportes\rdlc\ReportFacturasAgrupadas.rdlc" />
-    <EmbeddedResource Include="Reportes\rdlc\ReportPagos.rdlc" />
+    <EmbeddedResource Include="Reportes\rdlc\ReportPagos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rdlc\ReportContratos.rdlc" />
     <EmbeddedResource Include="Reportes\rdlc\ReportRemisiones.rdlc" />
   </ItemGroup>
@@ -414,6 +430,17 @@
     </None>
     <None Include="Reportes\DataSet\ConjuntoDeDatosNotaCredito.xss">
       <DependentUpon>ConjuntoDeDatosNotaCredito.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\ConjuntoDeDatosPagos.xsc">
+      <DependentUpon>ConjuntoDeDatosPagos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\ConjuntoDeDatosPagos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConjuntoDeDatosPagos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet\ConjuntoDeDatosPagos.xss">
+      <DependentUpon>ConjuntoDeDatosPagos.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DataSet\dsInFacturaRemi.xsc">
       <DependentUpon>dsInFacturaRemi.xsd</DependentUpon>

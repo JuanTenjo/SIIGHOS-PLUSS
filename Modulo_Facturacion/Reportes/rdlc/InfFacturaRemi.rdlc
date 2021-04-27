@@ -818,7 +818,7 @@
         <Height>1.81967in</Height>
         <Style />
       </Body>
-      <Width>7.4643in</Width>
+      <Width>7.44347in</Width>
       <Page>
         <PageHeader>
           <Height>6.37355cm</Height>
@@ -974,7 +974,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>FACTURA ELECTRONICA  DE VENTA</Value>
+                      <Value>Remision No:</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -987,10 +987,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>3.69217cm</Top>
-              <Left>14.59432cm</Left>
-              <Height>0.9286cm</Height>
-              <Width>4.17979cm</Width>
+              <Top>3.64111cm</Top>
+              <Left>14.59433cm</Left>
+              <Height>0.80783cm</Height>
+              <Width>4.21096cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -1074,7 +1074,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>NumFac</Value>
+                      <Value>=First(Fields!NumRemi.Value, "dsDetalle")</Value>
                       <Style>
                         <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1088,10 +1088,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox11</rd:DefaultName>
-              <Top>4.62077cm</Top>
+              <Top>4.44894cm</Top>
               <Left>14.59432cm</Left>
-              <Height>0.703cm</Height>
-              <Width>4.1798cm</Width>
+              <Height>0.53273cm</Height>
+              <Width>4.25037cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>

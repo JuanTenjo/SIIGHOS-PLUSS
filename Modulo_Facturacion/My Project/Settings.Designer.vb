@@ -79,11 +79,33 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=SVR-ADYSNET\SERVER;Initial Catalog=BDADYSNET;Persist Security Info=Tr"& _ 
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PCADYSNET18\NIVELI;Initial Catalog=BDADYSNET;Persist Security Info=Tr"& _ 
             "ue;User ID=SA;Password=SIIGHOS33*")>  _
         Public ReadOnly Property BDADYSNETServidor() As String
             Get
                 Return CType(Me("BDADYSNETServidor"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PCADYSNET18\NIVELI;Initial Catalog=DACARTXPSQL;Integrated Security=Tr"& _ 
+            "ue")>  _
+        Public ReadOnly Property DACARTXPSQLConnectionString() As String
+            Get
+                Return CType(Me("DACARTXPSQLConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PCADYSNET18\NIVELI;Initial Catalog=BDADYSNET;Integrated Security=True"& _ 
+            "")>  _
+        Public ReadOnly Property BDADYSNETConnectionReal() As String
+            Get
+                Return CType(Me("BDADYSNETConnectionReal"),String)
             End Get
         End Property
     End Class
