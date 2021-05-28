@@ -361,6 +361,7 @@ Public Class Contratos
             TipoPoliza.DisplayMember = "NomTipPoli"
             TipoPoliza.ValueMember = "CodTipPoli"
 
+
             Dim items = New String(2) {"Unica", "Ampliacion 1", "Ampliacion 2"}
             cboVezPoliza.DataSource = items
 
@@ -1405,10 +1406,12 @@ Public Class Contratos
 
                             Me.DataGridDetallePolizas.Rows.Add(IndiceDeCuota2, reader("TipPoliza"), reader("PorcePoli"), reader("ValCubre"), reader("FecIniPol"), reader("FecFinPol"), reader("AnulPoli"), reader("RazAnulPol"), reader("CodAnulPol"), reader("FecAnulPol"), reader("CodRegis"), reader("FecRegis"), reader("CodModi"), reader("FecModi"))
                         End While
+
                         For indice As Integer = 1 To AddFilas
                             IndiceDeCuota += 1
                             DataGridDetallePolizas.Rows.Add(New String() {IndiceDeCuota, "", "", "", DtFechaExpedicionPoliza.Value.Date, DtFechaExpedicionPoliza.Value.Date, False, "", "", DtFechaExpedicionPoliza.Value.Date, "", DtFechaExpedicionPoliza.Value.Date, "", DtFechaExpedicionPoliza.Value.Date, "", DtFechaExpedicionPoliza.Value.Date})
                         Next
+
                     End If
 
 

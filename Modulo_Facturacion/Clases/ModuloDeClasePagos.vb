@@ -128,7 +128,6 @@ Public Class ModuloDeClasePagos
                     If bandera = True Then
 
 
-
                         cn.Open()
                         Dim Consulta As String = "INSERT INTO [DACARTXPSQL].[dbo].[Datos detalles recibos de pago]
                                                 ([NumItem] ,[PreRePaD] ,[ReciPagaD], [CodServiFac], [CuenConta], [TipDocConta] ,[NumDocConta],[DigVer] ,[SucurConta] ,[CantiPaga],[ValUnita],[DetaPago],[ValDebito],[ValCredito])

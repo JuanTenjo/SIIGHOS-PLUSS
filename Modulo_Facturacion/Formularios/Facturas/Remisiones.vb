@@ -805,6 +805,7 @@ Public Class Remisiones
             txtTotalGrillaDetalle.Text = TotalGrillaDetalleRemision
 
             Return TotalGrillaDetalleRemision
+
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
@@ -1089,6 +1090,7 @@ Public Class Remisiones
                 Return False
             Else
                 Dim totalcuotacontrato As Double = DataGridDetalleCuotas.SelectedCells.Item(3).Value
+                totalcuotacontrato = Math.Round(totalcuotacontrato, 0)
                 If TotalGrilla > Convert.ToDouble(totalcuotacontrato) Then
                     MsgBox("El total de los items de la tabla no puede ser mayor al total de la cuota")
                     estado = False
