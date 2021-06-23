@@ -1568,7 +1568,6 @@ Public Class Contratos
     End Function  'Carga el data Grid Detalles Polizas
 
 #End Region
-
     Private Sub Contratos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             CargarUsuarioLogeado()

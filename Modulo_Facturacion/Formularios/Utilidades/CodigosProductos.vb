@@ -266,4 +266,6 @@ Public Class CodigosProductos
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+
 End Class

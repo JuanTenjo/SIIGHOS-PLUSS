@@ -39,16 +39,6 @@ Public Class Pagos
         Try
             If bandera = 1 Then
                 CargarCuentasBancarias(cboBancos.SelectedValue)
-                Dim reader As SqlDataReader = ConexionBaseDeDatos.SQLReader("SELECT TipNit, NitBanco, SucurNit, NomBanco FROM [Datos de los bancos] WHERE CodiBanco = '" & cboBancos.SelectedValue & "'")
-                If reader.HasRows Then
-                    reader.Read()
-                    TipoDocuBan.Text = reader("TipNit")
-                    DocuBan.Text = reader("NitBanco")
-                    SucurBan.Text = reader("SucurNit")
-                    cn.Close()
-                Else
-                    cn.Close()
-                End If
 
             End If
         Catch ex As Exception
@@ -289,8 +279,8 @@ Public Class Pagos
                                                            [Datos de los bancos] ON [Datos cuentas bancarias].CodiBanco = [Datos de los bancos].CodiBanco WHERE [Datos cuentas bancarias].CtaActiva = 1 and [Datos de los bancos].CodiBanco = '" & codigoBanco.ToString & "'")
 
             cboNumCuenta.DataSource = ComboCuentasBancarias.Tables(0)
-            cboNumCuenta.DisplayMember = "NumCuenta"
-            cboNumCuenta.ValueMember = "NumCuenta"
+            cboNumCuenta.DisplayMember = "CuenConta"
+            cboNumCuenta.ValueMember = "CuenConta"
         Catch ex As Exception
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
             Informa += "en la cargar las cuentas bancarias" & Chr(13) & Chr(10)
@@ -562,6 +552,8 @@ Public Class Pagos
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
+        Finally
+            If (cn.State = ConnectionState.Open) Then cn.Close()
         End Try
 
     End Function
@@ -581,30 +573,30 @@ Public Class Pagos
 
                     If String.IsNullOrWhiteSpace(Concecutivo) Then
 
+                        Exit Sub
+
+                    Else
+                        Dim prefijo As SqlDataReader
+
+                        prefijo = SQLReader("select PrefiConse from [Datos consecutivos SIIGHOSPLUS] WHERE CodConse = 06")
+
+                        If prefijo.HasRows = False Then
+                            MsgBox("No se encontro el concecutivo")
                             Exit Sub
-
                         Else
-                            Dim prefijo As SqlDataReader
 
-                            prefijo = SQLReader("select PrefiConse from [Datos consecutivos SIIGHOSPLUS] WHERE CodConse = 06")
+                            prefijo.Read()
+                            PrefijoFacturas = prefijo("PrefiConse")
+                            Dim LargoPrefijo As Integer = Len(PrefijoFacturas)
+                            Dim LargoNumFactura As Integer = (Len(Concecutivo) - LargoPrefijo)
+                            NumPago = Concecutivo.Substring(LargoPrefijo, LargoNumFactura)
+                            cn.Close()
 
-                            If prefijo.HasRows = False Then
-                                MsgBox("No se encontro el concecutivo")
-                                Exit Sub
-                            Else
+                        End If
 
-                                prefijo.Read()
-                                PrefijoFacturas = prefijo("PrefiConse")
-                                Dim LargoPrefijo As Integer = Len(PrefijoFacturas)
-                                Dim LargoNumFactura As Integer = (Len(Concecutivo) - LargoPrefijo)
-                                NumPago = Concecutivo.Substring(LargoPrefijo, LargoNumFactura)
-                                cn.Close()
+                        Dim fecha As Date = Date.Now
 
-                            End If
-
-                            Dim fecha As Date = Date.Now
-
-                            Dim TipoPago As String
+                        Dim TipoPago As String
 
                         Select Case cboTipoPago.Text
 
@@ -649,14 +641,16 @@ Public Class Pagos
 
                     End If
 
-                    End If
                 End If
+            End If
 
         Catch ex As Exception
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
             Informa += "en el registro del pago." & Chr(13) & Chr(10)
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If (cn.State = ConnectionState.Open) Then cn.Close()
         End Try
     End Sub
 
@@ -740,6 +734,47 @@ Public Class Pagos
             Titulo01 = "Control para expedir copias de recibos"
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
             Informa += "al sacar una copia del recibo de pago" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub cboNumCuenta_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboNumCuenta.SelectedIndexChanged
+        Try
+
+
+
+            If (cboBancos.SelectedIndex = -1) Then
+                'No gana nada
+                Return
+            End If
+
+            If (cboNumCuenta.SelectedIndex = -1) Then
+                'No gana nada
+                Return
+            End If
+
+            TipoDocuBan.Clear()
+            DocuBan.Clear()
+            SucurBan.Clear()
+
+
+            Dim reader As SqlDataReader = ConexionBaseDeDatos.SQLReader("SELECT TipNit, NitBanco, SucurNit, NomBanco FROM [Datos de los bancos] WHERE CodiBanco = '" & cboBancos.SelectedValue & "'")
+
+            If reader.HasRows Then
+                reader.Read()
+                TipoDocuBan.Text = reader("TipNit")
+                DocuBan.Text = reader("NitBanco")
+                SucurBan.Text = reader("SucurNit")
+                cn.Close()
+            Else
+                cn.Close()
+            End If
+
+        Catch ex As Exception
+            Titulo01 = "Control para expedir copias de recibos"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en el evento cboNumCuenta_SelectedIndexChanged" & Chr(13) & Chr(10)
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

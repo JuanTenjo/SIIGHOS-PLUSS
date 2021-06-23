@@ -35,7 +35,7 @@ Public Class Facturas
                                       [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                       GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                       [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                      WHERE ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                      WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
                 CargarFacturas(consulta)
             End If
         End If
@@ -48,7 +48,7 @@ Public Class Facturas
     Private Sub btnImprimeTodas_Click(sender As Object, e As EventArgs) Handles btnImprimeTodas.Click
         Try
             If Bandera = 1 Then
-                If checkFiltroProve.Checked = True Then
+                If checkFiltroProve.Checked = True And ChekTodasFacturas.Checked = False Then
                     Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, GEOGRAXPSQL.dbo.[Datos proveedores].[CityProve], [Datos facturas realizadas].NumRemi,
                                                  [Datos facturas realizadas].FecExpFac, [Datos registros de contratos].ID_Contratos,
                                                  [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac,
@@ -58,7 +58,7 @@ Public Class Facturas
                                                 [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                                 GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                                 [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                                WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                                WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
 
                     ModuloVariablesAplicacion.InfConsultaReporte = consulta
                     ModuloVariablesAplicacion.InfCabecera = "Facturas Por Tercero"
@@ -66,7 +66,11 @@ Public Class Facturas
                     ModuloVariablesAplicacion.infNombreInforme = "ReportFacturasAgrupadas"
                     Dim FrmsInformes As New FrmlInformes
                     FrmlInformes.ShowDialog()
-                Else
+                    Return
+                End If
+
+                If ChekTodasFacturas.Checked = True And checkFiltroProve.Checked = False Then
+
                     Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, GEOGRAXPSQL.dbo.[Datos proveedores].[CityProve], [Datos facturas realizadas].NumRemi,
                                                  [Datos facturas realizadas].FecExpFac, [Datos registros de contratos].ID_Contratos,
                                                  [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac,
@@ -76,7 +80,32 @@ Public Class Facturas
                                                 [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                                 GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                                 [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                                WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND
+                                                WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND
+                                                ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1)"
+
+                    ModuloVariablesAplicacion.InfConsultaReporte = consulta
+                    ModuloVariablesAplicacion.InfCabecera = "Facturas"
+                    ModuloVariablesAplicacion.InfTituloInforme = "Reporte de Facturas"
+                    ModuloVariablesAplicacion.infNombreInforme = "ReportFacturasAgrupadas"
+                    Dim FrmsInformes As New FrmlInformes
+                    FrmlInformes.ShowDialog()
+
+                    Return
+
+                End If
+
+                If ChekTodasFacturas.Checked = False And checkFiltroProve.Checked = False Then
+
+                    Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, GEOGRAXPSQL.dbo.[Datos proveedores].[CityProve], [Datos facturas realizadas].NumRemi,
+                                                 [Datos facturas realizadas].FecExpFac, [Datos registros de contratos].ID_Contratos,
+                                                 [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac,
+                                                 [Datos facturas realizadas].ValNetoFac + [Datos facturas realizadas].ValIVAFac as Total, [Datos facturas realizadas].FactAnula
+                                                FROM     [Datos facturas realizadas] INNER JOIN
+                                                [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
+                                                [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
+                                                GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
+                                                [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
+                                                WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND
                                                 ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND
                                                 (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
 
@@ -86,7 +115,10 @@ Public Class Facturas
                     ModuloVariablesAplicacion.infNombreInforme = "ReportFacturasAgrupadas"
                     Dim FrmsInformes As New FrmlInformes
                     FrmlInformes.ShowDialog()
+                    Return
                 End If
+
+
             End If
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
@@ -98,47 +130,88 @@ Public Class Facturas
     End Sub
     Private Sub ftDesde_ValueChanged(sender As Object, e As EventArgs) Handles ftDesde.ValueChanged
         If Bandera = 1 Then
-            If checkFiltroProve.Checked = True Then
+            If checkFiltroProve.Checked = True And ChekTodasFacturas.Checked = False Then
+
                 Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
                                               FROM     [Datos facturas realizadas] INNER JOIN
                                               [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
                                               [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                               GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                               [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
                 CargarFacturas(consulta)
-            Else
+                Return
+            End If
+
+            If ChekTodasFacturas.Checked = True And checkFiltroProve.Checked = False Then
+
+
+                Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
+                                              FROM     [Datos facturas realizadas] INNER JOIN
+                                              [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
+                                              [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
+                                              GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
+                                              [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) ORDER BY NumFact ASC"
+                CargarFacturas(consulta)
+                Return
+
+            End If
+            If ChekTodasFacturas.Checked = False And checkFiltroProve.Checked = False Then
+
                 Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
                                       FROM     [Datos facturas realizadas] INNER JOIN
                                       [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
                                       [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                       GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                       [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                      WHERE ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                      WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
                 CargarFacturas(consulta)
+                Return
             End If
-        End If '
+
+        End If
     End Sub
     Private Sub ftHasta_ValueChanged(sender As Object, e As EventArgs) Handles ftHasta.ValueChanged
         If Bandera = 1 Then
-            If checkFiltroProve.Checked = True Then
+            If checkFiltroProve.Checked = True And ChekTodasFacturas.Checked = False Then
+
                 Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
                                               FROM     [Datos facturas realizadas] INNER JOIN
                                               [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
                                               [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                               GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                               [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
                 CargarFacturas(consulta)
-            Else
+                Return
+            End If
+
+            If ChekTodasFacturas.Checked = True And checkFiltroProve.Checked = False Then
+
+
+                Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
+                                              FROM     [Datos facturas realizadas] INNER JOIN
+                                              [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
+                                              [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
+                                              GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
+                                              [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) ORDER BY NumFact ASC"
+                CargarFacturas(consulta)
+                Return
+
+            End If
+            If ChekTodasFacturas.Checked = False And checkFiltroProve.Checked = False Then
+
                 Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
                                       FROM     [Datos facturas realizadas] INNER JOIN
                                       [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
                                       [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                       GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                       [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                      WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                      WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
                 CargarFacturas(consulta)
+                Return
             End If
         End If
     End Sub
@@ -148,25 +221,46 @@ Public Class Facturas
     Private Sub txtBuscarFactura_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarFactura.TextChanged
         Try
             If String.IsNullOrWhiteSpace(txtBuscarFactura.Text) = False And Bandera = 1 Then
-                If checkFiltroProve.Checked = True Then
+                If checkFiltroProve.Checked = True And ChekTodasFacturas.Checked = False Then
+
                     Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
                                               FROM     [Datos facturas realizadas] INNER JOIN
                                               [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
                                               [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                               GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                               [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
                     CargarFacturas(consulta)
-                Else
+                    Return
+                End If
+
+                If ChekTodasFacturas.Checked = True And checkFiltroProve.Checked = False Then
+
+
+                    Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
+                                              FROM     [Datos facturas realizadas] INNER JOIN
+                                              [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
+                                              [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
+                                              GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
+                                              [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) ORDER BY NumFact ASC"
+                    CargarFacturas(consulta)
+                    Return
+
+                End If
+                If ChekTodasFacturas.Checked = False And checkFiltroProve.Checked = False Then
+
                     Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
                                       FROM     [Datos facturas realizadas] INNER JOIN
                                       [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
                                       [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                       GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                       [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                      WHERE ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                                      WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND ([Datos registros de contratos].ID_Contratos = '" & cboContratos.SelectedValue & "') AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
                     CargarFacturas(consulta)
+                    Return
                 End If
+
 
             End If
         Catch ex As Exception
@@ -175,22 +269,53 @@ Public Class Facturas
     End Sub
     Private Sub checkFiltroProve_CheckedChanged(sender As Object, e As EventArgs) Handles checkFiltroProve.CheckedChanged
         Try
-            If cboProvedores.SelectedIndex >= 0 Then
-                If checkFiltroProve.Checked = True Then
-                    Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
+
+
+
+            If (checkFiltroProve.Checked = True) Then
+                cboContratos.Enabled = False
+
+
+                If (ChekTodasFacturas.Checked = True) Then
+                    ChekTodasFacturas.Checked = False
+                End If
+
+                If (cboProvedores.Enabled = False) Then
+                    cboProvedores.Enabled = True
+                End If
+
+                Me.Cursor = Cursors.WaitCursor
+
+                If cboProvedores.SelectedIndex >= 0 Then
+                    If checkFiltroProve.Checked = True Then
+                        Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
                                               FROM     [Datos facturas realizadas] INNER JOIN
                                               [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
                                               [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
                                               GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
                                               [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
-                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].FactAnula = 0) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
-                    CargarFacturas(consulta)
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) AND (GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu + GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve + GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv = '" & cboProvedores.SelectedValue & "')"
+                        CargarFacturas(consulta)
+                    End If
+
+
+
                 End If
+
+                Me.Cursor = Cursors.Default
+
+            Else
+
+                cboContratos.Enabled = True
 
             End If
 
         Catch ex As Exception
-
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += " Al presionar el checkbok todas" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -218,6 +343,29 @@ Public Class Facturas
 
 #Region "Funciones"
 
+    Private Function CalcularTotal()
+        Try
+            Dim x As DataGridViewRow
+            Dim Contador As Int32
+            TxtTotalFact.Clear()
+
+
+            For Each x In DataGridFacturas.Rows
+                Contador += 1
+            Next
+
+            TxtTotalFact.Text = Convert.ToString(Contador)
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la funcion Calcular Total." & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Function
+
     Public Function CargarFacturas(stringConsulta)
         DataGridFacturas.AutoGenerateColumns = False
         DataGridFacturas.DataSource = Nothing
@@ -236,6 +384,7 @@ Public Class Facturas
             reader.Close()
             reader = Nothing
             cn.Close()
+            CalcularTotal()
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
@@ -277,12 +426,54 @@ Public Class Facturas
 #End Region
 
     Private Sub Facturas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CargarFechasActuales()
-        CargarComboBox()
-        Bandera = 1
+        Try
+            CargarFechasActuales()
+            CargarComboBox()
+            Bandera = 1
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al cargar el formulario Facturas" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub
 
+    Private Sub ChekTodasFacturas_CheckedChanged(sender As Object, e As EventArgs) Handles ChekTodasFacturas.CheckedChanged
+        Try
 
+            If (checkFiltroProve.Checked = True) Then
+                checkFiltroProve.Checked = False
+            End If
+
+            If ChekTodasFacturas.Checked = True Then
+
+                cboContratos.Enabled = False
+                cboProvedores.Enabled = False
+            Else
+                cboContratos.Enabled = True
+                cboProvedores.Enabled = True
+            End If
+
+            Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
+                                              FROM     [Datos facturas realizadas] INNER JOIN
+                                              [Datos remisiones de facturas] ON [Datos facturas realizadas].NumRemi = [Datos remisiones de facturas].NumRemi INNER JOIN
+                                              [Datos registros de contratos] ON [Datos remisiones de facturas].ID_Contratos = [Datos registros de contratos].ID_Contratos INNER JOIN
+                                              GEOGRAXPSQL.dbo.[Datos proveedores] ON [Datos registros de contratos].TipDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].TipoDocu AND 
+                                              [Datos registros de contratos].NumDocContra = GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve AND [Datos registros de contratos].CodSucContra = GEOGRAXPSQL.dbo.[Datos proveedores].SucurProv
+                                              WHERE ([Datos facturas realizadas].CodEstaDian NOT IN ('00', '01', '04')) AND  ([Datos facturas realizadas].FecExpFac BETWEEN  '" & Format(ftDesde.Value.Date, "yyyy-MM-dd") & "' AND  '" & Format(ftHasta.Value.Date, "yyyy-MM-dd") & "') AND ([Datos facturas realizadas].NumFact like '%'+'" & txtBuscarFactura.Text & "'+'%') AND ([Datos remisiones de facturas].RemiActiva = 1) AND ([Datos registros de contratos].EstaVigCon = 1) ORDER BY NumFact ASC"
+            CargarFacturas(consulta)
+
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "En el check Todas Facturas" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
 
 End Class

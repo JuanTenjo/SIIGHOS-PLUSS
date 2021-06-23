@@ -23,7 +23,7 @@ Public Class FrmlInformesPagos
                                                         [Datos recibos de pagos].TipDoc, [Datos recibos de pagos].NitCCPago, [Datos recibos de pagos].TipPago, [Datos recibos de pagos].DocNum, [Datos recibos de pagos].EntiDocu,
                                                         [Datos recibos de pagos].FecDocu, [Datos recibos de pagos].AnulRePa,
                                                          [Datos recibos de pagos].RazAnula, [Datos recibos de pagos].FecAnul, [Datos recibos de pagos].CodAnul,
-                                                         [Datos detalles recibos de pago].CodServiFac, [Datos detalles recibos de pago].NumDocConta, [Datos detalles recibos de pago].CuenConta,
+                                                         [Datos detalles recibos de pago].CodServi, [Datos detalles recibos de pago].NumDocConta, [Datos detalles recibos de pago].CuenConta,
                                                          [Datos detalles recibos de pago].CantiPaga, [Datos detalles recibos de pago].ValUnita, [Datos detalles recibos de pago].DetaPago,
                                                          [Datos detalles recibos de pago].ValDebito, [Datos detalles recibos de pago].ValCredito
                                                         FROM  (([GEOGRAXPSQL].[dbo].[Datos proveedores] INNER JOIN [DACARTXPSQL].[dbo].[Datos recibos de pagos] ON [Datos proveedores].[IdenProve] = [Datos recibos de pagos].[NitCCPago]) INNER JOIN [DACARTXPSQL].[dbo].[Datos detalles recibos de pago] ON ([Datos recibos de pagos].PreRePa = [Datos detalles recibos de pago].PreRePaD) AND ([Datos recibos de pagos].ReciPaga = [Datos detalles recibos de pago].ReciPagaD))

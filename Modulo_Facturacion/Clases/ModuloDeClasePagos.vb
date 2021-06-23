@@ -130,8 +130,8 @@ Public Class ModuloDeClasePagos
 
                         cn.Open()
                         Dim Consulta As String = "INSERT INTO [DACARTXPSQL].[dbo].[Datos detalles recibos de pago]
-                                                ([NumItem] ,[PreRePaD] ,[ReciPagaD], [CodServiFac], [CuenConta], [TipDocConta] ,[NumDocConta],[DigVer] ,[SucurConta] ,[CantiPaga],[ValUnita],[DetaPago],[ValDebito],[ValCredito])
-                                        VALUES (@NumItem,@PreRePaD,@ReciPagaD,@CodServiFac,@CuenConta,@TipDocConta,@NumDocConta, @DigVer,@SucurConta,@CantiPaga,@ValUnita,@DetaPago,@ValDebito,@ValCredito)"
+                                                ([NumItem] ,[PreRePaD] ,[ReciPagaD], [CodServi], [CuenConta], [TipDocConta] ,[NumDocConta],[DigVer] ,[SucurConta] ,[CantiPaga],[ValUnita],[DetaPago],[ValDebito],[ValCredito])
+                                        VALUES (@NumItem,@PreRePaD,@ReciPagaD,@CodServi,@CuenConta,@TipDocConta,@NumDocConta, @DigVer,@SucurConta,@CantiPaga,@ValUnita,@DetaPago,@ValDebito,@ValCredito)"
 
                         Dim RegistrarDetallePagoFactura As SqlCommand
                         RegistrarDetallePagoFactura = New SqlCommand With {
@@ -163,8 +163,8 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
-                                .AddWithValue("CuenConta", NumCuenBancaria)
+                                .AddWithValue("CodServi", DocNum)
+                                .AddWithValue("CuenConta", NumCuenBancaria) 'Aqui es donde tengo la incognita
                                 .AddWithValue("TipDocConta", TipoDocuBan)
                                 .AddWithValue("NumDocConta", DocuBan)
                                 .AddWithValue("DigVer", DigiBan)
@@ -191,7 +191,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
+                                .AddWithValue("CodServi", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableReteIVA)
                                 .AddWithValue("TipDocConta", TipoDocuContableReteIVA)
                                 .AddWithValue("NumDocConta", DocuContableReteIVA)
@@ -217,7 +217,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
+                                .AddWithValue("CodServi", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableReteICA)
                                 .AddWithValue("TipDocConta", TipoDocuContableReteICA)
                                 .AddWithValue("NumDocConta", DocuContableReteICA)
@@ -244,7 +244,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
+                                .AddWithValue("CodServi", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableReteFuente)
                                 .AddWithValue("TipDocConta", TipoDocuContableReteFuente)
                                 .AddWithValue("NumDocConta", DocuContableReteFuente)
@@ -270,7 +270,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
+                                .AddWithValue("CodServi", DocNum)
                                 .AddWithValue("CuenConta", CuentaContablePagoOpor)
                                 .AddWithValue("TipDocConta", TipoDocuContablePagoOpor)
                                 .AddWithValue("NumDocConta", DocuContablePagoOpor)
@@ -295,7 +295,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
+                                .AddWithValue("CodServi", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableTramite)
                                 .AddWithValue("TipDocConta", TipoDocuContableTramite)
                                 .AddWithValue("NumDocConta", DocuContableTramite)
@@ -321,7 +321,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
+                                .AddWithValue("CodServi", DocNum)
                                 .AddWithValue("CuenConta", CuentaContableOtrosDesc)
                                 .AddWithValue("TipDocConta", TipoDocuContableOtrosDesc)
                                 .AddWithValue("NumDocConta", DocuContableOtrosDesc)
@@ -351,7 +351,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("NumItem", Nposi)
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServiFac", DocNum)
+                                .AddWithValue("CodServi", DocNum)
                                 .AddWithValue("CuenConta", CuentaContablePago)
                                 If ((ValorContablePago + DesPorFac) < SaldoFac) Then
                                     Deta = "Abono a la factura"
@@ -386,7 +386,7 @@ Public Class ModuloDeClasePagos
                                     .AddWithValue("NumItem", Nposi)
                                     .AddWithValue("PreRePaD", PreRePa)
                                     .AddWithValue("ReciPagaD", ReciPaga)
-                                    .AddWithValue("CodServiFac", DocNum)
+                                    .AddWithValue("CodServi", DocNum)
                                     .AddWithValue("CuenConta", CuentaContableInteres)
                                     .AddWithValue("TipDocConta", TipoDocuContableInteres)
                                     .AddWithValue("NumDocConta", DocuContableInteres)
@@ -482,6 +482,8 @@ Public Class ModuloDeClasePagos
                 Informa += "Mensaje del error: " & ex.Message
                 MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return False
+            Finally
+                If (cn.State = ConnectionState.Open) Then cn.Close()
             End Try
 
         End If

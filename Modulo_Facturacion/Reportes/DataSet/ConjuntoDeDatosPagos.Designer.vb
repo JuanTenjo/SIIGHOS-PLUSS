@@ -352,8 +352,6 @@ Partial Public Class ConjuntoDeDatosPagos
         
         Private columnCodAnul As Global.System.Data.DataColumn
         
-        Private columnCodServiFac As Global.System.Data.DataColumn
-        
         Private columnNumDocConta As Global.System.Data.DataColumn
         
         Private columnCuenConta As Global.System.Data.DataColumn
@@ -367,6 +365,8 @@ Partial Public Class ConjuntoDeDatosPagos
         Private columnValDebito As Global.System.Data.DataColumn
         
         Private columnValCredito As Global.System.Data.DataColumn
+        
+        Private columnCodServi As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -541,14 +541,6 @@ Partial Public Class ConjuntoDeDatosPagos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CodServiFacColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCodServiFac
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property NumDocContaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnNumDocConta
@@ -600,6 +592,14 @@ Partial Public Class ConjuntoDeDatosPagos
         Public ReadOnly Property ValCreditoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnValCredito
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CodServiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCodServi
             End Get
         End Property
         
@@ -658,16 +658,16 @@ Partial Public Class ConjuntoDeDatosPagos
                     ByVal RazAnula As String,  _
                     ByVal FecAnul As Date,  _
                     ByVal CodAnul As String,  _
-                    ByVal CodServiFac As String,  _
                     ByVal NumDocConta As String,  _
                     ByVal CuenConta As String,  _
                     ByVal CantiPaga As Short,  _
                     ByVal ValUnita As Double,  _
                     ByVal DetaPago As String,  _
                     ByVal ValDebito As Integer,  _
-                    ByVal ValCredito As Integer) As dsDetalleRow
+                    ByVal ValCredito As Integer,  _
+                    ByVal CodServi As String) As dsDetalleRow
             Dim rowdsDetalleRow As dsDetalleRow = CType(Me.NewRow,dsDetalleRow)
-            Dim columnValuesArray() As Object = New Object() {NumItem, PreRePa, ReciPaga, FecRePa, AfeDocu, CardiTer, Empresa, TipDoc, NitCCPago, TipPago, DocNum, EntiDocu, FecDocu, AnulRePa, RazAnula, FecAnul, CodAnul, CodServiFac, NumDocConta, CuenConta, CantiPaga, ValUnita, DetaPago, ValDebito, ValCredito}
+            Dim columnValuesArray() As Object = New Object() {NumItem, PreRePa, ReciPaga, FecRePa, AfeDocu, CardiTer, Empresa, TipDoc, NitCCPago, TipPago, DocNum, EntiDocu, FecDocu, AnulRePa, RazAnula, FecAnul, CodAnul, NumDocConta, CuenConta, CantiPaga, ValUnita, DetaPago, ValDebito, ValCredito, CodServi}
             rowdsDetalleRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdsDetalleRow)
             Return rowdsDetalleRow
@@ -713,7 +713,6 @@ Partial Public Class ConjuntoDeDatosPagos
             Me.columnRazAnula = MyBase.Columns("RazAnula")
             Me.columnFecAnul = MyBase.Columns("FecAnul")
             Me.columnCodAnul = MyBase.Columns("CodAnul")
-            Me.columnCodServiFac = MyBase.Columns("CodServiFac")
             Me.columnNumDocConta = MyBase.Columns("NumDocConta")
             Me.columnCuenConta = MyBase.Columns("CuenConta")
             Me.columnCantiPaga = MyBase.Columns("CantiPaga")
@@ -721,6 +720,7 @@ Partial Public Class ConjuntoDeDatosPagos
             Me.columnDetaPago = MyBase.Columns("DetaPago")
             Me.columnValDebito = MyBase.Columns("ValDebito")
             Me.columnValCredito = MyBase.Columns("ValCredito")
+            Me.columnCodServi = MyBase.Columns("CodServi")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -760,8 +760,6 @@ Partial Public Class ConjuntoDeDatosPagos
             MyBase.Columns.Add(Me.columnFecAnul)
             Me.columnCodAnul = New Global.System.Data.DataColumn("CodAnul", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCodAnul)
-            Me.columnCodServiFac = New Global.System.Data.DataColumn("CodServiFac", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCodServiFac)
             Me.columnNumDocConta = New Global.System.Data.DataColumn("NumDocConta", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNumDocConta)
             Me.columnCuenConta = New Global.System.Data.DataColumn("CuenConta", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -776,6 +774,8 @@ Partial Public Class ConjuntoDeDatosPagos
             MyBase.Columns.Add(Me.columnValDebito)
             Me.columnValCredito = New Global.System.Data.DataColumn("ValCredito", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnValCredito)
+            Me.columnCodServi = New Global.System.Data.DataColumn("CodServi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCodServi)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnPreRePa, Me.columnReciPaga}, true))
             Me.columnNumItem.AllowDBNull = false
             Me.columnPreRePa.AllowDBNull = false
@@ -802,8 +802,6 @@ Partial Public Class ConjuntoDeDatosPagos
             Me.columnAnulRePa.AllowDBNull = false
             Me.columnRazAnula.MaxLength = 250
             Me.columnCodAnul.MaxLength = 3
-            Me.columnCodServiFac.AllowDBNull = false
-            Me.columnCodServiFac.MaxLength = 18
             Me.columnNumDocConta.AllowDBNull = false
             Me.columnNumDocConta.MaxLength = 13
             Me.columnCuenConta.AllowDBNull = false
@@ -814,6 +812,8 @@ Partial Public Class ConjuntoDeDatosPagos
             Me.columnDetaPago.MaxLength = 255
             Me.columnValDebito.AllowDBNull = false
             Me.columnValCredito.AllowDBNull = false
+            Me.columnCodServi.AllowDBNull = false
+            Me.columnCodServi.MaxLength = 18
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2085,17 +2085,6 @@ Partial Public Class ConjuntoDeDatosPagos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CodServiFac() As String
-            Get
-                Return CType(Me(Me.tabledsDetalle.CodServiFacColumn),String)
-            End Get
-            Set
-                Me(Me.tabledsDetalle.CodServiFacColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property NumDocConta() As String
             Get
                 Return CType(Me(Me.tabledsDetalle.NumDocContaColumn),String)
@@ -2168,6 +2157,17 @@ Partial Public Class ConjuntoDeDatosPagos
             End Get
             Set
                 Me(Me.tabledsDetalle.ValCreditoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CodServi() As String
+            Get
+                Return CType(Me(Me.tabledsDetalle.CodServiColumn),String)
+            End Get
+            Set
+                Me(Me.tabledsDetalle.CodServiColumn) = value
             End Set
         End Property
         
@@ -3100,7 +3100,6 @@ Namespace ConjuntoDeDatosPagosTableAdapters
             tableMapping.ColumnMappings.Add("RazAnula", "RazAnula")
             tableMapping.ColumnMappings.Add("FecAnul", "FecAnul")
             tableMapping.ColumnMappings.Add("CodAnul", "CodAnul")
-            tableMapping.ColumnMappings.Add("CodServiFac", "CodServiFac")
             tableMapping.ColumnMappings.Add("NumDocConta", "NumDocConta")
             tableMapping.ColumnMappings.Add("CuenConta", "CuenConta")
             tableMapping.ColumnMappings.Add("CantiPaga", "CantiPaga")
@@ -3108,6 +3107,7 @@ Namespace ConjuntoDeDatosPagosTableAdapters
             tableMapping.ColumnMappings.Add("DetaPago", "DetaPago")
             tableMapping.ColumnMappings.Add("ValDebito", "ValDebito")
             tableMapping.ColumnMappings.Add("ValCredito", "ValCredito")
+            tableMapping.ColumnMappings.Add("CodServi", "CodServi")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -3133,18 +3133,18 @@ Namespace ConjuntoDeDatosPagosTableAdapters
                 "[Datos recibos de pagos].EntiDocu, [Datos recibos de pagos].FecDocu, [Datos reci"& _ 
                 "bos de pagos].AnulRePa, [Datos recibos de pagos].RazAnula, [Datos recibos de pag"& _ 
                 "os].FecAnul, [Datos recibos de pagos].CodAnul, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Datos"& _ 
-                " detalles recibos de pago].CodServiFac, [Datos detalles recibos de pago].NumDocC"& _ 
-                "onta, [Datos detalles recibos de pago].CuenConta, [Datos detalles recibos de pag"& _ 
-                "o].CantiPaga, [Datos detalles recibos de pago].ValUnita, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "    [Datos detalles recibos de pago].DetaPago, [Datos detalles recibos de pago]."& _ 
-                "ValDebito, [Datos detalles recibos de pago].ValCredito"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEOGRAXP"& _ 
-                "SQL.dbo.[Datos proveedores] INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Datos recibos "& _ 
-                "de pagos] ON GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve = [Datos recibos de p"& _ 
-                "agos].NitCCPago INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Datos detalles recibos de "& _ 
-                "pago] ON [Datos recibos de pagos].PreRePa = [Datos detalles recibos de pago].Pre"& _ 
-                "RePaD AND [Datos recibos de pagos].ReciPaga = [Datos detalles recibos de pago].R"& _ 
-                "eciPagaD"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY [Datos detalles recibos de pago].NumItem, [Datos recibos de p"& _ 
-                "agos].PreRePa, [Datos recibos de pagos].ReciPaga"
+                " detalles recibos de pago].CodServi, [Datos detalles recibos de pago].NumDocCont"& _ 
+                "a, [Datos detalles recibos de pago].CuenConta, [Datos detalles recibos de pago]."& _ 
+                "CantiPaga, [Datos detalles recibos de pago].ValUnita, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " [Datos detalles recibos de pago].DetaPago, [Datos detalles recibos de pago].Val"& _ 
+                "Debito, [Datos detalles recibos de pago].ValCredito"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GEOGRAXPSQL"& _ 
+                ".dbo.[Datos proveedores] INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Datos recibos de "& _ 
+                "pagos] ON GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve = [Datos recibos de pago"& _ 
+                "s].NitCCPago INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Datos detalles recibos de pag"& _ 
+                "o] ON [Datos recibos de pagos].PreRePa = [Datos detalles recibos de pago].PreReP"& _ 
+                "aD AND [Datos recibos de pagos].ReciPaga = [Datos detalles recibos de pago].Reci"& _ 
+                "PagaD"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY [Datos detalles recibos de pago].NumItem, [Datos recibos de pago"& _ 
+                "s].PreRePa, [Datos recibos de pagos].ReciPaga"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

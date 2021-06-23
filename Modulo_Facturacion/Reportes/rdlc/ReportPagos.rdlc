@@ -59,14 +59,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CodServiFac">
+                    <Textbox Name="CodServi">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!CodServiFac.Value</Value>
+                              <Value>=Fields!CodServi.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -75,7 +75,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>CodServiFac</rd:DefaultName>
+                      <rd:DefaultName>CodServi</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1485,10 +1485,6 @@
           <DataField>CodAnul</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CodServiFac">
-          <DataField>CodServiFac</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="NumDocConta">
           <DataField>NumDocConta</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1517,10 +1513,14 @@
           <DataField>ValCredito</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="CodServi">
+          <DataField>CodServi</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ConjuntoDeDatosPagos</rd:DataSetName>
-        <rd:SchemaPath>C:\ProgramaFacturacion\Modulo_Facturacion\Reportes\DataSet\ConjuntoDeDatosPagos.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\Reportes\DataSet\ConjuntoDeDatosPagos.xsd</rd:SchemaPath>
         <rd:TableName>dsDetalle</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -383,6 +383,7 @@ Partial Class Pagos
         Me.txtTipoDocTer.MaxLength = 15
         Me.txtTipoDocTer.Multiline = True
         Me.txtTipoDocTer.Name = "txtTipoDocTer"
+        Me.txtTipoDocTer.ReadOnly = True
         Me.txtTipoDocTer.Size = New System.Drawing.Size(54, 22)
         Me.txtTipoDocTer.TabIndex = 125
         '
@@ -394,6 +395,7 @@ Partial Class Pagos
         Me.txtDocuTer.MaxLength = 15
         Me.txtDocuTer.Multiline = True
         Me.txtDocuTer.Name = "txtDocuTer"
+        Me.txtDocuTer.ReadOnly = True
         Me.txtDocuTer.Size = New System.Drawing.Size(79, 22)
         Me.txtDocuTer.TabIndex = 126
         '
@@ -1446,6 +1448,7 @@ Partial Class Pagos
         Me.txtSucursal.MaxLength = 15
         Me.txtSucursal.Multiline = True
         Me.txtSucursal.Name = "txtSucursal"
+        Me.txtSucursal.ReadOnly = True
         Me.txtSucursal.Size = New System.Drawing.Size(57, 22)
         Me.txtSucursal.TabIndex = 196
         '

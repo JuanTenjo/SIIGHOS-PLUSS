@@ -10,13 +10,13 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dsDetalleTableAdapter" GeneratorDataComponentClassName="dsDetalleTableAdapter" Name="dsDetalle" UserDataComponentName="dsDetalleTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DACARTXPSQLConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DACARTXPSQLConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        [Datos detalles recibos de pago].NumItem, [Datos recibos de pagos].PreRePa, [Datos recibos de pagos].ReciPaga, [Datos recibos de pagos].FecRePa, [Datos recibos de pagos].AfeDocu, [Datos recibos de pagos].CardiTer, 
                          Trim(GEOGRAXPSQL.dbo.[Datos proveedores].RazonSol) AS Empresa, [Datos recibos de pagos].TipDoc, [Datos recibos de pagos].NitCCPago, [Datos recibos de pagos].TipPago, [Datos recibos de pagos].DocNum, 
                          [Datos recibos de pagos].EntiDocu, [Datos recibos de pagos].FecDocu, [Datos recibos de pagos].AnulRePa, [Datos recibos de pagos].RazAnula, [Datos recibos de pagos].FecAnul, [Datos recibos de pagos].CodAnul, 
-                         [Datos detalles recibos de pago].CodServiFac, [Datos detalles recibos de pago].NumDocConta, [Datos detalles recibos de pago].CuenConta, [Datos detalles recibos de pago].CantiPaga, [Datos detalles recibos de pago].ValUnita, 
+                         [Datos detalles recibos de pago].CodServi, [Datos detalles recibos de pago].NumDocConta, [Datos detalles recibos de pago].CuenConta, [Datos detalles recibos de pago].CantiPaga, [Datos detalles recibos de pago].ValUnita, 
                          [Datos detalles recibos de pago].DetaPago, [Datos detalles recibos de pago].ValDebito, [Datos detalles recibos de pago].ValCredito
 FROM            GEOGRAXPSQL.dbo.[Datos proveedores] INNER JOIN
                          [Datos recibos de pagos] ON GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve = [Datos recibos de pagos].NitCCPago INNER JOIN
@@ -45,7 +45,6 @@ ORDER BY [Datos detalles recibos de pago].NumItem, [Datos recibos de pagos].PreR
               <Mapping SourceColumn="RazAnula" DataSetColumn="RazAnula" />
               <Mapping SourceColumn="FecAnul" DataSetColumn="FecAnul" />
               <Mapping SourceColumn="CodAnul" DataSetColumn="CodAnul" />
-              <Mapping SourceColumn="CodServiFac" DataSetColumn="CodServiFac" />
               <Mapping SourceColumn="NumDocConta" DataSetColumn="NumDocConta" />
               <Mapping SourceColumn="CuenConta" DataSetColumn="CuenConta" />
               <Mapping SourceColumn="CantiPaga" DataSetColumn="CantiPaga" />
@@ -53,6 +52,7 @@ ORDER BY [Datos detalles recibos de pago].NumItem, [Datos recibos de pagos].PreR
               <Mapping SourceColumn="DetaPago" DataSetColumn="DetaPago" />
               <Mapping SourceColumn="ValDebito" DataSetColumn="ValDebito" />
               <Mapping SourceColumn="ValCredito" DataSetColumn="ValCredito" />
+              <Mapping SourceColumn="CodServi" DataSetColumn="CodServi" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -336,7 +336,7 @@ SELECT CodUnico, CodSede, TipoDocEmp, NitCCEmpresa, DigVerEm, CodiMinSalud, NomE
   <xs:element name="ConjuntoDeDatosPagos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ConjuntoDeDatosPagos" msprop:Generator_UserDSName="ConjuntoDeDatosPagos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dsDetalle" msprop:Generator_TableClassName="dsDetalleDataTable" msprop:Generator_TableVarName="tabledsDetalle" msprop:Generator_TablePropName="dsDetalle" msprop:Generator_RowDeletingName="dsDetalleRowDeleting" msprop:Generator_RowChangingName="dsDetalleRowChanging" msprop:Generator_RowEvHandlerName="dsDetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="dsDetalleRowDeleted" msprop:Generator_UserTableName="dsDetalle" msprop:Generator_RowChangedName="dsDetalleRowChanged" msprop:Generator_RowEvArgName="dsDetalleRowChangeEvent" msprop:Generator_RowClassName="dsDetalleRow">
+        <xs:element name="dsDetalle" msprop:Generator_TableClassName="dsDetalleDataTable" msprop:Generator_TableVarName="tabledsDetalle" msprop:Generator_RowChangedName="dsDetalleRowChanged" msprop:Generator_TablePropName="dsDetalle" msprop:Generator_RowDeletingName="dsDetalleRowDeleting" msprop:Generator_RowChangingName="dsDetalleRowChanging" msprop:Generator_RowEvHandlerName="dsDetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="dsDetalleRowDeleted" msprop:Generator_RowClassName="dsDetalleRow" msprop:Generator_UserTableName="dsDetalle" msprop:Generator_RowEvArgName="dsDetalleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NumItem" msprop:Generator_ColumnVarNameInTable="columnNumItem" msprop:Generator_ColumnPropNameInRow="NumItem" msprop:Generator_ColumnPropNameInTable="NumItemColumn" msprop:Generator_UserColumnName="NumItem" type="xs:int" />
@@ -428,13 +428,6 @@ SELECT CodUnico, CodSede, TipoDocEmp, NitCCEmpresa, DigVerEm, CodiMinSalud, NomE
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CodServiFac" msprop:Generator_ColumnVarNameInTable="columnCodServiFac" msprop:Generator_ColumnPropNameInRow="CodServiFac" msprop:Generator_ColumnPropNameInTable="CodServiFacColumn" msprop:Generator_UserColumnName="CodServiFac">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="18" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="NumDocConta" msprop:Generator_ColumnVarNameInTable="columnNumDocConta" msprop:Generator_ColumnPropNameInRow="NumDocConta" msprop:Generator_ColumnPropNameInTable="NumDocContaColumn" msprop:Generator_UserColumnName="NumDocConta">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -460,10 +453,17 @@ SELECT CodUnico, CodSede, TipoDocEmp, NitCCEmpresa, DigVerEm, CodiMinSalud, NomE
               </xs:element>
               <xs:element name="ValDebito" msprop:Generator_ColumnVarNameInTable="columnValDebito" msprop:Generator_ColumnPropNameInRow="ValDebito" msprop:Generator_ColumnPropNameInTable="ValDebitoColumn" msprop:Generator_UserColumnName="ValDebito" type="xs:int" />
               <xs:element name="ValCredito" msprop:Generator_ColumnVarNameInTable="columnValCredito" msprop:Generator_ColumnPropNameInRow="ValCredito" msprop:Generator_ColumnPropNameInTable="ValCreditoColumn" msprop:Generator_UserColumnName="ValCredito" type="xs:int" />
+              <xs:element name="CodServi" msprop:Generator_ColumnVarNameInTable="columnCodServi" msprop:Generator_ColumnPropNameInRow="CodServi" msprop:Generator_ColumnPropNameInTable="CodServiColumn" msprop:Generator_UserColumnName="CodServi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="dsEmisor" msprop:Generator_TableClassName="dsEmisorDataTable" msprop:Generator_TableVarName="tabledsEmisor" msprop:Generator_TablePropName="dsEmisor" msprop:Generator_RowDeletingName="dsEmisorRowDeleting" msprop:Generator_RowChangingName="dsEmisorRowChanging" msprop:Generator_RowEvHandlerName="dsEmisorRowChangeEventHandler" msprop:Generator_RowDeletedName="dsEmisorRowDeleted" msprop:Generator_UserTableName="dsEmisor" msprop:Generator_RowChangedName="dsEmisorRowChanged" msprop:Generator_RowEvArgName="dsEmisorRowChangeEvent" msprop:Generator_RowClassName="dsEmisorRow">
+        <xs:element name="dsEmisor" msprop:Generator_TableClassName="dsEmisorDataTable" msprop:Generator_TableVarName="tabledsEmisor" msprop:Generator_RowChangedName="dsEmisorRowChanged" msprop:Generator_TablePropName="dsEmisor" msprop:Generator_RowDeletingName="dsEmisorRowDeleting" msprop:Generator_RowChangingName="dsEmisorRowChanging" msprop:Generator_RowEvHandlerName="dsEmisorRowChangeEventHandler" msprop:Generator_RowDeletedName="dsEmisorRowDeleted" msprop:Generator_RowClassName="dsEmisorRow" msprop:Generator_UserTableName="dsEmisor" msprop:Generator_RowEvArgName="dsEmisorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CodUnico" msprop:Generator_ColumnVarNameInTable="columnCodUnico" msprop:Generator_ColumnPropNameInRow="CodUnico" msprop:Generator_ColumnPropNameInTable="CodUnicoColumn" msprop:Generator_UserColumnName="CodUnico">

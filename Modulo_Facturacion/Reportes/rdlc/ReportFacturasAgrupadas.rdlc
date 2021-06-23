@@ -684,7 +684,7 @@
                               <Value>=Fields!ValNetoFac.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <Format>f2</Format>
+                                <Format>n0</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -720,7 +720,7 @@
                               <Value>=Fields!ValIVAFac.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <Format>f2</Format>
+                                <Format>n0</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -756,7 +756,7 @@
                               <Value>=Fields!Total.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
-                                <Format>f2</Format>
+                                <Format>n0</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -844,14 +844,12 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <RepeatColumnHeaders>true</RepeatColumnHeaders>
-        <RepeatRowHeaders>true</RepeatRowHeaders>
         <FixedColumnHeaders>true</FixedColumnHeaders>
-        <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.57122cm</Top>
         <Left>0.27842cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.04247cm</Width>
+        <Width>18.04248cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -861,14 +859,145 @@
           <WritingMode>Vertical</WritingMode>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Totales:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.94761cm</Top>
+        <Left>10.01424cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>1.83854cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!ValNetoFac.Value, "DataSet1")</Value>
+                <Style>
+                  <Format>'$'#,0;('$'#,0)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.94761cm</Top>
+        <Left>11.85278cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>2.15604cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>es-CO</rd:FormatSymbolCulture>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!ValIVAFac.Value, "DataSet1")</Value>
+                <Style>
+                  <Format>'$'#,0;('$'#,0)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.94761cm</Top>
+        <Left>14.00882cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>2.15604cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>es-CO</rd:FormatSymbolCulture>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!Total.Value, "DataSet1")</Value>
+                <Style>
+                  <Format>'$'#,0;('$'#,0)</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.94761cm</Top>
+        <Left>16.16486cm</Left>
+        <Height>0.54708cm</Height>
+        <Width>2.15604cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+          <rd:FormatSymbolCulture>es-CO</rd:FormatSymbolCulture>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>1.80833in</Height>
+    <Height>1.07916in</Height>
     <Style />
   </Body>
   <Width>7.43733in</Width>
   <Page>
     <PageHeader>
-      <Height>3.78065cm</Height>
+      <Height>3.22502cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -937,9 +1066,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox35</rd:DefaultName>
-          <Top>0.78317cm</Top>
           <Left>7.09811cm</Left>
-          <Height>1.143cm</Height>
+          <Height>2.82814cm</Height>
           <Width>11.65507cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
