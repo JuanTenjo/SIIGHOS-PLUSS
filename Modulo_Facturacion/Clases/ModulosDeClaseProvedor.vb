@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class ModulosDeClaseProvedor
-    Public Function AgregarProvedor(TipoDocu, IdenProve, DigVeri, SucurProv, IdenProveDos, RazonSol, RegiTri,
+    Public Function AgregarProvedor(TipoDocu, IdenProve, DigVeri, SucurProv, CuenNum, IdenProveDos, RazonSol, RegiTri,
                                     TipoProvee, PaisProve, DptoProve, CityProve, CodCity, DireProve, DirElectro, DirElectro1, PagWebPro,
                                     IndiTel, TelProve1,
                                     TelProve2, TelProve3, NomConta, CarConta, CelConta, HabilPro, AutoReteCree, ApliRete, ApliRetICA, ApliRetIVA, PorRetIVA, CodActi01,
@@ -26,10 +26,10 @@ Public Class ModulosDeClaseProvedor
                             Dim comandos As SqlCommand
                             comandos = New SqlCommand
                             comandos.Connection = cn
-                            comandos.CommandText = "INSERT INTO [GEOGRAXPSQL].[dbo].[Datos proveedores] (TipoDocu, IdenProve, DigVeri, SucurProv, IdenProveDos, RazonSol, RegiTri, TipoProvee,
+                            comandos.CommandText = "INSERT INTO [GEOGRAXPSQL].[dbo].[Datos proveedores] (TipoDocu, IdenProve, DigVeri, SucurProv, CuenNum, IdenProveDos, RazonSol, RegiTri, TipoProvee,
                             PaisProve, DptoProve, CityProve, CodCity, DireProve, DirElectro, DirElectro1, PagWebPro, IndiTel, TelProve1, TelProve2, TelProve3, NomConta, CarConta, CelConta, HabilPro,
                             AutoReteCree, ApliRete, ApliRetICA, ApliRetIVA, PorRetIVA, CodActi01, CodActi02, CodActi03, NomReLegal, ObserProvee, CodRegis, FecRegis )
-                            Values (@TipoDocu, @IdenProve, @DigVeri, @SucurProv, @IdenProveDos, @RazonSol, @RegiTri, @TipoProvee, @PaisProve, @DptoProve, @CityProve, @CodCity,
+                            Values (@TipoDocu, @IdenProve, @DigVeri, @SucurProv, @CuenNum, @IdenProveDos, @RazonSol, @RegiTri, @TipoProvee, @PaisProve, @DptoProve, @CityProve, @CodCity,
                             @DireProve, @DirElectro, @DirElectro1, @PagWebPro, @IndiTel, @TelProve1, @TelProve2, @TelProve3, @NomConta, @CarConta, @CelConta, @HabilPro, @AutoReteCree, @ApliRete,
                             @ApliRetICA, @ApliRetIVA, @PorRetIVA, @CodActi01, @CodActi02, @CodActi03, @NomReLegal, @ObserProvee, @CodRegis, @FecRegis)"
                             comandos.CommandType = CommandType.Text
@@ -38,6 +38,7 @@ Public Class ModulosDeClaseProvedor
                                 .AddWithValue("@IdenProve", IdenProve)
                                 .AddWithValue("@DigVeri", DigVeri)
                                 .AddWithValue("@SucurProv", SucurProv)
+                                .AddWithValue("@CuenNum", CuenNum)
                                 .AddWithValue("@IdenProveDos", IdenProveDos)
                                 .AddWithValue("@RazonSol", RazonSol)
                                 .AddWithValue("@RegiTri", RegiTri)
@@ -194,7 +195,7 @@ Public Class ModulosDeClaseProvedor
         End Try
         Return Nothing
     End Function
-    Public Function ActualizarProvedor(TipoDocu, IdenProve, DigVeri, SucurProv, IdenProveDos, RazonSol, RegiTri,
+    Public Function ActualizarProvedor(TipoDocu, IdenProve, DigVeri, SucurProv, CuenNum, IdenProveDos, RazonSol, RegiTri,
                                     TipoProvee, PaisProve, DptoProve, CityProve, CodCity, DireProve, DirElectro, DirElectro1, PagWebPro,
                                     IndiTel, TelProve1,
                                     TelProve2, TelProve3, NomConta, CarConta, CelConta, HabilPro, AutoReteCree, ApliRete, ApliRetICA, ApliRetIVA, PorRetIVA, CodActi01,
@@ -208,7 +209,7 @@ Public Class ModulosDeClaseProvedor
                     Dim comandos As SqlCommand
                     comandos = New SqlCommand
                     comandos.Connection = cn
-                    comandos.CommandText = "UPDATE [GEOGRAXPSQL].[dbo].[Datos proveedores] SET SucurProv = @SucurProv, IdenProveDos = @IdenProveDos, RazonSol = @RazonSol, RegiTri = @RegiTri,
+                    comandos.CommandText = "UPDATE [GEOGRAXPSQL].[dbo].[Datos proveedores] SET SucurProv = @SucurProv, CuenNum = @CuenNum, IdenProveDos = @IdenProveDos, RazonSol = @RazonSol, RegiTri = @RegiTri,
                                 TipoProvee = @TipoProvee, PaisProve = @PaisProve, DptoProve = @DptoProve, CityProve = @CityProve, CodCity = @CodCity, DireProve = @DireProve, DirElectro = @DirElectro, DirElectro1 = @DirElectro1, PagWebPro = @PagWebPro,
                                 IndiTel = @IndiTel, TelProve1 = @TelProve1,
                                 TelProve2 = @TelProve2, TelProve3 = @TelProve3, NomConta = @NomConta, CarConta = @CarConta, CelConta = @CelConta, HabilPro = @HabilPro, AutoReteCree = @AutoReteCree, ApliRete = @ApliRete, ApliRetICA = @ApliRetICA, ApliRetIVA = @ApliRetIVA, PorRetIVA = @PorRetIVA, CodActi01 = @CodActi01,
@@ -218,6 +219,7 @@ Public Class ModulosDeClaseProvedor
                         .AddWithValue("@IdenProve", IdenProve)
                         .AddWithValue("@DigVeri", DigVeri)
                         .AddWithValue("@SucurProv", SucurProv)
+                        .AddWithValue("@CuenNum", CuenNum)
                         .AddWithValue("@IdenProveDos", IdenProveDos)
                         .AddWithValue("@RazonSol", RazonSol)
                         .AddWithValue("@RegiTri", RegiTri)

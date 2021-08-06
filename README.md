@@ -1,3 +1,0 @@
-# SIIGHOS-PLUSS
-Modulo Facturacion 
-

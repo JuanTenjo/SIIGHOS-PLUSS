@@ -2,6 +2,7 @@
 
 Module ConexionBaseDeDatos
     Public cn As New SqlConnection
+    Public cn2 As New SqlConnection
 
     Public Function SQLReader(sqlString As String) As SqlDataReader
         Try

@@ -111,6 +111,25 @@ Public Class Provedores
         End Try
     End Sub
 
+    Private Sub ComboTipoCuenta()
+        Try
+
+            cboCuentaContable.DataSource = Nothing
+            cboCuentaContable.Items.Clear()
+
+            Dim TipoCuenta As DataSet = SQLDataSET("SELECT [idTipoCuenta], [CuenNum], [TipoCuenta] FROM [BDADYSNET].[dbo].[Datos tipo cuenta contable]")
+            cboCuentaContable.DataSource = TipoCuenta.Tables(0)
+            cboCuentaContable.DisplayMember = "TipoCuenta"
+            cboCuentaContable.ValueMember = "idTipoCuenta"
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error " & Chr(13) & Chr(10)
+            Informa += "Al cargar combobox Tipo Provedor" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
     Private Sub ObligacionesFiscales()
         Try
 
@@ -580,6 +599,7 @@ Public Class Provedores
 
                     txtIdentidadDos.Text = Convert.ToString(DatosProveedor("IdenProveDos"))
                     cboTipoProvedor.SelectedValue = Convert.ToString(DatosProveedor("TipoProvee"))
+                    cboCuentaContable.SelectedValue = Convert.ToString(DatosProveedor("CuenNum"))
                     cboAutoRete.Text = Convert.ToString(DatosProveedor("AutoReteCree"))
                     cboAutoRete.SelectedIndex = IIf(Convert.ToBoolean(DatosProveedor("AutoReteCree")) = True, 1, 0)
                     cboReteiva.SelectedIndex = IIf(Convert.ToBoolean(DatosProveedor("ApliRetIVA")) = True, 1, 0)
@@ -937,7 +957,7 @@ Public Class Provedores
                     Try
 
                         Dim fechaActual As Date = Date.Now
-                        ClaseModelo.AgregarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
+                        ClaseModelo.AgregarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, cboCuentaContable.SelectedValue, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
                                                txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
                                                    1, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
                                                    txtObservaciones.Text, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text, DataGridCodObliFiscal1, DataGridCodObliFiscal2)
@@ -962,7 +982,7 @@ Public Class Provedores
                 If MsgBox("Seguro que desea Actualizar este registro", vbYesNo) = vbYes Then
                     Try
                         Dim fechaActual As Date = Date.Now
-                        ClaseModelo.ActualizarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
+                        ClaseModelo.ActualizarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, cboCuentaContable.SelectedValue, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
                                                txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
                                                    EstadoActivo.ToString, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
                                                    txtObservaciones.Text, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text, DataGridCodObliFiscal1, DataGridCodObliFiscal2)
@@ -1145,16 +1165,26 @@ Public Class Provedores
     Dim ingreso As Integer = 0
     Dim EstadoActivo As Integer = 1
 
-    Private Sub Provedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub CargaComboBox()
         Try
-            CardaDataGridViewProvedores()
-            CargarUsuarioLogeado()
             ComboDocumentosDeIdentidad()
             ComboRegimenesTributarios()
             ComboPais()
             ComboDepartamentos()
             ComboCiudad()
             ComboTipoProovedor()
+            ComboTipoCuenta()
+        Catch ex As Exception
+            MsgBox("Hubo un error al cargar los combobox. ERRROR: " + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Provedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            CardaDataGridViewProvedores()
+            CargarUsuarioLogeado()
+            CargaComboBox()
             CambioDeBoton()
             ObligacionesFiscales()
             If DataGridProveedores.Rows.Count > 0 Then

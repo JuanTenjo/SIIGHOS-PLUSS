@@ -57,6 +57,8 @@ Partial Class Provedores
         Me.Numero = New System.Windows.Forms.Label()
         Me.TipoDocumento = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cboCuentaContable = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -528,6 +530,8 @@ Partial Class Provedores
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.GroupBox1.Controls.Add(Me.cboCuentaContable)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Panel3)
         Me.GroupBox1.Controls.Add(Me.Panel2)
         Me.GroupBox1.Controls.Add(Me.Panel1)
@@ -556,9 +560,33 @@ Partial Class Provedores
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(385, 344)
+        Me.GroupBox1.Size = New System.Drawing.Size(385, 349)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
+        '
+        'cboCuentaContable
+        '
+        Me.cboCuentaContable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboCuentaContable.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCuentaContable.FormattingEnabled = True
+        Me.cboCuentaContable.Location = New System.Drawing.Point(150, 319)
+        Me.cboCuentaContable.Margin = New System.Windows.Forms.Padding(2)
+        Me.cboCuentaContable.Name = "cboCuentaContable"
+        Me.cboCuentaContable.Size = New System.Drawing.Size(218, 22)
+        Me.cboCuentaContable.TabIndex = 104
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(5, 319)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(141, 24)
+        Me.Label6.TabIndex = 17
+        Me.Label6.Text = "Tipo Cuenta Contable"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Panel3
         '
@@ -569,7 +597,7 @@ Partial Class Provedores
         Me.Panel3.Controls.Add(Me.Label21)
         Me.Panel3.Controls.Add(Me.Label17)
         Me.Panel3.Controls.Add(Me.Label18)
-        Me.Panel3.Location = New System.Drawing.Point(5, 194)
+        Me.Panel3.Location = New System.Drawing.Point(5, 178)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(140, 141)
@@ -885,7 +913,7 @@ Partial Class Provedores
         '
         Me.txtRepresentanteLegal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtRepresentanteLegal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRepresentanteLegal.Location = New System.Drawing.Point(150, 288)
+        Me.txtRepresentanteLegal.Location = New System.Drawing.Point(150, 272)
         Me.txtRepresentanteLegal.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRepresentanteLegal.MaxLength = 50
         Me.txtRepresentanteLegal.Name = "txtRepresentanteLegal"
@@ -895,7 +923,7 @@ Partial Class Provedores
         'txtEmail2
         '
         Me.txtEmail2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail2.Location = New System.Drawing.Point(150, 265)
+        Me.txtEmail2.Location = New System.Drawing.Point(150, 249)
         Me.txtEmail2.Margin = New System.Windows.Forms.Padding(2)
         Me.txtEmail2.MaxLength = 50
         Me.txtEmail2.Name = "txtEmail2"
@@ -905,7 +933,7 @@ Partial Class Provedores
         'txtEmail1
         '
         Me.txtEmail1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail1.Location = New System.Drawing.Point(150, 241)
+        Me.txtEmail1.Location = New System.Drawing.Point(150, 225)
         Me.txtEmail1.Margin = New System.Windows.Forms.Padding(2)
         Me.txtEmail1.MaxLength = 50
         Me.txtEmail1.Name = "txtEmail1"
@@ -916,7 +944,7 @@ Partial Class Provedores
         '
         Me.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDireccion.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDireccion.Location = New System.Drawing.Point(150, 218)
+        Me.txtDireccion.Location = New System.Drawing.Point(150, 202)
         Me.txtDireccion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDireccion.MaxLength = 70
         Me.txtDireccion.Name = "txtDireccion"
@@ -926,7 +954,7 @@ Partial Class Provedores
         'txtWeb
         '
         Me.txtWeb.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtWeb.Location = New System.Drawing.Point(150, 194)
+        Me.txtWeb.Location = New System.Drawing.Point(150, 178)
         Me.txtWeb.Margin = New System.Windows.Forms.Padding(2)
         Me.txtWeb.MaxLength = 70
         Me.txtWeb.Name = "txtWeb"
@@ -972,7 +1000,7 @@ Partial Class Provedores
         Me.cboRegimenTributario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboRegimenTributario.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboRegimenTributario.FormattingEnabled = True
-        Me.cboRegimenTributario.Location = New System.Drawing.Point(150, 314)
+        Me.cboRegimenTributario.Location = New System.Drawing.Point(150, 295)
         Me.cboRegimenTributario.Margin = New System.Windows.Forms.Padding(2)
         Me.cboRegimenTributario.Name = "cboRegimenTributario"
         Me.cboRegimenTributario.Size = New System.Drawing.Size(218, 22)
@@ -1248,7 +1276,7 @@ Partial Class Provedores
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(274, 2)
+        Me.Label7.Location = New System.Drawing.Point(274, 3)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(145, 19)
@@ -1281,11 +1309,11 @@ Partial Class Provedores
         Me.GroupBox3.Controls.Add(Me.Label36)
         Me.GroupBox3.Controls.Add(Me.txtObservaciones)
         Me.GroupBox3.Controls.Add(Me.Label35)
-        Me.GroupBox3.Location = New System.Drawing.Point(388, 34)
+        Me.GroupBox3.Location = New System.Drawing.Point(388, 39)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox3.Size = New System.Drawing.Size(276, 344)
+        Me.GroupBox3.Size = New System.Drawing.Size(276, 339)
         Me.GroupBox3.TabIndex = 36
         Me.GroupBox3.TabStop = False
         '
@@ -2108,4 +2136,6 @@ Partial Class Provedores
     Friend WithEvents Documento As DataGridViewTextBoxColumn
     Friend WithEvents DV As DataGridViewTextBoxColumn
     Friend WithEvents RazonSocial As DataGridViewTextBoxColumn
+    Friend WithEvents cboCuentaContable As ComboBox
+    Friend WithEvents Label6 As Label
 End Class

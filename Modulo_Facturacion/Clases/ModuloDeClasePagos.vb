@@ -3,13 +3,24 @@ Public Class ModuloDeClasePagos
     Public Function RegistrarPago(PreRePa, ReciPaga, FecRePa, AfeDocu, CardiTer, TipDoc, NitCCPago, SucuPaga, TipPago, DocNum, EntidadBancaria, CodiBanco, NumCuenBancaria, FecDocu, codUser,
                                   TipoDocuBan, DocuBan, DigiBan, SucurBan,
                                   CuentaContablePago, TipoDocuContablePago, DocuContablePago, DigiVeriContablePago, SucurContablePago, ValorContablePago,
-                                  CuentaContableInteres, TipoDocuContableInteres, DocuContableInteres, DigiVeriContableInteres, SucurContableInteres, ValorContableInteres,
                                   CuentaContableReteIVA, TipoDocuContableReteIVA, DocuContableReteIVA, DigiVeriContableReteIVA, SucurContableReteIVA, ValorContableReteIVA,
                                   CuentaContableReteICA, TipoDocuContableReteICA, DocuContableReteICA, DigiVeriContableReteICA, SucurContableReteICA, ValorContableReteICA,
                                   CuentaContableReteFuente, TipoDocuContableReteFuente, DocuContableReteFuente, DigiVeriContableReteFuente, SucurContableReteFuente, ValorContableReteFuente,
                                   CuentaContablePagoOpor, TipoDocuContablePagoOpor, DocuContablePagoOpor, DigiVeriContablePagoOpor, SucurContablePagoOpor, ValorContablePagoOpor,
-                                  CuentaContableTramite, TipoDocuContableTramite, DocuContableTramite, DigiVeriContableTramite, SucurContableTramite, ValorContableTramite,
+                                  CuentaContableEstampíllas, TipoDocuContableEstampillas, DocuContableEstampillas, DigiVeriContableEstampillas, SucurContableEstampillas, ValorContableEstampillas,
                                   CuentaContableOtrosDesc, TipoDocuContableOtrosDesc, DocuContableOtrosDesc, DigiVeriContableOtrosDesc, SucurContableOtrosDesc, ValorContableOtrosDesc) As Boolean
+
+
+        'Public Function RegistrarPago(PreRePa, ReciPaga, FecRePa, AfeDocu, CardiTer, TipDoc, NitCCPago, SucuPaga, TipPago, DocNum, EntidadBancaria, CodiBanco, NumCuenBancaria, FecDocu, codUser,
+        '                      TipoDocuBan, DocuBan, DigiBan, SucurBan,
+        '                      CuentaContablePago, TipoDocuContablePago, DocuContablePago, DigiVeriContablePago, SucurContablePago, ValorContablePago,
+        '                      CuentaContableInteres, TipoDocuContableInteres, DocuContableInteres, DigiVeriContableInteres, SucurContableInteres, ValorContableInteres,
+        '                      CuentaContableReteIVA, TipoDocuContableReteIVA, DocuContableReteIVA, DigiVeriContableReteIVA, SucurContableReteIVA, ValorContableReteIVA,
+        '                      CuentaContableReteICA, TipoDocuContableReteICA, DocuContableReteICA, DigiVeriContableReteICA, SucurContableReteICA, ValorContableReteICA,
+        '                      CuentaContableReteFuente, TipoDocuContableReteFuente, DocuContableReteFuente, DigiVeriContableReteFuente, SucurContableReteFuente, ValorContableReteFuente,
+        '                      CuentaContablePagoOpor, TipoDocuContablePagoOpor, DocuContablePagoOpor, DigiVeriContablePagoOpor, SucurContablePagoOpor, ValorContablePagoOpor,
+        '                      CuentaContableTramite, TipoDocuContableTramite, DocuContableTramite, DigiVeriContableTramite, SucurContableTramite, ValorContableTramite,
+        '                      CuentaContableOtrosDesc, TipoDocuContableOtrosDesc, DocuContableOtrosDesc, DigiVeriContableOtrosDesc, SucurContableOtrosDesc, ValorContableOtrosDesc) As Boolean
         Dim Resultado As Object
         Dim bandera As Boolean = False
         Dim SqlCuenCobrar As String
@@ -40,8 +51,8 @@ Public Class ModuloDeClasePagos
                 Else
                     TabCuenCobrar.Read()
 
-                    AfavorC = Convert.ToDouble(TabCuenCobrar("ValNetoFac")) + Convert.ToDouble(TabCuenCobrar("ValIVAFac")) + Convert.ToDouble(TabCuenCobrar("ValNotDeFac"))
-                    MenosC = Convert.ToDouble(TabCuenCobrar("ValNotCreFac")) + Convert.ToDouble(TabCuenCobrar("TolImpApli")) + Convert.ToDouble(TabCuenCobrar("TolImpApli")) + Convert.ToDouble(TabCuenCobrar("TolPagFac"))
+                    AfavorC = Convert.ToDouble(TabCuenCobrar("ValNetoFac")) + Convert.ToDouble(TabCuenCobrar("ValIVAFac")) + Convert.ToDouble(TabCuenCobrar("ValNotDeFac")) 'Total de la factura
+                    MenosC = Convert.ToDouble(TabCuenCobrar("ValNotCreFac")) + Convert.ToDouble(TabCuenCobrar("TolImpApli")) + Convert.ToDouble(TabCuenCobrar("TolImpApli")) + Convert.ToDouble(TabCuenCobrar("TolPagFac"))  'Total de pagos a Factura
 
                     SaldoFac = AfavorC - MenosC
 
@@ -69,18 +80,15 @@ Public Class ModuloDeClasePagos
                     ValorContableReteIVA = IIf(String.IsNullOrEmpty(ValorContableReteIVA), 0, ValorContableReteIVA)
                     ValorContableReteICA = IIf(String.IsNullOrEmpty(ValorContableReteICA), 0, ValorContableReteICA)
                     ValorContableReteFuente = IIf(String.IsNullOrEmpty(ValorContableReteFuente), 0, ValorContableReteFuente)
-                    ValorContableTramite = IIf(String.IsNullOrEmpty(ValorContableTramite), 0, ValorContableTramite)
+                    ValorContableEstampillas = IIf(String.IsNullOrEmpty(ValorContableEstampillas), 0, ValorContableEstampillas)
                     ValorContableOtrosDesc = IIf(String.IsNullOrEmpty(ValorContableOtrosDesc), 0, ValorContableOtrosDesc)
-                    ValorContableInteres = IIf(String.IsNullOrEmpty(ValorContableInteres), 0, ValorContableInteres)
                     ValorContablePagoOpor = IIf(String.IsNullOrEmpty(ValorContablePagoOpor), 0, ValorContablePagoOpor)
                     ValorContablePago = IIf(String.IsNullOrEmpty(ValorContablePago), 0, ValorContablePago)
 
-                    Dim DesPorFac As Double = Convert.ToDouble(ValorContableReteIVA) + Convert.ToDouble(ValorContableReteICA) + Convert.ToDouble(ValorContableReteFuente) + Convert.ToDouble(ValorContablePagoOpor) + Convert.ToDouble(ValorContableTramite) + Convert.ToDouble(ValorContableOtrosDesc)
-
-                    Dim InterPorFac As Double = Convert.ToDouble(ValorContableInteres)
+                    Dim DesPorFac As Double = Convert.ToDouble(ValorContableReteIVA) + Convert.ToDouble(ValorContableReteICA) + Convert.ToDouble(ValorContableReteFuente) + Convert.ToDouble(ValorContablePagoOpor) + Convert.ToDouble(ValorContableEstampillas) + Convert.ToDouble(ValorContableOtrosDesc)
 
                     If (SaldoFac >= (ValorContablePago + DesPorFac)) Then
-
+                        'Deje pasar
                     Else
                         Titulo01 = "Control de errores de ejecución"
                         Informa = "Lo siento pero la suma del pago más" & Chr(13) & Chr(10)
@@ -156,7 +164,7 @@ Public Class ModuloDeClasePagos
                         End If
 
 
-                        '        'Se debe registrar primero los débitos, La cuenta del banco (Valor pagado mas intereses
+                        'Se debe registrar primero los débitos, La cuenta del banco (Valor pagado mas intereses
                         Nposi = Nposi + 1
                         If String.IsNullOrWhiteSpace(CuentaContablePago) = False Then
                             With RegistrarDetallePagoFactura.Parameters
@@ -172,7 +180,7 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("CantiPaga", 1)
                                 .AddWithValue("ValUnita", 0)
                                 .AddWithValue("DetaPago", EntidadBancaria.ToString() + " Cta: " + CodiBanco.ToString())
-                                .AddWithValue("ValDebito", Convert.ToDouble(ValorContablePago) + Convert.ToDouble(ValorContableInteres))
+                                .AddWithValue("ValDebito", Convert.ToDouble(ValorContablePago))
                                 .AddWithValue("ValCredito", 0)
                             End With
 
@@ -181,7 +189,7 @@ Public Class ModuloDeClasePagos
                             End If
                         End If
 
-                        '   'Registramos cada uno de los descuentos, debitos
+                        'Registramos cada uno de los descuentos, debitos
 
                         If String.IsNullOrWhiteSpace(CuentaContableReteIVA) = False Then
 
@@ -288,7 +296,7 @@ Public Class ModuloDeClasePagos
                             End If
                         End If
 
-                        If String.IsNullOrWhiteSpace(CuentaContableTramite) = False Then
+                        If String.IsNullOrWhiteSpace(CuentaContableEstampíllas) = False Then
                             RegistrarDetallePagoFactura.Parameters.Clear()
                             Nposi = Nposi + 1
                             With RegistrarDetallePagoFactura.Parameters
@@ -296,15 +304,15 @@ Public Class ModuloDeClasePagos
                                 .AddWithValue("PreRePaD", PreRePa)
                                 .AddWithValue("ReciPagaD", ReciPaga)
                                 .AddWithValue("CodServi", DocNum)
-                                .AddWithValue("CuenConta", CuentaContableTramite)
-                                .AddWithValue("TipDocConta", TipoDocuContableTramite)
-                                .AddWithValue("NumDocConta", DocuContableTramite)
-                                .AddWithValue("DigVer", DigiVeriContableTramite)
-                                .AddWithValue("SucurConta", SucurContableTramite)
+                                .AddWithValue("CuenConta", CuentaContableEstampíllas)
+                                .AddWithValue("TipDocConta", TipoDocuContableEstampillas)
+                                .AddWithValue("NumDocConta", DocuContableEstampillas)
+                                .AddWithValue("DigVer", DigiVeriContableEstampillas)
+                                .AddWithValue("SucurConta", SucurContableEstampillas)
                                 .AddWithValue("CantiPaga", 1)
                                 .AddWithValue("ValUnita", 0)
-                                .AddWithValue("DetaPago", "Descuentos por tramites de la cuenta de cobro ")
-                                .AddWithValue("ValDebito", ValorContableTramite)
+                                .AddWithValue("DetaPago", "Pago de estampillas ")
+                                .AddWithValue("ValDebito", ValorContableEstampillas)
                                 .AddWithValue("ValCredito", 0)
                             End With
 
@@ -343,77 +351,77 @@ Public Class ModuloDeClasePagos
                         'Proceda a grabar el detalle de los recibos de pagos, lo créditos, empezando por le valor a pagar
 
 
-                        If String.IsNullOrWhiteSpace(CuentaContablePago) = False Then
-                            RegistrarDetallePagoFactura.Parameters.Clear()
-                            Nposi = Nposi + 1
-                            Dim Deta As String
-                            With RegistrarDetallePagoFactura.Parameters
-                                .AddWithValue("NumItem", Nposi)
-                                .AddWithValue("PreRePaD", PreRePa)
-                                .AddWithValue("ReciPagaD", ReciPaga)
-                                .AddWithValue("CodServi", DocNum)
-                                .AddWithValue("CuenConta", CuentaContablePago)
-                                If ((ValorContablePago + DesPorFac) < SaldoFac) Then
-                                    Deta = "Abono a la factura"
-                                Else
-                                    Deta = "Cancelacion de la factura"
-                                End If
-                                .AddWithValue("TipDocConta", TipoDocuContablePago)
-                                .AddWithValue("NumDocConta", DocuContablePago)
-                                .AddWithValue("DigVer", DigiVeriContablePago)
-                                .AddWithValue("SucurConta", SucurContablePago)
-                                .AddWithValue("CantiPaga", 1)
-                                .AddWithValue("ValUnita", ValorContablePago)
-                                .AddWithValue("DetaPago", Deta)
-                                .AddWithValue("ValDebito", 0)
-                                .AddWithValue("ValCredito", ValorContablePago + DesPorFac)
-                            End With
+                        'If String.IsNullOrWhiteSpace(CuentaContablePago) = False Then
+                        '    RegistrarDetallePagoFactura.Parameters.Clear()
+                        '    Nposi = Nposi + 1
+                        '    Dim Deta As String
+                        '    With RegistrarDetallePagoFactura.Parameters
+                        '        .AddWithValue("NumItem", Nposi)
+                        '        .AddWithValue("PreRePaD", PreRePa)
+                        '        .AddWithValue("ReciPagaD", ReciPaga)
+                        '        .AddWithValue("CodServi", DocNum)
+                        '        .AddWithValue("CuenConta", CuentaContablePago)
+                        '        If ((ValorContablePago + DesPorFac) < SaldoFac) Then
+                        '            Deta = "Abono a la factura"
+                        '        Else
+                        '            Deta = "Cancelacion de la factura"
+                        '        End If
+                        '        .AddWithValue("TipDocConta", TipoDocuContablePago)
+                        '        .AddWithValue("NumDocConta", DocuContablePago)
+                        '        .AddWithValue("DigVer", DigiVeriContablePago)
+                        '        .AddWithValue("SucurConta", SucurContablePago)
+                        '        .AddWithValue("CantiPaga", 1)
+                        '        .AddWithValue("ValUnita", ValorContablePago)
+                        '        .AddWithValue("DetaPago", Deta)
+                        '        .AddWithValue("ValDebito", 0)
+                        '        .AddWithValue("ValCredito", ValorContablePago + DesPorFac)
+                        '    End With
 
-                            If RegistrarDetallePagoFactura.ExecuteNonQuery() Then
-                                bandera = True
-                            End If
-                        End If
+                        '    If RegistrarDetallePagoFactura.ExecuteNonQuery() Then
+                        '        bandera = True
+                        '    End If
+                        'End If
 
                         'Revisamos si se recibió interesese
 
-                        If (InterPorFac > 0) Then
+                        'If (InterPorFac > 0) Then
 
-                            If String.IsNullOrWhiteSpace(CuentaContableInteres) = False Then
-                                RegistrarDetallePagoFactura.Parameters.Clear()
-                                Nposi = Nposi + 1
-                                Dim Deta As String
-                                With RegistrarDetallePagoFactura.Parameters
-                                    .AddWithValue("NumItem", Nposi)
-                                    .AddWithValue("PreRePaD", PreRePa)
-                                    .AddWithValue("ReciPagaD", ReciPaga)
-                                    .AddWithValue("CodServi", DocNum)
-                                    .AddWithValue("CuenConta", CuentaContableInteres)
-                                    .AddWithValue("TipDocConta", TipoDocuContableInteres)
-                                    .AddWithValue("NumDocConta", DocuContableInteres)
-                                    .AddWithValue("DigVer", DigiVeriContableInteres)
-                                    .AddWithValue("SucurConta", SucurContableInteres)
-                                    .AddWithValue("CantiPaga", 1)
-                                    .AddWithValue("ValUnita", InterPorFac)
-                                    If (InterPorFac > 0) Then
-                                        Deta = "Pago de intereses corrientes de la factura "
-                                    Else
-                                        Deta = "Pago de intereses de mora de la factura  "
-                                    End If
-                                    .AddWithValue("DetaPago", Deta)
-                                    .AddWithValue("ValDebito", 0)
-                                    .AddWithValue("ValCredito", InterPorFac)
-                                End With
+                        '    If String.IsNullOrWhiteSpace(CuentaContableInteres) = False Then
+                        '        RegistrarDetallePagoFactura.Parameters.Clear()
+                        '        Nposi = Nposi + 1
+                        '        Dim Deta As String
+                        '        With RegistrarDetallePagoFactura.Parameters
+                        '            .AddWithValue("NumItem", Nposi)
+                        '            .AddWithValue("PreRePaD", PreRePa)
+                        '            .AddWithValue("ReciPagaD", ReciPaga)
+                        '            .AddWithValue("CodServi", DocNum)
+                        '            .AddWithValue("CuenConta", CuentaContableInteres)
+                        '            .AddWithValue("TipDocConta", TipoDocuContableInteres)
+                        '            .AddWithValue("NumDocConta", DocuContableInteres)
+                        '            .AddWithValue("DigVer", DigiVeriContableInteres)
+                        '            .AddWithValue("SucurConta", SucurContableInteres)
+                        '            .AddWithValue("CantiPaga", 1)
+                        '            .AddWithValue("ValUnita", InterPorFac)
+                        '            If (InterPorFac > 0) Then
+                        '                Deta = "Pago de intereses corrientes de la factura "
+                        '            Else
+                        '                Deta = "Pago de intereses de mora de la factura  "
+                        '            End If
+                        '            .AddWithValue("DetaPago", Deta)
+                        '            .AddWithValue("ValDebito", 0)
+                        '            .AddWithValue("ValCredito", InterPorFac)
+                        '        End With
 
-                                If RegistrarDetallePagoFactura.ExecuteNonQuery() Then
-                                    bandera = True
-                                End If
-                            End If
+                        '        If RegistrarDetallePagoFactura.ExecuteNonQuery() Then
+                        '            bandera = True
+                        '        End If
+                        '    End If
 
-                        End If
+                        'End If
 
                         'Cerramos la conexion 
 
-                        cn.Close()
+                        If (cn.State = ConnectionState.Open) Then cn.Close()
 
                         Dim ValFacEnti As Double = 0
 
@@ -462,7 +470,6 @@ Public Class ModuloDeClasePagos
                             cn.Close()
                             Return False
                         End If
-
 
 
                         TabFacturas.Close()

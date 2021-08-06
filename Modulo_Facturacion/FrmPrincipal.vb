@@ -27,6 +27,7 @@ Public Class FrmPrincipal
             ModuloVariablesAplicacion.NombreEmpresa = drr("NombreEmpresa")
             'ConexionBaseDeDatos.cn.ConnectionString = "Data Source=" & ModuloVariablesAplicacion.NomServi & ";Initial Catalog=BDADYSNET;Integrated Security=True"
             ConexionBaseDeDatos.cn.ConnectionString = ("Data Source=" & ModuloVariablesAplicacion.NomServi & ";Initial Catalog=BDADYSNET;User ID=" & ModuloVariablesAplicacion.NomUsar & ";Password=" & ModuloVariablesAplicacion.PassWusa)
+            ConexionBaseDeDatos.cn2.ConnectionString = ("Data Source=" & ModuloVariablesAplicacion.NomServi & ";Initial Catalog=BDADYSNET;User ID=" & ModuloVariablesAplicacion.NomUsar & ";Password=" & ModuloVariablesAplicacion.PassWusa)
             ModuloVariablesAplicacion.CadenaConexion = ConexionBaseDeDatos.cn.ConnectionString
             '  ModuloVariablesAplicacion.VerNatiClien = drr("VerNatiClien")
 

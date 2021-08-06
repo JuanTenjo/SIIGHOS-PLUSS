@@ -1224,7 +1224,7 @@ Partial Class Contratos
         Me.DataGridContratos.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridContratos.EnableHeadersVisualStyles = False
         Me.DataGridContratos.GridColor = System.Drawing.Color.Maroon
-        Me.DataGridContratos.Location = New System.Drawing.Point(668, 65)
+        Me.DataGridContratos.Location = New System.Drawing.Point(667, 65)
         Me.DataGridContratos.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridContratos.MultiSelect = False
         Me.DataGridContratos.Name = "DataGridContratos"
@@ -1241,7 +1241,7 @@ Partial Class Contratos
         Me.DataGridContratos.RowHeadersWidth = 51
         Me.DataGridContratos.RowTemplate.Height = 24
         Me.DataGridContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridContratos.Size = New System.Drawing.Size(253, 470)
+        Me.DataGridContratos.Size = New System.Drawing.Size(254, 470)
         Me.DataGridContratos.TabIndex = 54
         '
         'NoContra
@@ -1326,10 +1326,10 @@ Partial Class Contratos
         '
         Me.Panel15.BackgroundImage = CType(resources.GetObject("Panel15.BackgroundImage"), System.Drawing.Image)
         Me.Panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel15.Location = New System.Drawing.Point(664, 30)
+        Me.Panel15.Location = New System.Drawing.Point(667, 30)
         Me.Panel15.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(19, 25)
+        Me.Panel15.Size = New System.Drawing.Size(20, 25)
         Me.Panel15.TabIndex = 51
         Me.ToolTip1.SetToolTip(Me.Panel15, "Busca por el numero de documento del tercero o " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "para ser mas espefico por el num" &
         "ero de contrato")

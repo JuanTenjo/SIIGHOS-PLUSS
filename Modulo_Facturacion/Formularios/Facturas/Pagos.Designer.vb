@@ -60,12 +60,10 @@ Partial Class Pagos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtValorTotal = New System.Windows.Forms.TextBox()
-        Me.txtValorGlosado = New System.Windows.Forms.TextBox()
         Me.txtValorCreditos = New System.Windows.Forms.TextBox()
         Me.txtValorDebitos = New System.Windows.Forms.TextBox()
         Me.txtValorImpuestos = New System.Windows.Forms.TextBox()
         Me.txtValorDescuentos = New System.Windows.Forms.TextBox()
-        Me.txtValorInteres = New System.Windows.Forms.TextBox()
         Me.txtValorTotalAbonos = New System.Windows.Forms.TextBox()
         Me.txtValorSaldo = New System.Windows.Forms.TextBox()
         Me.Label46 = New System.Windows.Forms.Label()
@@ -92,8 +90,8 @@ Partial Class Pagos
         Me.Label27 = New System.Windows.Forms.Label()
         Me.DigiBan = New System.Windows.Forms.TextBox()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -103,57 +101,45 @@ Partial Class Pagos
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.txtValorContablePago = New System.Windows.Forms.TextBox()
-        Me.txtValorContableInteres = New System.Windows.Forms.TextBox()
         Me.txtValorContableReteIVA = New System.Windows.Forms.TextBox()
         Me.txtValorContableReteICA = New System.Windows.Forms.TextBox()
         Me.txtValorContableReteFuente = New System.Windows.Forms.TextBox()
         Me.txtValorContableRetePagoPor = New System.Windows.Forms.TextBox()
-        Me.txtValorContableTramite = New System.Windows.Forms.TextBox()
         Me.txtValorContableOtrosDesc = New System.Windows.Forms.TextBox()
         Me.txtDocuContableOtroDesc = New System.Windows.Forms.TextBox()
-        Me.txtDocuContableTramite = New System.Windows.Forms.TextBox()
         Me.txtDocuContablePagoOpor = New System.Windows.Forms.TextBox()
         Me.txtDocuContableReteFuente = New System.Windows.Forms.TextBox()
         Me.txtDocuContableReteIca = New System.Windows.Forms.TextBox()
         Me.txtDocuContableReteIva = New System.Windows.Forms.TextBox()
-        Me.txtDocuContableIntereses = New System.Windows.Forms.TextBox()
         Me.txtDocuContablePago = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.txtDigiContablePago = New System.Windows.Forms.TextBox()
-        Me.txtDigiContableInteres = New System.Windows.Forms.TextBox()
         Me.txtDigiContableReteIva = New System.Windows.Forms.TextBox()
         Me.txtDigiContableReteIca = New System.Windows.Forms.TextBox()
         Me.txtDigiContableReteFuente = New System.Windows.Forms.TextBox()
         Me.txtDigiContablePagoOpor = New System.Windows.Forms.TextBox()
-        Me.txtDigiContableTramite = New System.Windows.Forms.TextBox()
         Me.txtDigiContableOtrosDesc = New System.Windows.Forms.TextBox()
         Me.cboTipoPago = New System.Windows.Forms.ComboBox()
         Me.txtSucursal = New System.Windows.Forms.TextBox()
         Me.txtCuentaContablePago = New System.Windows.Forms.TextBox()
-        Me.txtCuentasInteres = New System.Windows.Forms.TextBox()
         Me.txtCuentaReteIVA = New System.Windows.Forms.TextBox()
         Me.txtCuentasReteIca = New System.Windows.Forms.TextBox()
         Me.txtCuentasReteFuente = New System.Windows.Forms.TextBox()
         Me.txtCuentasPagoOpor = New System.Windows.Forms.TextBox()
-        Me.txtCuentasTramite = New System.Windows.Forms.TextBox()
         Me.txtCuentaOtrosDesc = New System.Windows.Forms.TextBox()
         Me.cboContablePagoTipoDocu = New System.Windows.Forms.ComboBox()
-        Me.cboTipoDocuInteres = New System.Windows.Forms.ComboBox()
         Me.cboTipoDocuIVA = New System.Windows.Forms.ComboBox()
         Me.cboTipoDocuICA = New System.Windows.Forms.ComboBox()
         Me.cboTipoDocuFuente = New System.Windows.Forms.ComboBox()
         Me.cboTipoDocuPagoOpor = New System.Windows.Forms.ComboBox()
-        Me.cboTipoDocuTramite = New System.Windows.Forms.ComboBox()
         Me.cboTIpoDocuDesc = New System.Windows.Forms.ComboBox()
         Me.txtSucurOtrosDesc = New System.Windows.Forms.TextBox()
-        Me.txtSucurTramite = New System.Windows.Forms.TextBox()
         Me.txtSucurPagoPor = New System.Windows.Forms.TextBox()
         Me.txtSucurFuente = New System.Windows.Forms.TextBox()
         Me.txtSucurICA = New System.Windows.Forms.TextBox()
         Me.txtSucurIVA = New System.Windows.Forms.TextBox()
-        Me.txtSucurInteres = New System.Windows.Forms.TextBox()
         Me.txtSucurContablePago = New System.Windows.Forms.TextBox()
         Me.txtTotalConsignado = New System.Windows.Forms.TextBox()
         Me.txtRemision = New System.Windows.Forms.TextBox()
@@ -162,6 +148,14 @@ Partial Class Pagos
         Me.btnReporte = New System.Windows.Forms.Button()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.BtnCerrarContratos = New System.Windows.Forms.Button()
+        Me.txtValorInteres = New System.Windows.Forms.TextBox()
+        Me.txtValorGlosado = New System.Windows.Forms.TextBox()
+        Me.txtSucurEstampillas = New System.Windows.Forms.TextBox()
+        Me.cboTIpoDocuEstampillas = New System.Windows.Forms.ComboBox()
+        Me.txtCuentaEstampillas = New System.Windows.Forms.TextBox()
+        Me.txtDigiContableEstampillas = New System.Windows.Forms.TextBox()
+        Me.txtDocuContableEstampillas = New System.Windows.Forms.TextBox()
+        Me.txtValorContableEstampillas = New System.Windows.Forms.TextBox()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel11.SuspendLayout()
@@ -422,7 +416,7 @@ Partial Class Pagos
         'lblCodigoUsuario2
         '
         Me.lblCodigoUsuario2.AutoSize = True
-        Me.lblCodigoUsuario2.Location = New System.Drawing.Point(237, 509)
+        Me.lblCodigoUsuario2.Location = New System.Drawing.Point(338, 509)
         Me.lblCodigoUsuario2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCodigoUsuario2.Name = "lblCodigoUsuario2"
         Me.lblCodigoUsuario2.Size = New System.Drawing.Size(49, 13)
@@ -442,7 +436,7 @@ Partial Class Pagos
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(189, 509)
+        Me.Label42.Location = New System.Drawing.Point(290, 509)
         Me.Label42.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(43, 13)
@@ -610,18 +604,6 @@ Partial Class Pagos
         Me.txtValorTotal.Size = New System.Drawing.Size(98, 22)
         Me.txtValorTotal.TabIndex = 142
         '
-        'txtValorGlosado
-        '
-        Me.txtValorGlosado.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorGlosado.Location = New System.Drawing.Point(124, 188)
-        Me.txtValorGlosado.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtValorGlosado.MaxLength = 15
-        Me.txtValorGlosado.Multiline = True
-        Me.txtValorGlosado.Name = "txtValorGlosado"
-        Me.txtValorGlosado.ReadOnly = True
-        Me.txtValorGlosado.Size = New System.Drawing.Size(98, 22)
-        Me.txtValorGlosado.TabIndex = 143
-        '
         'txtValorCreditos
         '
         Me.txtValorCreditos.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -669,18 +651,6 @@ Partial Class Pagos
         Me.txtValorDescuentos.ReadOnly = True
         Me.txtValorDescuentos.Size = New System.Drawing.Size(98, 22)
         Me.txtValorDescuentos.TabIndex = 147
-        '
-        'txtValorInteres
-        '
-        Me.txtValorInteres.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorInteres.Location = New System.Drawing.Point(124, 310)
-        Me.txtValorInteres.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtValorInteres.MaxLength = 15
-        Me.txtValorInteres.Multiline = True
-        Me.txtValorInteres.Name = "txtValorInteres"
-        Me.txtValorInteres.ReadOnly = True
-        Me.txtValorInteres.Size = New System.Drawing.Size(98, 22)
-        Me.txtValorInteres.TabIndex = 148
         '
         'txtValorTotalAbonos
         '
@@ -999,8 +969,8 @@ Partial Class Pagos
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel10.Controls.Add(Me.Label29)
         Me.Panel10.Controls.Add(Me.Label31)
-        Me.Panel10.Controls.Add(Me.Label32)
         Me.Panel10.Controls.Add(Me.Label33)
         Me.Panel10.Controls.Add(Me.Label34)
         Me.Panel10.Controls.Add(Me.Label35)
@@ -1010,39 +980,39 @@ Partial Class Pagos
         Me.Panel10.Location = New System.Drawing.Point(237, 161)
         Me.Panel10.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(188, 198)
+        Me.Panel10.Size = New System.Drawing.Size(188, 171)
         Me.Panel10.TabIndex = 92
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.White
+        Me.Label29.Location = New System.Drawing.Point(8, 149)
+        Me.Label29.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(170, 16)
+        Me.Label29.TabIndex = 17
+        Me.Label29.Text = " Cta Contable Estampillas"
         '
         'Label31
         '
         Me.Label31.AutoSize = True
         Me.Label31.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label31.ForeColor = System.Drawing.Color.White
-        Me.Label31.Location = New System.Drawing.Point(5, 175)
+        Me.Label31.Location = New System.Drawing.Point(7, 127)
         Me.Label31.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(175, 16)
         Me.Label31.TabIndex = 16
         Me.Label31.Text = " Cta Contable Otros Desc:"
         '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.ForeColor = System.Drawing.Color.White
-        Me.Label32.Location = New System.Drawing.Point(5, 151)
-        Me.Label32.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(153, 16)
-        Me.Label32.TabIndex = 15
-        Me.Label32.Text = " Cta Contable Tramite:"
-        '
         'Label33
         '
         Me.Label33.AutoSize = True
         Me.Label33.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label33.ForeColor = System.Drawing.Color.White
-        Me.Label33.Location = New System.Drawing.Point(5, 126)
+        Me.Label33.Location = New System.Drawing.Point(5, 100)
         Me.Label33.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(171, 16)
@@ -1054,7 +1024,7 @@ Partial Class Pagos
         Me.Label34.AutoSize = True
         Me.Label34.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label34.ForeColor = System.Drawing.Color.White
-        Me.Label34.Location = New System.Drawing.Point(5, 102)
+        Me.Label34.Location = New System.Drawing.Point(5, 76)
         Me.Label34.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(185, 16)
@@ -1066,7 +1036,7 @@ Partial Class Pagos
         Me.Label35.AutoSize = True
         Me.Label35.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.ForeColor = System.Drawing.Color.White
-        Me.Label35.Location = New System.Drawing.Point(5, 77)
+        Me.Label35.Location = New System.Drawing.Point(5, 51)
         Me.Label35.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(164, 16)
@@ -1078,7 +1048,7 @@ Partial Class Pagos
         Me.Label36.AutoSize = True
         Me.Label36.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label36.ForeColor = System.Drawing.Color.White
-        Me.Label36.Location = New System.Drawing.Point(5, 53)
+        Me.Label36.Location = New System.Drawing.Point(5, 27)
         Me.Label36.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(165, 16)
@@ -1093,9 +1063,9 @@ Partial Class Pagos
         Me.Label37.Location = New System.Drawing.Point(5, 28)
         Me.Label37.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(152, 16)
+        Me.Label37.Size = New System.Drawing.Size(12, 16)
         Me.Label37.TabIndex = 10
-        Me.Label37.Text = " Cta Contable Interes:"
+        Me.Label37.Text = " "
         '
         'Label38
         '
@@ -1113,10 +1083,10 @@ Partial Class Pagos
         '
         Me.Panel9.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel9.Controls.Add(Me.Label39)
-        Me.Panel9.Location = New System.Drawing.Point(238, 358)
+        Me.Panel9.Location = New System.Drawing.Point(237, 332)
         Me.Panel9.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(290, 25)
+        Me.Panel9.Size = New System.Drawing.Size(291, 25)
         Me.Panel9.TabIndex = 93
         '
         'Label39
@@ -1142,21 +1112,10 @@ Partial Class Pagos
         Me.txtValorContablePago.Size = New System.Drawing.Size(102, 22)
         Me.txtValorContablePago.TabIndex = 168
         '
-        'txtValorContableInteres
-        '
-        Me.txtValorContableInteres.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorContableInteres.Location = New System.Drawing.Point(530, 188)
-        Me.txtValorContableInteres.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtValorContableInteres.MaxLength = 15
-        Me.txtValorContableInteres.Multiline = True
-        Me.txtValorContableInteres.Name = "txtValorContableInteres"
-        Me.txtValorContableInteres.Size = New System.Drawing.Size(102, 22)
-        Me.txtValorContableInteres.TabIndex = 169
-        '
         'txtValorContableReteIVA
         '
         Me.txtValorContableReteIVA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorContableReteIVA.Location = New System.Drawing.Point(530, 214)
+        Me.txtValorContableReteIVA.Location = New System.Drawing.Point(530, 189)
         Me.txtValorContableReteIVA.Margin = New System.Windows.Forms.Padding(2)
         Me.txtValorContableReteIVA.MaxLength = 15
         Me.txtValorContableReteIVA.Multiline = True
@@ -1167,7 +1126,7 @@ Partial Class Pagos
         'txtValorContableReteICA
         '
         Me.txtValorContableReteICA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorContableReteICA.Location = New System.Drawing.Point(530, 238)
+        Me.txtValorContableReteICA.Location = New System.Drawing.Point(530, 213)
         Me.txtValorContableReteICA.Margin = New System.Windows.Forms.Padding(2)
         Me.txtValorContableReteICA.MaxLength = 15
         Me.txtValorContableReteICA.Multiline = True
@@ -1178,7 +1137,7 @@ Partial Class Pagos
         'txtValorContableReteFuente
         '
         Me.txtValorContableReteFuente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorContableReteFuente.Location = New System.Drawing.Point(530, 262)
+        Me.txtValorContableReteFuente.Location = New System.Drawing.Point(530, 237)
         Me.txtValorContableReteFuente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtValorContableReteFuente.MaxLength = 15
         Me.txtValorContableReteFuente.Multiline = True
@@ -1189,7 +1148,7 @@ Partial Class Pagos
         'txtValorContableRetePagoPor
         '
         Me.txtValorContableRetePagoPor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorContableRetePagoPor.Location = New System.Drawing.Point(530, 287)
+        Me.txtValorContableRetePagoPor.Location = New System.Drawing.Point(530, 262)
         Me.txtValorContableRetePagoPor.Margin = New System.Windows.Forms.Padding(2)
         Me.txtValorContableRetePagoPor.MaxLength = 15
         Me.txtValorContableRetePagoPor.Multiline = True
@@ -1197,21 +1156,10 @@ Partial Class Pagos
         Me.txtValorContableRetePagoPor.Size = New System.Drawing.Size(102, 22)
         Me.txtValorContableRetePagoPor.TabIndex = 173
         '
-        'txtValorContableTramite
-        '
-        Me.txtValorContableTramite.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorContableTramite.Location = New System.Drawing.Point(530, 311)
-        Me.txtValorContableTramite.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtValorContableTramite.MaxLength = 15
-        Me.txtValorContableTramite.Multiline = True
-        Me.txtValorContableTramite.Name = "txtValorContableTramite"
-        Me.txtValorContableTramite.Size = New System.Drawing.Size(102, 22)
-        Me.txtValorContableTramite.TabIndex = 174
-        '
         'txtValorContableOtrosDesc
         '
         Me.txtValorContableOtrosDesc.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorContableOtrosDesc.Location = New System.Drawing.Point(530, 336)
+        Me.txtValorContableOtrosDesc.Location = New System.Drawing.Point(530, 285)
         Me.txtValorContableOtrosDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.txtValorContableOtrosDesc.MaxLength = 15
         Me.txtValorContableOtrosDesc.Multiline = True
@@ -1222,7 +1170,7 @@ Partial Class Pagos
         'txtDocuContableOtroDesc
         '
         Me.txtDocuContableOtroDesc.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocuContableOtroDesc.Location = New System.Drawing.Point(687, 336)
+        Me.txtDocuContableOtroDesc.Location = New System.Drawing.Point(687, 285)
         Me.txtDocuContableOtroDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDocuContableOtroDesc.MaxLength = 15
         Me.txtDocuContableOtroDesc.Multiline = True
@@ -1230,21 +1178,10 @@ Partial Class Pagos
         Me.txtDocuContableOtroDesc.Size = New System.Drawing.Size(93, 22)
         Me.txtDocuContableOtroDesc.TabIndex = 183
         '
-        'txtDocuContableTramite
-        '
-        Me.txtDocuContableTramite.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocuContableTramite.Location = New System.Drawing.Point(687, 311)
-        Me.txtDocuContableTramite.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtDocuContableTramite.MaxLength = 15
-        Me.txtDocuContableTramite.Multiline = True
-        Me.txtDocuContableTramite.Name = "txtDocuContableTramite"
-        Me.txtDocuContableTramite.Size = New System.Drawing.Size(93, 22)
-        Me.txtDocuContableTramite.TabIndex = 182
-        '
         'txtDocuContablePagoOpor
         '
         Me.txtDocuContablePagoOpor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocuContablePagoOpor.Location = New System.Drawing.Point(687, 287)
+        Me.txtDocuContablePagoOpor.Location = New System.Drawing.Point(687, 262)
         Me.txtDocuContablePagoOpor.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDocuContablePagoOpor.MaxLength = 15
         Me.txtDocuContablePagoOpor.Multiline = True
@@ -1255,7 +1192,7 @@ Partial Class Pagos
         'txtDocuContableReteFuente
         '
         Me.txtDocuContableReteFuente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocuContableReteFuente.Location = New System.Drawing.Point(687, 262)
+        Me.txtDocuContableReteFuente.Location = New System.Drawing.Point(687, 237)
         Me.txtDocuContableReteFuente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDocuContableReteFuente.MaxLength = 15
         Me.txtDocuContableReteFuente.Multiline = True
@@ -1266,7 +1203,7 @@ Partial Class Pagos
         'txtDocuContableReteIca
         '
         Me.txtDocuContableReteIca.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocuContableReteIca.Location = New System.Drawing.Point(687, 238)
+        Me.txtDocuContableReteIca.Location = New System.Drawing.Point(687, 213)
         Me.txtDocuContableReteIca.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDocuContableReteIca.MaxLength = 15
         Me.txtDocuContableReteIca.Multiline = True
@@ -1277,24 +1214,13 @@ Partial Class Pagos
         'txtDocuContableReteIva
         '
         Me.txtDocuContableReteIva.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocuContableReteIva.Location = New System.Drawing.Point(687, 214)
+        Me.txtDocuContableReteIva.Location = New System.Drawing.Point(687, 189)
         Me.txtDocuContableReteIva.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDocuContableReteIva.MaxLength = 15
         Me.txtDocuContableReteIva.Multiline = True
         Me.txtDocuContableReteIva.Name = "txtDocuContableReteIva"
         Me.txtDocuContableReteIva.Size = New System.Drawing.Size(93, 22)
         Me.txtDocuContableReteIva.TabIndex = 178
-        '
-        'txtDocuContableIntereses
-        '
-        Me.txtDocuContableIntereses.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocuContableIntereses.Location = New System.Drawing.Point(687, 188)
-        Me.txtDocuContableIntereses.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtDocuContableIntereses.MaxLength = 15
-        Me.txtDocuContableIntereses.Multiline = True
-        Me.txtDocuContableIntereses.Name = "txtDocuContableIntereses"
-        Me.txtDocuContableIntereses.Size = New System.Drawing.Size(93, 22)
-        Me.txtDocuContableIntereses.TabIndex = 177
         '
         'txtDocuContablePago
         '
@@ -1348,21 +1274,10 @@ Partial Class Pagos
         Me.txtDigiContablePago.Size = New System.Drawing.Size(32, 22)
         Me.txtDigiContablePago.TabIndex = 187
         '
-        'txtDigiContableInteres
-        '
-        Me.txtDigiContableInteres.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDigiContableInteres.Location = New System.Drawing.Point(782, 188)
-        Me.txtDigiContableInteres.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtDigiContableInteres.MaxLength = 15
-        Me.txtDigiContableInteres.Multiline = True
-        Me.txtDigiContableInteres.Name = "txtDigiContableInteres"
-        Me.txtDigiContableInteres.Size = New System.Drawing.Size(32, 22)
-        Me.txtDigiContableInteres.TabIndex = 188
-        '
         'txtDigiContableReteIva
         '
         Me.txtDigiContableReteIva.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDigiContableReteIva.Location = New System.Drawing.Point(782, 214)
+        Me.txtDigiContableReteIva.Location = New System.Drawing.Point(782, 189)
         Me.txtDigiContableReteIva.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDigiContableReteIva.MaxLength = 15
         Me.txtDigiContableReteIva.Multiline = True
@@ -1373,7 +1288,7 @@ Partial Class Pagos
         'txtDigiContableReteIca
         '
         Me.txtDigiContableReteIca.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDigiContableReteIca.Location = New System.Drawing.Point(782, 238)
+        Me.txtDigiContableReteIca.Location = New System.Drawing.Point(782, 213)
         Me.txtDigiContableReteIca.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDigiContableReteIca.MaxLength = 15
         Me.txtDigiContableReteIca.Multiline = True
@@ -1384,7 +1299,7 @@ Partial Class Pagos
         'txtDigiContableReteFuente
         '
         Me.txtDigiContableReteFuente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDigiContableReteFuente.Location = New System.Drawing.Point(782, 262)
+        Me.txtDigiContableReteFuente.Location = New System.Drawing.Point(782, 237)
         Me.txtDigiContableReteFuente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDigiContableReteFuente.MaxLength = 15
         Me.txtDigiContableReteFuente.Multiline = True
@@ -1395,7 +1310,7 @@ Partial Class Pagos
         'txtDigiContablePagoOpor
         '
         Me.txtDigiContablePagoOpor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDigiContablePagoOpor.Location = New System.Drawing.Point(782, 287)
+        Me.txtDigiContablePagoOpor.Location = New System.Drawing.Point(782, 262)
         Me.txtDigiContablePagoOpor.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDigiContablePagoOpor.MaxLength = 15
         Me.txtDigiContablePagoOpor.Multiline = True
@@ -1403,21 +1318,10 @@ Partial Class Pagos
         Me.txtDigiContablePagoOpor.Size = New System.Drawing.Size(32, 22)
         Me.txtDigiContablePagoOpor.TabIndex = 192
         '
-        'txtDigiContableTramite
-        '
-        Me.txtDigiContableTramite.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDigiContableTramite.Location = New System.Drawing.Point(782, 311)
-        Me.txtDigiContableTramite.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtDigiContableTramite.MaxLength = 15
-        Me.txtDigiContableTramite.Multiline = True
-        Me.txtDigiContableTramite.Name = "txtDigiContableTramite"
-        Me.txtDigiContableTramite.Size = New System.Drawing.Size(32, 22)
-        Me.txtDigiContableTramite.TabIndex = 193
-        '
         'txtDigiContableOtrosDesc
         '
         Me.txtDigiContableOtrosDesc.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDigiContableOtrosDesc.Location = New System.Drawing.Point(782, 336)
+        Me.txtDigiContableOtrosDesc.Location = New System.Drawing.Point(782, 285)
         Me.txtDigiContableOtrosDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDigiContableOtrosDesc.MaxLength = 15
         Me.txtDigiContableOtrosDesc.Multiline = True
@@ -1463,21 +1367,10 @@ Partial Class Pagos
         Me.txtCuentaContablePago.Size = New System.Drawing.Size(102, 22)
         Me.txtCuentaContablePago.TabIndex = 197
         '
-        'txtCuentasInteres
-        '
-        Me.txtCuentasInteres.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuentasInteres.Location = New System.Drawing.Point(426, 189)
-        Me.txtCuentasInteres.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtCuentasInteres.MaxLength = 15
-        Me.txtCuentasInteres.Multiline = True
-        Me.txtCuentasInteres.Name = "txtCuentasInteres"
-        Me.txtCuentasInteres.Size = New System.Drawing.Size(102, 22)
-        Me.txtCuentasInteres.TabIndex = 198
-        '
         'txtCuentaReteIVA
         '
         Me.txtCuentaReteIVA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuentaReteIVA.Location = New System.Drawing.Point(427, 214)
+        Me.txtCuentaReteIVA.Location = New System.Drawing.Point(427, 189)
         Me.txtCuentaReteIVA.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCuentaReteIVA.MaxLength = 15
         Me.txtCuentaReteIVA.Multiline = True
@@ -1488,7 +1381,7 @@ Partial Class Pagos
         'txtCuentasReteIca
         '
         Me.txtCuentasReteIca.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuentasReteIca.Location = New System.Drawing.Point(427, 238)
+        Me.txtCuentasReteIca.Location = New System.Drawing.Point(427, 213)
         Me.txtCuentasReteIca.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCuentasReteIca.MaxLength = 15
         Me.txtCuentasReteIca.Multiline = True
@@ -1499,7 +1392,7 @@ Partial Class Pagos
         'txtCuentasReteFuente
         '
         Me.txtCuentasReteFuente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuentasReteFuente.Location = New System.Drawing.Point(427, 262)
+        Me.txtCuentasReteFuente.Location = New System.Drawing.Point(427, 237)
         Me.txtCuentasReteFuente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCuentasReteFuente.MaxLength = 15
         Me.txtCuentasReteFuente.Multiline = True
@@ -1510,7 +1403,7 @@ Partial Class Pagos
         'txtCuentasPagoOpor
         '
         Me.txtCuentasPagoOpor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuentasPagoOpor.Location = New System.Drawing.Point(427, 286)
+        Me.txtCuentasPagoOpor.Location = New System.Drawing.Point(427, 261)
         Me.txtCuentasPagoOpor.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCuentasPagoOpor.MaxLength = 15
         Me.txtCuentasPagoOpor.Multiline = True
@@ -1518,21 +1411,10 @@ Partial Class Pagos
         Me.txtCuentasPagoOpor.Size = New System.Drawing.Size(102, 22)
         Me.txtCuentasPagoOpor.TabIndex = 202
         '
-        'txtCuentasTramite
-        '
-        Me.txtCuentasTramite.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuentasTramite.Location = New System.Drawing.Point(427, 311)
-        Me.txtCuentasTramite.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtCuentasTramite.MaxLength = 15
-        Me.txtCuentasTramite.Multiline = True
-        Me.txtCuentasTramite.Name = "txtCuentasTramite"
-        Me.txtCuentasTramite.Size = New System.Drawing.Size(102, 22)
-        Me.txtCuentasTramite.TabIndex = 203
-        '
         'txtCuentaOtrosDesc
         '
         Me.txtCuentaOtrosDesc.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCuentaOtrosDesc.Location = New System.Drawing.Point(427, 336)
+        Me.txtCuentaOtrosDesc.Location = New System.Drawing.Point(427, 285)
         Me.txtCuentaOtrosDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCuentaOtrosDesc.MaxLength = 15
         Me.txtCuentaOtrosDesc.Multiline = True
@@ -1549,20 +1431,11 @@ Partial Class Pagos
         Me.cboContablePagoTipoDocu.Size = New System.Drawing.Size(52, 21)
         Me.cboContablePagoTipoDocu.TabIndex = 205
         '
-        'cboTipoDocuInteres
-        '
-        Me.cboTipoDocuInteres.FormattingEnabled = True
-        Me.cboTipoDocuInteres.Items.AddRange(New Object() {"NIT", "CC"})
-        Me.cboTipoDocuInteres.Location = New System.Drawing.Point(633, 189)
-        Me.cboTipoDocuInteres.Name = "cboTipoDocuInteres"
-        Me.cboTipoDocuInteres.Size = New System.Drawing.Size(52, 21)
-        Me.cboTipoDocuInteres.TabIndex = 206
-        '
         'cboTipoDocuIVA
         '
         Me.cboTipoDocuIVA.FormattingEnabled = True
         Me.cboTipoDocuIVA.Items.AddRange(New Object() {"NIT", "CC"})
-        Me.cboTipoDocuIVA.Location = New System.Drawing.Point(633, 214)
+        Me.cboTipoDocuIVA.Location = New System.Drawing.Point(633, 189)
         Me.cboTipoDocuIVA.Name = "cboTipoDocuIVA"
         Me.cboTipoDocuIVA.Size = New System.Drawing.Size(52, 21)
         Me.cboTipoDocuIVA.TabIndex = 207
@@ -1571,7 +1444,7 @@ Partial Class Pagos
         '
         Me.cboTipoDocuICA.FormattingEnabled = True
         Me.cboTipoDocuICA.Items.AddRange(New Object() {"NIT", "CC"})
-        Me.cboTipoDocuICA.Location = New System.Drawing.Point(633, 239)
+        Me.cboTipoDocuICA.Location = New System.Drawing.Point(633, 214)
         Me.cboTipoDocuICA.Name = "cboTipoDocuICA"
         Me.cboTipoDocuICA.Size = New System.Drawing.Size(52, 21)
         Me.cboTipoDocuICA.TabIndex = 208
@@ -1580,7 +1453,7 @@ Partial Class Pagos
         '
         Me.cboTipoDocuFuente.FormattingEnabled = True
         Me.cboTipoDocuFuente.Items.AddRange(New Object() {"NIT", "CC"})
-        Me.cboTipoDocuFuente.Location = New System.Drawing.Point(633, 263)
+        Me.cboTipoDocuFuente.Location = New System.Drawing.Point(633, 238)
         Me.cboTipoDocuFuente.Name = "cboTipoDocuFuente"
         Me.cboTipoDocuFuente.Size = New System.Drawing.Size(52, 21)
         Me.cboTipoDocuFuente.TabIndex = 209
@@ -1589,25 +1462,16 @@ Partial Class Pagos
         '
         Me.cboTipoDocuPagoOpor.FormattingEnabled = True
         Me.cboTipoDocuPagoOpor.Items.AddRange(New Object() {"NIT", "CC"})
-        Me.cboTipoDocuPagoOpor.Location = New System.Drawing.Point(633, 288)
+        Me.cboTipoDocuPagoOpor.Location = New System.Drawing.Point(633, 263)
         Me.cboTipoDocuPagoOpor.Name = "cboTipoDocuPagoOpor"
         Me.cboTipoDocuPagoOpor.Size = New System.Drawing.Size(52, 21)
         Me.cboTipoDocuPagoOpor.TabIndex = 210
-        '
-        'cboTipoDocuTramite
-        '
-        Me.cboTipoDocuTramite.FormattingEnabled = True
-        Me.cboTipoDocuTramite.Items.AddRange(New Object() {"NIT", "CC"})
-        Me.cboTipoDocuTramite.Location = New System.Drawing.Point(633, 312)
-        Me.cboTipoDocuTramite.Name = "cboTipoDocuTramite"
-        Me.cboTipoDocuTramite.Size = New System.Drawing.Size(52, 21)
-        Me.cboTipoDocuTramite.TabIndex = 211
         '
         'cboTIpoDocuDesc
         '
         Me.cboTIpoDocuDesc.FormattingEnabled = True
         Me.cboTIpoDocuDesc.Items.AddRange(New Object() {"NIT", "CC"})
-        Me.cboTIpoDocuDesc.Location = New System.Drawing.Point(633, 337)
+        Me.cboTIpoDocuDesc.Location = New System.Drawing.Point(633, 286)
         Me.cboTIpoDocuDesc.Name = "cboTIpoDocuDesc"
         Me.cboTIpoDocuDesc.Size = New System.Drawing.Size(52, 21)
         Me.cboTIpoDocuDesc.TabIndex = 212
@@ -1615,7 +1479,7 @@ Partial Class Pagos
         'txtSucurOtrosDesc
         '
         Me.txtSucurOtrosDesc.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucurOtrosDesc.Location = New System.Drawing.Point(815, 336)
+        Me.txtSucurOtrosDesc.Location = New System.Drawing.Point(815, 285)
         Me.txtSucurOtrosDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSucurOtrosDesc.MaxLength = 15
         Me.txtSucurOtrosDesc.Multiline = True
@@ -1623,21 +1487,10 @@ Partial Class Pagos
         Me.txtSucurOtrosDesc.Size = New System.Drawing.Size(43, 22)
         Me.txtSucurOtrosDesc.TabIndex = 220
         '
-        'txtSucurTramite
-        '
-        Me.txtSucurTramite.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucurTramite.Location = New System.Drawing.Point(815, 311)
-        Me.txtSucurTramite.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtSucurTramite.MaxLength = 15
-        Me.txtSucurTramite.Multiline = True
-        Me.txtSucurTramite.Name = "txtSucurTramite"
-        Me.txtSucurTramite.Size = New System.Drawing.Size(43, 22)
-        Me.txtSucurTramite.TabIndex = 219
-        '
         'txtSucurPagoPor
         '
         Me.txtSucurPagoPor.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucurPagoPor.Location = New System.Drawing.Point(815, 287)
+        Me.txtSucurPagoPor.Location = New System.Drawing.Point(815, 262)
         Me.txtSucurPagoPor.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSucurPagoPor.MaxLength = 15
         Me.txtSucurPagoPor.Multiline = True
@@ -1648,7 +1501,7 @@ Partial Class Pagos
         'txtSucurFuente
         '
         Me.txtSucurFuente.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucurFuente.Location = New System.Drawing.Point(815, 262)
+        Me.txtSucurFuente.Location = New System.Drawing.Point(815, 237)
         Me.txtSucurFuente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSucurFuente.MaxLength = 15
         Me.txtSucurFuente.Multiline = True
@@ -1659,7 +1512,7 @@ Partial Class Pagos
         'txtSucurICA
         '
         Me.txtSucurICA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucurICA.Location = New System.Drawing.Point(815, 238)
+        Me.txtSucurICA.Location = New System.Drawing.Point(815, 213)
         Me.txtSucurICA.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSucurICA.MaxLength = 15
         Me.txtSucurICA.Multiline = True
@@ -1670,24 +1523,13 @@ Partial Class Pagos
         'txtSucurIVA
         '
         Me.txtSucurIVA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucurIVA.Location = New System.Drawing.Point(815, 214)
+        Me.txtSucurIVA.Location = New System.Drawing.Point(815, 189)
         Me.txtSucurIVA.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSucurIVA.MaxLength = 15
         Me.txtSucurIVA.Multiline = True
         Me.txtSucurIVA.Name = "txtSucurIVA"
         Me.txtSucurIVA.Size = New System.Drawing.Size(43, 22)
         Me.txtSucurIVA.TabIndex = 215
-        '
-        'txtSucurInteres
-        '
-        Me.txtSucurInteres.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSucurInteres.Location = New System.Drawing.Point(815, 188)
-        Me.txtSucurInteres.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtSucurInteres.MaxLength = 15
-        Me.txtSucurInteres.Multiline = True
-        Me.txtSucurInteres.Name = "txtSucurInteres"
-        Me.txtSucurInteres.Size = New System.Drawing.Size(43, 22)
-        Me.txtSucurInteres.TabIndex = 214
         '
         'txtSucurContablePago
         '
@@ -1703,7 +1545,7 @@ Partial Class Pagos
         'txtTotalConsignado
         '
         Me.txtTotalConsignado.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalConsignado.Location = New System.Drawing.Point(530, 360)
+        Me.txtTotalConsignado.Location = New System.Drawing.Point(529, 334)
         Me.txtTotalConsignado.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTotalConsignado.MaxLength = 15
         Me.txtTotalConsignado.Multiline = True
@@ -1795,6 +1637,94 @@ Partial Class Pagos
         Me.BtnCerrarContratos.UseMnemonic = False
         Me.BtnCerrarContratos.UseVisualStyleBackColor = True
         '
+        'txtValorInteres
+        '
+        Me.txtValorInteres.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtValorInteres.Location = New System.Drawing.Point(124, 310)
+        Me.txtValorInteres.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtValorInteres.MaxLength = 15
+        Me.txtValorInteres.Multiline = True
+        Me.txtValorInteres.Name = "txtValorInteres"
+        Me.txtValorInteres.ReadOnly = True
+        Me.txtValorInteres.Size = New System.Drawing.Size(98, 22)
+        Me.txtValorInteres.TabIndex = 148
+        '
+        'txtValorGlosado
+        '
+        Me.txtValorGlosado.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtValorGlosado.Location = New System.Drawing.Point(124, 188)
+        Me.txtValorGlosado.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtValorGlosado.MaxLength = 15
+        Me.txtValorGlosado.Multiline = True
+        Me.txtValorGlosado.Name = "txtValorGlosado"
+        Me.txtValorGlosado.ReadOnly = True
+        Me.txtValorGlosado.Size = New System.Drawing.Size(98, 22)
+        Me.txtValorGlosado.TabIndex = 143
+        '
+        'txtSucurEstampillas
+        '
+        Me.txtSucurEstampillas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSucurEstampillas.Location = New System.Drawing.Point(816, 309)
+        Me.txtSucurEstampillas.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtSucurEstampillas.MaxLength = 15
+        Me.txtSucurEstampillas.Multiline = True
+        Me.txtSucurEstampillas.Name = "txtSucurEstampillas"
+        Me.txtSucurEstampillas.Size = New System.Drawing.Size(43, 22)
+        Me.txtSucurEstampillas.TabIndex = 229
+        '
+        'cboTIpoDocuEstampillas
+        '
+        Me.cboTIpoDocuEstampillas.FormattingEnabled = True
+        Me.cboTIpoDocuEstampillas.Items.AddRange(New Object() {"NIT", "CC"})
+        Me.cboTIpoDocuEstampillas.Location = New System.Drawing.Point(634, 310)
+        Me.cboTIpoDocuEstampillas.Name = "cboTIpoDocuEstampillas"
+        Me.cboTIpoDocuEstampillas.Size = New System.Drawing.Size(52, 21)
+        Me.cboTIpoDocuEstampillas.TabIndex = 228
+        '
+        'txtCuentaEstampillas
+        '
+        Me.txtCuentaEstampillas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCuentaEstampillas.Location = New System.Drawing.Point(428, 309)
+        Me.txtCuentaEstampillas.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCuentaEstampillas.MaxLength = 15
+        Me.txtCuentaEstampillas.Multiline = True
+        Me.txtCuentaEstampillas.Name = "txtCuentaEstampillas"
+        Me.txtCuentaEstampillas.Size = New System.Drawing.Size(102, 22)
+        Me.txtCuentaEstampillas.TabIndex = 227
+        '
+        'txtDigiContableEstampillas
+        '
+        Me.txtDigiContableEstampillas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDigiContableEstampillas.Location = New System.Drawing.Point(783, 309)
+        Me.txtDigiContableEstampillas.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtDigiContableEstampillas.MaxLength = 15
+        Me.txtDigiContableEstampillas.Multiline = True
+        Me.txtDigiContableEstampillas.Name = "txtDigiContableEstampillas"
+        Me.txtDigiContableEstampillas.Size = New System.Drawing.Size(32, 22)
+        Me.txtDigiContableEstampillas.TabIndex = 226
+        '
+        'txtDocuContableEstampillas
+        '
+        Me.txtDocuContableEstampillas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDocuContableEstampillas.Location = New System.Drawing.Point(688, 309)
+        Me.txtDocuContableEstampillas.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtDocuContableEstampillas.MaxLength = 15
+        Me.txtDocuContableEstampillas.Multiline = True
+        Me.txtDocuContableEstampillas.Name = "txtDocuContableEstampillas"
+        Me.txtDocuContableEstampillas.Size = New System.Drawing.Size(93, 22)
+        Me.txtDocuContableEstampillas.TabIndex = 225
+        '
+        'txtValorContableEstampillas
+        '
+        Me.txtValorContableEstampillas.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtValorContableEstampillas.Location = New System.Drawing.Point(531, 309)
+        Me.txtValorContableEstampillas.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtValorContableEstampillas.MaxLength = 15
+        Me.txtValorContableEstampillas.Multiline = True
+        Me.txtValorContableEstampillas.Name = "txtValorContableEstampillas"
+        Me.txtValorContableEstampillas.Size = New System.Drawing.Size(102, 22)
+        Me.txtValorContableEstampillas.TabIndex = 224
+        '
         'Pagos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1802,6 +1732,12 @@ Partial Class Pagos
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(877, 538)
         Me.ControlBox = False
+        Me.Controls.Add(Me.txtSucurEstampillas)
+        Me.Controls.Add(Me.cboTIpoDocuEstampillas)
+        Me.Controls.Add(Me.txtCuentaEstampillas)
+        Me.Controls.Add(Me.txtDigiContableEstampillas)
+        Me.Controls.Add(Me.txtDocuContableEstampillas)
+        Me.Controls.Add(Me.txtValorContableEstampillas)
         Me.Controls.Add(Me.Label48)
         Me.Controls.Add(Me.Label47)
         Me.Controls.Add(Me.Label46)
@@ -1811,57 +1747,45 @@ Partial Class Pagos
         Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.txtSucurOtrosDesc)
         Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.txtSucurTramite)
         Me.Controls.Add(Me.txtSucurPagoPor)
         Me.Controls.Add(Me.txtSucurFuente)
         Me.Controls.Add(Me.txtSucurICA)
         Me.Controls.Add(Me.txtSucurIVA)
-        Me.Controls.Add(Me.txtSucurInteres)
         Me.Controls.Add(Me.txtSucurContablePago)
         Me.Controls.Add(Me.cboTIpoDocuDesc)
-        Me.Controls.Add(Me.cboTipoDocuTramite)
         Me.Controls.Add(Me.cboTipoDocuPagoOpor)
         Me.Controls.Add(Me.cboTipoDocuFuente)
         Me.Controls.Add(Me.cboTipoDocuICA)
         Me.Controls.Add(Me.cboTipoDocuIVA)
-        Me.Controls.Add(Me.cboTipoDocuInteres)
         Me.Controls.Add(Me.cboContablePagoTipoDocu)
         Me.Controls.Add(Me.txtCuentaOtrosDesc)
-        Me.Controls.Add(Me.txtCuentasTramite)
         Me.Controls.Add(Me.txtCuentasPagoOpor)
         Me.Controls.Add(Me.txtCuentasReteFuente)
         Me.Controls.Add(Me.txtCuentasReteIca)
         Me.Controls.Add(Me.txtCuentaReteIVA)
-        Me.Controls.Add(Me.txtCuentasInteres)
         Me.Controls.Add(Me.txtCuentaContablePago)
         Me.Controls.Add(Me.txtSucursal)
         Me.Controls.Add(Me.cboTipoPago)
         Me.Controls.Add(Me.txtDigiContableOtrosDesc)
-        Me.Controls.Add(Me.txtDigiContableTramite)
         Me.Controls.Add(Me.txtDigiContablePagoOpor)
         Me.Controls.Add(Me.txtDigiContableReteFuente)
         Me.Controls.Add(Me.txtDigiContableReteIca)
         Me.Controls.Add(Me.txtDigiContableReteIva)
-        Me.Controls.Add(Me.txtDigiContableInteres)
         Me.Controls.Add(Me.txtDigiContablePago)
         Me.Controls.Add(Me.Label41)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.txtDocuContableOtroDesc)
-        Me.Controls.Add(Me.txtDocuContableTramite)
         Me.Controls.Add(Me.txtDocuContablePagoOpor)
         Me.Controls.Add(Me.txtDocuContableReteFuente)
         Me.Controls.Add(Me.txtDocuContableReteIca)
         Me.Controls.Add(Me.txtDocuContableReteIva)
-        Me.Controls.Add(Me.txtDocuContableIntereses)
         Me.Controls.Add(Me.txtDocuContablePago)
         Me.Controls.Add(Me.txtValorContableOtrosDesc)
-        Me.Controls.Add(Me.txtValorContableTramite)
         Me.Controls.Add(Me.txtValorContableRetePagoPor)
         Me.Controls.Add(Me.txtValorContableReteFuente)
         Me.Controls.Add(Me.txtValorContableReteICA)
         Me.Controls.Add(Me.txtValorContableReteIVA)
-        Me.Controls.Add(Me.txtValorContableInteres)
         Me.Controls.Add(Me.txtValorContablePago)
         Me.Controls.Add(Me.Panel9)
         Me.Controls.Add(Me.Panel10)
@@ -1945,20 +1869,16 @@ Partial Class Pagos
     Friend WithEvents Panel11 As Panel
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents txtValorTotal As TextBox
-    Friend WithEvents txtValorGlosado As TextBox
     Friend WithEvents txtValorCreditos As TextBox
     Friend WithEvents txtValorDebitos As TextBox
     Friend WithEvents txtValorImpuestos As TextBox
     Friend WithEvents txtValorDescuentos As TextBox
-    Friend WithEvents txtValorInteres As TextBox
     Friend WithEvents txtValorTotalAbonos As TextBox
     Friend WithEvents txtValorSaldo As TextBox
     Friend WithEvents Label17 As Label
@@ -1984,70 +1904,56 @@ Partial Class Pagos
     Friend WithEvents Label7 As Label
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Label31 As Label
-    Friend WithEvents Label32 As Label
     Friend WithEvents Label33 As Label
     Friend WithEvents Label34 As Label
     Friend WithEvents Label35 As Label
     Friend WithEvents Label36 As Label
-    Friend WithEvents Label37 As Label
     Friend WithEvents Label38 As Label
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Label39 As Label
     Friend WithEvents txtValorContablePago As TextBox
-    Friend WithEvents txtValorContableInteres As TextBox
     Friend WithEvents txtValorContableReteIVA As TextBox
     Friend WithEvents txtValorContableReteICA As TextBox
     Friend WithEvents txtValorContableReteFuente As TextBox
     Friend WithEvents txtValorContableRetePagoPor As TextBox
-    Friend WithEvents txtValorContableTramite As TextBox
     Friend WithEvents txtValorContableOtrosDesc As TextBox
     Friend WithEvents txtDocuContableOtroDesc As TextBox
-    Friend WithEvents txtDocuContableTramite As TextBox
     Friend WithEvents txtDocuContablePagoOpor As TextBox
     Friend WithEvents txtDocuContableReteFuente As TextBox
     Friend WithEvents txtDocuContableReteIca As TextBox
     Friend WithEvents txtDocuContableReteIva As TextBox
-    Friend WithEvents txtDocuContableIntereses As TextBox
     Friend WithEvents txtDocuContablePago As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents Label41 As Label
     Friend WithEvents txtDigiContablePago As TextBox
-    Friend WithEvents txtDigiContableInteres As TextBox
     Friend WithEvents txtDigiContableReteIva As TextBox
     Friend WithEvents txtDigiContableReteIca As TextBox
     Friend WithEvents txtDigiContableReteFuente As TextBox
     Friend WithEvents txtDigiContablePagoOpor As TextBox
-    Friend WithEvents txtDigiContableTramite As TextBox
     Friend WithEvents txtDigiContableOtrosDesc As TextBox
     Friend WithEvents Label44 As Label
     Friend WithEvents cboTipoPago As ComboBox
     Friend WithEvents Label45 As Label
     Friend WithEvents txtSucursal As TextBox
     Friend WithEvents txtCuentaContablePago As TextBox
-    Friend WithEvents txtCuentasInteres As TextBox
     Friend WithEvents txtCuentaReteIVA As TextBox
     Friend WithEvents txtCuentasReteIca As TextBox
     Friend WithEvents txtCuentasReteFuente As TextBox
     Friend WithEvents txtCuentasPagoOpor As TextBox
-    Friend WithEvents txtCuentasTramite As TextBox
     Friend WithEvents txtCuentaOtrosDesc As TextBox
     Friend WithEvents cboContablePagoTipoDocu As ComboBox
-    Friend WithEvents cboTipoDocuInteres As ComboBox
     Friend WithEvents cboTipoDocuIVA As ComboBox
     Friend WithEvents cboTipoDocuICA As ComboBox
     Friend WithEvents cboTipoDocuFuente As ComboBox
     Friend WithEvents cboTipoDocuPagoOpor As ComboBox
-    Friend WithEvents cboTipoDocuTramite As ComboBox
     Friend WithEvents cboTIpoDocuDesc As ComboBox
     Friend WithEvents Label46 As Label
     Friend WithEvents txtSucurOtrosDesc As TextBox
-    Friend WithEvents txtSucurTramite As TextBox
     Friend WithEvents txtSucurPagoPor As TextBox
     Friend WithEvents txtSucurFuente As TextBox
     Friend WithEvents txtSucurICA As TextBox
     Friend WithEvents txtSucurIVA As TextBox
-    Friend WithEvents txtSucurInteres As TextBox
     Friend WithEvents txtSucurContablePago As TextBox
     Friend WithEvents SucurBan As TextBox
     Friend WithEvents txtTotalConsignado As TextBox
@@ -2058,4 +1964,16 @@ Partial Class Pagos
     Friend WithEvents BtnCerrarContratos As Button
     Friend WithEvents btnPagar As Button
     Friend WithEvents btnReporte As Button
+    Friend WithEvents txtValorInteres As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label37 As Label
+    Friend WithEvents txtValorGlosado As TextBox
+    Friend WithEvents Label29 As Label
+    Friend WithEvents txtSucurEstampillas As TextBox
+    Friend WithEvents cboTIpoDocuEstampillas As ComboBox
+    Friend WithEvents txtCuentaEstampillas As TextBox
+    Friend WithEvents txtDigiContableEstampillas As TextBox
+    Friend WithEvents txtDocuContableEstampillas As TextBox
+    Friend WithEvents txtValorContableEstampillas As TextBox
 End Class

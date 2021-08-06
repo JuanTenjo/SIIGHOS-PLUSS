@@ -62,7 +62,12 @@ Public Class Pagos
 #End Region
 
 #Region "Botones y Texbox"
-
+    Private Sub txtValorContablePago_TextChanged(sender As Object, e As EventArgs) Handles txtValorContablePago.TextChanged
+        CalcularTotalConsignador()
+    End Sub
+    Private Sub txtValorContableInteres_TextChanged(sender As Object, e As EventArgs)
+        CalcularTotalConsignador()
+    End Sub
     Private Sub txtCuentaContablePago_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentaContablePago.KeyDown
         Try
             Select Case e.KeyData
@@ -82,15 +87,14 @@ Public Class Pagos
         End Try
 
     End Sub
-
-    Private Sub txtCuentasInteres_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentasInteres.KeyDown
+    Private Sub txtCuentaEstampillas_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentaEstampillas.KeyDown
         Try
             Select Case e.KeyData
                 Case Keys.F5
 
                     CuentasContables.ShowDialog()
-                    txtCuentasInteres.Clear()
-                    txtCuentasInteres.Text = ModuloVariablesAplicacion.CuentasContables
+                    txtCuentaEstampillas.Clear()
+                    txtCuentaEstampillas.Text = ModuloVariablesAplicacion.CuentasContables
 
             End Select
         Catch ex As Exception
@@ -100,9 +104,7 @@ Public Class Pagos
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
     End Sub
-
     Private Sub txtCuentaReteIVA_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentaReteIVA.KeyDown
         Try
             Select Case e.KeyData
@@ -121,7 +123,6 @@ Public Class Pagos
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
     Private Sub txtCuentasReteIca_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentasReteIca.KeyDown
         Try
             Select Case e.KeyData
@@ -140,7 +141,6 @@ Public Class Pagos
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
     Private Sub txtCuentasReteFuente_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentasReteFuente.KeyDown
         Try
             Select Case e.KeyData
@@ -159,7 +159,6 @@ Public Class Pagos
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
     Private Sub txtCuentasPagoOpor_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentasPagoOpor.KeyDown
         Try
             Select Case e.KeyData
@@ -178,26 +177,6 @@ Public Class Pagos
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
-    Private Sub txtCuentasTramite_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentasTramite.KeyDown
-        Try
-            Select Case e.KeyData
-                Case Keys.F5
-
-                    CuentasContables.ShowDialog()
-                    txtCuentasTramite.Clear()
-                    txtCuentasTramite.Text = ModuloVariablesAplicacion.CuentasContables
-
-            End Select
-        Catch ex As Exception
-            Titulo01 = "Control de errores de ejecución"
-            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-            Informa += "En la evento keydown al cargar las cuentas contables" & Chr(13) & Chr(10)
-            Informa += "Mensaje del error: " & ex.Message
-            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
     Private Sub txtCuentaOtrosDesc_KeyDown(sender As Object, e As KeyEventArgs) Handles txtCuentaOtrosDesc.KeyDown
         Try
             Select Case e.KeyData
@@ -216,8 +195,6 @@ Public Class Pagos
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
-
     Private Sub BtnCerrarContratos_Click(sender As Object, e As EventArgs) Handles BtnCerrarContratos.Click
 
         Me.Dispose()
@@ -226,6 +203,23 @@ Public Class Pagos
 #End Region
 
 #Region "Funciones"
+
+    Private Sub CalcularTotalConsignador()
+
+        Dim Pago As Double = 0
+        Dim Interes As Double = 0
+
+        If (String.IsNullOrWhiteSpace(txtValorContablePago.Text)) Then
+            Pago = 0
+        Else
+            Pago = Convert.ToDouble(txtValorContablePago.Text)
+        End If
+
+        Dim Total As Double = Pago + Interes
+
+        txtTotalConsignado.Text = String.Format("{0:C2}", Total)
+
+    End Sub
 
     Private Function CreaConsecutivo(CodDocu As String, ActConse As Boolean, CodUsua As String) As String
         Try
@@ -292,11 +286,11 @@ Public Class Pagos
 
     Private Function CalcularSaldo() As Boolean
         Try
+
+
             txtValorSaldo.Clear()
 
             Dim SaldoTotal As Double = Convert.ToDouble(txtValorTotal.Text) + Convert.ToDouble(txtValorDebitos.Text)
-
-            'FALTA EL CAMPO INTERES
 
             Dim SaldoResta As Double = (Convert.ToDouble(txtValorCreditos.Text) + Convert.ToDouble(txtValorDescuentos.Text) + Convert.ToDouble(txtValorTotalAbonos.Text) + Convert.ToDouble(txtValorImpuestos.Text) + Convert.ToDouble(txtValorGlosado.Text))
 
@@ -321,7 +315,6 @@ Public Class Pagos
 
             End If
 
-
         Catch ex As Exception
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
             Informa += "al calcular Saldo" & Chr(13) & Chr(10)
@@ -342,49 +335,75 @@ Public Class Pagos
     End Sub
 
     Private Sub CargarDatosFactura()
+        Try
 
-        If bandera = 1 Then
-            Dim reader As SqlDataReader = SQLReader("SELECT df.TipDocTer, df.NumDocTer, dp.DigVeri, dp.SucurProv, dp.RazonSol, df.NumRemi, df.ValNetoFac, df.ValIVAFac, 
+            If bandera = 1 Then
+                Dim reader As SqlDataReader = SQLReader("SELECT df.TipDocTer, df.NumDocTer, dp.DigVeri, dp.SucurProv, dp.RazonSol, df.NumRemi, df.ValNetoFac, df.ValIVAFac, 
                                         df.FecExpFac, df.FecVenFac, df.FecUltiPag, df.TolImpApli, df.ValDesFac, df.ValNotDeFac,
                                         df.ValNotCreFac, df.TolPagFac,  (df.ValNetoFac + df.ValIVAFac) as TotalFactura
                                         FROM [Datos facturas realizadas] as df, [GEOGRAXPSQL].[dbo].[Datos proveedores] as dp
                                         WHERE df.NumDocTer = dp.IdenProve AND   df.NumFact = '" & cboFacturas.SelectedValue & "'")
-            If reader.HasRows Then
-                reader.Read()
-                txtValorTotal.Text = reader("TotalFactura")
-                txtValorCreditos.Text = reader("ValNotCreFac")
-                txtValorGlosado.Text = 0
-                txtValorDebitos.Text = reader("ValNotDeFac")
-                txtValorImpuestos.Text = reader("TolImpApli")
-                txtValorDescuentos.Text = reader("ValDesFac")
-                txtValorInteres.Text = 0
-                txtValorTotalAbonos.Text = 0
-                txtTipoDocTer.Text = reader("TipDocTer")
-                txtDocuTer.Text = reader("NumDocTer")
-                txtDocuContablePago.Text = reader("NumDocTer")
-                txtDigiContablePago.Text = reader("DigVeri")
-                txtRazonSolTer.Text = reader("RazonSol")
-                txtSucursal.Text = reader("SucurProv")
-                txtRemision.Text = reader("NumRemi")
-                DtFechaExpedicion.Value = Convert.ToDateTime(reader("FecExpFac"))
-                DtFechaVencimeinto.Value = Convert.ToDateTime(reader("FecVenFac"))
-                DtUltimoPago.Value = Convert.ToDateTime(reader("FecUltiPag"))
 
+
+
+                Dim TotalDetallePago As String = ""
+
+                If reader.HasRows Then
+                    reader.Read()
+
+                    txtValorTotal.Text = reader("TotalFactura")
+                    txtValorCreditos.Text = reader("ValNotCreFac")
+                    txtValorGlosado.Text = 0
+                    txtValorDebitos.Text = reader("ValNotDeFac")
+                    txtValorImpuestos.Text = reader("TolImpApli")
+                    txtValorDescuentos.Text = reader("ValDesFac")
+                    txtValorInteres.Text = 0
+                    txtValorTotalAbonos.Text = reader("TolPagFac")
+                    txtTipoDocTer.Text = reader("TipDocTer")
+                    txtDocuTer.Text = reader("NumDocTer")
+                    txtDocuContablePago.Text = reader("NumDocTer")
+                    txtDigiContablePago.Text = reader("DigVeri")
+                    txtRazonSolTer.Text = reader("RazonSol")
+                    txtSucursal.Text = reader("SucurProv")
+                    txtRemision.Text = reader("NumRemi")
+                    DtFechaExpedicion.Value = Convert.ToDateTime(reader("FecExpFac"))
+                    DtFechaVencimeinto.Value = Convert.ToDateTime(reader("FecVenFac"))
+                    DtUltimoPago.Value = Convert.ToDateTime(reader("FecUltiPag"))
+
+                End If
+
+                If (cn.State = ConnectionState.Open) Then cn.Close()
+
+                Dim Reader2 As SqlDataReader = SQLReader("SELECT ISNULL(SUM(ValDebito),0) AS TolValDebito
+                                                FROM [DACARTXPSQL].[dbo].[Datos detalles recibos de pago] 
+                                                WHERE CodServi = '" & cboFacturas.SelectedValue & "'")
+
+                If Reader2.HasRows Then
+
+                    Reader2.Read()
+
+
+                    txtValorTotalAbonos.Text = Reader2("TolValDebito")
+
+
+                Else
+                    txtValorTotalAbonos.Text = 0
+
+                End If
+
+                If (cn.State = ConnectionState.Open) Then cn.Close()
 
 
             End If
 
-            cn.Close()
-
-
-        End If
-
-        If bandera = 1 Then
-
-
-
-        End If
-
+        Catch ex As Exception
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "en la funcion CargarDatos" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If (cn.State = ConnectionState.Open) Then cn.Close()
+        End Try
     End Sub
 #End Region
 
@@ -425,10 +444,10 @@ Public Class Pagos
                 End If
             End If
 
-            If String.IsNullOrWhiteSpace(txtCuentasInteres.Text) = False Then
-                If String.IsNullOrWhiteSpace(txtValorContableInteres.Text) Or cboTipoDocuInteres.SelectedIndex = -1 Or String.IsNullOrWhiteSpace(txtDocuContableIntereses.Text) Or String.IsNullOrWhiteSpace(txtDigiContableInteres.Text) Or String.IsNullOrWhiteSpace(txtSucurInteres.Text) Then
+            If String.IsNullOrWhiteSpace(txtCuentaEstampillas.Text) = False Then
+                If String.IsNullOrWhiteSpace(txtCuentaEstampillas.Text) Or cboTIpoDocuEstampillas.SelectedIndex = -1 Or String.IsNullOrWhiteSpace(txtDocuContableEstampillas.Text) Or String.IsNullOrWhiteSpace(txtDigiContableEstampillas.Text) Or String.IsNullOrWhiteSpace(txtSucurEstampillas.Text) Then
                     MsgBox("Has elegido una cuenta contable de Interes pero no rellenaste alguno de los otros campos requeridos para este pago.")
-                    txtCuentasInteres.Select()
+                    txtCuentaEstampillas.Select()
                     estado = False
                     Return estado
                 Else
@@ -482,16 +501,7 @@ Public Class Pagos
             End If
 
 
-            If String.IsNullOrWhiteSpace(txtCuentasTramite.Text) = False Then
-                If String.IsNullOrWhiteSpace(txtValorContableTramite.Text) Or cboTipoDocuTramite.SelectedIndex = -1 Or String.IsNullOrWhiteSpace(txtDocuContableTramite.Text) Or String.IsNullOrWhiteSpace(txtDigiContableTramite.Text) Or String.IsNullOrWhiteSpace(txtSucurTramite.Text) Then
-                    MsgBox("Has elegido una cuenta contable de Tramite pero no rellenaste alguno de los otros campos requeridos para este pago.")
-                    txtCuentasTramite.Select()
-                    estado = False
-                    Return estado
-                Else
-                    estado = True
-                End If
-            End If
+
 
             If String.IsNullOrWhiteSpace(txtCuentaOtrosDesc.Text) = False Then
                 If String.IsNullOrWhiteSpace(txtValorContableOtrosDesc.Text) Or cboTIpoDocuDesc.SelectedIndex = -1 Or String.IsNullOrWhiteSpace(txtDocuContableOtroDesc.Text) Or String.IsNullOrWhiteSpace(txtDigiContableOtrosDesc.Text) Or String.IsNullOrWhiteSpace(txtSucurOtrosDesc.Text) Then
@@ -616,17 +626,28 @@ Public Class Pagos
                                 TipoPago = "CS"
 
                         End Select
+
                         Dim EstaRegisto As Boolean
                         EstaRegisto = ModuloDeClasePagos.RegistrarPago(PrefijoFacturas, NumPago, fecha, RadioButton, "0001", txtTipoDocTer.Text, txtDocuTer.Text, txtSucursal.Text, TipoPago, cboFacturas.SelectedValue, cboBancos.Text, cboBancos.SelectedValue, cboNumCuenta.SelectedValue, FechaPago.Value, lblCodigoUsuario2.Text,
                                                          TipoDocuBan.Text, DocuBan.Text, DigiBan.Text, SucurBan.Text,
                                                          txtCuentaContablePago.Text, cboContablePagoTipoDocu.Text, txtDocuContablePago.Text, txtDigiContablePago.Text, txtSucurContablePago.Text, txtValorContablePago.Text,
-                                                         txtCuentasInteres.Text, cboTipoDocuInteres.Text, txtDocuContableIntereses.Text, txtDigiContableInteres.Text, txtSucurInteres.Text, txtValorContableInteres.Text,
                                                          txtCuentaReteIVA.Text, cboTipoDocuIVA.Text, txtDocuContableReteIva.Text, txtDigiContableReteIva.Text, txtSucurIVA.Text, txtValorContableReteIVA.Text,
                                                          txtCuentasReteIca.Text, cboTipoDocuICA.Text, txtDocuContableReteIca.Text, txtDigiContableReteIca.Text, txtSucurICA.Text, txtValorContableReteICA.Text,
                                                          txtCuentasReteFuente.Text, cboTipoDocuFuente.Text, txtDocuContableReteFuente.Text, txtDigiContableReteFuente.Text, txtSucurFuente.Text, txtValorContableReteFuente.Text,
                                                          txtCuentasPagoOpor.Text, cboTipoDocuPagoOpor.Text, txtDocuContablePagoOpor.Text, txtDigiContablePagoOpor.Text, txtSucurPagoPor.Text, txtValorContableRetePagoPor.Text,
-                                                         txtCuentasTramite.Text, cboTipoDocuTramite.Text, txtDocuContableTramite.Text, txtDigiContableTramite.Text, txtSucurTramite.Text, txtValorContableTramite.Text,
+                                                         txtCuentaEstampillas.Text, cboTIpoDocuEstampillas.Text, txtDocuContableEstampillas.Text, txtDigiContableEstampillas.Text, txtSucurEstampillas.Text, txtValorContableEstampillas.Text,
                                                          txtCuentaOtrosDesc.Text, cboTIpoDocuDesc.Text, txtDocuContableOtroDesc.Text, txtDigiContableOtrosDesc.Text, txtSucurOtrosDesc.Text, txtValorContableOtrosDesc.Text)
+
+                        'EstaRegisto = ModuloDeClasePagos.RegistrarPago(PrefijoFacturas, NumPago, fecha, RadioButton, "0001", txtTipoDocTer.Text, txtDocuTer.Text, txtSucursal.Text, TipoPago, cboFacturas.SelectedValue, cboBancos.Text, cboBancos.SelectedValue, cboNumCuenta.SelectedValue, FechaPago.Value, lblCodigoUsuario2.Text,
+                        '                                 TipoDocuBan.Text, DocuBan.Text, DigiBan.Text, SucurBan.Text,
+                        '                                 txtCuentaContablePago.Text, cboContablePagoTipoDocu.Text, txtDocuContablePago.Text, txtDigiContablePago.Text, txtSucurContablePago.Text, txtValorContablePago.Text,
+                        '                                 txtCuentasInteres.Text, cboTipoDocuInteres.Text, txtDocuContableIntereses.Text, txtDigiContableInteres.Text, txtSucurInteres.Text, txtValorContableInteres.Text,
+                        '                                 txtCuentaReteIVA.Text, cboTipoDocuIVA.Text, txtDocuContableReteIva.Text, txtDigiContableReteIva.Text, txtSucurIVA.Text, txtValorContableReteIVA.Text,
+                        '                                 txtCuentasReteIca.Text, cboTipoDocuICA.Text, txtDocuContableReteIca.Text, txtDigiContableReteIca.Text, txtSucurICA.Text, txtValorContableReteICA.Text,
+                        '                                 txtCuentasReteFuente.Text, cboTipoDocuFuente.Text, txtDocuContableReteFuente.Text, txtDigiContableReteFuente.Text, txtSucurFuente.Text, txtValorContableReteFuente.Text,
+                        '                                 txtCuentasPagoOpor.Text, cboTipoDocuPagoOpor.Text, txtDocuContablePagoOpor.Text, txtDigiContablePagoOpor.Text, txtSucurPagoPor.Text, txtValorContableRetePagoPor.Text,
+                        '                                 txtCuentasTramite.Text, cboTipoDocuTramite.Text, txtDocuContableTramite.Text, txtDigiContableTramite.Text, txtSucurTramite.Text, txtValorContableTramite.Text,
+                        '                                 txtCuentaOtrosDesc.Text, cboTIpoDocuDesc.Text, txtDocuContableOtroDesc.Text, txtDigiContableOtrosDesc.Text, txtSucurOtrosDesc.Text, txtValorContableOtrosDesc.Text)
 
                         If (EstaRegisto) Then
 
@@ -779,4 +800,6 @@ Public Class Pagos
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+
 End Class
