@@ -359,7 +359,7 @@ Public Class ModuloDeClasesRemision
 
 
             Dim TraerDigiVeri = "SELECT Prove.DigVeri, Prove.IdenProve, Prove.CuenNum as IdTipoCuenta, TipoCuen.CuenNum
-                                FROM GEOGRAXPSQL.dbo.[Datos proveedores] AS Prove INNER JOIN
+                                FROM [GEOGRAXPSQL].[dbo].[Datos proveedores] AS Prove INNER JOIN
                                 [BDADYSNET].[dbo].[Datos tipo cuenta contable] AS TipoCuen ON Prove.CuenNum = TipoCuen.idTipoCuenta WHERE Prove.TipoDocu = '" & TipDocTer & "' AND Prove.IdenProve = '" & NumDocTer & "'"
 
 
@@ -474,8 +474,6 @@ Public Class ModuloDeClasesRemision
 
                 End While
 
-                cn2.Close()
-
 
             Else
                 Titulo01 = "Control de errores de ejecución"
@@ -486,6 +484,7 @@ Public Class ModuloDeClasesRemision
             End If
 
             cn.Close()
+            cn2.Close()
 
             '-------------------------------------------------------------------- Finn Registra detallde factura ----------------------------------------------------------------------------------------------------------
 
@@ -579,165 +578,20 @@ Public Class ModuloDeClasesRemision
 
             '------------------------------------------------------------------- Fin Entidad Publica ----------------------------------------------------------------------------------------------------------
 
-
             '------------------------------------------------------------------- Registra Contabilidad ----------------------------------------------------------------------------------------------------------
 
             If RegistraCuenConta Then
 
-
-                'ANTES DE HACER ESTO SE DEBE VALIDAR QUE EL PERIODO EXISTA Y EL TERCERO, SI NO EXITE Y SALE ERROR, SE DEBE CREAR UN NUEVO FORMULARIO DONDE PUEDA ENVIAR LA INFORMACION DE LA TABLA DE CONTABILIDAD A CONTABILIDAD GENERAL. SE DEBE CREAR UN FORMULARIO. PARA QUE CUANDO PASE ALGUN ERROR SE PUEDE VOVLER A ENVIAR LA FACTURA
-
-                Dim ConsultaDatosContabilidad As String = "Select * From [BDADYSNET].[dbo].[Datos contabilizacion factura] Where NumFact = '" & NumFact & "'"
-
-
-                Dim DatosContabilidad As SqlDataReader = ConexionBaseDeDatos.SQLReader(ConsultaDatosContabilidad)
-
-
-                If DatosContabilidad.HasRows Then
-
-                    Dim InserContabilidad As String = "INSERT INTO [ADYSNET].[dbo].[CMDMOVIMIENTO] 
-                    (
-                    [CMDAnoMovimiento],
-                    [CMDPeriodoMovimiento],
-                    [CMDComprobanteMovimiento],
-                    [CMDPrefijoMovimiento],
-                    [CMDDocumentoMovimiento],
-                    [CMDFechaMovimiento],
-                    [CMDItemMovimiento],
-                    [CMDCodigoCuentaMovimiento],
-                    [CMDCodCentroCostosMovimiento],
-                    [CMDCodigoMonedaMovimiento],
-                    [CMDIdentificadorUnoMovimiento],
-                    [CMDSucursalMovimiento],
-                    [CMDIdentificadorDosMovimiento],
-                    [CMDPrefijoRefmovimiento],
-                    [CMDDocumentoRefMovimiento],
-                    [CMDComentariosMovimiento],
-                    [CMDValorMovimiento],
-                    [CMDValorBaseMovimiento],
-                    [CMDValorMonedaMovimiento],
-                    [CMDNaturalezaMovimiento],
-                    [CMDOrigenMovimiento],
-                    [CMDTipoAsientoMovimiento]
-                    )
-                    VALUES 
-                    (
-                    @CMDAnoMovimiento,
-                    @CMDPeriodoMovimiento,
-                    @CMDComprobanteMovimiento,
-                    @CMDPrefijoMovimiento,
-                    @CMDDocumentoMovimiento,
-                    @CMDFechaMovimiento,
-                    @CMDItemMovimiento,
-                    @CMDCodigoCuentaMovimiento,
-                    @CMDCodCentroCostosMovimiento,
-                    @CMDCodigoMonedaMovimiento,
-                    @CMDIdentificadorUnoMovimiento,
-                    @CMDSucursalMovimiento,
-                    @CMDIdentificadorDosMovimiento,
-                    @CMDPrefijoRefmovimiento,
-                    @CMDDocumentoRefMovimiento,
-                    @CMDComentariosMovimiento,
-                    @CMDValorMovimiento,
-                    @CMDValorBaseMovimiento,
-                    @CMDValorMonedaMovimiento,
-                    @CMDNaturalezaMovimiento,
-                    @CMDOrigenMovimiento,
-                    @CMDTipoAsientoMovimiento
-                    )
-                    "
-                    Dim ItemMovimiento As Int32 = 0
-                    Dim ItemMovimientoFormado As String = ""
-                    Dim ItemProveDos As String = ""
-                    Dim CMDNaturalezaMovimiento As String = ""
-
-                    cn2.Open()
-
-                    While DatosContabilidad.Read()
-
-                        ItemMovimiento += 1
-
-                        ItemMovimientoFormado = ItemMovimiento.ToString()
-
-                        ItemMovimientoFormado = ItemMovimientoFormado.PadLeft(5, "0")
-
-                        If DatosContabilidad("Natura").ToString() = "C" Then
-                            CMDNaturalezaMovimiento = "CNO"
-                        ElseIf DatosContabilidad("Natura").ToString() = "D" Then
-                            CMDNaturalezaMovimiento = "DNO"
-                        Else
-                            CMDNaturalezaMovimiento = "CNO"
-                        End If
-
-
-                        ItemProveDos = DatosContabilidad("NumDocTer").ToString() + "-" + DatosContabilidad("DigVeri").ToString()
-
-
-
-
-
-                        Dim RegistrarContabilidad As SqlCommand
-
-                        RegistrarContabilidad = New SqlCommand With {
-                        .Connection = cn2,
-                        .CommandText = InserContabilidad
-                    }
-
-                        With RegistrarContabilidad.Parameters
-
-
-                            .AddWithValue("CMDAnoMovimiento", DatosContabilidad("AnoPerCon").ToString())
-                            .AddWithValue("CMDPeriodoMovimiento", DatosContabilidad("MesPerCon").ToString())
-                            .AddWithValue("CMDComprobanteMovimiento", "00001")
-                            .AddWithValue("CMDPrefijoMovimiento", DatosContabilidad("PrefiFact").ToString())
-                            .AddWithValue("CMDDocumentoMovimiento", NumFacFormado)
-                            .AddWithValue("CMDFechaMovimiento", Convert.ToDateTime(DatosContabilidad("FecDoc")))
-                            .AddWithValue("CMDItemMovimiento", ItemMovimientoFormado)
-                            .AddWithValue("CMDCodigoCuentaMovimiento", DatosContabilidad("CuenNum"))
-                            .AddWithValue("CMDCodCentroCostosMovimiento", "000")
-                            .AddWithValue("CMDCodigoMonedaMovimiento", "000")
-                            .AddWithValue("CMDIdentificadorUnoMovimiento", DatosContabilidad("NumDocTer"))
-                            .AddWithValue("CMDSucursalMovimiento", DatosContabilidad("SucDocTer"))
-                            .AddWithValue("CMDIdentificadorDosMovimiento", ItemProveDos)
-                            .AddWithValue("CMDPrefijoRefmovimiento", "00000")
-                            .AddWithValue("CMDDocumentoRefMovimiento", NumFacFormado)
-                            .AddWithValue("CMDComentariosMovimiento", DatosContabilidad("DescriMovi").ToString())
-                            .AddWithValue("CMDValorMovimiento", Convert.ToDouble(DatosContabilidad("ValMovi")))
-                            .AddWithValue("CMDValorBaseMovimiento", Convert.ToDouble(DatosContabilidad("BaseMovi")))
-                            .AddWithValue("CMDValorMonedaMovimiento", 0)
-                            .AddWithValue("CMDNaturalezaMovimiento", CMDNaturalezaMovimiento)
-                            .AddWithValue("CMDOrigenMovimiento", "DIG")
-                            '.AddWithValue("CMDConsecutivoCruceExtractoMovimiento", "0")
-                            '.AddWithValue("CMDAnoCruceExtractoMovimiento", DatosContabilidad(""))
-                            '.AddWithValue("CMDPeriodoCruceExtractoMovimiento", DatosContabilidad(""))
-                            .AddWithValue("CMDTipoAsientoMovimiento", "F")
-                            '.AddWithValue("CMDValorOtraMonedaMovimiento", DatosContabilidad(""))
-
-                        End With
-
-                        If RegistrarContabilidad.ExecuteNonQuery() Then
-                            RegistraCuenConta = True
-                        End If
-
-                    End While
-
-                    cn2.Close()
-
-
-                End If
-
-
-                Return RegistraCuenConta
-
+                RegistraCuenConta = RegistrarContabilidad(NumFact)
 
             Else
                 Titulo01 = "Control de errores de ejecución"
-                Informa = "OJO: La cuenta contable quedo registrar en borrador pero no se guardo correctamente la contabilidad" & Chr(13) & Chr(10)
+                Informa = "OJO: La cuenta contable quedo registrada en borrador pero no se guardo correctamente en la contabilidad" & Chr(13) & Chr(10)
                 MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 RegistraCuenConta = False
-                Return RegistraCuenConta
             End If
 
+            Return RegistraCuenConta
 
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
@@ -748,23 +602,271 @@ Public Class ModuloDeClasesRemision
             RegistraCuenConta = False
             Return RegistraCuenConta
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then
+                cn.Close()
+            End If
+            If cn2.State = ConnectionState.Open Then
+                cn2.Close()
+            End If
         End Try  'Registra la cuenta contable
-
-
 
     End Function
 
-    Public Function RegistrarContabilidad()
+    Public Function RegistrarContabilidad(NumFact) As Boolean
         Try
 
+            Dim EstadoRegistro As Boolean
+
+            Dim comando As SqlCommand
+
+            Dim ValidacionesQuery As String
+
+            Dim ItemMovimiento As Int32 = 0
+            Dim ItemMovimientoFormado As String = ""
+            Dim ItemProveDos As String = ""
+            Dim CMDNaturalezaMovimiento As String = ""
+
+
+            Dim QueryValitacion As String = "SELECT [PrefiFact] ,[NumFact], AnoPerCon, MesPerCon, NumDocTer, SucDocTer, DigVeri
+                                            FROM [BDADYSNET].[dbo].[Datos contabilizacion factura] WHERE NumFact = '" & NumFact & "' GROUP BY [PrefiFact] ,[NumFact], AnoPerCon, MesPerCon, NumDocTer,SucDocTer,DigVeri"
+
+
+            Dim readerValidation As SqlDataReader = ConexionBaseDeDatos.SQLReader(QueryValitacion)
+
+            If readerValidation.HasRows Then
+
+                readerValidation.Read()
+
+                Dim NumDocDigi As String = readerValidation("NumDocTer").ToString() + "-" + readerValidation("DigVeri").ToString()
+
+                'VALIDAR PERIODO
+
+                conexionPortatil.Open()
+
+                ValidacionesQuery = "SELECT COUNT(*) AS TolPer FROM [ADYSNET].[dbo].[CMDPERIODO] WHERE [CMDAnoPeriodo]  = '" & readerValidation("AnoPerCon").ToString() & "' AND [CMDPeriodoPeriodo] = '" & readerValidation("MesPerCon").ToString() & "'"
+
+                Dim ValidarPeriodo As SqlDataReader
+                comando = New SqlCommand(ValidacionesQuery, conexionPortatil)
+                ValidarPeriodo = comando.ExecuteReader()
+
+                If ValidarPeriodo.HasRows Then
+
+                    ValidarPeriodo.Read()
+
+                    If Convert.ToInt32(ValidarPeriodo("TolPer")) <= 0 Then
+                        Titulo01 = "Control de validaciones cuentas contables"
+                        Informa = "Lo siento pero no se encontro en contabilidad el periodo " & readerValidation("AnoPerCon").ToString() & " " & readerValidation("MesPerCon").ToString() & "," & Chr(13) & Chr(10)
+                        Informa += "por lo tanto no se pudo registrar la cuenta contable." & Chr(13) & Chr(10)
+                        Informa += "Por favor registralo en contabilidad y vuelve a enviar la cuenta contable" & Chr(13) & Chr(10)
+                        MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return False
+                    End If
+
+                End If
+
+                ValidarPeriodo.Close()
+                conexionPortatil.Close()
+
+
+                'VALIDAR TERCERO
+
+                conexionPortatil.Open()
+
+                ValidacionesQuery = "SELECT COUNT(*) TolUsua FROM [ADYSNET].[dbo].[CMDTERCEROS] WHERE  [CMDIdentificadorUnoTerceros] =  '" & NumDocDigi & "' AND [CMDSucursalTerceros] =  '" & readerValidation("SucDocTer").ToString() & "'"
+
+
+                Dim ValidarTercero As SqlDataReader
+
+                comando = New SqlCommand(ValidacionesQuery, conexionPortatil)
+
+                ValidarTercero = comando.ExecuteReader()
+
+                If ValidarTercero.HasRows Then
+
+                    ValidarTercero.Read()
+
+                    If Convert.ToInt32(ValidarTercero("TolUsua")) <= 0 Then
+                        Titulo01 = "Control de validaciones cuentas contables"
+                        Informa = "Lo siento pero no se encontro el tercero en contabilidad con numero de documento " & NumDocDigi & " Y sucursal " & readerValidation("SucDocTer").ToString() & "," & Chr(13) & Chr(10)
+                        Informa += "por lo tanto no se pudo registrar la cuenta contable." & Chr(13) & Chr(10)
+                        Informa += "Por favor registralo en contabilidad y vuelve a enviar la cuenta contable" & Chr(13) & Chr(10)
+                        MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return False
+                    End If
+
+                End If
+
+                ValidarTercero.Close()
+                conexionPortatil.Close()
+
+            End If
+
+            'Cierra la conexion del datareader
+            cn.Close()
+
+
+            Dim Query As String = "SELECT [IDCuenConta] ,[PrefiFact] ,[NumFact] ,[TipDocTer] ,[NumDocTer] ,[DigVeri],[SucDocTer],[CuenNum],[Natura],
+            [DescriMovi],[BaseMovi],[ValMovi],[FecDoc],[MesPerCon],[AnoPerCon],[CodRegis],[FecRegis] ,[CodModi] ,[FecModi]
+            FROM [BDADYSNET].[dbo].[Datos contabilizacion factura] WHERE NumFact = '" & NumFact & "'"
+
+            Dim InserContabilidad As String = "INSERT INTO [ADYSNET].[dbo].[CMDMOVIMIENTO] 
+            (
+            [CMDAnoMovimiento],
+            [CMDPeriodoMovimiento],
+            [CMDComprobanteMovimiento],
+            [CMDPrefijoMovimiento],
+            [CMDDocumentoMovimiento],
+            [CMDFechaMovimiento],
+            [CMDItemMovimiento],
+            [CMDCodigoCuentaMovimiento],
+            [CMDCodCentroCostosMovimiento],
+            [CMDCodigoMonedaMovimiento],
+            [CMDIdentificadorUnoMovimiento],
+            [CMDSucursalMovimiento],
+            [CMDIdentificadorDosMovimiento],
+            [CMDPrefijoRefmovimiento],
+            [CMDDocumentoRefMovimiento],
+            [CMDComentariosMovimiento],
+            [CMDValorMovimiento],
+            [CMDValorBaseMovimiento],
+            [CMDValorMonedaMovimiento],
+            [CMDNaturalezaMovimiento],
+            [CMDOrigenMovimiento],
+            [CMDTipoAsientoMovimiento]
+            )
+            VALUES 
+            (
+            @CMDAnoMovimiento,
+            @CMDPeriodoMovimiento,
+            @CMDComprobanteMovimiento,
+            @CMDPrefijoMovimiento,
+            @CMDDocumentoMovimiento,
+            @CMDFechaMovimiento,
+            @CMDItemMovimiento,
+            @CMDCodigoCuentaMovimiento,
+            @CMDCodCentroCostosMovimiento,
+            @CMDCodigoMonedaMovimiento,
+            @CMDIdentificadorUnoMovimiento,
+            @CMDSucursalMovimiento,
+            @CMDIdentificadorDosMovimiento,
+            @CMDPrefijoRefmovimiento,
+            @CMDDocumentoRefMovimiento,
+            @CMDComentariosMovimiento,
+            @CMDValorMovimiento,
+            @CMDValorBaseMovimiento,
+            @CMDValorMonedaMovimiento,
+            @CMDNaturalezaMovimiento,
+            @CMDOrigenMovimiento,
+            @CMDTipoAsientoMovimiento
+            )
+            "
+
+            Dim reader As SqlDataReader = ConexionBaseDeDatos.SQLReader(Query)
+
+            If reader.HasRows Then
+
+
+                conexionPortatil.Open()
+
+                While reader.Read()
+
+                    Dim NumFacFormado As String = reader("NumFact").ToString()
+
+                    NumFacFormado = NumFacFormado.PadLeft(15, "0") 'Agregue cuantos ceros falten a la izquierda para completar el tamaño
+
+                    ItemMovimiento += 1
+
+                    ItemMovimientoFormado = ItemMovimiento.ToString()
+
+                    ItemMovimientoFormado = ItemMovimientoFormado.PadLeft(5, "0")
+
+                    If reader("Natura").ToString() = "C" Then
+                        CMDNaturalezaMovimiento = "CNO"
+                    ElseIf reader("Natura").ToString() = "D" Then
+                        CMDNaturalezaMovimiento = "DNO"
+                    Else
+                        CMDNaturalezaMovimiento = "CNO"
+                    End If
+
+                    ItemProveDos = reader("NumDocTer").ToString() + "-" + reader("DigVeri").ToString()
+
+
+
+                    Dim RegisConta As SqlCommand
+
+                    RegisConta = New SqlCommand With {
+                    .Connection = conexionPortatil,   'Se debe cambiar la instancia a la del portatil
+                    .CommandText = InserContabilidad
+                    }
+
+                    With RegisConta.Parameters
+                        .AddWithValue("CMDAnoMovimiento", reader("AnoPerCon").ToString())
+                        .AddWithValue("CMDPeriodoMovimiento", reader("MesPerCon").ToString())
+                        .AddWithValue("CMDComprobanteMovimiento", "00001")
+                        .AddWithValue("CMDPrefijoMovimiento", reader("PrefiFact").ToString())
+                        .AddWithValue("CMDDocumentoMovimiento", NumFacFormado)
+                        .AddWithValue("CMDFechaMovimiento", Format(Convert.ToDateTime(reader("FecDoc")), "MM/dd/yyyy"))
+                        .AddWithValue("CMDItemMovimiento", ItemMovimientoFormado)
+                        .AddWithValue("CMDCodigoCuentaMovimiento", reader("CuenNum"))
+                        .AddWithValue("CMDCodCentroCostosMovimiento", "000")
+                        .AddWithValue("CMDCodigoMonedaMovimiento", "000")
+                        .AddWithValue("CMDIdentificadorUnoMovimiento", ItemProveDos)
+                        .AddWithValue("CMDSucursalMovimiento", reader("SucDocTer"))
+                        .AddWithValue("CMDIdentificadorDosMovimiento", ItemProveDos)
+                        .AddWithValue("CMDPrefijoRefmovimiento", "00000")
+                        .AddWithValue("CMDDocumentoRefMovimiento", NumFacFormado)
+                        .AddWithValue("CMDComentariosMovimiento", reader("DescriMovi").ToString())
+                        .AddWithValue("CMDValorMovimiento", Convert.ToDouble(reader("ValMovi")))
+                        .AddWithValue("CMDValorBaseMovimiento", Convert.ToDouble(reader("BaseMovi")))
+                        .AddWithValue("CMDValorMonedaMovimiento", 0)
+                        .AddWithValue("CMDNaturalezaMovimiento", CMDNaturalezaMovimiento)
+                        .AddWithValue("CMDOrigenMovimiento", "DIG")
+                        '.AddWithValue("CMDConsecutivoCruceExtractoMovimiento", "0")
+                        '.AddWithValue("CMDAnoCruceExtractoMovimiento", DatosContabilidad(""))
+                        '.AddWithValue("CMDPeriodoCruceExtractoMovimiento", DatosContabilidad(""))
+                        .AddWithValue("CMDTipoAsientoMovimiento", "F")
+                        '.AddWithValue("CMDValorOtraMonedaMovimiento", DatosContabilidad(""))
+
+                    End With
+
+                    If RegisConta.ExecuteNonQuery() Then
+                        EstadoRegistro = True
+                    Else
+                        EstadoRegistro = False
+                    End If
+
+
+
+                End While
+
+                conexionPortatil.Close()
+
+            Else
+                Titulo01 = "Control de ejecución"
+                Informa = "Lo siento pero se ha registro la cuenta contale" & Chr(13) & Chr(10)
+                Informa += "No se encontro la contabilizacion de la factura  " & Chr(13) & Chr(10)
+                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                EstadoRegistro = False
+            End If
+
+            cn.Close()
+
+            Return EstadoRegistro
 
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-            Informa += "Al Registrar la cuenta contable " & Chr(13) & Chr(10)
+            Informa += "Al Registrar la cuenta contable en la funcion RegistrarContabilidad " & Chr(13) & Chr(10)
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        Finally
+            If cn.State = ConnectionState.Open Then
+                cn.Close()
+            End If
+            If conexionPortatil.State = ConnectionState.Open Then
+                conexionPortatil.Close()
+            End If
         End Try
     End Function
 

@@ -36,6 +36,7 @@ Partial Class FrmPrincipal
         Me.ProvedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContratosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProducServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionCuentasContablesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -102,7 +103,7 @@ Partial Class FrmPrincipal
         '
         'ParametrosToolStripMenuItem
         '
-        Me.ParametrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProvedoresToolStripMenuItem, Me.ContratosToolStripMenuItem1, Me.ProducServiciosToolStripMenuItem})
+        Me.ParametrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProvedoresToolStripMenuItem, Me.ContratosToolStripMenuItem1, Me.ProducServiciosToolStripMenuItem, Me.GestionCuentasContablesToolStripMenuItem})
         Me.ParametrosToolStripMenuItem.Name = "ParametrosToolStripMenuItem"
         Me.ParametrosToolStripMenuItem.Size = New System.Drawing.Size(79, 20)
         Me.ParametrosToolStripMenuItem.Text = "Parametros"
@@ -110,20 +111,26 @@ Partial Class FrmPrincipal
         'ProvedoresToolStripMenuItem
         '
         Me.ProvedoresToolStripMenuItem.Name = "ProvedoresToolStripMenuItem"
-        Me.ProvedoresToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.ProvedoresToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.ProvedoresToolStripMenuItem.Text = "Provedores"
         '
         'ContratosToolStripMenuItem1
         '
         Me.ContratosToolStripMenuItem1.Name = "ContratosToolStripMenuItem1"
-        Me.ContratosToolStripMenuItem1.Size = New System.Drawing.Size(158, 22)
+        Me.ContratosToolStripMenuItem1.Size = New System.Drawing.Size(216, 22)
         Me.ContratosToolStripMenuItem1.Text = "Contratos"
         '
         'ProducServiciosToolStripMenuItem
         '
         Me.ProducServiciosToolStripMenuItem.Name = "ProducServiciosToolStripMenuItem"
-        Me.ProducServiciosToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.ProducServiciosToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.ProducServiciosToolStripMenuItem.Text = "ProducServicios"
+        '
+        'GestionCuentasContablesToolStripMenuItem
+        '
+        Me.GestionCuentasContablesToolStripMenuItem.Name = "GestionCuentasContablesToolStripMenuItem"
+        Me.GestionCuentasContablesToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.GestionCuentasContablesToolStripMenuItem.Text = "Gestion Cuentas Contables"
         '
         'FrmPrincipal
         '
@@ -159,4 +166,5 @@ Partial Class FrmPrincipal
     Friend WithEvents FacturasToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents PagosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ProducServiciosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GestionCuentasContablesToolStripMenuItem As ToolStripMenuItem
 End Class

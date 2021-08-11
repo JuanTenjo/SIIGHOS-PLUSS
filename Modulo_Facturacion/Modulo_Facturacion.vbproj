@@ -147,6 +147,12 @@
     <Compile Include="Formularios\Utilidades\CodigosProductos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Utilidades\GestionContabilidad.Designer.vb">
+      <DependentUpon>GestionContabilidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Utilidades\GestionContabilidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Utilidades\CodigosProductos.resx">
       <DependentUpon>CodigosProductos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Utilidades\GestionContabilidad.resx">
+      <DependentUpon>GestionContabilidad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.vb</DependentUpon>
@@ -528,6 +537,7 @@
     <None Include="Resources\icons8-imprimir-40.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-reenviar-mensaje-30.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

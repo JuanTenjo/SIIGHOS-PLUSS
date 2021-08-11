@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8-imprimir-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-imprimir-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-salida-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-salida-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,14 +157,20 @@
   <data name="icons8-eliminar-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-eliminar-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IconoGuardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconoGuardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-imprimir-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-imprimir-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-factura-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-factura-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconoGuardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconoGuardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconoActivar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconoActivar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-guardar-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-guardar-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-imprimir-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-imprimir-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,7 +178,7 @@
   <data name="icons8-grabar-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-grabar-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-guardar-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-guardar-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-reenviar-mensaje-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-reenviar-mensaje-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -98,7 +98,10 @@ Public Class CodigosProductos
             CargarCombobox()
 
         Catch ex As Exception
-
+            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+            Informa += "al abrir el formulario CodigoProductos" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

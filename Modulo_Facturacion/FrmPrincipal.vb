@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Data.SqlClient
 
 Public Class FrmPrincipal
 
@@ -7,7 +8,9 @@ Public Class FrmPrincipal
         Try
 
 
-            Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SIIGHOSPLUS\LogPlusAdysnet.LogSip;Jet OLEDB:Database Password=SIIGHOS33")
+            'Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SIIGHOSPLUS\LogPlusAdysnet.LogSip;Jet OLEDB:Database Password=SIIGHOS33")
+
+            Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SIIGHOSPLUS\LogPlus.LogSip;Jet OLEDB:Database Password=SIIGHOS33")
 
             con.Open()
 
@@ -17,6 +20,10 @@ Public Class FrmPrincipal
             Dim drr As OleDbDataReader = dr.ExecuteReader()
 
             drr.Read()
+
+            Dim ServidorPortatil As String = drr("NomInsExter")
+            Dim UserPortatil As String = drr("NomUsarExter")
+            Dim PasswordPortatil As String = drr("PassWExter")
 
             ModuloVariablesAplicacion.NomServi = drr("NomServi") 'Nombre Servidor
             ModuloVariablesAplicacion.NomUsar = drr("NomUsar") 'Usuario Servidor
@@ -29,6 +36,7 @@ Public Class FrmPrincipal
             ConexionBaseDeDatos.cn.ConnectionString = ("Data Source=" & ModuloVariablesAplicacion.NomServi & ";Initial Catalog=BDADYSNET;User ID=" & ModuloVariablesAplicacion.NomUsar & ";Password=" & ModuloVariablesAplicacion.PassWusa)
             ConexionBaseDeDatos.cn2.ConnectionString = ("Data Source=" & ModuloVariablesAplicacion.NomServi & ";Initial Catalog=BDADYSNET;User ID=" & ModuloVariablesAplicacion.NomUsar & ";Password=" & ModuloVariablesAplicacion.PassWusa)
             ModuloVariablesAplicacion.CadenaConexion = ConexionBaseDeDatos.cn.ConnectionString
+            ConexionBaseDeDatos.conexionPortatil.ConnectionString = ("Data Source=" & ServidorPortatil & ";Initial Catalog=BDADYSNET;User ID=" & UserPortatil & ";Password=" & PasswordPortatil)
             '  ModuloVariablesAplicacion.VerNatiClien = drr("VerNatiClien")
 
 
@@ -46,6 +54,8 @@ Public Class FrmPrincipal
             '    Case Else
             '        ModuloVariablesAplicacion.conexion = "Provider=sqloledb;Data source= " + ModuloVariablesAplicacion.NomServi + ";Initial Catalog=ACDATOXPSQL;User ID=" + ModuloVariablesAplicacion.NomUsar + ";Password=" + ModuloVariablesAplicacion.PassWusa + ";"
             'End Select
+
+
 
 
             con.Close()
@@ -86,7 +96,53 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         BuscarDatosConexion()
+
+        Try
+
+            conexionPortatil.Open()
+
+            'HACER PRUEBAS CON EL PORTATIL
+
+            Dim query As String = "SELECT COUNT(*) TolUsua FROM [ADYSNET].[dbo].[CMDTERCEROS]"
+            Dim comando As SqlCommand
+            Dim ContaTercero As SqlDataReader
+            comando = New SqlCommand(query, conexionPortatil)
+            ContaTercero = comando.ExecuteReader()
+
+
+            If ContaTercero.HasRows Then
+
+                ContaTercero.Read()
+
+                MessageBox.Show(ContaTercero("TolUsua").ToString())
+
+
+            Else
+
+                Titulo01 = "Control de validaciones cuentas contables"
+                Informa += "por lo tanto no se pudo registrar la cuenta contable." & Chr(13) & Chr(10)
+                Informa += "Por favor registralo en contabilidad o actualiza el proveedor" & Chr(13) & Chr(10)
+                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
+            conexionPortatil.Close()
+
+
+        Catch ex As Exception
+            Titulo01 = "Control de errores de ejecución"
+            Informa = "Lo siento pero se ha presentado un error " & Chr(13) & Chr(10)
+            Informa += "En la conexion del servidor portatil" & Chr(13) & Chr(10)
+            Informa += "Mensaje del error: " & ex.Message
+            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
+
+
+
     End Sub
 
     Private Sub FacturasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FacturasToolStripMenuItem1.Click
@@ -100,5 +156,9 @@ Public Class FrmPrincipal
 
     Private Sub NotaDebitoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotaDebitoToolStripMenuItem.Click
         NotaDebito.ShowDialog()
+    End Sub
+
+    Private Sub GestionCuentasContablesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionCuentasContablesToolStripMenuItem.Click
+        GestionContabilidad.ShowDialog()
     End Sub
 End Class
