@@ -1,0 +1,731 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+OBFACSQL
+</name>
+</assembly>
+<members>
+<member name="T:Modulo_Facturacion.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.cerrarSesion">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.Icon_aÑADIR">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.IconActualizar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.IconoActivar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.IconoCERRAR40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.iconoEliminar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.IconoExportar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.IconoGuardar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.IconoLupa">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_banco_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_cerrar_ventana_30">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_crear_nuevo_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_eliminar_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_factura_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_grabar_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_guardar_30">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_30">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_imprimir_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_payroll_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_reenviar_mensaje_30">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modulo_Facturacion.My.Resources.Resources.icons8_salida_30">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratos">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratos.DataTable1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratos.DataTable1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratos.DataTable1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.DataTable1TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager.UpdateUpdatedRows(Modulo_Facturacion.CojuntodeDatosContratos,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager.UpdateInsertedRows(Modulo_Facturacion.CojuntodeDatosContratos,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager.UpdateDeletedRows(Modulo_Facturacion.CojuntodeDatosContratos,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager.UpdateAll(Modulo_Facturacion.CojuntodeDatosContratos)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodeDatosContratosTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagos">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagos.Datos_detalle_de_pagosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagos.Datos_detalle_de_pagosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagos.Datos_detalle_de_pagosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.Datos_detalle_de_pagosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager.UpdateUpdatedRows(Modulo_Facturacion.CojuntodedatosPagos,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager.UpdateInsertedRows(Modulo_Facturacion.CojuntodedatosPagos,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager.UpdateDeletedRows(Modulo_Facturacion.CojuntodedatosPagos,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager.UpdateAll(Modulo_Facturacion.CojuntodedatosPagos)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.CojuntodedatosPagosTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagos">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagos.dsDetalleDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagos.dsEmisorDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagos.dsDetalleRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagos.dsEmisorRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagos.dsDetalleRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagos.dsEmisorRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.dsDetalleTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.dsEmisorTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager.UpdateUpdatedRows(Modulo_Facturacion.ConjuntoDeDatosPagos,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager.UpdateInsertedRows(Modulo_Facturacion.ConjuntoDeDatosPagos,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager.UpdateDeletedRows(Modulo_Facturacion.ConjuntoDeDatosPagos,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager.UpdateAll(Modulo_Facturacion.ConjuntoDeDatosPagos)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.ConjuntoDeDatosPagosTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemi">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemi.InformacionDeLaEmpresaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemi.DatosRemiDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemi.InformacionDeLaEmpresaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemi.DatosRemiRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemi.InformacionDeLaEmpresaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemi.DatosRemiRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemiTableAdapters.InformacionDeLaEmpresaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemiTableAdapters.DatosRemiTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager.UpdateUpdatedRows(Modulo_Facturacion.dsInFacturaRemi,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager.UpdateInsertedRows(Modulo_Facturacion.dsInFacturaRemi,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager.UpdateDeletedRows(Modulo_Facturacion.dsInFacturaRemi,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager.UpdateAll(Modulo_Facturacion.dsInFacturaRemi)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInFacturaRemiTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.InformacionDeLaEmpresaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.Vista_Factura_ElecDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.QRcodeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.InformacionDeLaEmpresaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.Vista_Factura_ElecRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.QRcodeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.InformacionDeLaEmpresaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.Vista_Factura_ElecRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElec.QRcodeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElecTableAdapters.InformacionDeLaEmpresaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElecTableAdapters.Vista_Factura_ElecTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager.UpdateUpdatedRows(Modulo_Facturacion.dsInfFacturaElec,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager.UpdateInsertedRows(Modulo_Facturacion.dsInfFacturaElec,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager.UpdateDeletedRows(Modulo_Facturacion.dsInfFacturaElec,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager.UpdateAll(Modulo_Facturacion.dsInfFacturaElec)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfFacturaElecTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.Vista_Nota_CreditoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.Datos_informacion_de_la_empresaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.QRCodeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.Vista_Nota_CreditoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.Datos_informacion_de_la_empresaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.QRCodeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.Vista_Nota_CreditoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.Datos_informacion_de_la_empresaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCredito.QRCodeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.Vista_Nota_CreditoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.Datos_informacion_de_la_empresaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager.UpdateUpdatedRows(Modulo_Facturacion.dsInfNotaCredito,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager.UpdateInsertedRows(Modulo_Facturacion.dsInfNotaCredito,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager.UpdateDeletedRows(Modulo_Facturacion.dsInfNotaCredito,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager.UpdateAll(Modulo_Facturacion.dsInfNotaCredito)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaCreditoTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.Datos_informacion_de_la_empresaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.Vista_Nota_DebitoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.QRcodeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.Datos_informacion_de_la_empresaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.Vista_Nota_DebitoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.QRcodeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.Datos_informacion_de_la_empresaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.Vista_Nota_DebitoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebito.QRcodeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.Datos_informacion_de_la_empresaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.Vista_Nota_DebitoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager.UpdateUpdatedRows(Modulo_Facturacion.dsInfNotaDebito,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager.UpdateInsertedRows(Modulo_Facturacion.dsInfNotaDebito,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager.UpdateDeletedRows(Modulo_Facturacion.dsInfNotaDebito,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager.UpdateAll(Modulo_Facturacion.dsInfNotaDebito)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Modulo_Facturacion.dsInfNotaDebitoTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>

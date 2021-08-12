@@ -1,0 +1,563 @@
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Form1.resources
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Provedores.resources
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.GenerateResource.cache
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe.config
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.pdb
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.xml
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Resources.resources
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.exe
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.xml
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.pdb
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbprojAssemblyReference.cache
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasBancariasProve.resources
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Contratos.resources
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Remisiones.resources
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.ReporteContratos.resources
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\EnvDTE.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\stdole.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\EnvDTE80.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.Build.Tasks.Core.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Data.Services.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\VSLangProj.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Data.Core.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\VSLangProj80.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\System.Threading.Tasks.Dataflow.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.MSXML.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.Build.Utilities.Core.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.Build.Framework.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\VSLangProj2.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.exe.config
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\RdlCompile.cache
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\RdlCompile.compiled
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CopyComplete
+C:\Users\ACER\Desktop\Provedores_Trabajo\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pagos.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe.config
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.pdb
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.xml
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\EnvDTE.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\stdole.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\EnvDTE80.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.Build.Tasks.Core.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Data.Services.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\VSLangProj.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Data.Core.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\VSLangProj80.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\System.Threading.Tasks.Dataflow.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.MSXML.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.Build.Utilities.Core.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.Build.Framework.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\VSLangProj2.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbprojAssemblyReference.cache
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.exe.config
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Form1.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Resources.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Contratos.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasBancariasProve.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pagos.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Provedores.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Remisiones.resources
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.GenerateResource.cache
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\RdlCompile.cache
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\RdlCompile.compiled
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CopyComplete
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.exe
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.xml
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.pdb
+C:\Users\ACER\Desktop\SIIGHOS-PLUSS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformes.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe.config
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.pdb
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.xml
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\EnvDTE.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\stdole.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.MSXML.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbprojAssemblyReference.cache
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Form1.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Resources.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Contratos.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasBancariasProve.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pagos.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Provedores.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Remisiones.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformes.resources
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.GenerateResource.cache
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CoreCompileInputs.cache
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CopyComplete
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.exe
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.xml
+C:\Users\tenjo\Desktop\asd\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.pdb
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe.config
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.exe
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.pdb
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Modulo_Facturacion.xml
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\EnvDTE.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\stdole.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\Microsoft.MSXML.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbprojAssemblyReference.cache
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Resources.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Contratos.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasBancariasProve.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pagos.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Provedores.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Remisiones.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformes.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.GenerateResource.cache
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CoreCompileInputs.cache
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CopyComplete
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.exe
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.xml
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.pdb
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\RdlCompile.cache
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\RdlCompile.compiled
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pruebas.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\bin\Debug\QRCoder.dll
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.NotaCredito.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmPrincipal.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Facturas.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmInfFacturaE.resources
+C:\Users\tenjo\Desktop\SIIGHOS PLUS\Modulo_Facturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CodigosProductos.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Reportes\rdlc\InfFacturaE.rdlc
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\OBFACSQL.exe.config
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\OBFACSQL.exe
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\OBFACSQL.pdb
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\OBFACSQL.xml
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\QRCoder.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\EnvDTE.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\stdole.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Microsoft.MSXML.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasContables.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Facturas.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.NotaDebito.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CodigosProductos.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmPrincipal.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Resources.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Contratos.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasBancariasProve.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.NotaCredito.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pagos.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Provedores.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Remisiones.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pruebas.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmInfFacturaE.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmInfNotaDebito.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformes.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformesRemi.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlnfNotaCredito.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.GenerateResource.cache
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\RdlCompile.cache
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\RdlCompile.compiled
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CoreCompileInputs.cache
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CopyComplete
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\OBFACSQL.exe
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\OBFACSQL.xml
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\OBFACSQL.pdb
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbprojAssemblyReference.cache
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.AnularRemi.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformesPagos.resources
+C:\ProgramaFacturacion\Modulo_Facturacion\bin\Debug\Reportes\rdlc\ReportPagos.rdlc
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Reportes\rdlc\InfFacturaE.rdlc
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Reportes\rdlc\ReportPagos.rdlc
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\OBFACSQL.exe.config
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\OBFACSQL.exe
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\OBFACSQL.pdb
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\OBFACSQL.xml
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\QRCoder.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\EnvDTE.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\stdole.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\Microsoft.MSXML.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbprojAssemblyReference.cache
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.AnularRemi.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasContables.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Facturas.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.NotaDebito.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CodigosProductos.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmPrincipal.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Resources.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Contratos.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.CuentasBancariasProve.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.NotaCredito.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pagos.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Provedores.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Remisiones.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.Pruebas.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmInfFacturaE.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmInfNotaDebito.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformes.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformesPagos.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlInformesRemi.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.FrmlnfNotaCredito.resources
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.GenerateResource.cache
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\RdlCompile.cache
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\RdlCompile.compiled
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CoreCompileInputs.cache
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.vbproj.CopyComplete
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\OBFACSQL.exe
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\OBFACSQL.xml
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\OBFACSQL.pdb
+C:\Users\tenjo\OneDrive\Escritorio\SIIGHOS-PLUSS\Modulo_Facturacion\obj\Debug\Modulo_Facturacion.GestionContabilidad.resources
