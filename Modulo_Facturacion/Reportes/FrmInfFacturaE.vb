@@ -117,7 +117,7 @@ Public Class FrmInfFacturaE
             cn.Close()
 
         Else
-            MsgBox("No se encontro los valores de esta factura")
+            MsgBox("Lo sienero pero no se encontro los valores de esta factura")
             cn.Close()
             Exit Sub
         End If
