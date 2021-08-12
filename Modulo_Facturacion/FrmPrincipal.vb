@@ -96,52 +96,17 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
-        BuscarDatosConexion()
-
         Try
 
-            conexionPortatil.Open()
-
-            'HACER PRUEBAS CON EL PORTATIL
-
-            Dim query As String = "SELECT COUNT(*) TolUsua FROM [ADYSNET].[dbo].[CMDTERCEROS]"
-            Dim comando As SqlCommand
-            Dim ContaTercero As SqlDataReader
-            comando = New SqlCommand(query, conexionPortatil)
-            ContaTercero = comando.ExecuteReader()
-
-
-            If ContaTercero.HasRows Then
-
-                ContaTercero.Read()
-
-                MessageBox.Show(ContaTercero("TolUsua").ToString())
-
-
-            Else
-
-                Titulo01 = "Control de validaciones cuentas contables"
-                Informa += "por lo tanto no se pudo registrar la cuenta contable." & Chr(13) & Chr(10)
-                Informa += "Por favor registralo en contabilidad o actualiza el proveedor" & Chr(13) & Chr(10)
-                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
-
-            conexionPortatil.Close()
-
+            BuscarDatosConexion()
 
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
             Informa = "Lo siento pero se ha presentado un error " & Chr(13) & Chr(10)
-            Informa += "En la conexion del servidor portatil" & Chr(13) & Chr(10)
+            Informa += "al abrir el programa Facturacion" & Chr(13) & Chr(10)
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-
-
-
 
     End Sub
 

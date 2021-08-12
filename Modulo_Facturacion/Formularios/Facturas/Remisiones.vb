@@ -570,162 +570,158 @@ Public Class Remisiones
         Try
             If ValidacionDeCampos() Then
 
-                If MsgBox("Se facturara esta remision ¿Esta seguro?", vbYesNo) = vbYes Then
+                If MessageBox.Show("Se facturara esta remision ¿Esta seguro?", "Control de Remisión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
 
-                    Dim concecutivoFactura As String = CreaConsecutivo("03", True, lblCodigoUsuario2.Text)
+                    'Dim concecutivoFactura As String = CreaConsecutivo("03", True, lblCodigoUsuario2.Text)
 
-                    Dim PrefijoFacturas As String
-                    Dim NumFactura As Integer
+                    'Dim PrefijoFacturas As String
+                    'Dim NumFactura As Integer
 
-                    If String.IsNullOrWhiteSpace(concecutivoFactura) Then
+                    'If String.IsNullOrWhiteSpace(concecutivoFactura) Then
 
-                        Exit Sub
+                    '    Exit Sub
 
-                    Else
-                        Dim prefijo As SqlDataReader
+                    'Else
+                    '    Dim prefijo As SqlDataReader
 
-                        prefijo = SQLReader("select PrefiConse from [Datos consecutivos SIIGHOSPLUS] WHERE CodConse = 03")
+                    '    prefijo = SQLReader("SELECT PrefiConse from [Datos consecutivos SIIGHOSPLUS] WHERE CodConse = 03")
 
-                        If prefijo.HasRows = False Then
-                            MsgBox("No se encontro el concecutivo")
-                            Exit Sub
-                        Else
+                    '    If prefijo.HasRows = False Then
+                    '        MsgBox("No se encontro el concecutivo")
+                    '        Exit Sub
+                    '    Else
 
-                            prefijo.Read()
-                            PrefijoFacturas = prefijo("PrefiConse")
-                            Dim LargoPrefijo As Integer = Len(PrefijoFacturas)
-                            Dim LargoNumFactura As Integer = (Len(concecutivoFactura) - LargoPrefijo)
-                            NumFactura = concecutivoFactura.Substring(LargoPrefijo, LargoNumFactura)
-                            cn.Close()
+                    '        prefijo.Read()
+                    '        PrefijoFacturas = prefijo("PrefiConse")
+                    '        Dim LargoPrefijo As Integer = Len(PrefijoFacturas)
+                    '        Dim LargoNumFactura As Integer = (Len(concecutivoFactura) - LargoPrefijo)
+                    '        NumFactura = concecutivoFactura.Substring(LargoPrefijo, LargoNumFactura)
+                    '        cn.Close()
 
-                        End If
+                    '    End If
 
-                        Dim fecha As Date = Date.Now
-                        Dim FechaFinal As Date = Date.Now.AddDays(30)
-                        Dim EstadoFacturado As Boolean = False
-                        Dim EstadoCuentaContable As Boolean = False
-                        Dim sumaValorTotalIva As Double = 0
+                    '    Dim fecha As Date = Date.Now
+                    '    Dim FechaFinal As Date = Date.Now.AddDays(30)
+                    '    Dim EstadoFacturado As Boolean = False
+                    '    Dim EstadoCuentaContable As Boolean = False
+                    '    Dim sumaValorTotalIva As Double = 0
 
-                        Dim ValorNetoFactura = Math.Round((Convert.ToDouble(txtTotalGrillaDetalle.Text) / 1.19), 0)
+                    '    Dim ValorNetoFactura = Math.Round((Convert.ToDouble(txtTotalGrillaDetalle.Text) / 1.19), 0)
 
-                        Dim fila As DataGridViewRow = New DataGridViewRow()
+                    '    Dim fila As DataGridViewRow = New DataGridViewRow()
 
-                        For Each fila In DataGridViewDetalleRemision.Rows
-                            sumaValorTotalIva += Convert.ToDouble(fila.Cells("ValorUniIVA").Value)
-                        Next
-
-
-                        EstadoFacturado = ClaseModuloDeRemisiones.FacturarRemision(PrefijoFacturas, NumFactura, txtNumRemision.Text, Format(ftAperturaRemision.Value, "yyyy/MM/dd"), Format(ftCierreRemision.Value, "yyyy/MM/dd"), txtTipoDocu.Text, txtIdentificacion.Text, txtSucursal.Text, ValorNetoFactura, 0, sumaValorTotalIva,
-                                            0, 0, 0, 0, Format(fecha, "yyyy/MM/dd"), cboResolucionFactura.SelectedValue, txtObserFactura.Text, lblCodigoUsuario2.Text, Format(fecha, "yyyy/MM/dd"), txtIdContrato.Text, txtNumeroDeCouta.Text)
+                    '    For Each fila In DataGridViewDetalleRemision.Rows
+                    '        sumaValorTotalIva += Convert.ToDouble(fila.Cells("ValorUniIVA").Value)
+                    '    Next
 
 
-                        'Si la factura se guarda correctamente, procede a enviarla a la Dian y a crear la cuenta contable por esta factura
-
-                        Dim fila2 As DataGridViewRow = New DataGridViewRow()
-                        Dim sumaValorTotaDetalle As Double = 0
-
-                        For Each fila2 In DataGridViewDetalleRemision.Rows
-                            sumaValorTotaDetalle += Convert.ToDouble(fila2.Cells("Total").Value)
-                        Next
+                    '    EstadoFacturado = ClaseModuloDeRemisiones.FacturarRemision(PrefijoFacturas, NumFactura, txtNumRemision.Text, Format(ftAperturaRemision.Value, "yyyy/MM/dd"), Format(ftCierreRemision.Value, "yyyy/MM/dd"), txtTipoDocu.Text, txtIdentificacion.Text, txtSucursal.Text, ValorNetoFactura, 0, sumaValorTotalIva,
+                    '                        0, 0, 0, 0, Format(fecha, "yyyy/MM/dd"), cboResolucionFactura.SelectedValue, txtObserFactura.Text, lblCodigoUsuario2.Text, Format(fecha, "yyyy/MM/dd"), txtIdContrato.Text, txtNumeroDeCouta.Text)
 
 
+                    '    Si la factura se guarda correctamente, procede a enviarla a la Dian y a crear la cuenta contable por esta factura
+
+                    '    Dim fila2 As DataGridViewRow = New DataGridViewRow()
+                    '    Dim sumaValorTotaDetalle As Double = 0
+
+                    '    For Each fila2 In DataGridViewDetalleRemision.Rows
+                    '        sumaValorTotaDetalle += Convert.ToDouble(fila2.Cells("Total").Value)
+                    '    Next
+
+                    '    If EstadoFacturado Then
+                    '        Try
+
+                    '            EstadoCuentaContable = ClaseModuloDeRemisiones.RegistraCuentaConta(PrefijoFacturas, NumFactura, txtTipoDocu.Text, txtIdentificacion.Text, txtSucursal.Text, Format(ftAperturaRemision.Value, "yyyy/MM/dd"), lblCodigoUsuario2.Text, Format(fecha, "yyyy/MM/dd"))
+
+                    '            If (EstadoCuentaContable = False) Then
+                    '                Titulo01 = "Control de errores de ejecución"
+                    '                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                    '                Informa += "Se registro correctamente la factura, pero hubo un error al registrar la cuenta contable" & Chr(13) & Chr(10)
+                    '                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    '            End If
 
 
-                        If EstadoFacturado Then
-                            Try
+                    '            btnFacturar.Enabled = False
 
-                                EstadoCuentaContable = ClaseModuloDeRemisiones.RegistraCuentaConta(PrefijoFacturas, NumFactura, txtTipoDocu.Text, txtIdentificacion.Text, txtSucursal.Text, Format(ftAperturaRemision.Value, "yyyy/MM/dd"), lblCodigoUsuario2.Text, Format(fecha, "yyyy/MM/dd"))
+                    '            CagarDetallesCuotas(txtIdContrato.Text)
 
-                                If (EstadoCuentaContable = False) Then
-                                    Titulo01 = "Control de errores de ejecución"
-                                    Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-                                    Informa += "Se registro correctamente la factura, pero hubo un error al registrar la cuenta contable" & Chr(13) & Chr(10)
-                                    MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                End If
+                    'Dim Proc As New System.Diagnostics.Process
+                    'Proc.StartInfo = New ProcessStartInfo("C:\SIIGHOSPLUS\OBFACELEC\APIFACTELEC\ApiFactElec.exe")
+                    'Proc.StartInfo.Arguments = "factura " + NumFactura.ToString + " " + txtNumRemision.Text + " " + PrefijoFacturas
 
 
-                                btnFacturar.Enabled = False
+                    'Proc.StartInfo.UseShellExecute = False
 
-                                CagarDetallesCuotas(txtIdContrato.Text)
-
-
-                                'Dim Proc As New System.Diagnostics.Process
-                                'Proc.StartInfo = New ProcessStartInfo("C:\SIIGHOSPLUS\OBFACELEC\APIFACTELEC\ApiFactElec.exe")
-                                'Proc.StartInfo.Arguments = "factura " + NumFactura.ToString + " " + txtNumRemision.Text + " " + PrefijoFacturas
+                    'Proc.Start()
+                    'Proc.WaitForExit()
 
 
-                                'Proc.StartInfo.UseShellExecute = False
-
-                                'Proc.Start()
-                                'Proc.WaitForExit()
+                    'Dim dr1 As Object
 
 
-                                'Dim dr1 As Object
+                    ''dr1 = SQLReader("SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'")
+
+                    'cn.Open()
+
+                    'Dim EstadoFacturaDiam As SqlCommand
+                    'EstadoFacturaDiam = New SqlCommand With {
+                    '.Connection = cn,
+                    '.CommandText = "SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'"
+                    '}
+                    'dr1 = EstadoFacturaDiam.ExecuteScalar()
 
 
-                                ''dr1 = SQLReader("SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'")
+                    'If dr1 = Nothing Then
+                    '    MsgBox("No se encontro información de la factura: " + PrefijoFacturas + " " + NumFactura.ToString)
+                    '    Exit Sub
+                    '    cn.Close()
 
-                                'cn.Open()
-
-                                'Dim EstadoFacturaDiam As SqlCommand
-                                'EstadoFacturaDiam = New SqlCommand With {
-                                '.Connection = cn,
-                                '.CommandText = "SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'"
-                                '}
-                                'dr1 = EstadoFacturaDiam.ExecuteScalar()
+                    'Else
 
 
-                                'If dr1 = Nothing Then
-                                '    MsgBox("No se encontro información de la factura: " + PrefijoFacturas + " " + NumFactura.ToString)
-                                '    Exit Sub
-                                '    cn.Close()
+                    '    Dim codEstado As String = dr1.ToString
 
-                                'Else
+                    '    Select Case codEstado
+                    '        Case "01"
+                    '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 01 Documento preparado para envia a la DIAN.")
+                    '        Case "02"
+                    '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 02 Documento validado por la DIAN.")
+                    '        Case "03"
+                    '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 03 Documento enviado al cliente.")
+                    '        Case "04"
+                    '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 04 Documento NO validado por la DIAN.")
+                    '        Case "05"
+                    '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 05 Documento rebota correo del cliente.")
+                    '        Case "06"
+                    '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 06 Documento validado por la DIAN CON Notificaciones.")
+                    '        Case Else
 
+                    '            Dim estado As Boolean = SQLUpdate("Update [BDADYSNET].[dbo].[Datos facturas realizadas]
+                    '                                                            SET [CodEstaDian] = '01' WHERE [PrefiFact] = '" & PrefijoFacturas & "'
+                    '                                                            And [NumFact] = '" & NumFactura & "' and [NumRemi] = '" & txtNumRemision.Text & "' ")
+                    '            If estado Then
+                    '                MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 01 Documento preparado para envia a la DIAN.")
+                    '            Else
+                    '                MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " no se registro en ninguno de los estados del documento validado")
+                    '            End If
 
-                                '    Dim codEstado As String = dr1.ToString
-
-                                '    Select Case codEstado
-                                '        Case "01"
-                                '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 01 Documento preparado para envia a la DIAN.")
-                                '        Case "02"
-                                '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 02 Documento validado por la DIAN.")
-                                '        Case "03"
-                                '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 03 Documento enviado al cliente.")
-                                '        Case "04"
-                                '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 04 Documento NO validado por la DIAN.")
-                                '        Case "05"
-                                '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 05 Documento rebota correo del cliente.")
-                                '        Case "06"
-                                '            MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 06 Documento validado por la DIAN CON Notificaciones.")
-                                '        Case Else
-
-                                '            Dim estado As Boolean = SQLUpdate("Update [BDADYSNET].[dbo].[Datos facturas realizadas]
-                                '                                                            SET [CodEstaDian] = '01' WHERE [PrefiFact] = '" & PrefijoFacturas & "'
-                                '                                                            And [NumFact] = '" & NumFactura & "' and [NumRemi] = '" & txtNumRemision.Text & "' ")
-                                '            If estado Then
-                                '                MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " se registró en estado 01 Documento preparado para envia a la DIAN.")
-                                '            Else
-                                '                MessageBox.Show("La factura: " + PrefijoFacturas + " " + NumFactura.ToString + " no se registro en ninguno de los estados del documento validado")
-                                '            End If
-
-                                '    End Select
+                    '    End Select
 
 
-                                '    cn.Close()
-                                'End If
+                    '    cn.Close()
+                    'End If
 
-                            Catch ex As Exception
-                                Titulo01 = "Control de errores de ejecución"
-                                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-                                Informa += "al momento de enviar la factura a la DIAN " & Chr(13) & Chr(10)
-                                Informa += "Mensaje del error: " & ex.Message
-                                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End Try
+                    'Catch ex As Exception
+                    '                        Titulo01 = "Control de errores de ejecución"
+                    '                        Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                    '                        Informa += "al momento de enviar la factura a la DIAN " & Chr(13) & Chr(10)
+                    '                        Informa += "Mensaje del error: " & ex.Message
+                    '                        MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    '                    End Try
 
-                        End If
+                    '                End If
 
-                    End If
+                    '            End If
                 End If
             End If
         Catch ex As Exception
@@ -765,7 +761,7 @@ Public Class Remisiones
         Try
 
             If String.IsNullOrWhiteSpace(txtNumRemision.Text) Then
-                If MsgBox("Registrar nueva remisión", vbYesNo) = vbYes Then
+                If MessageBox.Show("Registrar nueva remisión ¿Esta seguro?", "Control de Remisión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                     If ValidacionDeCampos() = True And ValidarTotal() = True Then
                         Dim concecutivo As String = CreaConsecutivo("02", True, lblCodigoUsuario2.Text)
                         txtNumRemision.Text = concecutivo
@@ -782,25 +778,25 @@ Public Class Remisiones
                     End If
                 End If
             Else
-                If MsgBox("Se Actualizara esta remision. ¿Estas de acuerdo?", vbYesNo) = vbYes Then
-                    Dim estado As Boolean = DataGridDetalleCuotas.SelectedCells.Item(4).Value 'Obtenemos el estado de pago de la cuota
-                    If estado = True Then
-                        MsgBox("No podras modificar esta remision porque ya fue facturara")
+                If MessageBox.Show("Se Actualizara esta remision ¿Esta seguro?", "Control de Remisión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                        Dim estado As Boolean = DataGridDetalleCuotas.SelectedCells.Item(4).Value 'Obtenemos el estado de pago de la cuota
+                        If estado = True Then
+                            MsgBox("No podras modificar esta remision porque ya fue facturara")
 
-                    Else
-                        If ValidacionDeCampos() = True And ValidarTotal() = True And txtNumRemision.Text <> Nothing Then
-                            Dim hora As String = Now.ToString("HH:mm:ss")
-                            Dim EstadoRegistroRemision As Boolean
-                            Dim fechaActual As Date = Date.Now
-                            EstadoRegistroRemision = ClaseModuloDeRemisiones.ModuloRemision(txtNumRemision.Text, txtIdContrato.Text, ftAperturaRemision.Value, hora, cboActivaRemicion.SelectedIndex, txtNumeroDeCouta.Text, txtObserFactura.Text, ftCierreRemision.Value, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), DataGridViewDetalleRemision)
-                            CagarDetallesCuotas(txtIdContrato.Text)
-                            If EstadoRegistroRemision Then
-                                btnFacturar.Enabled = True
+                        Else
+                            If ValidacionDeCampos() = True And ValidarTotal() = True And txtNumRemision.Text <> Nothing Then
+                                Dim hora As String = Now.ToString("HH:mm:ss")
+                                Dim EstadoRegistroRemision As Boolean
+                                Dim fechaActual As Date = Date.Now
+                                EstadoRegistroRemision = ClaseModuloDeRemisiones.ModuloRemision(txtNumRemision.Text, txtIdContrato.Text, ftAperturaRemision.Value, hora, cboActivaRemicion.SelectedIndex, txtNumeroDeCouta.Text, txtObserFactura.Text, ftCierreRemision.Value, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), DataGridViewDetalleRemision)
+                                CagarDetallesCuotas(txtIdContrato.Text)
+                                If EstadoRegistroRemision Then
+                                    btnFacturar.Enabled = True
+                                End If
                             End If
                         End If
                     End If
                 End If
-            End If
 
 
         Catch ex As Exception
@@ -1190,6 +1186,7 @@ Public Class Remisiones
                     MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     estado = False
                 Else
+                    MessageBox.Show("Si esta el proveedor", "Pruebas", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     estado = True
                 End If
 
