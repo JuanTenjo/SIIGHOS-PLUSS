@@ -29,14 +29,14 @@ Partial Class Remisiones
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Remisiones))
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -60,6 +60,11 @@ Partial Class Remisiones
         Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipCont = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridDetalleCuotas = New System.Windows.Forms.DataGridView()
+        Me.NumeroDeCouta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaDePago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Porcentaje = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorTotalCouta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoPagado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.DigitoVeri = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -140,11 +145,6 @@ Partial Class Remisiones
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtDigiVeri = New System.Windows.Forms.TextBox()
         Me.txtNumContra = New System.Windows.Forms.TextBox()
-        Me.NumeroDeCouta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaDePago = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Porcentaje = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValorTotalCouta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoPagado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridContratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridDetalleCuotas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -461,6 +461,58 @@ Partial Class Remisiones
         Me.DataGridDetalleCuotas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridDetalleCuotas.Size = New System.Drawing.Size(312, 274)
         Me.DataGridDetalleCuotas.TabIndex = 56
+        '
+        'NumeroDeCouta
+        '
+        Me.NumeroDeCouta.FillWeight = 48.81604!
+        Me.NumeroDeCouta.HeaderText = "No"
+        Me.NumeroDeCouta.MaxInputLength = 2
+        Me.NumeroDeCouta.MinimumWidth = 6
+        Me.NumeroDeCouta.Name = "NumeroDeCouta"
+        Me.NumeroDeCouta.ReadOnly = True
+        '
+        'FechaDePago
+        '
+        DataGridViewCellStyle5.Format = "d"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle5
+        Me.FechaDePago.FillWeight = 104.6759!
+        Me.FechaDePago.HeaderText = "Fecha"
+        Me.FechaDePago.MinimumWidth = 6
+        Me.FechaDePago.Name = "FechaDePago"
+        Me.FechaDePago.ReadOnly = True
+        '
+        'Porcentaje
+        '
+        Me.Porcentaje.FillWeight = 52.30192!
+        Me.Porcentaje.HeaderText = "%"
+        Me.Porcentaje.MaxInputLength = 7
+        Me.Porcentaje.MinimumWidth = 6
+        Me.Porcentaje.Name = "Porcentaje"
+        Me.Porcentaje.ReadOnly = True
+        '
+        'ValorTotalCouta
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "C0"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle6
+        Me.ValorTotalCouta.FillWeight = 159.087!
+        Me.ValorTotalCouta.HeaderText = "Cuota"
+        Me.ValorTotalCouta.MaxInputLength = 10
+        Me.ValorTotalCouta.MinimumWidth = 6
+        Me.ValorTotalCouta.Name = "ValorTotalCouta"
+        Me.ValorTotalCouta.ReadOnly = True
+        '
+        'EstadoPagado
+        '
+        Me.EstadoPagado.FillWeight = 82.83548!
+        Me.EstadoPagado.HeaderText = "Facturado"
+        Me.EstadoPagado.MinimumWidth = 6
+        Me.EstadoPagado.Name = "EstadoPagado"
+        Me.EstadoPagado.ReadOnly = True
+        Me.EstadoPagado.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.EstadoPagado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'Panel6
         '
@@ -1474,58 +1526,6 @@ Partial Class Remisiones
         Me.txtNumContra.Size = New System.Drawing.Size(63, 22)
         Me.txtNumContra.TabIndex = 115
         '
-        'NumeroDeCouta
-        '
-        Me.NumeroDeCouta.FillWeight = 48.81604!
-        Me.NumeroDeCouta.HeaderText = "No"
-        Me.NumeroDeCouta.MaxInputLength = 2
-        Me.NumeroDeCouta.MinimumWidth = 6
-        Me.NumeroDeCouta.Name = "NumeroDeCouta"
-        Me.NumeroDeCouta.ReadOnly = True
-        '
-        'FechaDePago
-        '
-        DataGridViewCellStyle5.Format = "d"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle5
-        Me.FechaDePago.FillWeight = 104.6759!
-        Me.FechaDePago.HeaderText = "Fecha"
-        Me.FechaDePago.MinimumWidth = 6
-        Me.FechaDePago.Name = "FechaDePago"
-        Me.FechaDePago.ReadOnly = True
-        '
-        'Porcentaje
-        '
-        Me.Porcentaje.FillWeight = 52.30192!
-        Me.Porcentaje.HeaderText = "%"
-        Me.Porcentaje.MaxInputLength = 7
-        Me.Porcentaje.MinimumWidth = 6
-        Me.Porcentaje.Name = "Porcentaje"
-        Me.Porcentaje.ReadOnly = True
-        '
-        'ValorTotalCouta
-        '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "C0"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle6
-        Me.ValorTotalCouta.FillWeight = 159.087!
-        Me.ValorTotalCouta.HeaderText = "Cuota"
-        Me.ValorTotalCouta.MaxInputLength = 10
-        Me.ValorTotalCouta.MinimumWidth = 6
-        Me.ValorTotalCouta.Name = "ValorTotalCouta"
-        Me.ValorTotalCouta.ReadOnly = True
-        '
-        'EstadoPagado
-        '
-        Me.EstadoPagado.FillWeight = 82.83548!
-        Me.EstadoPagado.HeaderText = "Facturado"
-        Me.EstadoPagado.MinimumWidth = 6
-        Me.EstadoPagado.Name = "EstadoPagado"
-        Me.EstadoPagado.ReadOnly = True
-        Me.EstadoPagado.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.EstadoPagado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
         'Remisiones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1533,7 +1533,7 @@ Partial Class Remisiones
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1033, 635)
+        Me.ClientSize = New System.Drawing.Size(1033, 640)
         Me.Controls.Add(Me.txtNumContra)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Label34)
