@@ -8,9 +8,9 @@ Public Class FrmPrincipal
         Try
 
 
-            'Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SIIGHOSPLUS\LogPlusAdysnet.LogSip;Jet OLEDB:Database Password=SIIGHOS33")
+            Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SIIGHOSPLUS\LogPlusAdysnet.LogSip;Jet OLEDB:Database Password=SIIGHOS33")
 
-            Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SIIGHOSPLUS\LogPlus.LogSip;Jet OLEDB:Database Password=SIIGHOS33")
+            'Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SIIGHOSPLUS\LogPlus.LogSip;Jet OLEDB:Database Password=SIIGHOS33")
 
             con.Open()
 
