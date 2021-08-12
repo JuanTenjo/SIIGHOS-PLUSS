@@ -1186,7 +1186,6 @@ Public Class Remisiones
                     MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     estado = False
                 Else
-                    MessageBox.Show("Si esta el proveedor", "Pruebas", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     estado = True
                 End If
 
