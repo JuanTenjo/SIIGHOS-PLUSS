@@ -8,6 +8,8 @@ Public Class FrmlInformes
         Dim rds1 As ReportDataSource
 
         'Colocamos nombre al reporte
+
+
         Me.Text = ModuloVariablesAplicacion.InfTituloInforme
 
         reporte = "Modulo_Facturacion." & ModuloVariablesAplicacion.infNombreInforme & ".rdlc"

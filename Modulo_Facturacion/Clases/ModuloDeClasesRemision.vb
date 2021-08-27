@@ -795,7 +795,7 @@ Public Class ModuloDeClasesRemision
                     Dim RegisConta As SqlCommand
 
                     RegisConta = New SqlCommand With {
-                    .Connection = conexionPortatil,   'Se debe cambiar la instancia a la del portatil
+                    .Connection = conexionPortatil,
                     .CommandText = InserContabilidad
                     }
 

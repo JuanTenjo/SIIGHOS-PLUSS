@@ -85,12 +85,14 @@ Public Class Remisiones
     Private Sub DataGridDetalleCuotas_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridDetalleCuotas.CellMouseClick
         DataGridViewDetalleRemision.Rows.Clear()
         Try
+            Titulo01 = "Control de Remisiones"
+
             Dim codigo As String = DataGridDetalleCuotas.SelectedCells.Item(0).Value 'OPtenemos el item del contrato
             Dim estado As Boolean = DataGridDetalleCuotas.SelectedCells.Item(4).Value 'Obtenemos el estado de pago de la cuota
 
             If estado = True Then   'Si la cuota ya fue facturada
 
-                MsgBox("Esta cuota ya esta facturada, no podras modificarla")
+                MessageBox.Show("Esta cuota ya esta facturada, no podras modificarla", Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Information)
                 btnImprimirRemi.Visible = False
                 btnFacturar.Visible = False
                 btnImprimirFac.Visible = True
@@ -171,7 +173,7 @@ Public Class Remisiones
                 Next
 
                 If codigo > CuotasPagadas + 1 Then
-                    MsgBox("No puedes crear la remision de esta cuota sin antes facturar la cuota numero: " & (CuotasPagadas + 1) & " ")
+                    MessageBox.Show("No puedes crear la remision de esta cuota sin antes facturar la cuota numero:  " & (CuotasPagadas + 1) & " ", Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Information)
                     btnFacturar.Enabled = False
                     btnImprimirRemi.Visible = False
                     btnaAgregarFila.Enabled = False
@@ -216,12 +218,15 @@ Public Class Remisiones
                         End If
 
                     Else
-                        MsgBox("Esta cuota ya tiene una remision cargada, podras modificarla o eliminarla")
+
+                        MessageBox.Show("Esta cuota ya tiene una remision cargada, podras modificarla o eliminarla", Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                         LimpiarCamposDataGridDetalle()
                         btnImprimirRemi.Visible = True
                         btnAnular.Enabled = True
                         btnFacturar.Enabled = True
                         While reader2.Read()
+
                             txtNumRemision.Text = reader2("NumRemi")
                             txtIdContrato.Text = reader2("ID_Contratos")
                             txtNumeroDeCouta.Text = reader2![CuotNum]
@@ -568,9 +573,10 @@ Public Class Remisiones
 
     Private Sub btnFacturar_Click(sender As Object, e As EventArgs) Handles btnFacturar.Click
         Try
-            If ValidacionDeCampos() Then
+            If MessageBox.Show("Se facturara esta remision ¿Esta seguro?", "Control de Remisión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
 
-                If MessageBox.Show("Se facturara esta remision ¿Esta seguro?", "Control de Remisión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                If ValidacionDeCampos() Then
+
 
                     Dim concecutivoFactura As String = CreaConsecutivo("03", True, lblCodigoUsuario2.Text)
 
@@ -616,7 +622,7 @@ Public Class Remisiones
 
 
                         EstadoFacturado = ClaseModuloDeRemisiones.FacturarRemision(PrefijoFacturas, NumFactura, txtNumRemision.Text, Format(ftAperturaRemision.Value, "yyyy/MM/dd"), Format(ftCierreRemision.Value, "yyyy/MM/dd"), txtTipoDocu.Text, txtIdentificacion.Text, txtSucursal.Text, ValorNetoFactura, 0, sumaValorTotalIva,
-                                            0, 0, 0, 0, Format(fecha, "yyyy/MM/dd"), cboResolucionFactura.SelectedValue, txtObserFactura.Text, lblCodigoUsuario2.Text, Format(fecha, "yyyy/MM/dd"), txtIdContrato.Text, txtNumeroDeCouta.Text)
+                                        0, 0, 0, 0, Format(fecha, "yyyy/MM/dd"), cboResolucionFactura.SelectedValue, txtObserFactura.Text, lblCodigoUsuario2.Text, Format(fecha, "yyyy/MM/dd"), txtIdContrato.Text, txtNumeroDeCouta.Text)
 
 
                         ' Si la factura se guarda correctamente, procede a enviarla a la Dian y a crear la cuenta contable por esta factura
@@ -665,9 +671,9 @@ Public Class Remisiones
 
                                 Dim EstadoFacturaDiam As SqlCommand
                                 EstadoFacturaDiam = New SqlCommand With {
-                                .Connection = cn,
-                                .CommandText = "SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'"
-                                }
+                            .Connection = cn,
+                            .CommandText = "SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'"
+                            }
                                 dr1 = EstadoFacturaDiam.ExecuteScalar()
 
 

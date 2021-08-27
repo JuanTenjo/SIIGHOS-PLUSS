@@ -37,7 +37,7 @@ Public Class FrmPrincipal
             ConexionBaseDeDatos.cn2.ConnectionString = ("Data Source=" & ModuloVariablesAplicacion.NomServi & ";Initial Catalog=BDADYSNET;User ID=" & ModuloVariablesAplicacion.NomUsar & ";Password=" & ModuloVariablesAplicacion.PassWusa)
             ModuloVariablesAplicacion.CadenaConexion = ConexionBaseDeDatos.cn.ConnectionString
             ConexionBaseDeDatos.conexionPortatil.ConnectionString = ("Data Source=" & ServidorPortatil & ";Initial Catalog=BDADYSNET;User ID=" & UserPortatil & ";Password=" & PasswordPortatil)
-            '  ModuloVariablesAplicacion.VerNatiClien = drr("VerNatiClien")
+            'ModuloVariablesAplicacion.VerNatiClien = drr("VerNatiClien")
 
 
 
@@ -54,7 +54,6 @@ Public Class FrmPrincipal
             '    Case Else
             '        ModuloVariablesAplicacion.conexion = "Provider=sqloledb;Data source= " + ModuloVariablesAplicacion.NomServi + ";Initial Catalog=ACDATOXPSQL;User ID=" + ModuloVariablesAplicacion.NomUsar + ";Password=" + ModuloVariablesAplicacion.PassWusa + ";"
             'End Select
-
 
 
 

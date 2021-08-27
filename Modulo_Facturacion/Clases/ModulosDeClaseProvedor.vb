@@ -295,6 +295,30 @@ Public Class ModulosDeClaseProvedor
                 Else
                 End If
 
+
+                'ACTUALIZA LOS CONTRATOS YA REGISTRADOS DEL PROVEEDOR REGISTRADO
+
+                If bandera = 1 Then
+                    Try
+                        Dim UpdateContrato As SqlCommand
+                        UpdateContrato = New SqlCommand With {
+                        .Connection = cn,
+                        .CommandType = CommandType.Text,
+                        .CommandText = "UPDATE [BDADYSNET].[dbo].[Datos registros de contratos] SET CodSucContra = '" & SucurProv & "'  WHERE TipDocContra + NumDocContra = '" & TipoDocu.ToString + IdenProve.ToString & "' "
+                    }
+                        UpdateContrato.ExecuteNonQuery()
+                        bandera = 1
+
+                    Catch ex As Exception
+                        Titulo01 = "Control de errores de ejecución"
+                        Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                        Informa += "al actualizar la sucursal en los contratos" & Chr(13) & Chr(10)
+                        Informa += "Mensaje del error: " & ex.Message
+                        MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        bandera = 0
+                    End Try
+                End If
+
                 'ELIMINA OBLIGACIONES FISCALES ACTUALES DE ESTE PROVEEDOR
 
                 If bandera = 1 Then

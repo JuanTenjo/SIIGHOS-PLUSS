@@ -23,17 +23,18 @@ Public Class GestionContabilidad
 
                 While FactPending.Read()
 
-                    cn2.Open()
 
                     Dim NumFacFormado As String = FactPending("NumFact").ToString()
 
                     NumFacFormado = NumFacFormado.PadLeft(15, "0") 'Agregue cuantos ceros falten a la izquierda para completar el tamaño
 
+                    conexionPortatil.Open()
+
                     Query = "SELECT * FROM [ADYSNET].[dbo].[CMDMOVIMIENTO] WHERE [CMDDocumentoMovimiento] = '" & NumFacFormado & "' and [CMDPrefijoMovimiento] = '" & FactPending("PrefiFact").ToString() & "'"
 
                     Dim comando As SqlCommand
                     Dim reader As SqlDataReader
-                    comando = New SqlCommand(Query, cn2)
+                    comando = New SqlCommand(Query, conexionPortatil)
                     reader = comando.ExecuteReader()
 
                     If reader.HasRows = False Then
@@ -43,7 +44,7 @@ Public Class GestionContabilidad
                     End If
 
                     reader.Close()
-                    cn2.Close()
+                    conexionPortatil.Close()
 
                 End While
 
