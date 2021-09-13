@@ -144,7 +144,7 @@ Partial Class FrmPrincipal
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmPrincipal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FACTURACION  0.0.3 (13/09/2021)  *** ADYSNET ***"
+        Me.Text = "FACTURACION  0.0.4 (13/09/2021)  *** ADYSNET ***"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

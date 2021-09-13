@@ -162,32 +162,39 @@ Public Class Contratos
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         If String.IsNullOrWhiteSpace(txtIdContrato.Text) Then
+
             Dim EstadoConcecutivo As Boolean = GenerarConcecutivo()
-            If EstadoConcecutivo = True Then
-                If MsgBox("Esta seguro de registrar este contrato", vbYesNo) = vbYes Then
-                    If String.IsNullOrWhiteSpace(txtIdContrato.Text) = False Then
-                        Try
-                            Dim fechaActual As Date = Date.Now
-                            ClaseModeloContratos.RegistrarContrato(txtIdContrato.Text, txtNumeroContrato.Text, cboVigencia.Text, cboTipoDocuContrato.Text, txtNumeroDocumento.Text, txtSucursal.Text,
+                If EstadoConcecutivo = True Then
+
+                    If MsgBox("Esta seguro de registrar este contrato", vbYesNo) = vbYes Then
+                        If String.IsNullOrWhiteSpace(txtIdContrato.Text) = False Then
+                            Try
+                                Dim fechaActual As Date = Date.Now
+                                ClaseModeloContratos.RegistrarContrato(txtIdContrato.Text, txtNumeroContrato.Text, cboVigencia.Text, cboTipoDocuContrato.Text, txtNumeroDocumento.Text, txtSucursal.Text,
                                                                            cboTipoContrato.SelectedValue, Format(DtFechaInicial.Value, "yyyy/MM/dd"), Format(DtFechaFinal.Value, "yyyy/MM/dd"), txt0bjetoContrato.Text, txtValorSinIva.Text, txtValorIva.Text, txtValorPazYSalvo.Text,
                                                                            txtValorLegalizacion.Text, txtNumeroDePagos.Text, cboExigePoliza.SelectedIndex, txtNombreEntidadPoliza.Text, Format(DtFechaExpedicionPoliza.Value, "yyyy/MM/dd"), cboVigente.SelectedIndex, txtVisitasMes.Text, Format(DtFechaCotizacion.Value, "yyyy/MM/dd"),
                                                                             cboTipoDocuRepresentante.Text, cboNombreRepresentanteLegal.SelectedValue, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), DataGridDetalleCuotas, DataGridDetallePolizas, txtCodPoliza.Text, cboVezPoliza.SelectedIndex + 1)
-                            CargarDataGridContratos()
-                        Catch ex As Exception
-                            Titulo01 = "Control de errores de ejecución"
-                            Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
-                            Informa += "Error al guardar el contrato" & Chr(13) & Chr(10)
-                            Informa += "Mensaje del error: " & ex.Message
-                            MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End Try
+                                CargarDataGridContratos()
+                            Catch ex As Exception
+                                Titulo01 = "Control de errores de ejecución"
+                                Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
+                                Informa += "Error al guardar el contrato" & Chr(13) & Chr(10)
+                                Informa += "Mensaje del error: " & ex.Message
+                                MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End Try
+                        End If
                     End If
+
                 End If
-            End If
-        Else
+
+
+            Else
+
             If MsgBox("Dedese modificar el contrato N! " & txtIdContrato.Text & " ", vbYesNo) = vbYes Then
 
                 If String.IsNullOrWhiteSpace(txtIdContrato.Text) = False Then
                     Try
+
                         If ValidarCamposLLenos() Then
                             If CalcularTotales() Then
                                 Dim fechaActual As Date = Date.Now
@@ -505,7 +512,9 @@ Public Class Contratos
 
     Private Function GenerarConcecutivo() As Boolean
         Try
+
             If ValidarCamposLLenos() Then
+
                 If CalcularTotales() Then
                     If txtIdContrato.Text = "" Then
                         Dim Consecutivo As String = ConsecutivoDocumen("01", True, lblCodigoUsuario2.Text)
@@ -539,6 +548,7 @@ Public Class Contratos
                     btnGuardar.Enabled = True
 
                 End If
+
             End If
 
 
@@ -677,7 +687,7 @@ Public Class Contratos
     Public Function ValidarCamposDataGrid() As Boolean  ' Valida para el datagrid
         Dim estado As Boolean
         If String.IsNullOrWhiteSpace(Me.txtNumeroDePagos.Text) Then
-            MsgBox("El campo Numero De Pagos esta vacio", MsgBoxStyle.Information, "Control de datos")
+            MsgBox("El campo Numero De Pagos esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
             Me.txtNumeroDePagos.Select()
             estado = False
             Return estado
@@ -685,7 +695,7 @@ Public Class Contratos
             estado = True
         End If
         If String.IsNullOrWhiteSpace(Me.txtValorSinIva.Text) Then
-            MsgBox("El campo valor Sin IVA no esta vacio", MsgBoxStyle.Information, "Control de datos")
+            MsgBox("El campo valor Sin IVA no esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
             Me.txtValorSinIva.Select()
             estado = False
             Return estado
@@ -693,7 +703,7 @@ Public Class Contratos
             estado = True
         End If
         If String.IsNullOrWhiteSpace(Me.txtValorIva.Text) Then
-            MsgBox("El campo valor IVA contrato no esta vacio", MsgBoxStyle.Information, "Control de datos")
+            MsgBox("El campo valor IVA contrato no esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
             Me.txtValorIva.Select()
             estado = False
             Return estado
@@ -701,7 +711,7 @@ Public Class Contratos
             estado = True
         End If
         If String.IsNullOrWhiteSpace(Me.txtValorTotal.Text) Then
-            MsgBox("El campo valor total esta vacio", MsgBoxStyle.Information, "Control de datos")
+            MsgBox("El campo valor total esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
             Me.txtValorTotal.Select()
             estado = False
             Return estado
@@ -716,8 +726,44 @@ Public Class Contratos
         Try
             Dim estado As Boolean
             If cboNombreContratante.SelectedIndex < 0 Then
-                MsgBox("El campo Nombre Del Contratante esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Nombre Del Contratante esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboNombreContratante.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+            If cboTipoDocuContrato.SelectedIndex < 0 Then
+                MsgBox("El campo tipo documento del tercero esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
+                Me.cboTipoDocuContrato.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+            If String.IsNullOrWhiteSpace(Me.txtNumeroDocumento.Text) Then
+                MsgBox("El campo numero de documento del tercero esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
+                Me.txtNumeroDocumento.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+            If String.IsNullOrWhiteSpace(Me.txtDigiVeriContra.Text) Then
+                MsgBox("El campo digito de verificacion esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
+                Me.txtDigiVeriContra.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+            If String.IsNullOrWhiteSpace(Me.txtSucursal.Text) Then
+                MsgBox("El campo sucursal esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
+                Me.txtSucursal.Select()
                 estado = False
                 Return estado
             Else
@@ -726,7 +772,7 @@ Public Class Contratos
 
 
             If String.IsNullOrWhiteSpace(Me.txtNumeroContrato.Text) Then
-                MsgBox("El campo Numero de contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Numero de contrato esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtNumeroContrato.Select()
                 estado = False
                 Return estado
@@ -735,7 +781,7 @@ Public Class Contratos
             End If
 
             If String.IsNullOrWhiteSpace(Me.txtNumeroDePagos.Text) Then
-                MsgBox("El campo Numero De Pagos esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Numero De Pagos esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtNumeroDePagos.Select()
                 estado = False
                 Return estado
@@ -743,7 +789,7 @@ Public Class Contratos
                 estado = True
             End If
             If cboVigencia.SelectedIndex < 0 Then
-                MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboVigencia.Select()
                 estado = False
                 Return estado
@@ -751,7 +797,7 @@ Public Class Contratos
                 estado = True
             End If
             If cboVigencia.SelectedIndex < 0 Then
-                MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Vigencia esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboVigencia.Select()
                 estado = False
                 Return estado
@@ -759,7 +805,7 @@ Public Class Contratos
                 estado = True
             End If
             If cboTipoContrato.SelectedIndex = -1 Then
-                MsgBox("El campo Tipo Contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Tipo Contrato esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboTipoContrato.Select()
                 estado = False
                 Return estado
@@ -767,13 +813,13 @@ Public Class Contratos
                 estado = True
             End If
             If DtFechaFinal.Value.Date < DtFechaInicial.Value.Date Then
-                MsgBox("La fecha final no puede ser menor a la inicial ", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("La fecha final no puede ser menor a la inicial ", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.DtFechaFinal.Select()
                 estado = False
                 Return estado
             End If
             If String.IsNullOrWhiteSpace(Me.txtNumeroDePagos.Text) Then
-                MsgBox("El campo Numero de pagos solo acepta valores numericos y no puede estar vacio.", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Numero de pagos solo acepta valores numericos y no puede estar vacio.", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtNumeroDePagos.Select()
                 estado = False
                 Return estado
@@ -781,7 +827,7 @@ Public Class Contratos
                 estado = True
             End If
             If cboVigente.SelectedIndex < 0 Then
-                MsgBox("El campo vigente esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo vigente esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboVigente.Select()
                 estado = False
                 Return estado
@@ -789,7 +835,7 @@ Public Class Contratos
                 estado = True
             End If
             If String.IsNullOrWhiteSpace(Me.txt0bjetoContrato.Text) Then
-                MsgBox("El campo Objeto contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Objeto contrato esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txt0bjetoContrato.Select()
                 estado = False
                 Return estado
@@ -797,7 +843,7 @@ Public Class Contratos
                 estado = True
             End If
             If String.IsNullOrWhiteSpace(Me.txtValorSinIva.Text) Then
-                MsgBox("El campo valor Sin IVA esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo valor Sin IVA esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtValorSinIva.Select()
                 estado = False
                 Return estado
@@ -805,7 +851,7 @@ Public Class Contratos
                 estado = True
             End If
             If String.IsNullOrWhiteSpace(Me.txtValorIva.Text) Then
-                MsgBox("El campo valor IVA contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo valor IVA contrato esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtValorIva.Select()
                 estado = False
                 Return estado
@@ -813,7 +859,7 @@ Public Class Contratos
                 estado = True
             End If
             If String.IsNullOrWhiteSpace(Me.txtValorPazYSalvo.Text) Then
-                MsgBox("El campo valor paz y salvo contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo valor paz y salvo contrato esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtValorPazYSalvo.Select()
                 estado = False
                 Return estado
@@ -822,7 +868,7 @@ Public Class Contratos
             End If
 
             If String.IsNullOrWhiteSpace(Me.txtValorLegalizacion.Text) Then
-                MsgBox("El campo legalizacion contrato esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo legalizacion contrato esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtValorLegalizacion.Select()
                 estado = False
                 Return estado
@@ -830,7 +876,7 @@ Public Class Contratos
                 estado = True
             End If
             If String.IsNullOrWhiteSpace(Me.txtValorTotal.Text.Trim) Then
-                MsgBox("El campo valor total esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo valor total esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtValorTotal.Select()
                 estado = False
                 Return estado
@@ -838,7 +884,7 @@ Public Class Contratos
                 estado = True
             End If
             If cboExigePoliza.SelectedIndex < 0 Then
-                MsgBox("El campo exige poliza esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo exige poliza esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboExigePoliza.Select()
                 estado = False
                 Return estado
@@ -846,7 +892,7 @@ Public Class Contratos
                 estado = True
             End If
             If cboNombreRepresentanteLegal.SelectedIndex < 0 Then
-                MsgBox("El campo Representante legal esta vacio", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("El campo Representante legal esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboExigePoliza.Select()
                 estado = False
                 Return estado
@@ -855,19 +901,19 @@ Public Class Contratos
             End If
             If cboExigePoliza.SelectedIndex = 1 Then
                 If String.IsNullOrWhiteSpace(Me.txtNombreEntidadPoliza.Text) Then
-                    MsgBox("El campo entidad poliza no puede estar vacio", MsgBoxStyle.Information, "Control de datos")
+                    MsgBox("El campo entidad poliza no puede estar vacio", MsgBoxStyle.Exclamation, "Control de datos")
                     Me.txtNombreEntidadPoliza.Select()
                     estado = False
                     Return estado
                 End If
                 If String.IsNullOrWhiteSpace(Me.txtCodPoliza.Text) Then
-                    MsgBox("El campo Cod Poliza no puede estar vacio", MsgBoxStyle.Information, "Control de datos")
+                    MsgBox("El campo Cod Poliza no puede estar vacio", MsgBoxStyle.Exclamation, "Control de datos")
                     Me.txtCodPoliza.Select()
                     estado = False
                     Return estado
                 End If
                 If cboVezPoliza.SelectedIndex < 0 Then
-                    MsgBox("El campo Vez Poliza esta vacio", MsgBoxStyle.Information, "Control de datos")
+                    MsgBox("El campo Vez Poliza esta vacio", MsgBoxStyle.Exclamation, "Control de datos")
                     Me.cboVezPoliza.Select()
                     estado = False
                     Return estado

@@ -73,8 +73,12 @@ Public Class CodigosProductos
     Private Sub DataGridCodigosModulos_CurrentCellChanged(sender As Object, e As EventArgs) Handles DataGridCodigosModulos.CurrentCellChanged
         If DataGridCodigosModulos.SelectedCells.Count <> 0 Then
             btnActualizar.Visible = True
+
             btnGuardar.Visible = False
             btnEliminarCodigo.Enabled = True
+
+
+            TxtCodigo.Text = DataGridCodigosModulos.SelectedCells(0).Value.ToString()
             txtNombreCodigo.Text = DataGridCodigosModulos.SelectedCells(1).Value.ToString()
             cboClasificacion.SelectedValue = DataGridCodigosModulos.SelectedCells(5).Value
             txtValorTarifa.Text = DataGridCodigosModulos.SelectedCells(3).Value.ToString()
@@ -113,7 +117,7 @@ Public Class CodigosProductos
 
 
             If cboClasificacion.SelectedIndex < 0 Then
-                MsgBox("Seleccion una clasificacion ", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("Seleccion una clasificacion ", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboClasificacion.Select()
                 estado = False
                 Return estado
@@ -121,7 +125,7 @@ Public Class CodigosProductos
                 estado = True
             End If
             If cboClasificacion.SelectedIndex < 0 Then
-                MsgBox("Seleccion una clasificacion ", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("Seleccion una clasificacion ", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.cboClasificacion.Select()
                 estado = False
                 Return estado
@@ -130,15 +134,26 @@ Public Class CodigosProductos
             End If
 
             If String.IsNullOrWhiteSpace(txtNombreCodigo.Text) = True Then
-                MsgBox("Digite un nombre para este producto", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("Digite un nombre para este producto", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtNombreCodigo.Select()
                 estado = False
                 Return estado
             Else
                 estado = True
             End If
+
+            If String.IsNullOrWhiteSpace(TxtCodigo.Text) = True Then
+                MsgBox("Digite un codigo para este producto", MsgBoxStyle.Exclamation, "Control de datos")
+                Me.TxtCodigo.Select()
+                estado = False
+                Return estado
+            Else
+                estado = True
+            End If
+
+
             If String.IsNullOrWhiteSpace(txtPorceIVA.Text) = True Then
-                MsgBox("Digite un procentage para este producto", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("Digite un procentage para este producto", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtPorceIVA.Select()
                 estado = False
                 Return estado
@@ -146,7 +161,7 @@ Public Class CodigosProductos
                 estado = True
             End If
             If String.IsNullOrWhiteSpace(txtValorTarifa.Text) = True Then
-                MsgBox("Digite un valor de tarifa para este producto", MsgBoxStyle.Information, "Control de datos")
+                MsgBox("Digite un valor de tarifa para este producto", MsgBoxStyle.Exclamation, "Control de datos")
                 Me.txtValorTarifa.Select()
                 estado = False
                 Return estado
@@ -210,9 +225,9 @@ Public Class CodigosProductos
         Try
             If ValidarCampos() = True Then
 
-                Dim concecutivoProducCatalogo As String = CreaConsecutivo("07", True, lblCodigoUsuario2.Text)
+                'Dim concecutivoProducCatalogo As String = CreaConsecutivo("07", True, lblCodigoUsuario2.Text)
 
-                Dim EstadoRegistro As Boolean = ModuloDeClaseUtilidades.RegistrarCodigo(concecutivoProducCatalogo, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
+                Dim EstadoRegistro As Boolean = ModuloDeClaseUtilidades.RegistrarCodigo(TxtCodigo.Text, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
 
                 If EstadoRegistro Then
                     cargarDatos()
