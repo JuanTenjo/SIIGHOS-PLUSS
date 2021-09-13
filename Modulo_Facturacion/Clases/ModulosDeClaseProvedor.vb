@@ -113,7 +113,6 @@ Public Class ModulosDeClaseProvedor
                                                 .AddWithValue("@FecRegis", FecRegis)
                                             End With
                                             If cipn.ExecuteNonQuery() Then
-                                                Return True
                                                 bandera = 1
                                             End If
 
@@ -134,6 +133,7 @@ Public Class ModulosDeClaseProvedor
                         End If
 
                         'Registro Obligaciones Fiscales
+
                         If bandera = 1 Then
                             Try
                                 Dim RegistroObligacionFiscal As SqlCommand
@@ -142,6 +142,7 @@ Public Class ModulosDeClaseProvedor
                                     .CommandType = CommandType.Text,
                                     .CommandText = "INSERT INTO [GEOGRAXPSQL].[dbo].[Datos detalle obligacion fiscal](TipoDocu,NumDoc,SucurProv,CodObliFiscal,TipoOblifiscal,CodRegis) VALUES(@TipoDocu,@NumDoc,@SucurProv,@CodObliFiscal,@TipoOblifiscal,@CodRegis)"
                                 }
+
                                 For Each Fila2 In TipoObliFiscal1.Rows
                                     RegistroObligacionFiscal.Parameters.Clear()
                                     With RegistroObligacionFiscal.Parameters

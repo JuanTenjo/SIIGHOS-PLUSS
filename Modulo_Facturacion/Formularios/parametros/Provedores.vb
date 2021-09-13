@@ -389,14 +389,14 @@ Public Class Provedores
                 Else
                     estado = True
                 End If
-                If String.IsNullOrEmpty(Me.txtSegundoNombre.Text) Then
-                    MsgBox("El campo segundo nombre esta vacio", MsgBoxStyle.Information, "Control de datos")
-                    Me.txtSegundoApellido.Select()
-                    estado = False
-                    Return estado
-                Else
-                    estado = True
-                End If
+                'If String.IsNullOrEmpty(Me.txtSegundoNombre.Text) Then
+                '    MsgBox("El campo segundo nombre esta vacio", MsgBoxStyle.Information, "Control de datos")
+                '    Me.txtSegundoApellido.Select()
+                '    estado = False
+                '    Return estado
+                'Else
+                '    estado = True
+                'End If
                 If String.IsNullOrEmpty(Me.txtPrimerApellido.Text) Then
                     MsgBox("El campo primer apellido esta vacio", MsgBoxStyle.Information, "Control de datos")
                     Me.txtPrimerApellido.Select()
@@ -953,19 +953,21 @@ Public Class Provedores
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             If ValidarRellenoDeCampos() Then
-                If MsgBox("Seguro que desea guardar este registro", vbYesNo) = vbYes Then
-                    Try
 
-                        Dim fechaActual As Date = Date.Now
-                        ClaseModelo.AgregarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, cboCuentaContable.SelectedValue, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
-                                               txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
-                                                   1, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
-                                                   txtObservaciones.Text, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text, DataGridCodObliFiscal1, DataGridCodObliFiscal2)
-                    Catch ex As Exception
-                        MsgBox(ex.ToString)
-                    End Try
+                If MessageBox.Show("Se agregara este proveedor ¿esta seguro? ", "Control de ejecución", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+
+
+                    Dim fechaActual As Date = Date.Now
+                    ClaseModelo.AgregarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, cboCuentaContable.SelectedValue, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
+                                                    txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
+                                                        1, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
+                                                        txtObservaciones.Text, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text, DataGridCodObliFiscal1, DataGridCodObliFiscal2)
+
                     MostrarDatosProveedor()
+
+
                 End If
+
             End If
         Catch ex As Exception
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
@@ -979,18 +981,20 @@ Public Class Provedores
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
         Try
             If ValidarRellenoDeCampos() Then
-                If MsgBox("Seguro que desea Actualizar este registro", vbYesNo) = vbYes Then
-                    Try
-                        Dim fechaActual As Date = Date.Now
-                        ClaseModelo.ActualizarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, cboCuentaContable.SelectedValue, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
+
+                If MessageBox.Show("Se actualizara este proveedor ¿esta seguro? ", "Control de ejecución", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+
+                    Dim fechaActual As Date = Date.Now
+
+                    ClaseModelo.ActualizarProvedor(cboTipoDocumento.Text, txtNumeroDocumento.Text, txtDV.Text, txtSucursal.Text, cboCuentaContable.SelectedValue, txtIdentidadDos.Text, txtRazonSocial.Text, cboRegimenTributario.SelectedValue, cboTipoProvedor.SelectedValue, cboPais.Text, cboDpto.Text, cboMunicipios.Text, cboMunicipios.SelectedValue, txtDireccion.Text,
                                                txtEmail1.Text, txtEmail2.Text, txtWeb.Text, txtPrefijo.Text, txtTelefono.Text, txtTelefono2.Text, txtTelefono3.Text, txtNombreContacto.Text, txtCargoContacto.Text, txtCelularContacto.Text,
-                                                   EstadoActivo.ToString, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
-                                                   txtObservaciones.Text, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text, DataGridCodObliFiscal1, DataGridCodObliFiscal2)
-                    Catch ex As Exception
-                        MsgBox(ex.ToString)
-                    End Try
+                                                EstadoActivo.ToString, cboAutoRete.SelectedIndex, cboRetencion.SelectedIndex, cboReteica.SelectedIndex, cboReteiva.SelectedIndex, txtPorcentageIva.Text, txtCodigo1.Text, txtCodigo2.Text, txtCodigo3.Text, txtRepresentanteLegal.Text,
+                                                txtObservaciones.Text, lblCodigoUsuario2.Text, Format(fechaActual, "yyyy/MM/dd"), txtPrimerNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text, txtSegundoApellido.Text, DataGridCodObliFiscal1, DataGridCodObliFiscal2)
+
                     MostrarDatosProveedor()
+
                 End If
+
             End If
         Catch ex As Exception
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
