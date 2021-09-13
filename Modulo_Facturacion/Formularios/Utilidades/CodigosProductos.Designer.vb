@@ -22,13 +22,22 @@ Partial Class CodigosProductos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridCodigosModulos = New System.Windows.Forms.DataGridView()
+        Me.Cod = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreCod = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clasificacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValTarifa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PorceIva = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodClasificacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.BtnCerrarContratos = New System.Windows.Forms.Button()
         Me.btnActualizar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TxtCodigo = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.txtPorceIVA = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -47,15 +56,6 @@ Partial Class CodigosProductos
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.TxtCodigo = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Cod = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreCod = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clasificacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValTarifa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PorceIva = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodClasificacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DataGridCodigosModulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -91,20 +91,69 @@ Partial Class CodigosProductos
         Me.DataGridCodigosModulos.MultiSelect = False
         Me.DataGridCodigosModulos.Name = "DataGridCodigosModulos"
         Me.DataGridCodigosModulos.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridCodigosModulos.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridCodigosModulos.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridCodigosModulos.RowHeadersVisible = False
         Me.DataGridCodigosModulos.RowHeadersWidth = 51
         Me.DataGridCodigosModulos.RowTemplate.Height = 24
         Me.DataGridCodigosModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridCodigosModulos.Size = New System.Drawing.Size(484, 385)
         Me.DataGridCodigosModulos.TabIndex = 112
+        '
+        'Cod
+        '
+        Me.Cod.FillWeight = 57.44576!
+        Me.Cod.HeaderText = "Cod"
+        Me.Cod.MaxInputLength = 5
+        Me.Cod.MinimumWidth = 6
+        Me.Cod.Name = "Cod"
+        Me.Cod.ReadOnly = True
+        '
+        'NombreCod
+        '
+        Me.NombreCod.FillWeight = 196.5007!
+        Me.NombreCod.HeaderText = "Nombre"
+        Me.NombreCod.MinimumWidth = 6
+        Me.NombreCod.Name = "NombreCod"
+        Me.NombreCod.ReadOnly = True
+        '
+        'Clasificacion
+        '
+        Me.Clasificacion.FillWeight = 66.24203!
+        Me.Clasificacion.HeaderText = "Clasificacion"
+        Me.Clasificacion.MinimumWidth = 6
+        Me.Clasificacion.Name = "Clasificacion"
+        Me.Clasificacion.ReadOnly = True
+        '
+        'ValTarifa
+        '
+        Me.ValTarifa.FillWeight = 66.24203!
+        Me.ValTarifa.HeaderText = "ValTarifa"
+        Me.ValTarifa.MinimumWidth = 6
+        Me.ValTarifa.Name = "ValTarifa"
+        Me.ValTarifa.ReadOnly = True
+        '
+        'PorceIva
+        '
+        Me.PorceIva.FillWeight = 66.24203!
+        Me.PorceIva.HeaderText = "PorceIva"
+        Me.PorceIva.MinimumWidth = 6
+        Me.PorceIva.Name = "PorceIva"
+        Me.PorceIva.ReadOnly = True
+        '
+        'CodClasificacion
+        '
+        Me.CodClasificacion.HeaderText = "CodClasificacion"
+        Me.CodClasificacion.MinimumWidth = 6
+        Me.CodClasificacion.Name = "CodClasificacion"
+        Me.CodClasificacion.ReadOnly = True
+        Me.CodClasificacion.Visible = False
         '
         'btnNuevo
         '
@@ -184,6 +233,40 @@ Partial Class CodigosProductos
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         '
+        'TxtCodigo
+        '
+        Me.TxtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCodigo.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCodigo.Location = New System.Drawing.Point(8, 24)
+        Me.TxtCodigo.Margin = New System.Windows.Forms.Padding(2)
+        Me.TxtCodigo.MaxLength = 5
+        Me.TxtCodigo.Multiline = True
+        Me.TxtCodigo.Name = "TxtCodigo"
+        Me.TxtCodigo.Size = New System.Drawing.Size(363, 21)
+        Me.TxtCodigo.TabIndex = 24
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.Blue
+        Me.Label5.Location = New System.Drawing.Point(2, 24)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(10, 21)
+        Me.Label5.TabIndex = 23
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label10.Location = New System.Drawing.Point(4, 7)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(50, 14)
+        Me.Label10.TabIndex = 22
+        Me.Label10.Text = "Codigo"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'txtPorceIVA
         '
         Me.txtPorceIVA.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -219,6 +302,7 @@ Partial Class CodigosProductos
         '
         'txtNombreCodigo
         '
+        Me.txtNombreCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombreCodigo.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombreCodigo.Location = New System.Drawing.Point(9, 69)
         Me.txtNombreCodigo.Margin = New System.Windows.Forms.Padding(2)
@@ -388,89 +472,6 @@ Partial Class CodigosProductos
         Me.Label16.Size = New System.Drawing.Size(46, 13)
         Me.Label16.TabIndex = 133
         Me.Label16.Text = "Usuario:"
-        '
-        'TxtCodigo
-        '
-        Me.TxtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtCodigo.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCodigo.Location = New System.Drawing.Point(8, 24)
-        Me.TxtCodigo.Margin = New System.Windows.Forms.Padding(2)
-        Me.TxtCodigo.MaxLength = 5
-        Me.TxtCodigo.Multiline = True
-        Me.TxtCodigo.Name = "TxtCodigo"
-        Me.TxtCodigo.Size = New System.Drawing.Size(363, 21)
-        Me.TxtCodigo.TabIndex = 24
-        '
-        'Label5
-        '
-        Me.Label5.BackColor = System.Drawing.Color.Blue
-        Me.Label5.Location = New System.Drawing.Point(2, 24)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(10, 21)
-        Me.Label5.TabIndex = 23
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label10.Location = New System.Drawing.Point(4, 7)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(50, 14)
-        Me.Label10.TabIndex = 22
-        Me.Label10.Text = "Codigo"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Cod
-        '
-        Me.Cod.FillWeight = 57.44576!
-        Me.Cod.HeaderText = "Cod"
-        Me.Cod.MaxInputLength = 5
-        Me.Cod.MinimumWidth = 6
-        Me.Cod.Name = "Cod"
-        Me.Cod.ReadOnly = True
-        '
-        'NombreCod
-        '
-        Me.NombreCod.FillWeight = 196.5007!
-        Me.NombreCod.HeaderText = "Nombre"
-        Me.NombreCod.MinimumWidth = 6
-        Me.NombreCod.Name = "NombreCod"
-        Me.NombreCod.ReadOnly = True
-        '
-        'Clasificacion
-        '
-        Me.Clasificacion.FillWeight = 66.24203!
-        Me.Clasificacion.HeaderText = "Clasificacion"
-        Me.Clasificacion.MinimumWidth = 6
-        Me.Clasificacion.Name = "Clasificacion"
-        Me.Clasificacion.ReadOnly = True
-        '
-        'ValTarifa
-        '
-        Me.ValTarifa.FillWeight = 66.24203!
-        Me.ValTarifa.HeaderText = "ValTarifa"
-        Me.ValTarifa.MinimumWidth = 6
-        Me.ValTarifa.Name = "ValTarifa"
-        Me.ValTarifa.ReadOnly = True
-        '
-        'PorceIva
-        '
-        Me.PorceIva.FillWeight = 66.24203!
-        Me.PorceIva.HeaderText = "PorceIva"
-        Me.PorceIva.MinimumWidth = 6
-        Me.PorceIva.Name = "PorceIva"
-        Me.PorceIva.ReadOnly = True
-        '
-        'CodClasificacion
-        '
-        Me.CodClasificacion.HeaderText = "CodClasificacion"
-        Me.CodClasificacion.MinimumWidth = 6
-        Me.CodClasificacion.Name = "CodClasificacion"
-        Me.CodClasificacion.ReadOnly = True
-        Me.CodClasificacion.Visible = False
         '
         'Label2
         '

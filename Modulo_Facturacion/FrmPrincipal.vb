@@ -97,6 +97,8 @@ Public Class FrmPrincipal
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
+
+
             BuscarDatosConexion()
 
         Catch ex As Exception

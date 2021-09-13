@@ -225,7 +225,6 @@ Public Class CodigosProductos
         Try
             If ValidarCampos() = True Then
 
-                'Dim concecutivoProducCatalogo As String = CreaConsecutivo("07", True, lblCodigoUsuario2.Text)
 
                 Dim EstadoRegistro As Boolean = ModuloDeClaseUtilidades.RegistrarCodigo(TxtCodigo.Text, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
 
@@ -247,13 +246,19 @@ Public Class CodigosProductos
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
         Try
             If DataGridCodigosModulos.SelectedCells.Count <> 0 Then
+
                 Dim Codigo As String = DataGridCodigosModulos.SelectedCells(0).Value.ToString()
+
                 If ValidarCampos() = True Then
+
                     Dim EstadoAct As Boolean = ModuloDeClaseUtilidades.ActualizarCodigo(Codigo, txtNombreCodigo.Text, cboClasificacion.SelectedValue, txtValorTarifa.Text, txtPorceIVA.Text, lblCodigoUsuario2.Text)
+
                     If EstadoAct Then
                         cargarDatos()
                     End If
+
                 End If
+
             End If
 
         Catch ex As Exception
