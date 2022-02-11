@@ -130,6 +130,7 @@ Public Class Facturas
     End Sub
     Private Sub ftDesde_ValueChanged(sender As Object, e As EventArgs) Handles ftDesde.ValueChanged
         If Bandera = 1 Then
+
             If checkFiltroProve.Checked = True And ChekTodasFacturas.Checked = False Then
 
                 Dim consulta As String = "SELECT [Datos facturas realizadas].PrefiFact, [Datos facturas realizadas].NumFact, [Datos facturas realizadas].NumRemi, [Datos facturas realizadas].FecExpFac, [Datos facturas realizadas].ValNetoFac, [Datos facturas realizadas].ValIVAFac, GEOGRAXPSQL.dbo.[Datos proveedores].IdenProve, [Datos registros de contratos].ID_Contratos
@@ -347,13 +348,23 @@ Public Class Facturas
         Try
             Dim x As DataGridViewRow
             Dim Contador As Int32
+            Dim SumValNetoFac As Decimal
+            Dim SumValIvaFac As Decimal
+
+
             TxtTotalFact.Clear()
 
 
             For Each x In DataGridFacturas.Rows
                 Contador += 1
+                SumValNetoFac += x.Cells("ValNetoFac").Value
+                SumValIvaFac += x.Cells("ValIvaFac").Value
             Next
 
+            TxtTolNetoFac.Text = SumValNetoFac.ToString("C")
+            'TxtTolNetoFac.Text = Format(CType(TxtTolNetoFac.Text, Decimal), "###0.000")
+            TxtTolIva.Text = SumValIvaFac.ToString("C")
+            'TxtTolIva.Text = Format(CType(TxtTolIva.Text, Decimal), "###0.000")
             TxtTotalFact.Text = Convert.ToString(Contador)
 
         Catch ex As Exception
@@ -371,6 +382,7 @@ Public Class Facturas
         DataGridFacturas.DataSource = Nothing
         DataGridFacturas.Rows.Clear()
         Try
+
             Dim reader As SqlDataReader
             Dim consulta As String = stringConsulta
 
@@ -381,10 +393,14 @@ Public Class Facturas
                     Me.DataGridFacturas.Rows.Add(reader("PrefiFact"), reader("NumFact"), reader("NumRemi"), reader("ID_Contratos"), reader("FecExpFac"), reader("ValNetoFac"), reader("ValIVAFac"))
                 End While
             End If
+
             reader.Close()
             reader = Nothing
+
             cn.Close()
+
             CalcularTotal()
+
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)
@@ -397,9 +413,9 @@ Public Class Facturas
     Private Sub BuscarContratos(documento)
         Bandera = 0
         Try
-            Dim Contratos As DataSet = SQLDataSET("SELECT  c.ID_Contratos, c.ID_Contratos + ' ' + t.NomTipCon As Mostrar
+            Dim Contratos As DataSet = SQLDataSET("SELECT  c.ID_Contratos, c.ID_Contratos + ' ' + t.NomTipCon + ' Vigencia ' + c.VigAnContra  As Mostrar
                                                     FROM [Datos registros de contratos] as c, [Datos tipos de contratos] as t 
-                                                    WHERE c.EstaVigCon = 1 and c.TipoContra = t.CodTipCon and c.TipDocContra + c.NumDocContra + c.CodSucContra = '" & documento.ToString & "' ")
+                                                    WHERE c.TipoContra = t.CodTipCon and c.TipDocContra + c.NumDocContra + c.CodSucContra = '" & documento.ToString & "' ")
             cboContratos.DataSource = Contratos.Tables(0)
             cboContratos.DisplayMember = "Mostrar"
             cboContratos.ValueMember = "ID_Contratos"

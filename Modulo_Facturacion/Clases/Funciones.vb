@@ -259,6 +259,7 @@ Module Funciones
                     colIndex = colIndex + 1
                     AplicacionExcel.Cells(rowIndex + 1, colIndex) = dr(dc.ColumnName)
                     AplicacionExcel.Cells.Font.Bold = False
+
                 Next
             Next
 

@@ -23,17 +23,21 @@ Partial Class Contratos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Contratos))
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtIdContrato = New System.Windows.Forms.TextBox()
         Me.cboNombreContratante = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -96,20 +100,6 @@ Partial Class Contratos
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.DataGridDetallePolizas = New System.Windows.Forms.DataGridView()
-        Me.NumeroDePoliza = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TipoPoliza = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.PorcePoli = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValCubre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fecha_Inicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fecha_Final = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Anular_Poliza = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Razon_Anulamiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodAnuPol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fecha_Anulacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fec_Registro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodModi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fech_Modi = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridDetalleCuotas = New System.Windows.Forms.DataGridView()
         Me.NumeroDeCouta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FechaDePago = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -124,9 +114,9 @@ Partial Class Contratos
         Me.cboNombreRepresentanteLegal = New System.Windows.Forms.ComboBox()
         Me.DataGridContratos = New System.Windows.Forms.DataGridView()
         Me.NoContra = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoDoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NoDoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipCont = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtValorTotal = New System.Windows.Forms.TextBox()
         Me.txtNumeroPolizas = New System.Windows.Forms.TextBox()
@@ -158,6 +148,23 @@ Partial Class Contratos
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label43 = New System.Windows.Forms.Label()
         Me.txtDigiVeriContra = New System.Windows.Forms.TextBox()
+        Me.CheckVigentes = New System.Windows.Forms.CheckBox()
+        Me.CheckActual = New System.Windows.Forms.CheckBox()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.NumeroDePoliza = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoPoliza = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.PorcePoli = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValCubre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fecha_Inicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fecha_Final = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Anular_Poliza = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Razon_Anulamiento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodAnuPol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fecha_Anulacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fec_Registro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodModi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fech_Modi = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -904,14 +911,14 @@ Partial Class Contratos
         Me.DataGridDetallePolizas.BackgroundColor = System.Drawing.Color.White
         Me.DataGridDetallePolizas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
         Me.DataGridDetallePolizas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridDetallePolizas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridDetallePolizas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridDetallePolizas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridDetallePolizas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroDePoliza, Me.TipoPoliza, Me.PorcePoli, Me.ValCubre, Me.Fecha_Inicio, Me.Fecha_Final, Me.Anular_Poliza, Me.Razon_Anulamiento, Me.CodAnuPol, Me.Fecha_Anulacion, Me.CodRegistro, Me.Fec_Registro, Me.CodModi, Me.Fech_Modi})
         Me.DataGridDetallePolizas.GridColor = System.Drawing.Color.Black
@@ -923,117 +930,6 @@ Partial Class Contratos
         Me.DataGridDetallePolizas.Size = New System.Drawing.Size(308, 157)
         Me.DataGridDetallePolizas.TabIndex = 30
         '
-        'NumeroDePoliza
-        '
-        Me.NumeroDePoliza.HeaderText = "#"
-        Me.NumeroDePoliza.MinimumWidth = 6
-        Me.NumeroDePoliza.Name = "NumeroDePoliza"
-        Me.NumeroDePoliza.ReadOnly = True
-        Me.NumeroDePoliza.Width = 39
-        '
-        'TipoPoliza
-        '
-        Me.TipoPoliza.HeaderText = "TipoPoliza"
-        Me.TipoPoliza.MinimumWidth = 6
-        Me.TipoPoliza.Name = "TipoPoliza"
-        Me.TipoPoliza.Width = 62
-        '
-        'PorcePoli
-        '
-        Me.PorcePoli.HeaderText = "PorcePoli"
-        Me.PorcePoli.MaxInputLength = 4
-        Me.PorcePoli.MinimumWidth = 6
-        Me.PorcePoli.Name = "PorcePoli"
-        Me.PorcePoli.Width = 77
-        '
-        'ValCubre
-        '
-        Me.ValCubre.HeaderText = "ValCubre"
-        Me.ValCubre.MinimumWidth = 6
-        Me.ValCubre.Name = "ValCubre"
-        Me.ValCubre.Width = 75
-        '
-        'Fecha_Inicio
-        '
-        Me.Fecha_Inicio.HeaderText = "Fecha_Inicio"
-        Me.Fecha_Inicio.MinimumWidth = 6
-        Me.Fecha_Inicio.Name = "Fecha_Inicio"
-        Me.Fecha_Inicio.Width = 93
-        '
-        'Fecha_Final
-        '
-        Me.Fecha_Final.HeaderText = "Fecha_Final"
-        Me.Fecha_Final.MinimumWidth = 6
-        Me.Fecha_Final.Name = "Fecha_Final"
-        Me.Fecha_Final.Width = 90
-        '
-        'Anular_Poliza
-        '
-        Me.Anular_Poliza.HeaderText = "Anular_Poliza"
-        Me.Anular_Poliza.MinimumWidth = 6
-        Me.Anular_Poliza.Name = "Anular_Poliza"
-        Me.Anular_Poliza.Width = 77
-        '
-        'Razon_Anulamiento
-        '
-        Me.Razon_Anulamiento.HeaderText = "Razon_Anulamiento"
-        Me.Razon_Anulamiento.MinimumWidth = 6
-        Me.Razon_Anulamiento.Name = "Razon_Anulamiento"
-        Me.Razon_Anulamiento.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Razon_Anulamiento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Razon_Anulamiento.Width = 108
-        '
-        'CodAnuPol
-        '
-        Me.CodAnuPol.HeaderText = "CodAnuPol"
-        Me.CodAnuPol.MaxInputLength = 3
-        Me.CodAnuPol.MinimumWidth = 6
-        Me.CodAnuPol.Name = "CodAnuPol"
-        Me.CodAnuPol.ReadOnly = True
-        Me.CodAnuPol.Width = 85
-        '
-        'Fecha_Anulacion
-        '
-        Me.Fecha_Anulacion.HeaderText = "Fecha_Anulacion"
-        Me.Fecha_Anulacion.MinimumWidth = 6
-        Me.Fecha_Anulacion.Name = "Fecha_Anulacion"
-        Me.Fecha_Anulacion.ReadOnly = True
-        Me.Fecha_Anulacion.Width = 115
-        '
-        'CodRegistro
-        '
-        Me.CodRegistro.HeaderText = "CodRegistro"
-        Me.CodRegistro.MaxInputLength = 3
-        Me.CodRegistro.MinimumWidth = 6
-        Me.CodRegistro.Name = "CodRegistro"
-        Me.CodRegistro.ReadOnly = True
-        Me.CodRegistro.Width = 90
-        '
-        'Fec_Registro
-        '
-        Me.Fec_Registro.HeaderText = "Fec_Registro"
-        Me.Fec_Registro.MinimumWidth = 6
-        Me.Fec_Registro.Name = "Fec_Registro"
-        Me.Fec_Registro.ReadOnly = True
-        Me.Fec_Registro.Width = 95
-        '
-        'CodModi
-        '
-        Me.CodModi.HeaderText = "CodModi"
-        Me.CodModi.MaxInputLength = 3
-        Me.CodModi.MinimumWidth = 6
-        Me.CodModi.Name = "CodModi"
-        Me.CodModi.ReadOnly = True
-        Me.CodModi.Width = 74
-        '
-        'Fech_Modi
-        '
-        Me.Fech_Modi.HeaderText = "Fech_Modi"
-        Me.Fech_Modi.MinimumWidth = 6
-        Me.Fech_Modi.Name = "Fech_Modi"
-        Me.Fech_Modi.ReadOnly = True
-        Me.Fech_Modi.Width = 85
-        '
         'DataGridDetalleCuotas
         '
         Me.DataGridDetalleCuotas.AllowUserToAddRows = False
@@ -1043,35 +939,35 @@ Partial Class Contratos
         Me.DataGridDetalleCuotas.BackgroundColor = System.Drawing.Color.White
         Me.DataGridDetalleCuotas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DataGridDetalleCuotas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridDetalleCuotas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridDetalleCuotas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridDetalleCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridDetalleCuotas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumeroDeCouta, Me.FechaDePago, Me.Porcentage, Me.ValorTotalCouta, Me.EstadoPagado})
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridDetalleCuotas.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridDetalleCuotas.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridDetalleCuotas.Location = New System.Drawing.Point(323, 378)
         Me.DataGridDetalleCuotas.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridDetalleCuotas.Name = "DataGridDetalleCuotas"
-        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle27.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridDetalleCuotas.RowHeadersDefaultCellStyle = DataGridViewCellStyle27
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridDetalleCuotas.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridDetalleCuotas.RowHeadersVisible = False
         Me.DataGridDetalleCuotas.RowHeadersWidth = 51
         Me.DataGridDetalleCuotas.RowTemplate.Height = 24
@@ -1089,9 +985,9 @@ Partial Class Contratos
         '
         'FechaDePago
         '
-        DataGridViewCellStyle23.Format = "d"
-        DataGridViewCellStyle23.NullValue = Nothing
-        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.FechaDePago.DefaultCellStyle = DataGridViewCellStyle6
         Me.FechaDePago.FillWeight = 134.0443!
         Me.FechaDePago.HeaderText = "Fecha"
         Me.FechaDePago.MinimumWidth = 6
@@ -1099,9 +995,9 @@ Partial Class Contratos
         '
         'Porcentage
         '
-        DataGridViewCellStyle24.Format = "N2"
-        DataGridViewCellStyle24.NullValue = Nothing
-        Me.Porcentage.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle7.Format = "N2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.Porcentage.DefaultCellStyle = DataGridViewCellStyle7
         Me.Porcentage.FillWeight = 50.76142!
         Me.Porcentage.HeaderText = "%"
         Me.Porcentage.MaxInputLength = 7
@@ -1110,10 +1006,10 @@ Partial Class Contratos
         '
         'ValorTotalCouta
         '
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle25.Format = "C0"
-        DataGridViewCellStyle25.NullValue = Nothing
-        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Format = "C0"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.ValorTotalCouta.DefaultCellStyle = DataGridViewCellStyle8
         Me.ValorTotalCouta.FillWeight = 134.0443!
         Me.ValorTotalCouta.HeaderText = "Cuota"
         Me.ValorTotalCouta.MaxInputLength = 10
@@ -1204,45 +1100,45 @@ Partial Class Contratos
         Me.DataGridContratos.BackgroundColor = System.Drawing.Color.White
         Me.DataGridContratos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DataGridContratos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle28.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle28.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridContratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridContratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridContratos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridContratos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NoContra, Me.TipoDoc, Me.NoDoc, Me.RazonSocial, Me.TipCont})
+        Me.DataGridContratos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NoContra, Me.RazonSocial, Me.TipoDoc, Me.NoDoc, Me.TipCont})
         Me.DataGridContratos.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridContratos.DefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridContratos.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridContratos.EnableHeadersVisualStyles = False
         Me.DataGridContratos.GridColor = System.Drawing.Color.Maroon
-        Me.DataGridContratos.Location = New System.Drawing.Point(667, 65)
+        Me.DataGridContratos.Location = New System.Drawing.Point(667, 90)
         Me.DataGridContratos.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridContratos.MultiSelect = False
         Me.DataGridContratos.Name = "DataGridContratos"
         Me.DataGridContratos.ReadOnly = True
-        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle30.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridContratos.RowHeadersDefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridContratos.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridContratos.RowHeadersVisible = False
         Me.DataGridContratos.RowHeadersWidth = 51
         Me.DataGridContratos.RowTemplate.Height = 24
         Me.DataGridContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridContratos.Size = New System.Drawing.Size(254, 470)
+        Me.DataGridContratos.Size = New System.Drawing.Size(254, 445)
         Me.DataGridContratos.TabIndex = 54
         '
         'NoContra
@@ -1251,6 +1147,15 @@ Partial Class Contratos
         Me.NoContra.Name = "NoContra"
         Me.NoContra.ReadOnly = True
         Me.NoContra.Width = 80
+        '
+        'RazonSocial
+        '
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.RazonSocial.DefaultCellStyle = DataGridViewCellStyle12
+        Me.RazonSocial.HeaderText = "Razon Social"
+        Me.RazonSocial.Name = "RazonSocial"
+        Me.RazonSocial.ReadOnly = True
+        Me.RazonSocial.Width = 200
         '
         'TipoDoc
         '
@@ -1264,13 +1169,6 @@ Partial Class Contratos
         Me.NoDoc.HeaderText = "NoDoc"
         Me.NoDoc.Name = "NoDoc"
         Me.NoDoc.ReadOnly = True
-        '
-        'RazonSocial
-        '
-        Me.RazonSocial.HeaderText = "Razon Social"
-        Me.RazonSocial.Name = "RazonSocial"
-        Me.RazonSocial.ReadOnly = True
-        Me.RazonSocial.Width = 200
         '
         'TipCont
         '
@@ -1662,6 +1560,162 @@ Partial Class Contratos
         Me.txtDigiVeriContra.Size = New System.Drawing.Size(35, 22)
         Me.txtDigiVeriContra.TabIndex = 102
         '
+        'CheckVigentes
+        '
+        Me.CheckVigentes.AutoSize = True
+        Me.CheckVigentes.Checked = True
+        Me.CheckVigentes.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckVigentes.Location = New System.Drawing.Point(752, 63)
+        Me.CheckVigentes.Name = "CheckVigentes"
+        Me.CheckVigentes.Size = New System.Drawing.Size(67, 17)
+        Me.CheckVigentes.TabIndex = 103
+        Me.CheckVigentes.Text = "Vigentes"
+        Me.CheckVigentes.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.CheckVigentes.UseVisualStyleBackColor = True
+        '
+        'CheckActual
+        '
+        Me.CheckActual.AutoSize = True
+        Me.CheckActual.Checked = True
+        Me.CheckActual.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckActual.Location = New System.Drawing.Point(834, 62)
+        Me.CheckActual.Name = "CheckActual"
+        Me.CheckActual.Size = New System.Drawing.Size(78, 17)
+        Me.CheckActual.TabIndex = 104
+        Me.CheckActual.Text = "Año Actual"
+        Me.CheckActual.UseVisualStyleBackColor = True
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(669, 63)
+        Me.Label39.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(48, 16)
+        Me.Label39.TabIndex = 105
+        Me.Label39.Text = "Filtros:"
+        '
+        'NumeroDePoliza
+        '
+        Me.NumeroDePoliza.HeaderText = "#"
+        Me.NumeroDePoliza.MinimumWidth = 6
+        Me.NumeroDePoliza.Name = "NumeroDePoliza"
+        Me.NumeroDePoliza.ReadOnly = True
+        Me.NumeroDePoliza.Width = 39
+        '
+        'TipoPoliza
+        '
+        Me.TipoPoliza.HeaderText = "TipoPoliza"
+        Me.TipoPoliza.MinimumWidth = 6
+        Me.TipoPoliza.Name = "TipoPoliza"
+        Me.TipoPoliza.Width = 62
+        '
+        'PorcePoli
+        '
+        Me.PorcePoli.HeaderText = "PorcePoli"
+        Me.PorcePoli.MaxInputLength = 4
+        Me.PorcePoli.MinimumWidth = 6
+        Me.PorcePoli.Name = "PorcePoli"
+        Me.PorcePoli.Width = 77
+        '
+        'ValCubre
+        '
+        Me.ValCubre.HeaderText = "ValCubre"
+        Me.ValCubre.MinimumWidth = 6
+        Me.ValCubre.Name = "ValCubre"
+        Me.ValCubre.Width = 75
+        '
+        'Fecha_Inicio
+        '
+        DataGridViewCellStyle2.Format = "d"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.Fecha_Inicio.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Fecha_Inicio.HeaderText = "Fecha_Inicio"
+        Me.Fecha_Inicio.MinimumWidth = 6
+        Me.Fecha_Inicio.Name = "Fecha_Inicio"
+        Me.Fecha_Inicio.Width = 93
+        '
+        'Fecha_Final
+        '
+        DataGridViewCellStyle3.Format = "d"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Fecha_Final.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Fecha_Final.HeaderText = "Fecha_Final"
+        Me.Fecha_Final.MinimumWidth = 6
+        Me.Fecha_Final.Name = "Fecha_Final"
+        Me.Fecha_Final.Width = 90
+        '
+        'Anular_Poliza
+        '
+        Me.Anular_Poliza.HeaderText = "Anular_Poliza"
+        Me.Anular_Poliza.MinimumWidth = 6
+        Me.Anular_Poliza.Name = "Anular_Poliza"
+        Me.Anular_Poliza.Width = 77
+        '
+        'Razon_Anulamiento
+        '
+        Me.Razon_Anulamiento.HeaderText = "Razon_Anulamiento"
+        Me.Razon_Anulamiento.MinimumWidth = 6
+        Me.Razon_Anulamiento.Name = "Razon_Anulamiento"
+        Me.Razon_Anulamiento.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Razon_Anulamiento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Razon_Anulamiento.Width = 108
+        '
+        'CodAnuPol
+        '
+        Me.CodAnuPol.HeaderText = "CodAnuPol"
+        Me.CodAnuPol.MaxInputLength = 3
+        Me.CodAnuPol.MinimumWidth = 6
+        Me.CodAnuPol.Name = "CodAnuPol"
+        Me.CodAnuPol.ReadOnly = True
+        Me.CodAnuPol.Width = 85
+        '
+        'Fecha_Anulacion
+        '
+        DataGridViewCellStyle4.Format = "d"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.Fecha_Anulacion.DefaultCellStyle = DataGridViewCellStyle4
+        Me.Fecha_Anulacion.HeaderText = "Fecha_Anulacion"
+        Me.Fecha_Anulacion.MinimumWidth = 6
+        Me.Fecha_Anulacion.Name = "Fecha_Anulacion"
+        Me.Fecha_Anulacion.ReadOnly = True
+        Me.Fecha_Anulacion.Width = 115
+        '
+        'CodRegistro
+        '
+        Me.CodRegistro.HeaderText = "CodRegistro"
+        Me.CodRegistro.MaxInputLength = 3
+        Me.CodRegistro.MinimumWidth = 6
+        Me.CodRegistro.Name = "CodRegistro"
+        Me.CodRegistro.ReadOnly = True
+        Me.CodRegistro.Width = 90
+        '
+        'Fec_Registro
+        '
+        Me.Fec_Registro.HeaderText = "Fec_Registro"
+        Me.Fec_Registro.MinimumWidth = 6
+        Me.Fec_Registro.Name = "Fec_Registro"
+        Me.Fec_Registro.ReadOnly = True
+        Me.Fec_Registro.Width = 95
+        '
+        'CodModi
+        '
+        Me.CodModi.HeaderText = "CodModi"
+        Me.CodModi.MaxInputLength = 3
+        Me.CodModi.MinimumWidth = 6
+        Me.CodModi.Name = "CodModi"
+        Me.CodModi.ReadOnly = True
+        Me.CodModi.Width = 74
+        '
+        'Fech_Modi
+        '
+        Me.Fech_Modi.HeaderText = "Fech_Modi"
+        Me.Fech_Modi.MinimumWidth = 6
+        Me.Fech_Modi.Name = "Fech_Modi"
+        Me.Fech_Modi.ReadOnly = True
+        Me.Fech_Modi.Width = 85
+        '
         'Contratos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1671,6 +1725,9 @@ Partial Class Contratos
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(929, 674)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label39)
+        Me.Controls.Add(Me.CheckActual)
+        Me.Controls.Add(Me.CheckVigentes)
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.txtDigiVeriContra)
@@ -1846,6 +1903,26 @@ Partial Class Contratos
     Friend WithEvents lblNombreUsuario As Label
     Friend WithEvents Label42 As Label
     Friend WithEvents Label43 As Label
+    Friend WithEvents lblCodiModiPor As Label
+    Friend WithEvents lblCodiRegisPor As Label
+    Friend WithEvents lblNameModiPor As Label
+    Friend WithEvents lblNameRegisPor As Label
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Label36 As Label
+    Friend WithEvents txtDigiVeriContra As TextBox
+    Friend WithEvents NumeroDeCouta As DataGridViewTextBoxColumn
+    Friend WithEvents FechaDePago As DataGridViewTextBoxColumn
+    Friend WithEvents Porcentage As DataGridViewTextBoxColumn
+    Friend WithEvents ValorTotalCouta As DataGridViewTextBoxColumn
+    Friend WithEvents EstadoPagado As DataGridViewCheckBoxColumn
+    Friend WithEvents CheckVigentes As CheckBox
+    Friend WithEvents CheckActual As CheckBox
+    Friend WithEvents Label39 As Label
+    Friend WithEvents NoContra As DataGridViewTextBoxColumn
+    Friend WithEvents RazonSocial As DataGridViewTextBoxColumn
+    Friend WithEvents TipoDoc As DataGridViewTextBoxColumn
+    Friend WithEvents NoDoc As DataGridViewTextBoxColumn
+    Friend WithEvents TipCont As DataGridViewTextBoxColumn
     Friend WithEvents NumeroDePoliza As DataGridViewTextBoxColumn
     Friend WithEvents TipoPoliza As DataGridViewComboBoxColumn
     Friend WithEvents PorcePoli As DataGridViewTextBoxColumn
@@ -1860,21 +1937,4 @@ Partial Class Contratos
     Friend WithEvents Fec_Registro As DataGridViewTextBoxColumn
     Friend WithEvents CodModi As DataGridViewTextBoxColumn
     Friend WithEvents Fech_Modi As DataGridViewTextBoxColumn
-    Friend WithEvents lblCodiModiPor As Label
-    Friend WithEvents lblCodiRegisPor As Label
-    Friend WithEvents lblNameModiPor As Label
-    Friend WithEvents lblNameRegisPor As Label
-    Friend WithEvents Label35 As Label
-    Friend WithEvents Label36 As Label
-    Friend WithEvents txtDigiVeriContra As TextBox
-    Friend WithEvents NoContra As DataGridViewTextBoxColumn
-    Friend WithEvents TipoDoc As DataGridViewTextBoxColumn
-    Friend WithEvents NoDoc As DataGridViewTextBoxColumn
-    Friend WithEvents RazonSocial As DataGridViewTextBoxColumn
-    Friend WithEvents TipCont As DataGridViewTextBoxColumn
-    Friend WithEvents NumeroDeCouta As DataGridViewTextBoxColumn
-    Friend WithEvents FechaDePago As DataGridViewTextBoxColumn
-    Friend WithEvents Porcentage As DataGridViewTextBoxColumn
-    Friend WithEvents ValorTotalCouta As DataGridViewTextBoxColumn
-    Friend WithEvents EstadoPagado As DataGridViewCheckBoxColumn
 End Class

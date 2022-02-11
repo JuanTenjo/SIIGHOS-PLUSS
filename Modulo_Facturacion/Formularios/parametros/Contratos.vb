@@ -1093,14 +1093,26 @@ Public Class Contratos
         DataGridContratos.Rows.Clear()
 
         Try
+
+            Dim Filtro As String
+            Dim ActualYear As String = Date.Now.Date.Year
+
+
+            Filtro = If(CheckActual.Checked, "FecIniCon >= '01-01-" & ActualYear & "' and ", "")
+            Filtro += If(CheckVigentes.Checked, "EstaVigCon = 1", "EstaVigCon = 0")
+
+
             Dim Contratos As SqlDataReader
-            Contratos = SQLReader("Select dgc.ID_Contratos, dgc.TipDocContra, dgc.NumDocContra,  dp.RazonSol, dtc.NomTipCon
-                        FROM [Datos registros de contratos] as dgc, [GEOGRAXPSQL].[dbo].[Datos proveedores] as dp,  [Datos tipos de contratos] as dtc
-                        WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon  ORDER BY (dgc.ID_Contratos)")
+
+            Dim Query As String = "Select dgc.ID_Contratos, dgc.TipDocContra, dgc.NumDocContra,  dp.RazonSol, dtc.NomTipCon
+                                FROM [Datos registros de contratos] as dgc, [GEOGRAXPSQL].[dbo].[Datos proveedores] as dp,  [Datos tipos de contratos] as dtc
+                                WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon  and " & Filtro & " ORDER BY (dgc.ID_Contratos) DESC"
+
+            Contratos = SQLReader(Query)
             bandera = 0
             If Contratos.HasRows Then
                 While Contratos.Read()
-                    DataGridContratos.Rows.Add(New String() {Contratos("ID_Contratos"), Contratos("TipDocContra"), Contratos("NumDocContra"), Contratos("RazonSol"), Contratos("NomTipCon")})
+                    DataGridContratos.Rows.Add(New String() {Contratos("ID_Contratos"), Contratos("RazonSol"), Contratos("TipDocContra"), Contratos("NumDocContra"), Contratos("NomTipCon")})
                 End While
                 cn.Close()
             Else
@@ -1129,7 +1141,7 @@ Public Class Contratos
 
             If Contratos.HasRows Then
                 While Contratos.Read()
-                    DataGridContratos.Rows.Add(New String() {Contratos("ID_Contratos"), Contratos("TipDocContra"), Contratos("NumDocContra"), Contratos("RazonSol"), Contratos("NomTipCon")})
+                    DataGridContratos.Rows.Add(New String() {Contratos("ID_Contratos"), Contratos("RazonSol"), Contratos("TipDocContra"), Contratos("NumDocContra"), Contratos("NomTipCon")})
                 End While
             End If
 
@@ -1637,5 +1649,15 @@ Public Class Contratos
 
     End Sub
 
+    Private Sub CheckVigentes_CheckedChanged(sender As Object, e As EventArgs) Handles CheckVigentes.CheckedChanged
+        If (bandera = 1) Then
+            CargarDataGridContratos()
+        End If
+    End Sub
 
+    Private Sub CheckActual_CheckedChanged(sender As Object, e As EventArgs) Handles CheckActual.CheckedChanged
+        If (bandera = 1) Then
+            CargarDataGridContratos()
+        End If
+    End Sub
 End Class

@@ -22,10 +22,15 @@ Partial Class Facturas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Facturas))
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel17 = New System.Windows.Forms.Panel()
         Me.btnCerrar = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -33,13 +38,6 @@ Partial Class Facturas
         Me.checkFiltroProve = New System.Windows.Forms.CheckBox()
         Me.cboContratos = New System.Windows.Forms.ComboBox()
         Me.DataGridFacturas = New System.Windows.Forms.DataGridView()
-        Me.Prefi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumFact = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumRemi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDContrato = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FecExpFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValNetoFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValIVAFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ftHasta = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ftDesde = New System.Windows.Forms.DateTimePicker()
@@ -54,6 +52,16 @@ Partial Class Facturas
         Me.ChekTodasFacturas = New System.Windows.Forms.CheckBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TxtTotalFact = New System.Windows.Forms.TextBox()
+        Me.TxtTolIva = New System.Windows.Forms.TextBox()
+        Me.TxtTolNetoFac = New System.Windows.Forms.TextBox()
+        Me.Prefi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumFact = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumRemi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDContrato = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FecExpFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValNetoFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValIVAFac = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel17.SuspendLayout()
         CType(Me.DataGridFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -66,7 +74,7 @@ Partial Class Facturas
         Me.Panel17.Location = New System.Drawing.Point(0, 2)
         Me.Panel17.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel17.Name = "Panel17"
-        Me.Panel17.Size = New System.Drawing.Size(486, 41)
+        Me.Panel17.Size = New System.Drawing.Size(542, 41)
         Me.Panel17.TabIndex = 33
         '
         'btnCerrar
@@ -91,7 +99,7 @@ Partial Class Facturas
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(154, 11)
+        Me.Label11.Location = New System.Drawing.Point(176, 9)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(182, 19)
@@ -110,14 +118,14 @@ Partial Class Facturas
         Me.cboProvedores.Location = New System.Drawing.Point(5, 120)
         Me.cboProvedores.Margin = New System.Windows.Forms.Padding(2)
         Me.cboProvedores.Name = "cboProvedores"
-        Me.cboProvedores.Size = New System.Drawing.Size(476, 22)
+        Me.cboProvedores.Size = New System.Drawing.Size(532, 22)
         Me.cboProvedores.TabIndex = 86
         '
         'checkFiltroProve
         '
         Me.checkFiltroProve.AutoSize = True
         Me.checkFiltroProve.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.checkFiltroProve.Location = New System.Drawing.Point(14, 95)
+        Me.checkFiltroProve.Location = New System.Drawing.Point(149, 95)
         Me.checkFiltroProve.Margin = New System.Windows.Forms.Padding(2)
         Me.checkFiltroProve.Name = "checkFiltroProve"
         Me.checkFiltroProve.Size = New System.Drawing.Size(125, 17)
@@ -137,7 +145,7 @@ Partial Class Facturas
         Me.cboContratos.Location = New System.Drawing.Point(5, 195)
         Me.cboContratos.Margin = New System.Windows.Forms.Padding(2)
         Me.cboContratos.Name = "cboContratos"
-        Me.cboContratos.Size = New System.Drawing.Size(476, 22)
+        Me.cboContratos.Size = New System.Drawing.Size(532, 22)
         Me.cboContratos.TabIndex = 88
         '
         'DataGridFacturas
@@ -155,88 +163,25 @@ Partial Class Facturas
         Me.DataGridFacturas.MultiSelect = False
         Me.DataGridFacturas.Name = "DataGridFacturas"
         Me.DataGridFacturas.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridFacturas.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle24.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridFacturas.RowHeadersDefaultCellStyle = DataGridViewCellStyle24
         Me.DataGridFacturas.RowHeadersVisible = False
         Me.DataGridFacturas.RowHeadersWidth = 51
         Me.DataGridFacturas.RowTemplate.Height = 24
         Me.DataGridFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridFacturas.Size = New System.Drawing.Size(476, 271)
+        Me.DataGridFacturas.Size = New System.Drawing.Size(532, 271)
         Me.DataGridFacturas.TabIndex = 89
-        '
-        'Prefi
-        '
-        Me.Prefi.FillWeight = 51.99229!
-        Me.Prefi.HeaderText = "Prefi"
-        Me.Prefi.MaxInputLength = 2
-        Me.Prefi.MinimumWidth = 6
-        Me.Prefi.Name = "Prefi"
-        Me.Prefi.ReadOnly = True
-        '
-        'NumFact
-        '
-        Me.NumFact.HeaderText = "NumFact"
-        Me.NumFact.MinimumWidth = 6
-        Me.NumFact.Name = "NumFact"
-        Me.NumFact.ReadOnly = True
-        '
-        'NumRemi
-        '
-        DataGridViewCellStyle4.Format = "d"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.NumRemi.DefaultCellStyle = DataGridViewCellStyle4
-        Me.NumRemi.FillWeight = 98.93101!
-        Me.NumRemi.HeaderText = "NumRemi"
-        Me.NumRemi.MinimumWidth = 6
-        Me.NumRemi.Name = "NumRemi"
-        Me.NumRemi.ReadOnly = True
-        '
-        'IDContrato
-        '
-        Me.IDContrato.FillWeight = 98.93101!
-        Me.IDContrato.HeaderText = "IDContrato"
-        Me.IDContrato.MaxInputLength = 15
-        Me.IDContrato.MinimumWidth = 6
-        Me.IDContrato.Name = "IDContrato"
-        Me.IDContrato.ReadOnly = True
-        '
-        'FecExpFac
-        '
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.FecExpFac.DefaultCellStyle = DataGridViewCellStyle5
-        Me.FecExpFac.FillWeight = 98.93101!
-        Me.FecExpFac.HeaderText = "FecExpFac"
-        Me.FecExpFac.MaxInputLength = 10
-        Me.FecExpFac.MinimumWidth = 6
-        Me.FecExpFac.Name = "FecExpFac"
-        Me.FecExpFac.ReadOnly = True
-        '
-        'ValNetoFac
-        '
-        Me.ValNetoFac.FillWeight = 98.93101!
-        Me.ValNetoFac.HeaderText = "ValNetoFac"
-        Me.ValNetoFac.MinimumWidth = 6
-        Me.ValNetoFac.Name = "ValNetoFac"
-        Me.ValNetoFac.ReadOnly = True
-        Me.ValNetoFac.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'ValIVAFac
-        '
-        Me.ValIVAFac.HeaderText = "ValIVAFac"
-        Me.ValIVAFac.MinimumWidth = 6
-        Me.ValIVAFac.Name = "ValIVAFac"
-        Me.ValIVAFac.ReadOnly = True
         '
         'ftHasta
         '
         Me.ftHasta.CustomFormat = "yyyy-MM-dd"
-        Me.ftHasta.Location = New System.Drawing.Point(287, 263)
+        Me.ftHasta.Location = New System.Drawing.Point(337, 263)
         Me.ftHasta.Margin = New System.Windows.Forms.Padding(2)
         Me.ftHasta.Name = "ftHasta"
         Me.ftHasta.Size = New System.Drawing.Size(194, 20)
@@ -245,7 +190,7 @@ Partial Class Facturas
         'Label4
         '
         Me.Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label4.Location = New System.Drawing.Point(243, 263)
+        Me.Label4.Location = New System.Drawing.Point(293, 263)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(35, 20)
@@ -256,7 +201,7 @@ Partial Class Facturas
         'ftDesde
         '
         Me.ftDesde.CustomFormat = "yyyy-MM-dd"
-        Me.ftDesde.Location = New System.Drawing.Point(40, 263)
+        Me.ftDesde.Location = New System.Drawing.Point(90, 263)
         Me.ftDesde.Margin = New System.Windows.Forms.Padding(2)
         Me.ftDesde.Name = "ftDesde"
         Me.ftDesde.Size = New System.Drawing.Size(199, 20)
@@ -265,7 +210,7 @@ Partial Class Facturas
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(11, 265)
+        Me.Label5.Location = New System.Drawing.Point(61, 265)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(21, 18)
@@ -278,7 +223,7 @@ Partial Class Facturas
         Me.txtBuscarFactura.Location = New System.Drawing.Point(42, 287)
         Me.txtBuscarFactura.Margin = New System.Windows.Forms.Padding(2)
         Me.txtBuscarFactura.Name = "txtBuscarFactura"
-        Me.txtBuscarFactura.Size = New System.Drawing.Size(439, 20)
+        Me.txtBuscarFactura.Size = New System.Drawing.Size(495, 20)
         Me.txtBuscarFactura.TabIndex = 124
         '
         'btnImprimeTodas
@@ -294,14 +239,14 @@ Partial Class Facturas
         Me.btnImprimeTodas.Location = New System.Drawing.Point(5, 614)
         Me.btnImprimeTodas.Margin = New System.Windows.Forms.Padding(0)
         Me.btnImprimeTodas.Name = "btnImprimeTodas"
-        Me.btnImprimeTodas.Size = New System.Drawing.Size(242, 35)
+        Me.btnImprimeTodas.Size = New System.Drawing.Size(280, 35)
         Me.btnImprimeTodas.TabIndex = 127
         Me.btnImprimeTodas.Text = "TODAS"
         Me.btnImprimeTodas.UseVisualStyleBackColor = False
         '
         'btnImpFactura
         '
-        Me.btnImpFactura.BackColor = System.Drawing.Color.LightGray
+        Me.btnImpFactura.BackColor = System.Drawing.Color.Gray
         Me.btnImpFactura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnImpFactura.FlatAppearance.BorderSize = 0
         Me.btnImpFactura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen
@@ -309,10 +254,10 @@ Partial Class Facturas
         Me.btnImpFactura.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnImpFactura.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImpFactura.ForeColor = System.Drawing.Color.Black
-        Me.btnImpFactura.Location = New System.Drawing.Point(254, 614)
+        Me.btnImpFactura.Location = New System.Drawing.Point(285, 614)
         Me.btnImpFactura.Margin = New System.Windows.Forms.Padding(0)
         Me.btnImpFactura.Name = "btnImpFactura"
-        Me.btnImpFactura.Size = New System.Drawing.Size(227, 35)
+        Me.btnImpFactura.Size = New System.Drawing.Size(252, 35)
         Me.btnImpFactura.TabIndex = 128
         Me.btnImpFactura.Text = "SELECCIONADA"
         Me.btnImpFactura.UseVisualStyleBackColor = False
@@ -335,7 +280,7 @@ Partial Class Facturas
         Me.Label3.Location = New System.Drawing.Point(0, 225)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(486, 32)
+        Me.Label3.Size = New System.Drawing.Size(542, 32)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Facturas"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -348,7 +293,7 @@ Partial Class Facturas
         Me.Label1.Location = New System.Drawing.Point(0, 51)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(486, 32)
+        Me.Label1.Size = New System.Drawing.Size(542, 32)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Proveedor"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -361,7 +306,7 @@ Partial Class Facturas
         Me.Label2.Location = New System.Drawing.Point(0, 152)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(486, 32)
+        Me.Label2.Size = New System.Drawing.Size(542, 32)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Contratos"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -370,7 +315,7 @@ Partial Class Facturas
         '
         Me.ChekTodasFacturas.AutoSize = True
         Me.ChekTodasFacturas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChekTodasFacturas.Location = New System.Drawing.Point(158, 95)
+        Me.ChekTodasFacturas.Location = New System.Drawing.Point(293, 95)
         Me.ChekTodasFacturas.Margin = New System.Windows.Forms.Padding(2)
         Me.ChekTodasFacturas.Name = "ChekTodasFacturas"
         Me.ChekTodasFacturas.Size = New System.Drawing.Size(113, 17)
@@ -399,12 +344,124 @@ Partial Class Facturas
         Me.TxtTotalFact.Size = New System.Drawing.Size(100, 20)
         Me.TxtTotalFact.TabIndex = 131
         '
+        'TxtTolIva
+        '
+        Me.TxtTolIva.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTolIva.Location = New System.Drawing.Point(442, 590)
+        Me.TxtTolIva.Name = "TxtTolIva"
+        Me.TxtTolIva.ReadOnly = True
+        Me.TxtTolIva.Size = New System.Drawing.Size(93, 21)
+        Me.TxtTolIva.TabIndex = 132
+        Me.TxtTolIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TxtTolNetoFac
+        '
+        Me.TxtTolNetoFac.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTolNetoFac.Location = New System.Drawing.Point(351, 590)
+        Me.TxtTolNetoFac.Name = "TxtTolNetoFac"
+        Me.TxtTolNetoFac.ReadOnly = True
+        Me.TxtTolNetoFac.Size = New System.Drawing.Size(92, 21)
+        Me.TxtTolNetoFac.TabIndex = 133
+        Me.TxtTolNetoFac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Prefi
+        '
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Prefi.DefaultCellStyle = DataGridViewCellStyle17
+        Me.Prefi.FillWeight = 51.99229!
+        Me.Prefi.HeaderText = "Prefi"
+        Me.Prefi.MaxInputLength = 2
+        Me.Prefi.MinimumWidth = 6
+        Me.Prefi.Name = "Prefi"
+        Me.Prefi.ReadOnly = True
+        '
+        'NumFact
+        '
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.NumFact.DefaultCellStyle = DataGridViewCellStyle18
+        Me.NumFact.HeaderText = "NumFact"
+        Me.NumFact.MinimumWidth = 6
+        Me.NumFact.Name = "NumFact"
+        Me.NumFact.ReadOnly = True
+        '
+        'NumRemi
+        '
+        DataGridViewCellStyle19.Format = "d"
+        DataGridViewCellStyle19.NullValue = Nothing
+        Me.NumRemi.DefaultCellStyle = DataGridViewCellStyle19
+        Me.NumRemi.FillWeight = 98.93101!
+        Me.NumRemi.HeaderText = "NumRemi"
+        Me.NumRemi.MinimumWidth = 6
+        Me.NumRemi.Name = "NumRemi"
+        Me.NumRemi.ReadOnly = True
+        '
+        'IDContrato
+        '
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.IDContrato.DefaultCellStyle = DataGridViewCellStyle20
+        Me.IDContrato.FillWeight = 98.93101!
+        Me.IDContrato.HeaderText = "IDContrato"
+        Me.IDContrato.MaxInputLength = 15
+        Me.IDContrato.MinimumWidth = 6
+        Me.IDContrato.Name = "IDContrato"
+        Me.IDContrato.ReadOnly = True
+        '
+        'FecExpFac
+        '
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle21.Format = "d"
+        DataGridViewCellStyle21.NullValue = Nothing
+        Me.FecExpFac.DefaultCellStyle = DataGridViewCellStyle21
+        Me.FecExpFac.FillWeight = 98.93101!
+        Me.FecExpFac.HeaderText = "FecExpFac"
+        Me.FecExpFac.MaxInputLength = 10
+        Me.FecExpFac.MinimumWidth = 6
+        Me.FecExpFac.Name = "FecExpFac"
+        Me.FecExpFac.ReadOnly = True
+        '
+        'ValNetoFac
+        '
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle22.Format = "C0"
+        DataGridViewCellStyle22.NullValue = Nothing
+        Me.ValNetoFac.DefaultCellStyle = DataGridViewCellStyle22
+        Me.ValNetoFac.FillWeight = 98.93101!
+        Me.ValNetoFac.HeaderText = "ValNetoFac"
+        Me.ValNetoFac.MinimumWidth = 6
+        Me.ValNetoFac.Name = "ValNetoFac"
+        Me.ValNetoFac.ReadOnly = True
+        Me.ValNetoFac.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'ValIVAFac
+        '
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle23.Format = "C0"
+        DataGridViewCellStyle23.NullValue = Nothing
+        Me.ValIVAFac.DefaultCellStyle = DataGridViewCellStyle23
+        Me.ValIVAFac.HeaderText = "ValIVAFac"
+        Me.ValIVAFac.MinimumWidth = 6
+        Me.ValIVAFac.Name = "ValIVAFac"
+        Me.ValIVAFac.ReadOnly = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(290, 593)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(55, 14)
+        Me.Label7.TabIndex = 134
+        Me.Label7.Text = "Totales:"
+        '
         'Facturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(486, 654)
+        Me.ClientSize = New System.Drawing.Size(547, 654)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.TxtTolNetoFac)
+        Me.Controls.Add(Me.TxtTolIva)
         Me.Controls.Add(Me.TxtTotalFact)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.ChekTodasFacturas)
@@ -453,6 +510,14 @@ Partial Class Facturas
     Friend WithEvents btnImprimeTodas As Button
     Friend WithEvents btnImpFactura As Button
     Public WithEvents btnCerrar As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ChekTodasFacturas As CheckBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TxtTotalFact As TextBox
+    Friend WithEvents TxtTolIva As TextBox
+    Friend WithEvents TxtTolNetoFac As TextBox
     Friend WithEvents Prefi As DataGridViewTextBoxColumn
     Friend WithEvents NumFact As DataGridViewTextBoxColumn
     Friend WithEvents NumRemi As DataGridViewTextBoxColumn
@@ -460,10 +525,5 @@ Partial Class Facturas
     Friend WithEvents FecExpFac As DataGridViewTextBoxColumn
     Friend WithEvents ValNetoFac As DataGridViewTextBoxColumn
     Friend WithEvents ValIVAFac As DataGridViewTextBoxColumn
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents ChekTodasFacturas As CheckBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TxtTotalFact As TextBox
+    Friend WithEvents Label7 As Label
 End Class

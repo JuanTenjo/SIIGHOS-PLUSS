@@ -310,26 +310,38 @@ Public Class Remisiones
 
     End Function 'Carga detalles de cuotas desde la base de datos
 
-    Public Sub CargarDataGridContratos(id)
+    Public Function CargarDataGridContratos(id) As Boolean
 
         DataGridContratos.Rows.Clear()
 
         Try
+
             If id.ToString <> Nothing Then
                 Dim consulta As SqlDataReader
                 consulta = SQLReader("Select dgc.ID_Contratos, dgc.TipDocContra, dgc.NumDocContra,  dp.RazonSol, dtc.NomTipCon FROM [Datos registros de contratos] as dgc, [GEOGRAXPSQL].[dbo].[Datos proveedores] as dp,  [Datos tipos de contratos] as dtc
                         WHERE dgc.NumDocContra = dp.IdenProve and dgc.TipoContra = dtc.CodTipCon and dp.IdenProve = '" & id.ToString & "' and EstaVigCon = 1 ")
                 bandera = 0
+                Dim estado As Boolean = False
                 If consulta.HasRows Then
+
                     While consulta.Read()
                         DataGridContratos.Rows.Add(New String() {consulta("ID_Contratos"), consulta("TipDocContra"), consulta("NumDocContra"), consulta("RazonSol"), consulta("NomTipCon")})
                     End While
+
+                    estado = True
+                Else
+
+                    Titulo01 = "Control  de ejecución"
+                    Informa = "No se le encontraron contratos a este proveedor" & Chr(13) & Chr(10)
+                    MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    estado = False
+
                 End If
-                cn.Close()
                 bandera = 1
+                Return estado
+
             Else
-                cn.Close()
-                MsgBox("No se le encontraron contratos a este proveedor")
+                Return False
             End If
 
         Catch ex As Exception
@@ -338,9 +350,12 @@ Public Class Remisiones
             Informa += "al cargar el datagrid contratos" & Chr(13) & Chr(10)
             Informa += "Mensaje del error: " & ex.Message
             MessageBox.Show(Informa, Titulo01, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        Finally
+            cn.Close()
         End Try
 
-    End Sub 'Funcion que envia a listar
+    End Function 'Funcion que envia a listar
 
     Private Sub DataGridContratos_CurrentCellChanged(sender As Object, e As EventArgs) Handles DataGridContratos.CurrentCellChanged
         Try
@@ -671,9 +686,9 @@ Public Class Remisiones
 
                                 Dim EstadoFacturaDiam As SqlCommand
                                 EstadoFacturaDiam = New SqlCommand With {
-                            .Connection = cn,
-                            .CommandText = "SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'"
-                            }
+                                .Connection = cn,
+                                .CommandText = "SELECT CodEstaDian FROM [BDADYSNET].[dbo].[Datos facturas realizadas] WHERE PrefiFact = '" + PrefijoFacturas + "' AND NumFact = '" + NumFactura.ToString + "' AND NumRemi = '" + txtNumRemision.Text + "'"
+                                }
                                 dr1 = EstadoFacturaDiam.ExecuteScalar()
 
 
@@ -1148,13 +1163,33 @@ Public Class Remisiones
             Dim estado As Boolean = False
 
 
-            Dim sqlDataReader As SqlDataReader = SQLReader("SELECT [FecConseDoc] FROM [BDADYSNET].[dbo].[Datos consecutivos SIIGHOSPLUS] WHERE CodConse = '03'")
+            'Dim sqlDataReader As SqlDataReader = SQLReader("SELECT [FecConseDoc] FROM [BDADYSNET].[dbo].[Datos consecutivos SIIGHOSPLUS] WHERE CodConse = '03'")
+            'Dim UltiDateConse As Date
+            'Dim FecFactura As Date
+
+            'If sqlDataReader.HasRows Then
+            '    sqlDataReader.Read()
+            '    UltiDateConse = Convert.ToDateTime(sqlDataReader("FecConseDoc"))
+            '    UltiDateConse = Format(UltiDateConse, "yyyy/MM/dd")
+            '    FecFactura = ftAperturaRemision.Value
+            '    FecFactura = Format(FecFactura, "yyyy/MM/dd")
+            '    cn.Close()
+            '    sqlDataReader.Close()
+            '    estado = True
+            'Else
+            '    cn.Close()
+            '    MsgBox("No se encontro la fecha de la ultima factura para la validacion")
+            '    estado = False
+            '    Return estado
+            'End If
+
+            Dim sqlDataReader As SqlDataReader = SQLReader("SELECT FecExpFac =  MAX (FecExpFac) FROM [BDADYSNET].[dbo].[Datos facturas realizadas]")
             Dim UltiDateConse As Date
             Dim FecFactura As Date
 
             If sqlDataReader.HasRows Then
                 sqlDataReader.Read()
-                UltiDateConse = Convert.ToDateTime(sqlDataReader("FecConseDoc"))
+                UltiDateConse = Convert.ToDateTime(sqlDataReader("FecExpFac"))
                 UltiDateConse = Format(UltiDateConse, "yyyy/MM/dd")
                 FecFactura = ftAperturaRemision.Value
                 FecFactura = Format(FecFactura, "yyyy/MM/dd")
@@ -1167,8 +1202,6 @@ Public Class Remisiones
                 estado = False
                 Return estado
             End If
-
-
 
             conexionPortatil.Open()
 
@@ -1500,17 +1533,20 @@ Public Class Remisiones
             For Each col As DataGridViewColumn In DataGridDetalleCuotas.Columns
                 col.SortMode = DataGridViewColumnSortMode.NotSortable
             Next  'Desactiva que no pueda seleccionar las cabeceras del datagridview DataGridDetalleCuotas 
+
             bandera = 1
 
 
             If ComprobarDatos() Then
+
                 MostrasDatosCliente(cboProvedores.SelectedValue)
-                CargarDataGridContratos(cboProvedores.SelectedValue)
-                Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
-                MostrarTexbox(codigo)
-            Else
-                MsgBox("No existen cuotas ni contratos para remitir")
+                If (CargarDataGridContratos(cboProvedores.SelectedValue)) Then
+                    Dim codigo As String = DataGridContratos.SelectedCells.Item(0).Value
+                    MostrarTexbox(codigo)
+                End If
+
             End If
+
         Catch ex As Exception
             Titulo01 = "Control de errores de ejecución"
             Informa = "Lo siento pero se ha presentado un error" & Chr(13) & Chr(10)

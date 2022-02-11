@@ -538,6 +538,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-reenviar-mensaje-30.png" />
+    <None Include="Resources\fondo.JPG" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
